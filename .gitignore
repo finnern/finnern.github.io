@@ -1,8 +1,5 @@
-_site/
-.jekyll-cache/
-.sass-cache/
-*.gem
-.DS_Store
-wp-backup/
-finnern-wp-backup.zip
-finnern1_finnern.sql
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
