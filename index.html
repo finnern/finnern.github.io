@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mark Finnern - Innovation Leadership & AI Consulting</title>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo:wght@300;400;500;700&display=swap" rel="stylesheet">
-        <style>
-        /* Using Orbitron for headers (geometric Bauhaus style) and Exo for body text */
-
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Finnern - KI Innovation für Business und Leben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -15,35 +13,10 @@
         }
 
         body {
-            font-family: 'Exo', 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Orbitron', 'Exo', sans-serif;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-        }
-
-        h3 {
-            font-size: 1.3em;
-            color: #3498db;
-            margin-top: 30px;
-        }
-
-        .hero {
-            width: 100%;
-            overflow: hidden;
+            background-color: #ffffff;
         }
 
         .hero-banner {
@@ -52,209 +25,261 @@
             display: block;
         }
 
-        .main-content {
-            max-width: 1200px;
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        .content-section {
-            margin-bottom: 50px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .content-section:hover {
-            transform: translateY(-5px);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #e8f4fd 0%, #d4f1f4 100%);
-            border-left: 4px solid #3498db;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 5px;
-            font-style: italic;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        li::before {
-            content: "▶";
-            color: #3498db;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #555;
-            border-left: 3px solid #3498db;
-            padding-left: 20px;
-            margin: 20px 0;
-            font-size: 1.1em;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #e74c3c;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            color: #2c3e50;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .footer-content h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.5em;
+        h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
         }
 
-        .footer-content p {
-            font-weight: 500;
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 15px;
+            margin-top: 30px;
         }
 
-        .footer-content a {
-            color: #2c3e50;
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .credentials {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .project-list, .event-list {
+            margin: 30px 0;
+        }
+
+        .project-item, .event-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .project-item:hover, .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .project-title, .event-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            color: #3182ce;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
-        .footer-content a:hover {
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        .project-link:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
+        }
+
+        .workshop-highlight {
+            background: linear-gradient(135deg, #fff5cd 0%, #fef7cd 100%);
+            border-left: 4px solid #d69e2e;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            color: #FFD700;
+            border: none;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a365d;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+            color: #1a365d;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .contact-info a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .main-content {
-                padding: 20px 10px;
-            }
-            
-            .content-section {
-                padding: 20px;
-                margin-bottom: 30px;
+            h1 {
+                font-size: 2em;
             }
             
             h2 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
             
-            h3 {
-                font-size: 1.2em;
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
             }
         }
-        </style>
-    </head>
-    <body>
-        <section class="hero">
-            <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
-        </section>
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
 
-        <main class="main-content">
-            <section class="content-section">
-                <h2>Innovation Leadership & Community Building</h2>
-                <p>Independent innovation consultant specializing in AI-powered business transformation and community-driven innovation for the Mittelstand. Proven track record of building engaged communities and accelerating digital transformation in manufacturing and service industries, with focus on practical AI adoption that drives measurable business results.</p>
-                
-                <div class="highlight-box">
-                    <strong>Community Impact:</strong> Founded SAP Mentors program, creating a culture of excellence that influenced SAP's innovation strategy and contributed to key product decisions including HANA cloud platform availability.
+    <div class="container">
+        <h1>Erfolgreich mit KI im Business und Leben</h1>
+        
+        <div class="intro-text">
+            <p><strong>Ob Unternehmer, Führungskraft oder Privatperson</strong> - KI kann Ihre Produktivität revolutionieren und neue Möglichkeiten schaffen. Lassen Sie uns gemeinsam die Kraft der Künstlichen Intelligenz für Ihre Ziele nutzen.</p>
+        </div>
+
+        <div class="credentials">
+            <h3>Über mich</h3>
+            <p><strong>25+ Jahre Erfahrung</strong> in Silicon Valley und Deutschland mit SAP-Software-Implementierung, Community Building und Innovation Leadership. Gründer der SAP Mentors Community, die SAPs Innovationsstrategie maßgeblich beeinflusst hat.</p>
+            <p><strong>Aktuelle Leidenschaft:</strong> Innovation und unternehmerischen Geist im Schwarzwald und darüber hinaus zu fördern - mit praktischen KI-Lösungen, die echten Mehrwert schaffen.</p>
+        </div>
+
+        <h2>Aktuelle Projekte & Services</h2>
+        
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ki-impact.org" target="_blank" class="project-link">KI-Impact Group</a>
                 </div>
-            </section>
-
-            <section class="content-section">
-                <h2>Current Focus & Expertise</h2>
-                
-                <h3>AI & Digital Transformation</h3>
-                <ul>
-                    <li><strong><a href="https://ki-impact.org" target="_blank">KI Impact Group</a>:</strong> Leading AI adoption strategies for enterprises</li>
-                    <li><strong><a href="https://ideenfunken.app" target="_blank">Ideenfunken App</a>:</strong> Innovation platform for idea generation and collaboration</li>
-                    <li><strong>Customer Service Automation:</strong> Implementing AI-powered support systems with measurable ROI</li>
-                    <li><strong>Process Optimization:</strong> Power Platform integration and workflow automation</li>
-                    <li><strong>Knowledge Management:</strong> AI-driven information systems and semantic search</li>
-                </ul>
-
-                <h3>Community & Culture Development</h3>
-                <ul>
-                    <li><strong>Future Salon Founder:</strong> Curating innovation discussions in the Black Forest region</li>
-                    <li><strong>TEDx Speaker:</strong> Thought leadership on technology and community engagement</li>
-                    <li><strong>Culture Developer:</strong> Building "cultures of excellence" that challenge and inspire teams</li>
-                </ul>
-
-                <h3>Process optimization targeting 50% efficiency improvements</h3>
-                
-                <h3>Community & Innovation Platforms</h3>
-                <ul>
-                    <li><strong><a href="https://ki-impact.org" target="_blank">KI Impact Group</a>:</strong> Building AI literacy and adoption frameworks</li>
-                    <li><strong><a href="https://ideenfunken.app" target="_blank">Ideenfunken App</a>:</strong> Digital innovation platform for collaborative idea development</li>
-                    <li><strong>Future Salon:</strong> Curating innovation discussions in the Black Forest region</li>
-                </ul>
-
-                <h3>AI Literacy & Education Advocacy</h3>
-                <ul>
-                    <li>Promoting practical AI education focused on problem-solving</li>
-                    <li>Developing frameworks for AI adoption in traditional industries</li>
-                    <li>Speaking and consulting on AI integration strategies</li>
-                </ul>
-            </section>
-
-            <section class="content-section">
-                <h2>Philosophy & Approach</h2>
-                
-                <div class="quote">
-                    "Any significantly advanced work is indistinguishable from play."
-                </div>
-                
-                <p>My approach combines visionary thinking with practical implementation, always maintaining what colleagues describe as a "playful" methodology that creates enthusiasm and positive engagement even around complex technical topics. I believe in building "cultures of excellence" where teams challenge each other while remaining friendly and inclusive.</p>
-                
-                <div class="highlight-box">
-                    <strong>Recognition:</strong> Described by industry leaders as a "visionary and eclectic genius" with a unique ability to bring communities together and create lasting competitive advantages through deep ecosystem engagement.
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <h3>Contact & Connect</h3>
-                
-                <p><strong>Email:</strong> mark@finnern.com</p>
-                <p><strong>Location:</strong> Schramberg, Baden-Württemberg, Germany (Black Forest Region)</p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a></p>
-                
-                <p><em>Ready to accelerate your technology adoption or build developer communities that drive platform success? Let's connect and explore how proven community-building methodologies can transform your technology ecosystem.</em></p>
+                <p>Exklusive Community für KI-Adoption im deutschsprachigen Raum - Netzwerk für Unternehmer und Führungskräfte zum Erfahrungsaustausch.</p>
             </div>
-        </footer>
-    </body>
+
+            <div class="project-item workshop-highlight">
+                <div class="project-title">
+                    🚀 Workshop: "Prozesse mit KI orchestrieren" - 30. September 2025
+                </div>
+                <p><strong>Praktischer Hands-on Workshop</strong> mit n8n und Power Automate - Lernen Sie, wie Sie Ihre Geschäftsprozesse intelligent automatisieren. Anmeldung über LinkedIn oder Email.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ideenfunken.app" target="_blank" class="project-link">Ideenfunken App</a>
+                </div>
+                <p>Digitale Innovation-Platform für kollaborative Ideenentwicklung - Verwandeln Sie Brainstorming in strukturierte Innovationsprozesse.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Strategy Sherlock</div>
+                <p>KI-gestütztes Tool für strategische Unternehmensanalyse - Erhalten Sie datenbasierte Insights für bessere Geschäftsentscheidungen.</p>
+            </div>
+        </div>
+
+        <h2>Vergangene Events & Workshops</h2>
+        
+        <div class="event-list">
+            <div class="event-item">
+                <div class="event-title">Mickey McManus Innovation Workshop</div>
+                <p>Exklusiver Workshop mit dem Silicon Valley Innovation-Guru über Future of Work und Technologie-Adoption.</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-title">Microsoft Copilot Workshop - Microsoft Schramberg</div>
+                <p>Hands-on Training für lokale Unternehmen zur produktiven Nutzung von Microsoft Copilot im Arbeitsalltag.</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-title">KI im Marketing</div>
+                <p>Workshop-Serie über den effektiven Einsatz von Künstlicher Intelligenz in Marketing und Vertrieb.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Lass uns die Power von KI umsetzen!</h2>
+            <p>Bereit für den nächsten Schritt? Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Business oder Leben verbessern kann.</p>
+            <a href="mailto:mark@finnern.com?subject=KI Beratung Anfrage" class="cta-button">Kostenlose Erstberatung</a>
+            <a href="https://linkedin.com/in/finnern" target="_blank" class="cta-button">LinkedIn Connect</a>
+        </div>
+
+        <div class="contact-info">
+            <h3>Kontakt</h3>
+            <p><strong>Mark Finnern</strong><br>
+            Email: <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a><br>
+            Schramberg, Schwarzwald, Deutschland</p>
+        </div>
+    </div>
+</body>
 </html>
