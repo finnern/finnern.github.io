@@ -4,10 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung - Mark Finnern</title>
-    <!-- CSS hier einfügen oder verlinken -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        ul {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .back-link a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .back-link a:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
+        }
+
+        .legal-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #e2e8f0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .legal-footer a {
+            color: #3182ce;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .legal-footer a:hover {
+            text-decoration: underline;
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <div class="back-link">
+            <a href="index.html">← Zurück zur Hauptseite</a>
+        </div>
+
         <h1>Datenschutzerklärung</h1>
         
         <h2>1. Datenschutz auf einen Blick</h2>
@@ -23,7 +168,17 @@
         <p>Diese Website erfasst keine personenbezogenen Daten automatisch. Daten werden nur übertragen, wenn Sie sich für Events über externe Plattformen anmelden oder uns direkt kontaktieren.</p>
 
         <h2>2. Hosting</h2>
-        <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v.a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+        
+        <h3>GitHub Pages</h3>
+        <p>Diese Website wird über GitHub Pages gehostet. GitHub ist ein Dienst der GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Beim Aufruf dieser Website werden durch GitHub automatisch Server-Log-Dateien erfasst, die Ihr Browser übermittelt. Dies beinhaltet:</p>
+        <ul>
+            <li>IP-Adresse</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Aufgerufene Seiten</li>
+            <li>Browser-Informationen</li>
+            <li>Referrer-URL</li>
+        </ul>
+        <p>Diese Daten werden zur technischen Bereitstellung und Sicherheit der Website verwendet. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a></p>
 
         <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
         
@@ -69,8 +224,21 @@
         <h3>Google Forms</h3>
         <p>Für Event-Anmeldungen verwenden wir Google Forms. Wenn Sie sich über Google Forms anmelden, gelten die Datenschutzbestimmungen von Google. Weitere Informationen finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
 
+        <h3>Google Calendar</h3>
+        <p>Für Terminbuchungen verwenden wir Google Calendar. Wenn Sie einen Termin über unseren Google Calendar-Link buchen, werden folgende Daten an Google übertragen:</p>
+        <ul>
+            <li>Name</li>
+            <li>E-Mail-Adresse</li>
+            <li>Gewählter Terminslot</li>
+            <li>Optional: Telefonnummer und weitere Angaben</li>
+        </ul>
+        <p>Diese Daten werden ausschließlich zur Terminvereinbarung und -verwaltung verwendet. Es gelten die Datenschutzbestimmungen von Google. Weitere Informationen finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
         <h3>LinkedIn</h3>
         <p>Diese Website enthält Links zu LinkedIn. Wenn Sie auf diese Links klicken, werden Sie zu LinkedIn weitergeleitet. Für die Verarbeitung Ihrer Daten durch LinkedIn ist LinkedIn verantwortlich. Weitere Informationen finden Sie in der Datenschutzerklärung von LinkedIn: <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">https://www.linkedin.com/legal/privacy-policy</a></p>
+
+        <h3>GitHub</h3>
+        <p>Diese Website enthält Links zu GitHub. Wenn Sie auf diese Links klicken, werden Sie zu GitHub weitergeleitet. Für die Verarbeitung Ihrer Daten durch GitHub ist GitHub verantwortlich. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a></p>
 
         <h2>6. Ihre Rechte</h2>
         <p>Sie haben folgende Rechte:</p>
@@ -91,10 +259,12 @@
 
         <p><strong>Stand: September 2025</strong></p>
 
-        <p><strong>Nit schwätza - macha! :-)</strong></p>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/" style="color: #3182ce; text-decoration: none;">← Zurück zur Hauptseite</a>
+        <div class="legal-footer">
+            <p><strong>Nit schwätza - macha! :-)</strong></p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">Hauptseite</a> | 
+                <a href="impressum.html">Impressum</a>
+            </p>
         </div>
     </div>
 </body>
