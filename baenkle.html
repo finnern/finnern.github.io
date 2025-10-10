@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verweilbänkle 2026 - Schrambergs schönste Plätze</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F5F5DC;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 90, 39, 0.85), rgba(156, 175, 136, 0.75)), 
+                        url('assets/images/baenkle-hero.jpg') center/cover;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: #2d5a27;
+            padding: 18px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #2d5a27;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2em;
+            color: #8B4513;
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #9CAF88;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(45, 90, 39, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            color: #2d5a27;
+            margin-bottom: 15px;
+        }
+
+        /* Order Section */
+        .order-section {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .order-section h2 {
+            color: #2d5a27;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3em;
+            font-weight: 700;
+            color: #8B4513;
+            margin: 30px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .order-details {
+            background: #F5F5DC;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .order-details ul {
+            list-style: none;
+            font-size: 1.1em;
+        }
+
+        .order-details li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .order-details li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d5a27;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        /* Stories Section */
+        .stories {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .story-item {
+            border-left: 4px solid #D4AF37;
+            padding: 25px;
+            margin-bottom: 30px;
+            background: #F5F5DC;
+            border-radius: 8px;
+        }
+
+        .story-date {
+            color: #8B4513;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .story-item h3 {
+            color: #2d5a27;
+            margin-bottom: 15px;
+        }
+
+        .story-link {
+            color: #2d5a27;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .story-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin: 60px 0;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 600px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #2d5a27;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .back-link:hover {
+            color: #8B4513;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2d5a27, #9CAF88);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .order-section, .stories {
+                padding: 30px 20px;
+            }
+
+            .price {
+                font-size: 2.2em;
+            }
+
+            .map-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Verweilbänkle 2026</h1>
+            <p>Schrambergs schönste Plätze - 12 Monate zum Innehalten und Genießen</p>
+            <a href="#bestellen" class="hero-cta">Jetzt vorbestellen</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="/" class="back-link">← Zurück zu Finnern.com</a>
+
+        <!-- Features -->
+        <div class="section-header">
+            <h2>Was macht diesen Kalender besonders?</h2>
+            <p>Lokale Schönheit trifft auf praktischen Nutzen</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌲</div>
+                <h3>Authentisch lokal</h3>
+                <p>12 handverlesene Bänkle-Perspektiven aus Schramberg und Umgebung. Jedes Motiv erzählt seine eigene Geschichte.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Hochwertige Fotos</h3>
+                <p>Professionell aufbereitet für brillante Druckqualität auf 250g Premium-Papier.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Perfektes Geschenk</h3>
+                <p>Für Schramberg-Liebhaber, Heimkehrer und alle, die einen besonderen Bezug zur Region haben.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🥾</div>
+                <h3>Mit Wanderrouten</h3>
+                <p>Jedes Bänkle ist mit GPS-Koordinaten versehen - entdecke die Orte selbst!</p>
+            </div>
+        </div>
+
+        <!-- Order Section -->
+        <div class="order-section" id="bestellen">
+            <h2>Jetzt Kalender sichern</h2>
+            <div class="price">19,90 €</div>
+            
+            <div class="order-details">
+                <ul>
+                    <li>DIN A4 Format, Hochformat</li>
+                    <li>13 Seiten (Deckblatt + 12 Monate)</li>
+                    <li>250g Premium-Papier</li>
+                    <li>Wire-O Bindung zum einfachen Umblättern</li>
+                    <li>Erhältlich ab Oktober 2025</li>
+                    <li>Abholung in Schramberg oder Versand (+3€)</li>
+                </ul>
+            </div>
+
+            <a href="https://forms.gle/NNYwqJdG8178aShVA" target="_blank" class="hero-cta">Verbindlich vorbestellen</a>
+            
+            <p style="margin-top: 30px; color: #666; font-size: 0.95em;">
+                <strong>Limitierte Erstauflage:</strong> 25-50 Stück<br>
+                Verfügbar bei Buchlese Schramberg & direkt bei Mark Finnern
+            </p>
+        </div>
+
+        <!-- Stories Section -->
+        <div class="stories">
+            <div class="section-header">
+                <h2>Stories & Updates</h2>
+                <p>Geschichten rund um die Verweilbänkle</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Oktober 2025</div>
+                <h3>Projekt gestartet - Von der Idee zum Kalender</h3>
+                <p>Das Konzept: Schrambergs charakteristische "Verweilbänkle" als Kalender-Motiv. Diese besonderen Rastplätze sind mehr als nur Sitzgelegenheiten - sie sind Orte der Besinnung, des Ausblicks und der Begegnung. Mit dem Kalender wollen wir diese besonderen Plätze würdigen und gleichzeitig ein Stück lokale Identität greifbar machen.</p>
+                <p><strong>Warum gerade Bänkle?</strong> Das schwäbische Wort "Bänkle" steht für Gemütlichkeit, Entschleunigung und den bewussten Moment des Innehaltens - perfekt für einen Kalender, der durchs Jahr begleitet.</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">September 2025</div>
+                <h3>Die Motivauswahl - 12 besondere Orte</h3>
+                <p>Aus über 30 Bänkle-Kandidaten haben wir die 12 schönsten ausgewählt. Kriterien waren: Ausblick, Erreichbarkeit, Charakteristik und natürlich die fotografische Umsetzbarkeit. Von der Ruine Hohenschramberg bis zum versteckten Waldplatz - jeder Monat wird eine neue Perspektive eröffnen.</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Coming Soon</div>
+                <h3>Behind the Scenes - Fotoshooting im Schwarzwald</h3>
+                <p>Bald mehr: Wie entstehen die Kalender-Fotos? Welche technischen Herausforderungen gibt es? Und was passiert, wenn das Wetter nicht mitspielt?</p>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="section-header">
+                <h2>Die Bänkle-Wanderroute</h2>
+                <p>Entdecke alle Kalender-Motive auf einer Wanderung</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ehbc=2E312F" 
+                        width="100%" 
+                        height="600"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                <a href="https://www.google.com/maps/d/u/0/edit?hl=en&mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ll=48.23314529855001%2C8.364350999999983&z=14" 
+                   target="_blank" 
+                   class="story-link">
+                    📍 In Google Maps öffnen
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Verweilbänkle Kalender 2026</strong><br>
+        Ein Projekt von <a href="/">Mark Finnern</a><br>
+        <a href="mailto:mark@finnern.com">mark@finnern.com</a></p>
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            <a href="/impressum.html">Impressum</a> | 
+            <a href="/datenschutz.html">Datenschutz</a>
+        </p>
+    </div>
+</body>
+</html>
