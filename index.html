@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verweilbänkle 2026 - Schrambergs schönste Plätze</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>Mark Finnern - KI Innovation für Business und Leben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,660 +12,319 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            color: #e8e8e8;
-            background-color: #2a2419;
+            color: #333;
+            background-color: #ffffff;
         }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(42, 36, 25, 0.7), rgba(61, 51, 36, 0.8)), 
-                        url('assets/images/baenkle-hero.jpg') center/cover;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #f5f5dc;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
-            color: #f5f5dc;
-        }
-
-        .hero p {
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-quote {
-            font-style: italic;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            color: #d4c5a0;
-        }
-
-        .hero-cta {
-            background: linear-gradient(135deg, #8B6914, #D4AF37);
-            color: #2a2419;
-            padding: 18px 45px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2em;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.4);
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Calendar Preview Section */
-        .calendar-preview {
-            margin: 60px 0 80px 0;
-        }
-
-        .preview-container {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            background: #3d3324;
-            border: 2px solid #8B6914;
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .calendar-image {
-            max-width: 450px;
+        .hero-banner {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-            border: 3px solid #8B6914;
-            transition: transform 0.3s ease;
-        }
-
-        .calendar-image:hover {
-            transform: scale(1.02);
-        }
-
-        .preview-details {
-            flex: 1;
-            color: #d4c5a0;
-        }
-
-        .preview-details h3 {
-            color: #a8c686;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        .preview-details p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5em;
-            color: #a8c686;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-header p {
-            font-size: 1.2em;
-            color: #d4c5a0;
-        }
-
-        /* Feature Grid */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 80px;
-            justify-content: center;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .feature-card {
-            background: #3d3324;
-            border: 2px solid #8B6914;
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            width: 280px;
-            height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(139, 105, 20, 0.4);
-            border-color: #D4AF37;
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4em;
-            color: #a8c686;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: #d4c5a0;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        /* Order Section */
-        .order-section {
-            background: #3d3324;
-            border: 2px solid #8B6914;
-            border-radius: 15px;
-            padding: 50px;
-            margin: 60px 0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .order-section h2 {
-            color: #a8c686;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .pricing-options {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .price-card {
-            background: #2a2419;
-            border: 2px solid #8B6914;
-            border-radius: 12px;
-            padding: 30px;
-            width: 300px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
             display: block;
         }
 
-        .price-card:hover {
-            transform: translateY(-5px);
-            border-color: #D4AF37;
-            box-shadow: 0 8px 20px rgba(139, 105, 20, 0.4);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .format-label {
-            font-size: 1.4em;
-            color: #a8c686;
+        h1 {
+            font-size: 2.5em;
             font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: #D4AF37;
-            margin: 20px 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .format-specs {
-            text-align: left;
-            margin: 20px 0;
-            padding: 20px;
-            background: #3d3324;
-            border-radius: 8px;
-            font-size: 0.95em;
-            color: #d4c5a0;
-        }
-
-        .format-specs div {
-            padding: 5px 0;
-        }
-
-        .order-form-container {
-            margin-top: 40px;
-            background: #2a2419;
-            border-radius: 12px;
-            padding: 20px;
-            border: 2px solid #8B6914;
-        }
-
-        .order-form-container iframe {
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-        }
-
-        .shipping-note {
-            margin-top: 30px;
-            padding: 20px;
-            background: #2a2419;
-            border-radius: 10px;
-            border: 1px solid #8B6914;
-        }
-
-        .shipping-note p {
-            color: #d4c5a0;
-            font-size: 1.05em;
-        }
-
-        /* Stories Section */
-        .stories {
-            background: #3d3324;
-            border: 2px solid #8B6914;
-            border-radius: 15px;
-            padding: 50px;
-            margin: 60px 0;
-        }
-
-        .story-item {
-            border-left: 4px solid #D4AF37;
-            padding: 25px;
+            color: #1a365d;
             margin-bottom: 30px;
-            background: #2a2419;
-            border-radius: 8px;
+            text-align: center;
         }
 
-        .story-date {
-            color: #D4AF37;
+        h2 {
+            font-size: 2em;
             font-weight: 600;
-            font-size: 0.9em;
+            color: #1a365d;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .credentials {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .project-list, .event-list {
+            margin: 30px 0;
+        }
+
+        .project-item, .event-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .project-item:hover, .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .project-title, .event-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1a365d;
             margin-bottom: 10px;
         }
 
-        .story-item h3 {
-            color: #a8c686;
-            margin-bottom: 15px;
-        }
-
-        .story-item p {
-            color: #d4c5a0;
-        }
-
-        .story-link {
-            color: #D4AF37;
+        .project-link {
+            color: #3182ce;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .story-link:hover {
+        .project-link:hover {
+            color: #2c5aa0;
             text-decoration: underline;
-            color: #FFD700;
         }
 
-        /* Map Section */
-        .map-section {
-            margin: 60px 0;
+        .workshop-highlight {
+            background: linear-gradient(135deg, #fff5cd 0%, #fef7cd 100%);
+            border-left: 4px solid #d69e2e;
         }
 
-        .map-container {
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 50px;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            height: 600px;
-            border: 2px solid #8B6914;
+            text-align: center;
+            margin: 50px 0;
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
+        .cta-section h2 {
+            color: #FFD700;
             border: none;
+            margin-top: 0;
         }
 
-        .map-link {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, #8B6914, #D4AF37);
-            color: #2a2419;
-            text-decoration: none;
-            font-weight: 700;
+        .cta-section p {
             font-size: 1.2em;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .map-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-        }
-
-        /* Back Link */
-        .back-link {
-            display: inline-block;
             margin-bottom: 30px;
-            color: #D4AF37;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a365d;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+            color: #1a365d;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .contact-info a {
+            color: #3182ce;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
         }
 
-        .back-link:hover {
-            color: #FFD700;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1a1510, #2a2419);
-            color: #d4c5a0;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 80px;
-            border-top: 2px solid #8B6914;
-        }
-
-        .footer a {
-            color: #D4AF37;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
+        .contact-info a:hover {
             text-decoration: underline;
-            color: #FFD700;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2em;
-            }
-            
-            .hero p {
-                font-size: 1.1em;
-            }
+        .legal-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #e2e8f0;
+            background-color: #f8f9fa;
+            font-size: 0.9em;
+        }
 
-            .section-header h2 {
+        .legal-footer a {
+            color: #3182ce;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .legal-footer a:hover {
+            text-decoration: underline;
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
                 font-size: 2em;
             }
-
-            .preview-container {
-                flex-direction: column;
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .cta-section {
                 padding: 30px 20px;
             }
-
-            .calendar-image {
-                max-width: 100%;
-            }
-
-            .preview-details h3 {
-                font-size: 1.5em;
-            }
-
-            .preview-details p {
-                font-size: 1em;
-            }
-
-            .order-section, .stories {
-                padding: 30px 20px;
-            }
-
-            .pricing-options {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .price-card {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .order-form-container iframe {
-                height: 2500px;
-            }
-
-            .price {
-                font-size: 2.2em;
-            }
-
-            .map-container {
-                height: 400px;
+            
+            .legal-footer a {
+                display: block;
+                margin: 10px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Verweilbänkle 2026</h1>
-            <p>Goethe's Faust suchte den einen perfekten Augenblick, der es wert wäre zu verweilen. Vielleicht finden wir ihn nicht in großen Momenten, sondern auf einer Bank - beim Blick über die Schwarzwaldtäler, im Gespräch mit einem Nachbarn oder einfach in der Stille eines Sonntagmorgens.</p>
-            <p class="hero-quote">„Verweile doch, Du bist so schön!"</p>
-            <a href="#bestellen" class="hero-cta">Jetzt bestellen</a>
-        </div>
-    </div>
+    <!-- Hero Banner -->
+    <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
 
     <div class="container">
-        <a href="/" class="back-link">← Zurück zu Finnern.com</a>
+        <h1>Erfolgreich mit KI im Business und Leben</h1>
+        
+        <div class="intro-text">
+            <p><strong>Ob Unternehmer, Führungskraft oder Privatperson</strong> - KI kann Ihre Produktivität revolutionieren und neue Möglichkeiten schaffen. Lassen Sie uns gemeinsam die Kraft der Künstlichen Intelligenz für Ihre Ziele nutzen.</p>
+        </div>
 
-        <!-- Calendar Preview Section -->
-        <div class="calendar-preview">
-            <div class="section-header">
-                <h2>Brilliante Druckqualität</h2>
-                <p>Hochwertige Fotografie trifft auf Premium-Druck</p>
-            </div>
-            
-            <div class="preview-container">
-                <img src="kalender-cover.jpg" alt="Verweilbänkle Kalender 2026 Titelseite" class="calendar-image">
-                <div class="preview-details">
-                    <h3>Was du bekommst:</h3>
-                    <p>Jedes Bänkle wurde mit iPhone 13 Pro fotografiert und professionell nachbearbeitet. Die Bilder werden auf hochwertigem 250g Papier gedruckt, das die Farben des Schwarzwalds lebendig zur Geltung bringt.</p>
-                    <p style="margin-top: 20px;">Von der morgendlichen Nebelstimmung bis zum goldenen Abendlicht - jeder Monat erzählt seine eigene Geschichte.</p>
+        <div class="credentials">
+            <h3>Über mich</h3>
+            <p><strong>25+ Jahre Erfahrung</strong> in Silicon Valley und Deutschland mit SAP-Software-Implementierung, Community Building und Innovation Leadership. Gründer der SAP Mentors Community, die SAPs Innovationsstrategie maßgeblich beeinflusst hat.</p>
+            <p><strong>Aktuelle Leidenschaft:</strong> Innovation und unternehmerischen Geist im Schwarzwald und darüber hinaus zu fördern - mit praktischen KI-Lösungen, die echten Mehrwert schaffen.</p>
+        </div>
+
+        <h2>Aktuelle Projekte & Services</h2>
+        
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ki-impact.org" target="_blank" class="project-link">KI-Impact Group</a>
                 </div>
+                <p>Exklusive Community für KI-Adoption im deutschsprachigen Raum - Netzwerk für Unternehmer und Führungskräfte zum Erfahrungsaustausch.</p>
+            </div>
+
+            <div class="project-item workshop-highlight">
+                <div class="project-title">
+                    🚀 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLdeB1Jqpw9ynOf9Z0Rj43Z_QzfjcMnnSc8K9LzvFKBOtg_g/viewform" target="_blank" class="project-link">Workshop: "Prozesse mit KI orchestrieren" - 30. September 2025</a>
+                </div>
+                <p><strong>Praktischer Hands-on Workshop</strong> mit n8n und Power Automate - Lernen Sie, wie Sie Ihre Geschäftsprozesse intelligent automatisieren. <strong>Jetzt anmelden!</strong></p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ideenfunken.lovable.app/#about-section" target="_blank" class="project-link">Ideenfunken - Leseinitiative</a>
+                </div>
+                <p><strong>Community-getriebene Leseinitiative</strong> für Schramberg und Umgebung. Bücher vorschlagen, abstimmen, gemeinsam lernen - unterstützt von lokalen Unternehmen und der Stadt. Ziel: Kreativität fördern und Mut zu Neuem entwickeln.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://agent.ai/agent/d834r0u1k1huc05j" target="_blank" class="project-link">Strategy Sherlock</a>
+                </div>
+                <p><strong>KI-Detective für Konkurrenzanalyse</strong> - Analysiert Stellenausschreibungen um strategische Bewegungen der Wettbewerber zu enthüllen. Wie ein digitaler Consulting-Detective für Marktintelligenz.</p>
             </div>
         </div>
 
-        <!-- Features -->
-        <div class="section-header">
-            <h2>Was macht diesen Kalender besonders?</h2>
-            <p>Lokale Schönheit trifft auf praktischen Nutzen</p>
-        </div>
-
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🌲</div>
-                <h3>Authentisch lokal</h3>
-                <p>12 handverlesene Bänkle aus Schramberg. Jedes erzählt seine Geschichte.</p>
+        <h2>Vergangene Events & Workshops</h2>
+        
+        <div class="event-list">
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/ki-in-schramberg-bleiben-sie-hungrig-484642.html" target="_blank" class="project-link">Mickey McManus in der Szene 64: "Stay hungry, stay foolish"</a>
+                </div>
+                <p><strong>Silicon Valley Visionär zu Gast</strong> - Boston Consulting Group Senior Advisor sprach über KI-Disruption. Highlight: Lego-Experiment mit 35 Teilnehmern generierte 120 neue Entchen-Variationen. Mit Isetta-Fahrt durch Schramberg!</p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h3>Hochwertige Fotos</h3>
-                <p>Brillante Druckqualität auf 250g Premium-Papier.</p>
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/wie-deutschland-von-der-ki-revolution-profitieren-kann-515959.html" target="_blank" class="project-link">Microsoft Copilot Workshop bei MS Schramberg</a>
+                </div>
+                <p><strong>"Nit Schwätza, Macha! – Mit Copilot!"</strong> - McKinsey-Studie: Deutschland Platz 3 weltweit für KI-Revolution. 18% Produktivitätssteigerung möglich. Hands-on Training mit Philip Fischer von Impact AI.</p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">🎁</div>
-                <h3>Perfektes Geschenk</h3>
-                <p>Für Schramberg-Liebhaber und alle mit Bezug zur Region.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🥾</div>
-                <h3>Mit Wanderrouten</h3>
-                <p>GPS-Koordinaten für jedes Bänkle - zum Selbstentdecken!</p>
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/schramberg/schroedingers-katze-junghans-und-kiqi-522657.html" target="_blank" class="project-link">KI im Marketing: Schrödingers Katze, Junghans und KiQi</a>
+                </div>
+                <p><strong>Workshop im Auto- und Uhrenmuseum</strong> mit Holger Siegel & Marc Millenet von id pool. 30 Teilnehmer aus verschiedensten Bereichen lernten KI-Marketing mit trainierter ChatGPT "KIQI". Junghans als Praxis-Beispiel.</p>
             </div>
         </div>
 
-        <!-- Order Section -->
-        <div class="order-section">
-            <h2>Jetzt Kalender bestellen</h2>
-            <p style="font-size: 1.2em; color: #D4AF37; margin-bottom: 20px;"><strong>Wähle dein Format</strong></p>
-            
-            <div class="pricing-options">
-                <a href="#bestellen" class="price-card">
-                    <div class="format-label">A4 Format</div>
-                    <div class="price">22 €</div>
-                    <div class="format-specs">
-                        <div>📏 21 × 29,7 cm</div>
-                        <div>📄 13 Seiten</div>
-                        <div>🎨 250g Premium-Papier</div>
-                        <div>🔗 Wire-O Bindung</div>
-                        <div>🏠 Ideal für Wand & Schreibtisch</div>
-                    </div>
-                </a>
-
-                <a href="#bestellen" class="price-card">
-                    <div class="format-label">A3 Format</div>
-                    <div class="price">30 €</div>
-                    <div class="format-specs">
-                        <div>📏 29,7 × 42 cm</div>
-                        <div>📄 13 Seiten</div>
-                        <div>🎨 250g Premium-Papier</div>
-                        <div>🔗 Wire-O Bindung</div>
-                        <div>⭐ Maximale Bildwirkung</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shipping-note">
-                <p><strong>Lieferoptionen:</strong></p>
-                <p>✓ Abholung in Schramberg (kostenfrei)<br>
-                ✓ Versand innerhalb Deutschland (+3 €)</p>
-                <p style="margin-top: 15px; font-size: 0.95em;">
-                    <strong>Limitierte Erstauflage</strong> - Verfügbar bei Buchlese Schramberg & direkt bei Mark Finnern
-                </p>
-            </div>
-
-            <div class="order-form-container" id="bestellen">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6bVwAfXW5RANQNO9Sldopw-HIRzRqTFY4Y2EfD5Od5TUwWA/viewform?embedded=true" 
-                        width="640" 
-                        height="2372" 
-                        marginheight="0" 
-                        marginwidth="0">
-                    Loading…
-                </iframe>
-            </div>
+        <div class="cta-section">
+            <h2>Lass uns die Power von KI umsetzen!</h2>
+            <p>Bereit für den nächsten Schritt? Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Business oder Leben verbessern kann.</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2EXAJmnlH6DCVdDY8HMEYIcW3iGqG--3Nb8SwHrIcM0bW9uALM_TRq0veeWH1KVZZ8dg3FQrq6" class="cta-button">Let's Innovate together!</a>
+            <a href="https://linkedin.com/in/finnern" target="_blank" class="cta-button">LinkedIn Connect</a>
         </div>
 
-        <!-- Stories Section -->
-        <div class="stories">
-            <div class="section-header">
-                <h2>Stories & Updates</h2>
-                <p>Geschichten rund um die Verweilbänkle</p>
-            </div>
-
-            <div class="story-item">
-                <div class="story-date">Oktober 2025</div>
-                <h3>Die Geschichte hinter den Bildern</h3>
-                <p>Das Wort <strong>"Verweilbänkle"</strong> lädt zum Nachdenken ein und wurde zu einer fotografischen Entdeckungsreise. Es schärfte den Blick für die vielen Sitzmöglichkeiten unseres schönen Schwarzwaldes.</p>
-                <p>Zwischen Lauterbach und Schramberg erzählen Bänke Familien- und Stadtgeschichten. Sie markieren Aussichtspunkte, Ruheplätze und Begegnungsorte, die Generationen geprägt haben.</p>
-            </div>
-
-            <div class="story-item">
-                <div class="story-date">Oktober 2025</div>
-                <h3>Eine Einladung zum Entdecken</h3>
-                <p>Dieser Kalender präsentiert besondere Bänkle und lädt dich ein:</p>
-                <p>— Innezuhalten und die Perspektive zu wechseln<br>
-                — Die eigene Umgebung neu zu entdecken<br>
-                — Auf Bänkle-Wanderung zu gehen</p>
-                <p>Scanne den QR-Code im Kalender für unsere interaktive Bänkle-Karte mit Wandervorschlägen.</p>
-            </div>
-
-            <div class="story-item">
-                <div class="story-date">Coming Soon</div>
-                <h3>Behind the Scenes - Fotoshooting im Schwarzwald</h3>
-                <p>Bald mehr: Wie entstehen die Kalender-Fotos? Welche technischen Herausforderungen gibt es? Und was passiert, wenn das Wetter nicht mitspielt?</p>
-            </div>
-        </div>
-
-        <!-- Map Section -->
-        <div class="map-section">
-            <div class="section-header">
-                <h2>Die Bänkle-Wanderroute</h2>
-                <p>Entdecke alle Kalender-Motive auf einer Wanderung</p>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ehbc=2E312F" 
-                        width="100%" 
-                        height="600"
-                        allowfullscreen>
-                </iframe>
-            </div>
-            
-            <p style="text-align: center; margin-top: 20px; color: #666;">
-                <a href="https://www.google.com/maps/d/u/0/edit?hl=en&mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ll=48.23314529855001%2C8.364350999999983&z=14" 
-                   target="_blank" 
-                   class="story-link">
-                    📍 In Google Maps öffnen
-                </a>
-            </p>
+        <div class="contact-info">
+            <h3>Kontakt</h3>
+            <p><strong>Mark Finnern</strong><br>
+            Email: <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a><br>
+            Github: <a href="https://github.com/finnern/" target="_blank">github.com/finnern</a><br>
+            Schramberg, Schwarzwald, Deutschland</p>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p><strong>Verweilbänkle Kalender 2026</strong><br>
-        Ein Projekt von <a href="/">Mark Finnern</a><br>
-        <a href="mailto:mark@finnern.com">mark@finnern.com</a></p>
-        <p style="margin-top: 20px; font-size: 0.9em;">
-            <a href="/impressum.html">Impressum</a> | 
-            <a href="/datenschutz.html">Datenschutz</a>
+    <!-- Legal Footer -->
+    <div class="legal-footer">
+        <p>
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+        <p style="margin-top: 15px; color: #666; font-size: 0.8em;">
+            <strong>Nit schwätza - macha! :-)</strong>
         </p>
     </div>
 </body>
