@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
@@ -91,6 +95,52 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
+        }
+
+        /* Calendar Preview Section */
+        .calendar-preview {
+            margin: 60px 0 80px 0;
+        }
+
+        .preview-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            background: #3d3324;
+            border: 2px solid #8B6914;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .calendar-image {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            border: 3px solid #8B6914;
+            transition: transform 0.3s ease;
+        }
+
+        .calendar-image:hover {
+            transform: scale(1.02);
+        }
+
+        .preview-details {
+            flex: 1;
+            color: #d4c5a0;
+        }
+
+        .preview-details h3 {
+            color: #a8c686;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .preview-details p {
+            font-size: 1.1em;
+            line-height: 1.8;
         }
 
         /* Section Headers */
@@ -194,6 +244,10 @@
             padding: 30px;
             width: 300px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .price-card:hover {
@@ -229,6 +283,20 @@
 
         .format-specs div {
             padding: 5px 0;
+        }
+
+        .order-form-container {
+            margin-top: 40px;
+            background: #2a2419;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #8B6914;
+        }
+
+        .order-form-container iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
         }
 
         .shipping-note {
@@ -375,6 +443,23 @@
                 font-size: 2em;
             }
 
+            .preview-container {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .calendar-image {
+                max-width: 100%;
+            }
+
+            .preview-details h3 {
+                font-size: 1.5em;
+            }
+
+            .preview-details p {
+                font-size: 1em;
+            }
+
             .order-section, .stories {
                 padding: 30px 20px;
             }
@@ -387,6 +472,10 @@
             .price-card {
                 width: 100%;
                 max-width: 350px;
+            }
+
+            .order-form-container iframe {
+                height: 2500px;
             }
 
             .price {
@@ -412,6 +501,23 @@
 
     <div class="container">
         <a href="/" class="back-link">← Zurück zu Finnern.com</a>
+
+        <!-- Calendar Preview Section -->
+        <div class="calendar-preview">
+            <div class="section-header">
+                <h2>Brilliante Druckqualität</h2>
+                <p>Hochwertige Fotografie trifft auf Premium-Druck</p>
+            </div>
+            
+            <div class="preview-container">
+                <img src="kalender-cover.jpg" alt="Verweilbänkle Kalender 2026 Titelseite" class="calendar-image">
+                <div class="preview-details">
+                    <h3>Was du bekommst:</h3>
+                    <p>Jedes Bänkle wurde mit iPhone 13 Pro fotografiert und professionell nachbearbeitet. Die Bilder werden auf hochwertigem 250g Papier gedruckt, das die Farben des Schwarzwalds lebendig zur Geltung bringt.</p>
+                    <p style="margin-top: 20px;">Von der morgendlichen Nebelstimmung bis zum goldenen Abendlicht - jeder Monat erzählt seine eigene Geschichte.</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Features -->
         <div class="section-header">
@@ -446,12 +552,12 @@
         </div>
 
         <!-- Order Section -->
-        <div class="order-section" id="bestellen">
+        <div class="order-section">
             <h2>Jetzt Kalender bestellen</h2>
             <p style="font-size: 1.2em; color: #D4AF37; margin-bottom: 20px;"><strong>Wähle dein Format</strong></p>
             
             <div class="pricing-options">
-                <div class="price-card">
+                <a href="#bestellen" class="price-card">
                     <div class="format-label">A4 Format</div>
                     <div class="price">22 €</div>
                     <div class="format-specs">
@@ -461,9 +567,9 @@
                         <div>🔗 Wire-O Bindung</div>
                         <div>🏠 Ideal für Wand & Schreibtisch</div>
                     </div>
-                </div>
+                </a>
 
-                <div class="price-card">
+                <a href="#bestellen" class="price-card">
                     <div class="format-label">A3 Format</div>
                     <div class="price">30 €</div>
                     <div class="format-specs">
@@ -473,7 +579,7 @@
                         <div>🔗 Wire-O Bindung</div>
                         <div>⭐ Maximale Bildwirkung</div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="shipping-note">
@@ -485,7 +591,15 @@
                 </p>
             </div>
 
-            <a href="https://forms.gle/NNYwqJdG8178aShVA" target="_blank" class="hero-cta" style="margin-top: 30px;">Jetzt bestellen</a>
+            <div class="order-form-container" id="bestellen">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6bVwAfXW5RANQNO9Sldopw-HIRzRqTFY4Y2EfD5Od5TUwWA/viewform?embedded=true" 
+                        width="640" 
+                        height="2372" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
         </div>
 
         <!-- Stories Section -->
