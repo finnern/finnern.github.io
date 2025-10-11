@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
@@ -240,6 +244,10 @@
             padding: 30px;
             width: 300px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .price-card:hover {
@@ -275,6 +283,20 @@
 
         .format-specs div {
             padding: 5px 0;
+        }
+
+        .order-form-container {
+            margin-top: 40px;
+            background: #2a2419;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #8B6914;
+        }
+
+        .order-form-container iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
         }
 
         .shipping-note {
@@ -452,6 +474,10 @@
                 max-width: 350px;
             }
 
+            .order-form-container iframe {
+                height: 2500px;
+            }
+
             .price {
                 font-size: 2.2em;
             }
@@ -526,12 +552,12 @@
         </div>
 
         <!-- Order Section -->
-        <div class="order-section" id="bestellen">
+        <div class="order-section">
             <h2>Jetzt Kalender bestellen</h2>
             <p style="font-size: 1.2em; color: #D4AF37; margin-bottom: 20px;"><strong>Wähle dein Format</strong></p>
             
             <div class="pricing-options">
-                <div class="price-card">
+                <a href="#bestellen" class="price-card">
                     <div class="format-label">A4 Format</div>
                     <div class="price">22 €</div>
                     <div class="format-specs">
@@ -541,9 +567,9 @@
                         <div>🔗 Wire-O Bindung</div>
                         <div>🏠 Ideal für Wand & Schreibtisch</div>
                     </div>
-                </div>
+                </a>
 
-                <div class="price-card">
+                <a href="#bestellen" class="price-card">
                     <div class="format-label">A3 Format</div>
                     <div class="price">30 €</div>
                     <div class="format-specs">
@@ -553,7 +579,7 @@
                         <div>🔗 Wire-O Bindung</div>
                         <div>⭐ Maximale Bildwirkung</div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="shipping-note">
@@ -565,7 +591,15 @@
                 </p>
             </div>
 
-            <a href="https://forms.gle/NNYwqJdG8178aShVA" target="_blank" class="hero-cta" style="margin-top: 30px;">Jetzt bestellen</a>
+            <div class="order-form-container" id="bestellen">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6bVwAfXW5RANQNO9Sldopw-HIRzRqTFY4Y2EfD5Od5TUwWA/viewform?embedded=true" 
+                        width="640" 
+                        height="2372" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
         </div>
 
         <!-- Stories Section -->
