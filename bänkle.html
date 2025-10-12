@@ -3,46 +3,560 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=/baenkle.html">
-    <link rel="canonical" href="/baenkle.html" />
-    <title>Verweilbänkle Kalender - Weiterleitung...</title>
+    <title>Verweilbänkle 2026 - Schrambergs schönste Plätze</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #e8e8e8;
+            background-color: #2a2419;
+        }
+
+        h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(42, 36, 25, 0.7), rgba(61, 51, 36, 0.8)), 
+                        url('assets/images/baenkle-hero.jpg') center/cover;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #2d5a27, #9CAF88);
-            color: white;
-        }
-        .redirect-message {
+            color: #f5f5dc;
             text-align: center;
-            padding: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
+            padding: 80px 20px;
         }
-        a {
-            color: #FFD700;
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+            color: #f5f5dc;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            color: #d4c5a0;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            background: linear-gradient(135deg, #8B6914, #D4AF37);
+            color: #2a2419;
+            padding: 18px 45px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.2em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.4);
         }
-        a:hover {
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #a8c686;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2em;
+            color: #d4c5a0;
+        }
+
+        /* Feature Grid */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 80px;
+            justify-content: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card {
+            background: #3d3324;
+            border: 2px solid #8B6914;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            width: 280px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 105, 20, 0.4);
+            border-color: #D4AF37;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            color: #a8c686;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #d4c5a0;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Order Section */
+        .order-section {
+            background: #3d3324;
+            border: 2px solid #8B6914;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .order-section h2 {
+            color: #a8c686;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .price-options {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: #2a2419;
+            border: 2px solid #8B6914;
+            border-radius: 12px;
+            padding: 30px;
+            min-width: 250px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+        }
+
+        .price-card h3 {
+            color: #a8c686;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #D4AF37;
+            margin: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .price-card p {
+            color: #d4c5a0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .purchase-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .option-local, .option-online {
+            background: #2a2419;
+            padding: 35px;
+            border-radius: 10px;
+            border: 2px solid #8B6914;
+            transition: all 0.3s ease;
+        }
+
+        .option-local:hover, .option-online:hover {
+            border-color: #D4AF37;
+        }
+
+        .option-local h3, .option-online h3 {
+            color: #a8c686;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .option-local p, .option-online p {
+            color: #d4c5a0;
+            margin-bottom: 10px;
+        }
+
+        .option-local strong {
+            color: #D4AF37;
+        }
+
+        /* Stories Section */
+        .stories {
+            background: #3d3324;
+            border: 2px solid #8B6914;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .story-item {
+            border-left: 4px solid #D4AF37;
+            padding: 25px;
+            margin-bottom: 30px;
+            background: #2a2419;
+            border-radius: 8px;
+        }
+
+        .story-date {
+            color: #D4AF37;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .story-item h3 {
+            color: #a8c686;
+            margin-bottom: 15px;
+        }
+
+        .story-item p {
+            color: #d4c5a0;
+            margin-bottom: 12px;
+        }
+
+        .story-link {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .story-link:hover {
             text-decoration: underline;
+            color: #FFD700;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin: 60px 0;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            height: 600px;
+            border: 2px solid #8B6914;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .back-link:hover {
+            color: #FFD700;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1510, #2a2419);
+            color: #d4c5a0;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 2px solid #8B6914;
+        }
+
+        .footer a {
+            color: #D4AF37;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #FFD700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .order-section, .stories {
+                padding: 30px 20px;
+            }
+
+            .price {
+                font-size: 2em;
+            }
+
+            .purchase-options {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 400px;
+            }
+
+            .features {
+                gap: 20px;
+            }
+
+            .feature-card {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="redirect-message">
-        <h1>🌲 Verweilbänkle</h1>
-        <p>Weiterleitung zur Kalenderseite...</p>
-        <p><a href="/baenkle.html">Falls die Weiterleitung nicht funktioniert, hier klicken</a></p>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Verweilbänkle 2026</h1>
+            <p>Als Heimkehrer siehst du die Orte deiner Kindheit mit neuen Augen. Was früher selbstverständlich war, wird zum Geschenk: Die Bank am Waldrand. Der Blick über die Täler. Die Stille eines Sonntagmorgens.</p>
+            <p class="hero-quote">Dieser Kalender ist eine Einladung: Entdecke Schramberg neu - Bank für Bank.</p>
+            <a href="#bestellen" class="hero-cta">Kalender entdecken</a>
+        </div>
     </div>
-    
-    <script>
-        // Sofortige Weiterleitung via JavaScript (fallback)
-        window.location.replace("/baenkle.html");
-    </script>
+
+    <div class="container">
+        <a href="/" class="back-link">← Zurück zu Finnern.com</a>
+
+        <!-- Features -->
+        <div class="section-header">
+            <h2>Was macht diesen Kalender besonders?</h2>
+            <p>Mehr als nur schöne Bilder</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <h3>Mit neuen Augen sehen</h3>
+                <p>Als Heimkehrer fotografiert - 12 Bänkle zum Wiederentdecken</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Geschichten des Verweilens</h3>
+                <p>Jedes Bänkle erzählt - Vorderseite Bild, Rückseite Geschichte</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>Selbst erwandern</h3>
+                <p>Komplette Wanderroute mit GPS - erlebe alle 12 Orte</p>
+            </div>
+        </div>
+
+        <!-- Order Section -->
+        <div class="order-section" id="bestellen">
+            <h2>Verweilbänkle 2026</h2>
+            
+            <div class="price-options">
+                <div class="price-card">
+                    <h3>A4 Format</h3>
+                    <div class="price">22 €</div>
+                    <p>Hochformat, 13 Seiten<br>250g Premium-Papier<br>Wire-O Bindung</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3>A3 Format</h3>
+                    <div class="price">30 €</div>
+                    <p>Querformat, 13 Seiten<br>250g Premium-Papier<br>Wire-O Bindung</p>
+                </div>
+            </div>
+
+            <div class="purchase-options">
+                <div class="option-local">
+                    <h3>🏪 In Schramberg kaufen</h3>
+                    <p><strong>Buchlese</strong> | <strong>Kunststube</strong></p>
+                    <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">
+                    Unterstütze lokale Geschäfte & nimm deinen Kalender direkt mit
+                    </p>
+                </div>
+                
+                <div class="option-online">
+                    <h3>📦 Online bestellen</h3>
+                    <p style="margin-bottom: 20px;">Versand: +3€</p>
+                    <a href="https://forms.gle/NNYwqJdG8178aShVA" 
+                       target="_blank" 
+                       class="hero-cta"
+                       style="font-size: 1em; padding: 12px 30px;">
+                       Zur Bestellung
+                    </a>
+                    <p style="margin-top: 20px; font-size: 0.9em;">
+                    Oder direkt per E-Mail: 
+                    <a href="mailto:mark@finnern.com" class="story-link">
+                    mark@finnern.com
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stories Section -->
+        <div class="stories">
+            <div class="section-header">
+                <h2>Stories & Updates</h2>
+                <p>Geschichten rund um die Verweilbänkle</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Oktober 2025</div>
+                <h3>Schramberg mit neuen Augen</h3>
+                <p>Nach Jahren in der Ferne kehrte ich zurück – und sah die Heimat zum ersten Mal wirklich. Was früher alltäglich war, wurde zur Entdeckung: Bänke am Wegesrand, die Generationen von Wanderern gedient haben.</p>
+                <p>Dieser Kalender dokumentiert diese Wiederentdeckung. 12 Bänkle in Schramberg und Umgebung, jedes mit seiner Geschichte. Vielleicht inspiriert er dich, deine eigene Umgebung neu zu sehen.</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Oktober 2025</div>
+                <h3>Die Geschichte hinter den Bildern</h3>
+                <p>Das Wort <strong>"Verweilbänkle"</strong> lädt zum Nachdenken ein und wurde zu einer fotografischen Entdeckungsreise. Es schärfte den Blick für die vielen Sitzmöglichkeiten unseres schönen Schwarzwaldes.</p>
+                <p>Zwischen Lauterbach und Schramberg erzählen Bänke Familien- und Stadtgeschichten. Sie markieren Aussichtspunkte, Ruheplätze und Begegnungsorte, die Generationen geprägt haben.</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Oktober 2025</div>
+                <h3>Eine Einladung zum Entdecken</h3>
+                <p>Dieser Kalender präsentiert besondere Bänkle und lädt dich ein:</p>
+                <p>— Innezuhalten und die Perspektive zu wechseln<br>
+                — Die eigene Umgebung neu zu entdecken<br>
+                — Auf Bänkle-Wanderung zu gehen</p>
+                <p>Scanne den QR-Code im Kalender für unsere interaktive Bänkle-Karte mit Wandervorschlägen.</p>
+            </div>
+
+            <div class="story-item">
+                <div class="story-date">Coming Soon</div>
+                <h3>Behind the Scenes - Fotoshooting im Schwarzwald</h3>
+                <p>Bald mehr: Wie entstehen die Kalender-Fotos? Welche technischen Herausforderungen gibt es? Und was passiert, wenn das Wetter nicht mitspielt?</p>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="section-header">
+                <h2>Die Bänkle-Wanderroute</h2>
+                <p>Entdecke alle Kalender-Motive auf einer Wanderung</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ehbc=2E312F" 
+                        width="100%" 
+                        height="600"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="https://www.google.com/maps/d/u/0/edit?hl=en&mid=1ZXCi9HpyDBlRLG3DbYKLKXp8P2ysCOc&ll=48.23314529855001%2C8.364350999999983&z=14" 
+                   target="_blank" 
+                   class="story-link">
+                    📍 In Google Maps öffnen
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Verweilbänkle Kalender 2026</strong><br>
+        Ein Projekt von <a href="/">Mark Finnern</a><br>
+        <a href="mailto:mark@finnern.com">mark@finnern.com</a></p>
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            <a href="/impressum.html">Impressum</a> | 
+            <a href="/datenschutz.html">Datenschutz</a>
+        </p>
+    </div>
 </body>
 </html>
