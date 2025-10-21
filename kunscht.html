@@ -63,6 +63,7 @@
         }
         
         .logo {
+            font-family: 'UnifrakturMaguntia', cursive;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--white);
@@ -70,6 +71,7 @@
         }
         
         .nav-link {
+            font-family: 'UnifrakturMaguntia', cursive;
             color: var(--white);
             text-decoration: none;
             padding: 0.5rem 1rem;
@@ -253,6 +255,17 @@
             border-bottom-color: var(--primary);
         }
         
+        /* Installation Image */
+        .installation-image {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
         /* Footer */
         footer {
             background: var(--primary);
@@ -309,7 +322,7 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <img src="assets/images/Hartschiele Automat und Herrgotswinkel.png" alt="Hartschierle Installation" class="hero-image">
+            <img src="assets/images/Herrgottswinkel Hartschierle Automat.png" alt="Hartschierle Installation" class="hero-image">
             <div class="hero-content">
                 <h1>Der Himmel ist für Alle da!</h1>
                 <p class="subtitle">Nicht nur für die Pfaffen!</p>
@@ -337,7 +350,7 @@
                 <p>Eierautomat mit Hartschierle-Figuren<br>
                 Geschändetes Kreuz als Herrgottswinkel</p>
 
-                <p><a href="https://finnern.com/kunscht" class="article-link">(hier)</a></p>
+                <p><a href="https://finnern.com/kunscht" class="article-link">https://finnern.com/kunscht</a></p>
             </div>
         </section>
 
@@ -412,6 +425,13 @@
             </div>
         </section>
 
+        <!-- Installation Bild -->
+        <section style="padding: 2rem 0; background: #1a1a1a;">
+            <div class="container">
+                <img src="assets/images/Herrgottswinkel Hartschierle Automat.png" alt="Hartschierle Installation - Herrgottswinkel und Automat" class="installation-image">
+            </div>
+        </section>
+
         <!-- Vernissage -->
         <section class="vernissage">
             <div class="container">
@@ -433,10 +453,11 @@
 
     <footer>
         <div class="container">
-            <p style="margin-bottom: 1rem; font-size: 1rem; opacity: 0.9; font-weight: 700;">
-                <strong style="font-family: 'UnifrakturMaguntia', cursive; font-size: 1.1rem;">Über die Frakturschrift:</strong> Die Verwendung der altdeutschen Schrift auf dieser Seite ist eine bewusste kulturelle Rückeroberung. 
+            <p style="margin-bottom: 1rem;">
+                <strong style="font-family: 'UnifrakturMaguntia', cursive; font-size: 1.2rem; font-weight: 700; display: block; margin-bottom: 0.5rem;">Über die Frakturschrift:</strong> 
+                <span style="font-size: 0.9rem; opacity: 0.85;">Die Verwendung der altdeutschen Schrift auf dieser Seite ist eine bewusste kulturelle Rückeroberung. 
                 Wie U2 "Helter Skelter" von Charles Manson zurückgenommen hat, nehme ich diese historische Typografie von ihrer Vereinnahmung durch rechte Ideologien zurück. 
-                Fraktur ist Teil unserer Kulturgeschichte – nicht Eigentum von Extremisten.
+                Fraktur ist Teil unserer Kulturgeschichte – nicht Eigentum von Extremisten.</span>
             </p>
             <p>&copy; 2025 Mark Finnern | <a href="mailto:mark@finnern.com">mark@finnern.com</a> | <a href="https://linkedin.com/in/finnern" target="_blank">LinkedIn</a> | <a href="https://finnern.com/impressum">Impressum</a></p>
         </div>
