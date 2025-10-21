@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartschierle Installation - Mark Finnern Kunscht</title>
+    <meta name="description" content="Hartschierle Installation: Eierautomat und Herrgottswinkel - Eine partizipative Kunst-Installation von Mark Finnern. Vernissage am 7. November 2025 im Schlossmuseum Schramberg.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Hartschierle Installation - Der Himmel ist für ALLE DA">
+    <meta property="og:description" content="Kunstinstallation verbindet Geschichte von 1848 mit heutigen Fragen nach Zugehörigkeit. Vernissage 7. November 2025.">
+    <meta property="og:image" content="https://finnern.com/assets/images/Hartschiele Automat und Herrgottswinkel.png">
+    <meta property="og:url" content="https://finnern.com/kunscht">
+    <meta property="og:type" content="website">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4a574;
+            --text: #333;
+            --light: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero .subtitle {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background: var(--light);
+        }
+        
+        h2 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        /* Werk Details Grid */
+        .werk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .werk-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .werk-item strong {
+            display: block;
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .werk-item span {
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        
+        /* Vernissage Section */
+        .vernissage {
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .vernissage h2 {
+            font-family: 'UnifrakturMaguntia', cursive;
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .vernissage-details {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.8;
+        }
+        
+        .vernissage-location {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Link Styles */
+        .article-link {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent);
+            transition: all 0.3s;
+        }
+        
+        .article-link:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .werk-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vernissage h2 {
+                font-size: 2rem;
+            }
+            
+            .vernissage-details {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">Mark Finnern</a>
+            <a href="/" class="nav-link">← Zurück</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="assets/images/Hartschiele Automat und Herrgottswinkel.png" alt="Hartschierle Installation" class="hero-image">
+            <div class="hero-content">
+                <h1>Der Himmel ist für ALLE DA!</h1>
+                <p class="subtitle">Nicht nur für die Pfaffen!</p>
+            </div>
+        </section>
+
+        <!-- Werk Details -->
+        <section>
+            <div class="container">
+                <h2>Hartschierle Installation</h2>
+                
+                <div class="werk-grid">
+                    <div class="werk-item">
+                        <strong>Künstler</strong>
+                        <span>Mark Finnern</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Jahrgang</strong>
+                        <span>1964</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Wohnort</strong>
+                        <span>Schramberg, Majolika Firmenpark</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Jahr</strong>
+                        <span>2025</span>
+                    </div>
+                </div>
+
+                <h3>Format</h3>
+                <div class="werk-grid">
+                    <div class="werk-item">
+                        <strong>Automat</strong>
+                        <span>B 40 × T 40 × H 80 cm</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Herrgottswinkel</strong>
+                        <span>B 60 × H 80 cm</span>
+                    </div>
+                </div>
+
+                <h3>Technik</h3>
+                <p>Eierautomat mit Hartschierle-Figuren<br>
+                Geschändetes Kreuz als Herrgottswinkel</p>
+
+                <h3>Ausbildung</h3>
+                <p>Autodidakt im Geist von Bauhaus, Black Mountain College und Joseph Beuys: Kunst als demokratisches Werkzeug für alle. Durch Begegnungen mit Silicon Valley-Pionieren Doug Engelbart, Stewart Brand und dem Künstler Gary Hirsch entstand die Überzeugung: Jeder Mensch kann mit den richtigen Werkzeugen – heute auch KI – kreativ sein. Die Hartschierle-Figuren sind als partizipative Kreativitäts-Tools konzipiert: Nimm eine Figur, lass dich berühren, erzähl deine Geschichte.</p>
+                
+                <p><a href="#" class="article-link">(hier)</a></p>
+            </div>
+        </section>
+
+        <!-- Über das Werk -->
+        <section>
+            <div class="container">
+                <h2>Über das Werk</h2>
+                <p>Der Automat demokratisiert Zugang zu den Figuren – jeder Besucher kann eine Hartschierle Figur mitnehmen und von ihr inspiriert werden. Das geschändete Kreuz daneben wird zum Herrgottswinkel, der die Geschichte von 1848 – religiöse Verfolgung und die Suche nach Freiheit – mit heutigen Fragen nach Zugehörigkeit verbindet. Zusammen laden beide zur Frage ein: Welche Figur gibt mir heute Kraft?</p>
+            </div>
+        </section>
+
+        <!-- Hintergrund -->
+        <section>
+            <div class="container">
+                <h2>Die Hartschierle-Geschichte</h2>
+                <p>Die Installation bezieht sich auf Gregor Moosmann (1801-1872), genannt "Hartschierle" – einen Schramberger Maler, der als Außenseiter am Rande der Gesellschaft lebte und beeindruckende Papierkrippenfiguren schuf.</p>
+                
+                <p>Hartschierle war der Sohn eines Grenzaufsehers ("Hartschier") zwischen Baden und Württemberg. Als Freidenker verdächtigt, ein Wegkreuz geschändet zu haben, verließ er als "Geächteter" seinen Heimatort. Um 1850 kehrte er während der Hungerkrise zurück und lebte zwischen Schramberg und Lauterbach in der Nähe der Schramberger Burg in einer Höhle – der "Moosmannshöhle".</p>
+                
+                <p>In dieser Zeit malte er hunderte von Krippenfiguren auf Papier. Bemerkenswert: Er klammerte die industrielle Realität seiner Zeit komplett aus. Keine Fabrikarbeiter, keine Strohflechterinnen – stattdessen präsentierte er eine idealisierte vorindustrielle Welt. Seine Kunst war ein romantisches Gegenbild zum harten Alltag der Industrialisierung.</p>
+                
+                <p>Die heutige Installation knüpft an diese Geschichte an: Demokratischer Zugang zur Kunst, die Spannung zwischen Tradition und Moderne, und die Frage nach Zugehörigkeit in Zeiten des Umbruchs – damals wie heute.</p>
+                
+                <h3>Mehr zur Geschichte</h3>
+                
+                <p><strong>Theaterstück "Waldschrat Hartschierle":</strong><br>
+                <a href="https://docs.google.com/document/d/1hkqa6hnjlNzGEqwO3Fnr9wiBfa0EF4ITxGKjaeGVGVc/edit" class="article-link" target="_blank">Das Theaterstück zur Theaterwanderung →</a><br>
+                Eine Inszenierung in drei Stationen, aufgeführt zum 40er Abifest.</p>
+                
+                <p><strong>Bilder von der Moosmannshöhle:</strong><br>
+                <a href="https://photos.app.goo.gl/AKZmf3JyxUAvWyCB9" class="article-link" target="_blank">Fotos der Höhle und Theaterwanderung →</a></p>
+                
+                <p><strong>Entdecke die Orte der Geschichte:</strong><br>
+                Der <a href="https://finnern.com/baenkle" class="article-link" target="_blank">Bänkle-Kalender</a> zeigt viele dieser historischen Orte rund um Schramberg und Lauterbach.</p>
+                
+                <p><strong>Wissenschaftlicher Artikel:</strong><br>
+                <a href="https://journals.wlb-stuttgart.de/index.php/sh/article/view/15117" class="article-link" target="_blank">Gisela Lixfeld: "Der Schramberger Maler 'Hartschierle' und seine Zeit" →</a></p>
+            </div>
+        </section>
+
+        <!-- Vernissage -->
+        <section class="vernissage">
+            <div class="container">
+                <h2>Vernissage</h2>
+                <div class="vernissage-details">
+                    <strong>Freitag, 7. November 2025</strong><br>
+                    19:00 Uhr
+                </div>
+                <div class="vernissage-location">
+                    Schlossmuseum Schramberg<br>
+                    Bahnhofstraße 1<br>
+                    78713 Schramberg
+                </div>
+                <a href="https://www.podiumkunst.com/anmeldung" class="cta-button" target="_blank">Mehr Informationen zur Ausstellung</a>
+                <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Eine Mitglieder-Ausstellung von Podium Kunst</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                <strong>Über die Frakturschrift:</strong> Die Verwendung der altdeutschen Schrift auf dieser Seite ist eine bewusste kulturelle Rückeroberung. 
+                Wie U2 "Helter Skelter" von Charles Manson zurückgenommen hat, nehme ich diese historische Typografie von ihrer Vereinnahmung durch rechte Ideologien zurück. 
+                Fraktur ist Teil unserer Kulturgeschichte – nicht Eigentum von Extremisten.
+            </p>
+            <p>&copy; 2025 Mark Finnern | <a href="mailto:mark@finnern.com">mark@finnern.com</a> | <a href="https://linkedin.com/in/finnern" target="_blank">LinkedIn</a></p>
+        </div>
+    </footer>
+</body>
+</html>
