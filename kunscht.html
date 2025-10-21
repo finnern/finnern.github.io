@@ -25,8 +25,10 @@
         :root {
             --primary: #1a1a1a;
             --accent: #d4a574;
+            --accent-warm: #e8935e;
+            --accent-gold: #c9a05f;
             --text: #333;
-            --light: #f5f5f5;
+            --light: #faf8f5;
             --white: #ffffff;
         }
         
@@ -85,8 +87,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #2a1810 0%, #3d2418 100%);
             overflow: hidden;
+            padding: 2rem;
         }
         
         .hero-image {
@@ -96,8 +99,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6;
-            filter: grayscale(20%);
+            opacity: 0.7;
+            filter: saturate(1.1) brightness(1.05);
         }
         
         .hero-content {
@@ -110,18 +113,21 @@
         
         .hero h1 {
             font-family: 'UnifrakturMaguntia', cursive;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            line-height: 1.2;
+            text-transform: none;
         }
         
         .hero .subtitle {
             font-family: 'UnifrakturMaguntia', cursive;
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 300;
             margin-bottom: 2rem;
-            color: var(--accent);
+            color: #e8935e;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
         
         /* Section Styles */
@@ -186,7 +192,7 @@
         
         /* Vernissage Section */
         .vernissage {
-            background: var(--accent);
+            background: linear-gradient(135deg, #c9a05f 0%, #d4a574 100%);
             color: var(--white);
             text-align: center;
             padding: 4rem 2rem;
@@ -213,6 +219,7 @@
         
         /* CTA Button */
         .cta-button {
+            font-family: 'UnifrakturMaguntia', cursive;
             display: inline-block;
             background: var(--primary);
             color: var(--white);
@@ -304,7 +311,7 @@
         <section class="hero">
             <img src="assets/images/Hartschiele Automat und Herrgotswinkel.png" alt="Hartschierle Installation" class="hero-image">
             <div class="hero-content">
-                <h1>Der Himmel ist für ALLE DA!</h1>
+                <h1>Der Himmel ist für Alle da!</h1>
                 <p class="subtitle">Nicht nur für die Pfaffen!</p>
             </div>
         </section>
@@ -314,25 +321,6 @@
             <div class="container">
                 <h2>Hartschierle Installation</h2>
                 
-                <div class="werk-grid">
-                    <div class="werk-item">
-                        <strong>Künstler</strong>
-                        <span>Mark Finnern</span>
-                    </div>
-                    <div class="werk-item">
-                        <strong>Jahrgang</strong>
-                        <span>1964</span>
-                    </div>
-                    <div class="werk-item">
-                        <strong>Wohnort</strong>
-                        <span>Schramberg, Majolika Firmenpark</span>
-                    </div>
-                    <div class="werk-item">
-                        <strong>Jahr</strong>
-                        <span>2025</span>
-                    </div>
-                </div>
-
                 <h3>Format</h3>
                 <div class="werk-grid">
                     <div class="werk-item">
@@ -398,6 +386,32 @@
             </div>
         </section>
 
+        <!-- Künstler Details -->
+        <section>
+            <div class="container">
+                <h2>Künstler</h2>
+                
+                <div class="werk-grid">
+                    <div class="werk-item">
+                        <strong>Name</strong>
+                        <span>Mark Finnern</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Jahrgang</strong>
+                        <span>1964</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Wohnort</strong>
+                        <span>Schramberg, Majolika Firmenpark</span>
+                    </div>
+                    <div class="werk-item">
+                        <strong>Jahr</strong>
+                        <span>2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Vernissage -->
         <section class="vernissage">
             <div class="container">
@@ -407,7 +421,7 @@
                     19:00 Uhr
                 </div>
                 <div class="vernissage-location">
-                    Schlossmuseum Schramberg<br>
+                    Stadtmuseum Schloss Schramberg<br>
                     Bahnhofstraße 1<br>
                     78713 Schramberg
                 </div>
@@ -419,12 +433,12 @@
 
     <footer>
         <div class="container">
-            <p style="margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                <strong>Über die Frakturschrift:</strong> Die Verwendung der altdeutschen Schrift auf dieser Seite ist eine bewusste kulturelle Rückeroberung. 
+            <p style="margin-bottom: 1rem; font-size: 1rem; opacity: 0.9; font-weight: 700;">
+                <strong style="font-family: 'UnifrakturMaguntia', cursive; font-size: 1.1rem;">Über die Frakturschrift:</strong> Die Verwendung der altdeutschen Schrift auf dieser Seite ist eine bewusste kulturelle Rückeroberung. 
                 Wie U2 "Helter Skelter" von Charles Manson zurückgenommen hat, nehme ich diese historische Typografie von ihrer Vereinnahmung durch rechte Ideologien zurück. 
                 Fraktur ist Teil unserer Kulturgeschichte – nicht Eigentum von Extremisten.
             </p>
-            <p>&copy; 2025 Mark Finnern | <a href="mailto:mark@finnern.com">mark@finnern.com</a> | <a href="https://linkedin.com/in/finnern" target="_blank">LinkedIn</a></p>
+            <p>&copy; 2025 Mark Finnern | <a href="mailto:mark@finnern.com">mark@finnern.com</a> | <a href="https://linkedin.com/in/finnern" target="_blank">LinkedIn</a> | <a href="https://finnern.com/impressum">Impressum</a></p>
         </div>
     </footer>
 </body>
