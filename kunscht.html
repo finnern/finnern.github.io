@@ -19,17 +19,7 @@
     <meta property="twitter:description" content="Kunstinstallation verbindet Geschichte von 1848 mit heutigen Fragen nach Zugehörigkeit. Vernissage 7. November 2025.">
     <meta property="twitter:image" content="https://finnern.com/assets/images/hartschierle-automat.png">
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hartschierle Installation - Mark Finnern Kunscht</title>
     <meta name="description" content="Hartschierle Installation: Eierautomat und Herrgottswinkel - Eine partizipative Kunst-Installation von Mark Finnern. Vernissage am 7. November 2025 im Schlossmuseum Schramberg.">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Hartschierle Installation - Der Himmel ist für ALLE DA">
-    <meta property="og:description" content="Kunstinstallation verbindet Geschichte von 1848 mit heutigen Fragen nach Zugehörigkeit. Vernissage 7. November 2025.">
-    <meta property="og:image" content="https://finnern.com/assets/images/hartschierle-automat.png">
-    <meta property="og:url" content="https://finnern.com/kunscht">
-    <meta property="og:type" content="website">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
@@ -48,6 +38,8 @@
             --text: #333;
             --light: #faf8f5;
             --white: #ffffff;
+            --wine-red: #5c1a1a;
+            --cream: #f5f0e8;
         }
         
         body {
@@ -181,6 +173,36 @@
             margin-bottom: 1rem;
         }
         
+        /* Das Werk Section - NEW */
+        .das-werk {
+            background: var(--cream);
+            padding: 3rem 0;
+        }
+        
+        .das-werk h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .werk-intro {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .werk-intro-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .werk-intro-item h3 {
+            margin-top: 0;
+            color: var(--wine-red);
+        }
+        
         /* Werk Details Grid */
         .werk-grid {
             display: grid;
@@ -193,95 +215,107 @@
             background: var(--white);
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
         }
         
         .werk-item strong {
-            display: block;
-            color: var(--accent);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0.5rem;
         }
         
         .werk-item span {
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-        
-        /* Vernissage Section */
-        .vernissage {
-            background: linear-gradient(135deg, #c9a05f 0%, #d4a574 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        .vernissage h2 {
-            font-family: 'UnifrakturMaguntia', cursive;
-            color: var(--white);
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .vernissage-details {
-            font-size: 1.5rem;
-            margin: 2rem 0;
-            line-height: 1.8;
-        }
-        
-        .vernissage-location {
             font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 1rem;
-        }
-        
-        /* CTA Button */
-        .cta-button {
-            font-family: 'UnifrakturMaguntia', cursive;
-            display: inline-block;
-            background: var(--primary);
-            color: var(--white);
-            padding: 1.5rem 3rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            margin-top: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        /* Link Styles */
-        .article-link {
-            display: inline-block;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 2px solid var(--accent);
-            transition: all 0.3s;
-        }
-        
-        .article-link:hover {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: var(--text);
         }
         
         /* Installation Image */
         .installation-image {
             width: 100%;
-            max-width: 1200px;
-            height: auto;
-            display: block;
+            max-width: 900px;
             margin: 0 auto;
+            display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Links */
+        .article-link {
+            color: var(--accent-warm);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .article-link:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-warm);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-gold);
+        }
+        
+        /* Vernissage Section - IMPROVED */
+        .vernissage {
+            background: var(--wine-red);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .vernissage-content-box {
+            background: var(--cream);
+            color: #2a1810;
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .vernissage h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--wine-red);
+        }
+        
+        .vernissage-details {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .vernissage-location {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+        
+        .vernissage .cta-button {
+            background: var(--wine-red);
+            margin-top: 2rem;
+        }
+        
+        .vernissage .cta-button:hover {
+            background: #7a2424;
         }
         
         /* Footer */
@@ -326,6 +360,10 @@
             .vernissage-details {
                 font-size: 1.2rem;
             }
+            
+            .vernissage-content-box {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -340,18 +378,37 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <img src="assets/images/hartschierle-automat.png" alt="Hartschierle Installation" class="hero-image">
+            <img src="https://finnern.com/assets/images/hartschierle-automat.png" alt="Hartschierle Installation" class="hero-image">
             <div class="hero-content">
                 <h1>Der Himmel ist für Alle da!</h1>
                 <p class="subtitle">Nicht nur für die Pfaffen!</p>
             </div>
         </section>
 
-        <!-- Über das Werk -->
-        <section>
+        <!-- Hartschierle Kunstwerk - NEW INTRO SECTION -->
+        <section class="das-werk">
             <div class="container">
-                <h2>Über das Werk</h2>
-                <p>Der Automat demokratisiert Zugang zu den Figuren – jeder Besucher kann eine Hartschierle Figur mitnehmen und von ihr inspiriert werden. Das geschändete Kreuz daneben wird zum Herrgottswinkel, der die Geschichte von 1848 – religiöse Verfolgung und die Suche nach Freiheit – mit heutigen Fragen nach Zugehörigkeit verbindet. Zusammen laden beide zur Frage ein: Welche Figur gibt mir heute Kraft?</p>
+                <h2>Hartschierle Kunstwerk</h2>
+                
+                <p>Die Installation besteht aus zwei miteinander verbundenen Elementen, die eine Brücke zwischen Vergangenheit und Gegenwart schlagen.</p>
+                
+                <p>Der Automat demokratisiert Zugang zu den Figuren – jeder Besucher kann eine Hartschierle Figur mitnehmen und von ihr inspiriert werden. Das geschändete Kreuz daneben wird zum Herrgottswinkel, der die Geschichte von 1848 – religiöse Verfolgung und die Suche nach Freiheit – mit heutigen Fragen nach Zugehörigkeit verbindet.</p>
+                
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 500; margin: 2rem 0 3rem 0;">
+                    Zusammen laden beide zur Frage ein:<br>
+                    <em>Welche Figur gibt mir heute Kraft?</em>
+                </p>
+                
+                <div class="werk-intro">
+                    <div class="werk-intro-item">
+                        <h3>Der Automat</h3>
+                        <p>Ein umgebauter Eierautomat, gefüllt mit Hartschierle-Figuren zum Mitnehmen. Jeder Besucher erhält Zugang zu diesen historischen Kunstfiguren – demokratisch, niederschwellig, partizipativ.</p>
+                    </div>
+                    <div class="werk-intro-item">
+                        <h3>Der Herrgottswinkel</h3>
+                        <p>Das geschändete Kreuz wird zum Symbol der Spannung zwischen religiöser Tradition und persönlicher Freiheit. Ein Spiegel der Geschichte von 1848 und zugleich Frage an die Gegenwart.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -446,25 +503,27 @@
         <!-- Installation Bild -->
         <section style="padding: 2rem 0; background: #1a1a1a;">
             <div class="container">
-                <img src="assets/images/hartschierle-automat.png" alt="Hartschierle Installation - Herrgottswinkel und Automat" class="installation-image">
+                <img src="https://finnern.com/assets/images/hartschierle-automat.png" alt="Hartschierle Installation - Herrgottswinkel und Automat" class="installation-image">
             </div>
         </section>
 
         <!-- Vernissage -->
         <section class="vernissage">
             <div class="container">
-                <h2>Vernissage</h2>
-                <div class="vernissage-details">
-                    <strong>Freitag, 7. November 2025</strong><br>
-                    19:00 Uhr
+                <div class="vernissage-content-box">
+                    <h2>Vernissage</h2>
+                    <div class="vernissage-details">
+                        <strong>Freitag, 7. November 2025</strong><br>
+                        19:00 Uhr
+                    </div>
+                    <div class="vernissage-location">
+                        Stadtmuseum Schloss Schramberg<br>
+                        Bahnhofstraße 1<br>
+                        78713 Schramberg
+                    </div>
+                    <a href="https://www.podiumkunst.com/anmeldung" class="cta-button" target="_blank">Mehr Informationen zur Ausstellung</a>
+                    <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.8;">Eine Mitglieder-Ausstellung von Podium Kunst</p>
                 </div>
-                <div class="vernissage-location">
-                    Stadtmuseum Schloss Schramberg<br>
-                    Bahnhofstraße 1<br>
-                    78713 Schramberg
-                </div>
-                <a href="https://www.podiumkunst.com/anmeldung" class="cta-button" target="_blank">Mehr Informationen zur Ausstellung</a>
-                <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Eine Mitglieder-Ausstellung von Podium Kunst</p>
             </div>
         </section>
     </main>
