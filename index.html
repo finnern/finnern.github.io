@@ -3,620 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Impact Group - Silicon Valley meets Black Forest</title>
-
-    
-    <!-- Open Graph Meta Tags for LinkedIn Preview -->
-    <meta property="og:title" content="KI-Impact Group - Silicon Valley meets Black Forest">
-    <meta property="og:description" content="Innovations-Community in Baden-Württemberg. Kuratierte KI-Events und Community-Formate für Unternehmer, Tech-Enthusiasten und Forward-Thinker im Schwarzwald.">
-    <meta property="og:image" content="https://ki-impact.org/ki-impact-logo-banner.png">
-    <meta property="og:url" content="https://ki-impact.org">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="KI-Impact Group">
-    
-    <!-- Additional Meta Tags -->
-    <meta name="description" content="KI-Impact Group - Innovations-Community in Baden-Württemberg. Kuratierte KI-Events und Community-Formate für Unternehmer und Tech-Enthusiasten im Schwarzwald.">
-    <meta name="keywords" content="KI, Künstliche Intelligenz, Innovation, Baden-Württemberg, Schwarzwald, Schramberg, Community, Events, Workshops, Mario Herger, n8n, Automation">
-    <meta name="author" content="KI-Impact Group">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="KI-Impact Group - Silicon Valley meets Black Forest">
-    <meta name="twitter:description" content="Innovations-Community in Baden-Württemberg. Kuratierte KI-Events und Community-Formate.">
-    <meta name="twitter:image" content="https://ki-impact.org/ki-impact-logo-banner.png">
-
-    <!-- Structured Data (Organization) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "KI-Impact Group",
-        "description": "Innovations-Community in Baden-Württemberg für KI und Tech-Events",
-        "url": "https://ki-impact.org",
-        "logo": "https://ki-impact.org/ki-impact-logo-banner.png",
-        "sameAs": [
-            "https://www.linkedin.com/groups/9804412/"
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Schramberg",
-            "addressRegion": "Baden-Württemberg",
-            "addressCountry": "DE"
-        }
-    }
-    </script>
-    
+    <title>Mark Finnern - KI Innovation für Business und Leben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #fffef7, #fffce0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
         }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        
-        .logo {
-            max-width: 500px;
+
+        .hero-banner {
             width: 100%;
             height: auto;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            display: block;
         }
-        
-        .logo:hover {
-            transform: scale(1.02);
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            color: #2c3e50;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            color: #5a6c7d;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            font-style: italic;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 2rem 0 3rem 0;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 200px;
-            color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(45deg, #2c3e50, #1a2a3a);
-            color: #ffd700;
-        }
-        
-        .btn-contact {
-            background: linear-gradient(45deg, #5a6c7d, #4a5a68);
-            color: white;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-        }
-        
-        .poster-container {
-            text-align: center;
-            max-width: 600px;
-            margin: 3rem auto 1rem;
-            padding: 0 1rem;
-        }
-        
-        .poster {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 15px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .poster:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
-        }
-        
-        .workshop-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin: 2rem 0 3rem;
-            font-weight: bold;
-        }
-        
-        .featured-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #2c3e50;
-            margin: 2rem 0 1.5rem;
-            position: relative;
-        }
-        
-        .featured-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #2c3e50;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-left: 10px;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-        }
-        
-        .events-section {
-            max-width: 1200px;
-            width: 100%;
+
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 40px 20px;
         }
-        
-        .section-title {
-            font-size: 2rem;
-            color: #2c3e50;
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 30px;
             text-align: center;
-            margin: 3rem 0 2rem;
-            border-bottom: 3px solid #ffd700;
-            padding-bottom: 0.5rem;
         }
-        
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #ffd700;
+
+        h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
         }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
-        }
-        
-        .event-card.featured-event {
-            border-left: 8px solid #ffd700;
-            background: linear-gradient(135deg, #fff9e6, #ffffff);
-            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3);
-        }
-        
-        .event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .event-title-link {
-            text-decoration: none;
-            color: inherit;
-            flex: 1;
-        }
-        
-        .event-title-link:hover h3 {
-            color: #ffd700;
-        }
-        
-        .event-card h3 {
-            margin: 0;
-            font-size: 1.6rem;
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
             color: #2c3e50;
-            transition: color 0.3s ease;
+            margin-bottom: 15px;
+            margin-top: 30px;
         }
-        
-        .event-date {
-            background: #2c3e50;
-            color: white;
-            padding: 8px 15px;
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .credentials {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .project-list, .event-list {
+            margin: 30px 0;
+        }
+
+        .project-item, .event-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            white-space: nowrap;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
         }
-        
-        .event-location {
-            color: #5a6c7d;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .event-card p {
-            color: #555;
-            line-height: 1.8;
-            margin: 1rem 0;
-        }
-        
-        .event-source {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-        
-        .event-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #2c3e50;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
-        }
-        
-        .event-btn:hover {
+
+        .project-item:hover, .event-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        
-        .community-highlight {
-            background: linear-gradient(135deg, #fff3cd, #fffaeb);
-            border-left: 4px solid #ff6b6b;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
+
+        .project-title, .event-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 10px;
         }
-        
-        .footer {
+
+        .project-link {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
+        }
+
+        .workshop-highlight {
+            background: linear-gradient(135deg, #fff5cd 0%, #fef7cd 100%);
+            border-left: 4px solid #d69e2e;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
             text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-            color: #7f8c8d;
-            font-style: italic;
-            font-size: 1.2rem;
+            margin: 50px 0;
         }
-        
+
+        .cta-section h2 {
+            color: #FFD700;
+            border: none;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a365d;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+            color: #1a365d;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .contact-info a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #e2e8f0;
+            background-color: #f8f9fa;
+            font-size: 0.9em;
+        }
+
+        .legal-footer a {
+            color: #3182ce;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .legal-footer a:hover {
+            text-decoration: underline;
+            color: #2c5aa0;
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .subtitle { font-size: 1.4rem; }
-            .section-title { font-size: 1.6rem; }
-            .event-card { padding: 1.5rem; }
-            .event-card h3 { font-size: 1.3rem; }
-            .action-buttons { flex-direction: column; align-items: center; }
-            .btn { min-width: 250px; }
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .legal-footer a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-container">
-            <img src="ki-impact-logo-banner.png" alt="KI-Impact Group Logo" class="logo">
+    <!-- Hero Banner -->
+    <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
+
+    <div class="container">
+        <h1>Erfolgreich mit KI im Business und Leben</h1>
+        
+        <div class="intro-text">
+            <p><strong>Ob Unternehmer, Führungskraft oder Privatperson</strong> - KI kann Ihre Produktivität revolutionieren und neue Möglichkeiten schaffen. Lassen Sie uns gemeinsam die Kraft der Künstlichen Intelligenz für Ihre Ziele nutzen.</p>
         </div>
-        <h1>KI-Impact Group</h1>
-        <p class="subtitle">Silicon Valley meets Black Forest</p>
-        <p class="tagline">Die Innovations-Community in Baden-Württemberg</p>
-    </div>
 
-    <div class="action-buttons">
-        <a href="https://www.linkedin.com/groups/9804412/" class="btn btn-secondary" target="_blank">KI-Impact LinkedIn-Gruppe</a>
-        <a href="/cdn-cgi/l/email-protection#412c20332a0127282f2f24332f6f222e2c" class="btn btn-contact">Kontakt</a>
-    </div>
+        <div class="credentials">
+            <h3>Über mich</h3>
+            <p><strong>25+ Jahre Erfahrung</strong> in Silicon Valley und Deutschland mit SAP-Software-Implementierung, Community Building und Innovation Leadership. Gründer der SAP Mentors Community, die SAPs Innovationsstrategie maßgeblich beeinflusst hat.</p>
+            <p><strong>Aktuelle Leidenschaft:</strong> Innovation und unternehmerischen Geist im Schwarzwald und darüber hinaus zu fördern - mit praktischen KI-Lösungen, die echten Mehrwert schaffen.</p>
+        </div>
 
-    <div class="poster-container">
-        <img src="poster.jpeg" alt="Homo Syntheticus - Wie Mensch und Maschine verschmelzen" class="poster">
-    </div>
-
-    <h2 class="workshop-title">⭐ Workshop im Frühjahr 2026 ⭐</h2>
-
-    <h2 class="featured-title">
-        In Planung bei KI-Impact
-        <span class="featured-badge">Community-Event</span>
-    </h2>
-
-    <div class="events-section">
-        <!-- FEATURED / IN PLANUNG: Homo Syntheticus mit Mario Herger -->
-        <div class="event-card featured-event">
-            <div class="event-header">
-                <a href="https://www.schwarzwaelder-bote.de/inhalt.neuester-schrei-schramberg-nimmt-kuenstliche-intelligenz-in-den-blick.170bbf3a-de3c-4335-bfc0-49d173c2a2ef.html" class="event-title-link" target="_blank">
-                    <h3>Homo Syntheticus – Buchvorstellung & Talk mit Dr. Mario Herger</h3>
-                </a>
-                <span class="event-date">Termin folgt – nach Buch-Release April 2026</span>
+        <h2>Aktuelle Projekte & Services</h2>
+        
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ki-impact.org" target="_blank" class="project-link">KI-Impact Group</a>
+                </div>
+                <p>Exklusive Community für KI-Adoption im deutschsprachigen Raum - Netzwerk für Unternehmer und Führungskräfte zum Erfahrungsaustausch.</p>
             </div>
-            <div class="event-location">📍 Schramberg • KI-Impact Community-Event</div>
-            
-            <p>
-                <strong>Roboter, KI und wir – wie der Homo Syntheticus unseren Alltag verändert.</strong><br><br>
-                Nach unserem erfolgreichen KI-Abend 2024 in Schramberg mit dem Vortrag 
-                „Wachstumsmotor Künstliche Intelligenz. Schramberg lässt sich vom Silicon Valley inspirieren!" 
-                planen wir die Fortsetzung: Mario Herger stellt sein neues Buch 
-                <em>Homo Syntheticus</em> vor und diskutiert mit uns, wie KI und humanoide Roboter in Wirtschaft 
-                und Gesellschaft ankommen.<br><br>
-                <strong>In Vorbereitung:</strong><br>
-                • Impulsvortrag von Mario Herger<br>
-                • Q&A und Diskussion mit Unternehmer:innen aus der Region<br>
-                • Networking „Silicon Valley meets Black Forest"<br><br>
-                <strong>Hinweis:</strong> Termin und Location werden nach Erscheinen des Buches im April 2026 
-                final bekanntgegeben.
-            </p>
-            <div class="event-source">KI-Impact Group • Schramberg | <a href="https://www.schwarzwaelder-bote.de/inhalt.neuester-schrei-schramberg-nimmt-kuenstliche-intelligenz-in-den-blick.170bbf3a-de3c-4335-bfc0-49d173c2a2ef.html" target="_blank" style="color: #7f8c8d;">Bericht vom Event 2024</a></div>
-        </div>
 
-        <!-- SECTION: Empfohlene KI- & Innovations-Events in Baden-Württemberg -->
-        <h2 class="section-title">Empfohlene KI- & Innovations-Events in Baden-Württemberg</h2>
-
-        <!-- AI-Matters Reutlingen - December 2025 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.ipa.fraunhofer.de/de/veranstaltungen-messen/veranstaltungen/2025/KI_Konkret_Okt.html" class="event-title-link" target="_blank">
-                    <h3>AI-Matters: KI-Anwendungen in der Produktion</h3>
-                </a>
-                <span class="event-date">Do, 4. Dez • 15:00-18:00h</span>
+            <div class="project-item workshop-highlight">
+                <div class="project-title">
+                    🚀 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLdeB1Jqpw9ynOf9Z0Rj43Z_QzfjcMnnSc8K9LzvFKBOtg_g/viewform" target="_blank" class="project-link">Workshop: "Prozesse mit KI orchestrieren" - 30. September 2025</a>
+                </div>
+                <p><strong>Praktischer Hands-on Workshop</strong> mit n8n und Power Automate - Lernen Sie, wie Sie Ihre Geschäftsprozesse intelligent automatisieren. <strong>Jetzt anmelden!</strong></p>
             </div>
-            <div class="event-location">📍 Werk150, Hochschule Reutlingen, Alteburgstr. 150, 72762 Reutlingen</div>
-            <p><strong>KI in der Produktion - konkret, praktisch, umsetzbar!</strong><br><br>
-            <strong>Highlights:</strong><br>
-            • Reale Use Cases im industriellen Umfeld<br>
-            • Living Labs Experience - KI zum Anfassen<br>
-            • Impulse aus Wissenschaft und Wirtschaft<br>
-            • Vorstellung erprobter Lösungsansätze<br>
-            • Themen: Machine Vision, Sprachassistenten, Interactive ML, Synthetische Daten<br>
-            • Networking mit Expertinnen und Experten<br>
-            • B2B-Austausch für konkrete KI-Projekte<br><br>
-            <strong>🏭 Für produzierende Unternehmen, die KI konkret einsetzen wollen!</strong><br>
-            Kostenfreie Teilnahme.</p>
-            <div class="event-source">Fraunhofer IPA / Werk150 / EU AI-MATTERS</div>
-            <a href="https://www.ipa.fraunhofer.de/de/veranstaltungen-messen/veranstaltungen/2025/KI_Konkret_Okt.html" class="event-btn" target="_blank">Jetzt anmelden</a>
-        </div>
 
-        <!-- Smart Grids-Kongress - December 2025 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://events.umwelttechnik-bw.de/product/631" class="event-title-link" target="_blank">
-                    <h3>14. Smart Grids-Kongress Baden-Württemberg</h3>
-                </a>
-                <span class="event-date">Mo, 8. Dez • 10:00-16:30h</span>
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ideenfunken.lovable.app/#about-section" target="_blank" class="project-link">Ideenfunken - Leseinitiative</a>
+                </div>
+                <p><strong>Community-getriebene Leseinitiative</strong> für Schramberg und Umgebung. Bücher vorschlagen, abstimmen, gemeinsam lernen - unterstützt von lokalen Unternehmen und der Stadt. Ziel: Kreativität fördern und Mut zu Neuem entwickeln.</p>
             </div>
-            <div class="event-location">📍 Schwabenlandhalle, Guntram-Palm-Platz 1, 70734 Fellbach (+ Livestream)</div>
-            <p><strong>Energiewende, Versorgungssicherheit und Regulierung!</strong><br><br>
-            <strong>Thema:</strong> "Wo stehen wir auf dem Weg zum intelligenten Energiesystem?"<br><br>
-            <strong>Fokus:</strong><br>
-            • Intelligente Stromnetze und Energiesysteme<br>
-            • KI-Anwendungen in der Energiewirtschaft<br>
-            • Vernetzung von Akteuren aus Wirtschaft, Politik und Wissenschaft<br>
-            • Praxisbeispiele und innovative Lösungen<br>
-            • Zukunft der Energieversorgung<br>
-            • Hybrid-Event: Vor Ort + Livestream<br><br>
-            <strong>⚡ Veranstaltet vom Umweltministerium BW und der Smart Grids-Plattform!</strong><br>
-            Registrierung ab 09:30 Uhr. Kostenfreie Teilnahme.</p>
-            <div class="event-source">Ministerium für Umwelt, Klima und Energiewirtschaft BW / Smart Grids-Plattform BW</div>
-            <a href="https://events.umwelttechnik-bw.de/product/631" class="event-btn" target="_blank">Jetzt anmelden</a>
-        </div>
 
-        <!-- AI Conference Science x Business - April 2026 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.dcyphr.io/conference" class="event-title-link" target="_blank">
-                    <h3>AI Conference „Science x Business – KI in Heidelberg"</h3>
-                </a>
-                <span class="event-date">14.–15. April 2026</span>
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://agent.ai/agent/d834r0u1k1huc05j" target="_blank" class="project-link">Strategy Sherlock</a>
+                </div>
+                <p><strong>KI-Detective für Konkurrenzanalyse</strong> - Analysiert Stellenausschreibungen um strategische Bewegungen der Wettbewerber zu enthüllen. Wie ein digitaler Consulting-Detective für Marktintelligenz.</p>
             </div>
-            <div class="event-location">📍 Heidelberg Innovation Park</div>
-            <p>
-                <strong>Boost your Business mit KI.</strong><br><br>
-                Große KI-Konferenz mit Fokus auf die Brücke zwischen Wissenschaft und Wirtschaft: 
-                über 100 Speaker, rund 1.000 Teilnehmende, Best Practices, Ausstellung und Networking. 
-                Ideal für Entscheider:innen, Gründer:innen und Tech-Enthusiast:innen, die KI strategisch 
-                im Unternehmen verankern wollen.
-            </p>
-            <div class="event-source">Veranstalter: dcyphr / Partner aus der Metropolregion</div>
-            <a href="https://www.dcyphr.io/conference" class="event-btn" target="_blank">Zur Konferenz</a>
         </div>
 
-        <!-- Minds Mastering Machines - April 2026 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.m3-konferenz.de/" class="event-title-link" target="_blank">
-                    <h3>Minds Mastering Machines (M3)</h3>
-                </a>
-                <span class="event-date">22.–23. April 2026</span>
+        <h2>Vergangene Events & Workshops</h2>
+        
+        <div class="event-list">
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/ki-in-schramberg-bleiben-sie-hungrig-484642.html" target="_blank" class="project-link">Mickey McManus in der Szene 64: "Stay hungry, stay foolish"</a>
+                </div>
+                <p><strong>Silicon Valley Visionär zu Gast</strong> - Boston Consulting Group Senior Advisor sprach über KI-Disruption. Highlight: Lego-Experiment mit 35 Teilnehmern generierte 120 neue Entchen-Variationen. Mit Isetta-Fahrt durch Schramberg!</p>
             </div>
-            <div class="event-location">📍 IHK Karlsruhe</div>
-            <p>
-                <strong>Machine Learning & KI in der Praxis.</strong><br><br>
-                Treffpunkt für Data Scientists, Data Engineers und Developer, die ML-Projekte in die Realität umsetzen. 
-                Themen 2026 u. a.: GenAI & LLMs, Model Context Protocol (MCP), Agent-2-Agent-Ansätze, 
-                KI-Security, MLOps und Data Engineering. 
-                Perfekt für Teams, die ihre KI-Implementierung professionalisieren wollen.
-            </p>
-            <div class="event-source">Veranstalter: Heise Medien & Rheinwerk Verlag</div>
-            <a href="https://www.m3-konferenz.de/" class="event-btn" target="_blank">Mehr Infos</a>
-        </div>
 
-        <!-- KI-Challenge Karlsruhe - May 2025 (PAST EVENT) -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://karlsruhe.digital/2025/03/ki-challenge-karlsruhe/" class="event-title-link" target="_blank">
-                    <h3>KI-Challenge Karlsruhe: Smart Eco-Events</h3>
-                </a>
-                <span class="event-date">6.-7. Mai 2025</span>
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/wie-deutschland-von-der-ki-revolution-profitieren-kann-515959.html" target="_blank" class="project-link">Microsoft Copilot Workshop bei MS Schramberg</a>
+                </div>
+                <p><strong>"Nit Schwätza, Macha! – Mit Copilot!"</strong> - McKinsey-Studie: Deutschland Platz 3 weltweit für KI-Revolution. 18% Produktivitätssteigerung möglich. Hands-on Training mit Philip Fischer von Impact AI.</p>
             </div>
-            <div class="event-location">📍 Schloss Ettlingen</div>
-            <p><strong>Nachhaltige Veranstaltungskonzepte mit KI entwickeln!</strong><br><br>
-            <strong>Tag 1 (6. Mai):</strong> Auftakt-Event<br>
-            • Keynotes zu KI-Potentialen für nachhaltige Events<br>
-            • Podiumsdiskussion: Herausforderungen & Best Practices<br>
-            • KI-Engineering Methodik: PAISE®<br>
-            • Networking für interdisziplinäre Kooperationen<br><br>
-            <strong>Tag 2 (7. Mai):</strong> Workshop-Tag<br>
-            • Mobilität: Prognosen zum Besucherverhalten<br>
-            • Energie: Smart Grid-Integration<br>
-            • Beschaffung: Nachhaltige Lieferketten<br>
-            • Digitale Plattformen: KI-basierte Event-Services<br><br>
-            <strong>🌱 Kostenlos | Für Kommunen, Unternehmen, Start-ups & KI-Experten!</strong></p>
-            <div class="event-source">KI-Allianz Baden-Württemberg / Stadt Karlsruhe</div>
-            <a href="https://karlsruhe.digital/2025/03/ki-challenge-karlsruhe/" class="event-btn" target="_blank">Mehr Infos</a>
-        </div>
 
-        <!-- Käpsele Innovation Festival - July 2026 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.innovation-festival.de/" class="event-title-link" target="_blank">
-                    <h3>Käpsele Innovation Festival 2026</h3>
-                </a>
-                <span class="event-date">16. Juli 2026</span>
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/schramberg/schroedingers-katze-junghans-und-kiqi-522657.html" target="_blank" class="project-link">KI im Marketing: Schrödingers Katze, Junghans und KiQi</a>
+                </div>
+                <p><strong>Workshop im Auto- und Uhrenmuseum</strong> mit Holger Siegel & Marc Millenet von id pool. 30 Teilnehmer aus verschiedensten Bereichen lernten KI-Marketing mit trainierter ChatGPT "KIQI". Junghans als Praxis-Beispiel.</p>
             </div>
-            <div class="event-location">📍 SICK-Arena, Messe Freiburg</div>
-            <p>
-                <strong>Das Innovationsfestival im Südwesten - "Raus aus der Bubble, rein in die Zukunft!"</strong><br><br>
-                Mit über 70 Top-Speaker:innen, Panels, Masterclasses, Erlebnisstationen und großer Netzwerkfläche 
-                bringt das Käpsele Startups, Mittelstand und Corporates zusammen. 
-                Themen: Künstliche Intelligenz & Data, Green Tech, Industrie im Wandel, Digitalisierung & Fachkräfte, 
-                New Work und gesellschaftliche Transformation.<br><br>
-                <strong>Programm:</strong><br>
-                • 4 Themenbühnen (KI, Transformation, HealthTech, Industrie 4.0)<br>
-                • 21 Erlebnisstationen mit VR/AR<br>
-                • 2 Masterclass-Iglus mit Fachworkshops<br>
-                • Startup-Pitches & Networking-App<br>
-                • Premium-Sponsoren: Dr. Falk Pharma, Haufe Group, Endress+Hauser, Stadt Freiburg<br><br>
-                <strong>🎯 1.500+ Teilnehmer | Immersive Tech!</strong>
-            </p>
-            <div class="event-source">Veranstalter: FWTM & IHK Südlicher Oberrhein</div>
-            <a href="https://www.innovation-festival.de/" class="event-btn" target="_blank">Zum Festival</a>
         </div>
 
-        <!-- KI-Festival Heilbronn - July 2026 -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://ki-festival.de/" class="event-title-link" target="_blank">
-                    <h3>KI-Festival 2026 Heilbronn</h3>
-                </a>
-                <span class="event-date">25.-26. Juli 2026</span>
-            </div>
-            <div class="event-location">📍 IPAI SPACES, Zukunftspark Wohlgelegen, Heilbronn</div>
-            <p>
-                <strong>KI zum Anfassen für alle Generationen.</strong><br><br>
-                Zweitägiges Festival mit bis zu 13.500 Besucher:innen: interaktive Erlebnisse, Live-Musik, 
-                Vorträge, künstlerische Installationen und praxisnahe Workshops. 
-                Ideal, um das Heilbronner KI-Ökosystem (IPAI, Campus Founders, 42 Heilbronn u. v. a.) kennenzulernen.<br><br>
-                <strong>Highlights:</strong><br>
-                • Über 50 Aussteller aus Wirtschaft, Forschung & Gesellschaft<br>
-                • 20+ interaktive Workshops<br>
-                • MS experimenta - schwimmende Erlebniswelt<br>
-                • BeTheAI: Spiel - werde selbst zur KI!<br>
-                • Foodtrucks, Live-Musik, Yoga & Kinderprogramm<br><br>
-                <strong>🎉 Eintritt frei | Keine Anmeldung nötig!</strong>
-            </p>
-            <div class="event-source">Veranstalter: IPAI Foundation / Dieter Schwarz Stiftung</div>
-            <a href="https://ki-festival.de/" class="event-btn" target="_blank">Eventseite öffnen</a>
+        <div class="cta-section">
+            <h2>Lass uns die Power von KI umsetzen!</h2>
+            <p>Bereit für den nächsten Schritt? Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Business oder Leben verbessern kann.</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2EXAJmnlH6DCVdDY8HMEYIcW3iGqG--3Nb8SwHrIcM0bW9uALM_TRq0veeWH1KVZZ8dg3FQrq6" class="cta-button">Let's Innovate together!</a>
+            <a href="https://linkedin.com/in/finnern" target="_blank" class="cta-button">LinkedIn Connect</a>
         </div>
 
-        <!-- Link zu weiteren KI-Allianz-Events -->
-        <div class="community-highlight">
-            Weitere KI-Events in Baden-Württemberg (Workshops, Meetups, Konferenzen) findest du in der
-            offiziellen Übersicht der <strong>KI-Allianz Baden-Württemberg</strong>.
-            <br><br>
-            <a href="https://ki-allianz.de/events/" class="event-btn" target="_blank">Zu den KI-Allianz Events</a>
-        </div>
-
-        <div style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
-            <p style="margin: 0; color: #555;">
-                <strong>Weitere KI-Events in der Region:</strong><br>
-                <a href="https://www.ihk.de/sbh/veranstaltungen-5134384" target="_blank" style="color: #2c3e50; text-decoration: none; border-bottom: 2px solid #ffd700;">
-                    IHK Schwarzwald-Baar-Heuberg Veranstaltungen
-                </a>
-                •
-                <a href="https://ki-allianz.de/aktuelles/veranstaltungen/" target="_blank" style="color: #2c3e50; text-decoration: none; border-bottom: 2px solid #ffd700;">
-                    KI-Allianz Baden-Württemberg Events
-                </a>
-            </p>
-        </div>
-
-        <!-- SECTION: Eigene Angebote & Community -->
-        <h2 class="section-title">Eigene Angebote & Community</h2>
-
-        <!-- IHK-Kurs n8n Grundlagen -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.ihkakademie-sbh.de/weiterbildung/details/ki-gestuetzte-prozessautomation-mit-n8n-grundlagen-fuer-kmu-berufsbegleitend-praesenz_119026" class="event-title-link" target="_blank">
-                    <h3>KI-gestützte Prozessautomation mit n8n – Grundlagen für KMU</h3>
-                </a>
-                <span class="event-date">Di, 20. Jan 2026</span>
-            </div>
-            <div class="event-location">📍 IHK Akademie Schwarzwald-Baar-Heuberg, Villingen-Schwenningen</div>
-            <p>
-                <strong>Der Einstieg in KI-gestützte Automation – speziell für KMU.</strong><br><br>
-                Praxisorientiertes Abendseminar mit Live-Installation von n8n, 
-                Aufbau des ersten produktiven Workflows und Integration lokaler Systeme. 
-                Gezeigt wird u. a., wie Self-Hosted-KI (z. B. für Dokumentenanalyse) in n8n eingebunden wird, 
-                damit Unternehmen die volle Kontrolle über Daten und Prozesse behalten.
-            </p>
-            <div class="event-source">Dozent: Mark Finnern • IHK Akademie SBH</div>
-            <a href="https://www.ihkakademie-sbh.de/weiterbildung/details/ki-gestuetzte-prozessautomation-mit-n8n-grundlagen-fuer-kmu-berufsbegleitend-praesenz_119026" class="event-btn" target="_blank">Zur Kursseite</a>
-        </div>
-
-        <!-- IHK-Kurs n8n Aufbau -->
-        <div class="event-card">
-            <div class="event-header">
-                <a href="https://www.ihkakademie-sbh.de/weiterbildung/details/ki-gestuetzte-prozessautomation-mit-n8n-aufbaukurs-enterprise-automation-berufsbegleitend-praesenz_119035" class="event-title-link" target="_blank">
-                    <h3>KI-gestützte Prozessautomation mit n8n – Aufbaukurs: Enterprise Automation</h3>
-                </a>
-                <span class="event-date">27. Jan – 24. Feb 2026</span>
-            </div>
-            <div class="event-location">📍 IHK Akademie Schwarzwald-Baar-Heuberg</div>
-            <p>
-                <strong>Vom Proof of Concept zur professionellen Enterprise-Automation.</strong><br><br>
-                Aufbaukurs für fortgeschrittene n8n-Anwender:innen. Im Dual-Track-Ansatz 
-                arbeiten die Teilnehmenden parallel auf ihrer eigenen Installation und einer produktionsnahen Serverumgebung. 
-                Im Fokus: Enterprise-Integrationen (z. B. Microsoft 365, lokale Server, APIs), 
-                stabile Produktions-Workflows, Error Handling sowie KI-Integration mit lokalen LLMs 
-                (z. B. Ollama oder Azure OpenAI).
-            </p>
-            <div class="event-source">Dozent: Mark Finnern • IHK Akademie SBH</div>
-            <a href="https://www.ihkakademie-sbh.de/weiterbildung/details/ki-gestuetzte-prozessautomation-mit-n8n-aufbaukurs-enterprise-automation-berufsbegleitend-praesenz_119035" class="event-btn" target="_blank">Zur Kursseite</a>
+        <div class="contact-info">
+            <h3>Kontakt</h3>
+            <p><strong>Mark Finnern</strong><br>
+            Email: <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a><br>
+            Github: <a href="https://github.com/finnern/" target="_blank">github.com/finnern</a><br>
+            Schramberg, Schwarzwald, Deutschland</p>
         </div>
     </div>
 
-    <div class="footer">
-        <p>Nit schwätza - macha! :-)</p>
-        <p style="margin-top: 1rem;">
-            <a href="impressum.html" style="color: #7f8c8d; text-decoration: underline; margin-right: 2rem;">Impressum</a>
-            <a href="datenschutz.html" style="color: #7f8c8d; text-decoration: underline;">Datenschutzerklärung</a>
+    <!-- Legal Footer -->
+    <div class="legal-footer">
+        <p>
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+        <p style="margin-top: 15px; color: #666; font-size: 0.8em;">
+            <strong>Nit schwätza - macha! :-)</strong>
+        </p>
+    </div>
+</body>
+</html>
