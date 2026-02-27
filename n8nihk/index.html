@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHK n8n Workshop | Mark Finnern</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 5px solid #FFD700; }
+        h1 { color: #2c3e50; text-align: center; }
+        .btn { background-color: #2c3e50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn:hover { background-color: #34495e; }
+        .btn-copy { background-color: #FFD700; color: #2c3e50; margin-top: 10px; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+        .footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #777; }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 n8n Workshop Ressourcen</h1>
+    <p style="text-align: center;">IHK Schwarzwald-Baar-Heuberg | <b>Mark Finnern</b></p>
+
+    <div class="card">
+        <h2>1. Installation (Local Setup)</h2>
+        <p>Falls Sie Ihren eigenen Laptop nutzen, laden Sie bitte n8n Desktop herunter:</p>
+        <a href="https://n8n.io/desktop/" target="_blank"><button class="btn">n8n Desktop Download</button></a>
+        <p>Für die lokale KI installieren wir Ollama:</p>
+        <a href="https://ollama.com/download" target="_blank"><button class="btn">Ollama Download</button></a>
+    </div>
+
+    <div class="card">
+        <h2>2. Lokale KI starten</h2>
+        <p>Kopieren Sie diesen Befehl in Ihr Terminal (PowerShell/Terminal):</p>
+        <code>ollama run qwen3:8b</code>
+        <button class="btn btn-copy" onclick="copyText('ollama run qwen3:8b')">Befehl kopieren</button>
+    </div>
+
+    <div class="card">
+        <h2>3. Workshop Workflows (Import via Clipboard)</h2>
+        <p>Klicken Sie auf den Button und drücken Sie in Ihrem n8n-Canvas einfach <b>Strg + V</b>.</p>
+        
+        <div style="margin-top: 15px;">
+            <strong>A) E-Mail zu Teams (Basic)</strong><br>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf1')">Workflow Code kopieren</button>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <strong>B) KI-Agent mit Dokumentenanalyse</strong><br>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf2')">Workflow Code kopieren</button>
+        </div>
+    </div>
+
+    <div class="card" style="border-left-color: #2c3e50;">
+        <h2>4. Nächste Schritte</h2>
+        <p>Hat es Ihnen gefallen? Hier geht es zur Vertiefung (Aufbaukurs):</p>
+        <a href="https://ihkakademie.de/DIGIPAA" target="_blank"><strong>DIGIPAA - n8n Aufbauseminar</strong></a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Mark Finnern | <a href="https://finnern.com">finnern.com</a>
+    </div>
+
+    <textarea id="wf1" style="display:none;">{"nodes":[{"parameters":{},"id":"...","name":"Start","type":"n8n-nodes-base.start","typeVersion":1}],"connections":{}}</textarea>
+    <textarea id="wf2" style="display:none;">{"nodes":[{"parameters":{"model":"qwen3:8b"},"id":"...","name":"AI Agent","type":"n8n-nodes-base.aiAgent","typeVersion":1}],"connections":{}}</textarea>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+            alert("Befehl kopiert: " + text);
+        }
+        function copyWorkflow(id) {
+            var content = document.getElementById(id).value;
+            navigator.clipboard.writeText(content);
+            alert("Workflow-Code kopiert! Gehen Sie zu n8n und drücken Sie Strg+V.");
+        }
+    </script>
+</body>
+</html>
