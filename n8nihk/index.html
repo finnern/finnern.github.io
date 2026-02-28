@@ -20,14 +20,30 @@
     <h1>🚀 n8n Workshop Ressourcen</h1>
     <p style="text-align: center;">IHK Schwarzwald-Baar-Heuberg | <b>Mark Finnern</b></p>
 
-    <div class="card">
-        <h2>1. Installation (Local Setup)</h2>
-        <p>Falls Sie Ihren eigenen Laptop nutzen, laden Sie bitte n8n Desktop herunter:</p>
-        <a href="https://n8n.io/desktop/" target="_blank"><button class="btn">n8n Desktop Download</button></a>
-        <p>Für die lokale KI installieren wir Ollama:</p>
-        <a href="https://ollama.com/download" target="_blank"><button class="btn">Ollama Download</button></a>
+<div class="card" style="border-left-color: #f39c12;">
+    <h2>1. Installation (Der stabile Weg via Terminal)</h2>
+    <p>Da die Desktop-App aktuell Wartungsarbeiten hat, nutzen wir den Profi-Weg über Node.js. Das garantiert, dass n8n auf Ihrem System stabil läuft.</p>
+    
+    <div style="margin-top: 15px;">
+        <strong>Schritt A: Node.js installieren (Der Motor)</strong><br>
+        <p>Falls noch nicht vorhanden, laden Sie die "LTS" Version für Windows/Mac:</p>
+        <a href="https://nodejs.org/" target="_blank"><button class="btn">Node.js Download</button></a>
     </div>
 
+    <div style="margin-top: 15px;">
+        <strong>Schritt B: n8n installieren & starten</strong><br>
+        <p>Öffnen Sie Ihr Terminal (PowerShell bei Windows / Terminal bei Mac) und kopieren Sie diesen Befehl:</p>
+        <code>npm install n8n -g && n8n</code>
+        <button class="btn btn-copy" onclick="copyText('npm install n8n -g && n8n')">Befehl kopieren & starten</button>
+    </div>
+
+    <div style="margin-top: 15px;">
+        <strong>Schritt C: Lokale KI (Ollama)</strong><br>
+        <p>Für unsere Datenschutz-konforme KI-Demo:</p>
+        <a href="https://ollama.com/download" target="_blank"><button class="btn">Ollama Download</button></a>
+    </div>
+</div>
+    
     <div class="card">
         <h2>2. Lokale KI starten</h2>
         <p>Kopieren Sie diesen Befehl in Ihr Terminal (PowerShell/Terminal):</p>
