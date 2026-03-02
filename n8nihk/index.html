@@ -8,67 +8,67 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
         .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 5px solid #FFD700; }
         h1 { color: #2c3e50; text-align: center; }
-        .btn { background-color: #2c3e50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 5px; }
+        .btn { background-color: #2c3e50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 5px; text-decoration: none; display: inline-block; }
         .btn:hover { background-color: #34495e; }
         .btn-copy { background-color: #FFD700; color: #2c3e50; margin-top: 10px; }
-        code { background: #eee; padding: 4px 8px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; display: block; margin: 10px 0; border: 1px solid #ddd; }
+        code { background: #eee; padding: 4px 8px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; display: block; margin: 10px 0; border: 1px solid #ddd; white-space: pre-wrap; word-break: break-all; }
         .footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #777; }
         .highlight { color: #d35400; font-weight: bold; }
+        .step-number { background: #2c3e50; color: white; border-radius: 50%; width: 25px; height: 25px; display: inline-block; text-align: center; line-height: 25px; margin-right: 10px; font-size: 0.8em; }
+        .warning { background: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>🚀 n8n Workshop Ressourcen</h1>
+    <h1>🚀 n8n & KI Workshop Ressourcen</h1>
     <p style="text-align: center;">IHK Schwarzwald-Baar-Heuberg | <b>Mark Finnern</b></p>
 
-<div class="card" style="border-left-color: #3498db;">
-    <h2>1. Infrastruktur (IHK-sicher via Docker)</h2>
-    <p>Da lokale PowerShell-Skripte oft blockiert sind, nutzen wir Docker. Das isoliert n8n in einer eigenen sicheren Umgebung.</p>
-    
-    <div style="margin-top: 15px;">
-        <strong>Schritt A: Docker Desktop installieren</strong><br>
-        <p>Laden Sie Docker Desktop herunter und starten Sie den Rechner nach der Installation neu.</p>
-        <a href="https://www.docker.com/products/docker-desktop/" target="_blank"><button class="btn">Docker Desktop Download</button></a>
-    </div>
-
-    <div style="margin-top: 15px;">
-        <strong>Schritt B: n8n in Docker starten</strong><br>
-        <p>Kopieren Sie diesen Befehl in Ihre <b>CMD</b> (Eingabeaufforderung), um n8n zu starten:</p>
-        <code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</code>
-        <button class="btn btn-copy" onclick="copyText('docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n')">Docker-Befehl kopieren</button>
-        <p><small>Danach erreichbar unter: <a href="http://localhost:5678" target="_blank">http://localhost:5678</a></small></p>
-    </div>
-</div>
-
-<div class="card" style="border-left-color: #27ae60;">
-    <h2>2. Lokale KI (Ollama & Phi-3)</h2>
-    <p>Wir betreiben unsere eigene KI lokal auf dem Rechner – ohne Cloud, ohne Datenabfluss.</p>
-    
-    <div style="margin-top: 15px;">
-        <strong>Schritt A: Ollama installieren</strong><br>
-        <a href="https://ollama.com/download" target="_blank"><button class="btn">Ollama Download</button></a>
-    </div>
-
-    <div style="margin-top: 15px;">
-        <strong>Schritt B: Modell laden & Netzwerk öffnen</strong><br>
-        <p>Geben Sie nacheinander diese Befehle in Ihre <b>CMD</b> ein:</p>
-        <code>ollama pull phi3</code>
-        <button class="btn btn-copy" onclick="copyText('ollama pull phi3')">1. Modell laden</button>
+    <div class="card" style="border-left-color: #27ae60;">
+        <h2><span class="step-number">1</span> KI-Basis: Ollama & Phi-3</h2>
+        <p>Wir installieren die KI lokal auf Ihrem Rechner.</p>
         
-        <p style="margin-top:10px;">Damit Docker mit Ollama sprechen darf (Netzwerk-Bypass):</p>
+        <strong>A) Download:</strong><br>
+        <a href="https://ollama.com/download" target="_blank" class="btn">Ollama für Windows laden</a>
+        
+        <p><strong>B) Modell laden:</strong> Öffnen Sie die <b>CMD</b> (Eingabeaufforderung) und geben Sie ein:</p>
+        <code>ollama pull phi3</code>
+        <button class="btn btn-copy" onclick="copyText('ollama pull phi3')">Befehl kopieren</button>
+
+        <p><strong>C) Netzwerk öffnen (WICHTIG):</strong> Beenden Sie Ollama (Taskleiste -> Quit) und starten Sie es in der CMD neu:</p>
         <code>set OLLAMA_HOST=0.0.0.0 && ollama serve</code>
-        <button class="btn btn-copy" onclick="copyText('set OLLAMA_HOST=0.0.0.0 && ollama serve')">2. Ollama Server starten</button>
+        <button class="btn btn-copy" onclick="copyText('set OLLAMA_HOST=0.0.0.0 && ollama serve')">Bypass-Befehl kopieren</button>
     </div>
 
-    <p style="margin-top: 15px; font-size: 0.9em; background: #fff3cd; padding: 10px; border-radius: 5px;">
-        <strong>Wichtig für n8n:</strong> Nutzen Sie als Base-URL im Ollama-Node <br>
-        <code style="display:inline;">http://host.docker.internal:11434</code>
-    </p>
-</div>
-    
+    <div class="card" style="border-left-color: #3498db;">
+        <h2><span class="step-number">2</span> n8n via Docker Desktop</h2>
+        <p>Docker umgeht die Windows-Sperren für Skripte.</p>
+        
+        <strong>A) Installation:</strong><br>
+        <a href="https://www.docker.com/products/docker-desktop/" target="_blank" class="btn">Docker Desktop laden</a>
+        
+        <div class="warning">
+            <strong>⚠️ Wichtig:</strong> Nach der Installation Docker Desktop im Startmenü suchen und <b>manuell starten</b>. Warten Sie, bis der <b>kleine Wal unten rechts grün</b> leuchtet.
+        </div>
+
+        <p><strong>B) n8n starten:</strong> Wenn der Wal grün ist, öffnen Sie eine <b>neue CMD</b> und geben Sie ein:</p>
+        <code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</code>
+        <button class="btn btn-copy" onclick="copyText('docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n')">n8n-Befehl kopieren</button>
+        
+        <p>Öffnen Sie danach: <a href="http://localhost:5678" target="_blank"><b>http://localhost:5678</b></a></p>
+    </div>
+
+    <div class="card" style="border-left-color: #f39c12;">
+        <h2><span class="step-number">3</span> Die n8n-KI Verbindung</h2>
+        <p>Nutzen Sie im n8n <b>Ollama-Node</b> diese speziellen Einstellungen:</p>
+        <ul>
+            <li><b>Base URL:</b> <code>http://host.docker.internal:11434</code></li>
+            <li><b>Model:</b> <code>phi3</code></li>
+        </ul>
+    </div>
+
     <div class="card">
-        <h2>3. Workshop Workflows (Import via Clipboard)</h2>
-        <p>Klicken Sie auf den Button und drücken Sie in Ihrem n8n-Canvas einfach <b>Strg + V</b>.</p>
+        <h2><span class="step-number">4</span> Workshop Workflows (Strg + V)</h2>
+        <p>Workflow-Code kopieren und einfach in n8n einfügen.</p>
         
         <div style="margin-top: 15px;">
             <strong>A) E-Mail zu Teams (Basic)</strong><br>
@@ -82,8 +82,8 @@
     </div>
 
     <div class="card" style="border-left-color: #2c3e50;">
-        <h2>4. Nächste Schritte</h2>
-        <p>Vertiefung gesucht? Hier geht es zum offiziellen Aufbaukurs:</p>
+        <h2>Nächste Schritte</h2>
+        <p>Hier geht es zur Vertiefung (Aufbaukurs):</p>
         <a href="https://ihkakademie.de/DIGIPAA" target="_blank"><strong>DIGIPAA - n8n Aufbauseminar</strong></a>
     </div>
 
@@ -91,18 +91,18 @@
         &copy; 2026 Mark Finnern | <a href="https://finnern.com">finnern.com</a>
     </div>
 
-    <textarea id="wf1" style="display:none;">{"nodes":[{"parameters":{},"id":"...","name":"Start","type":"n8n-nodes-base.start","typeVersion":1}],"connections":{}}</textarea>
-    <textarea id="wf2" style="display:none;">{"nodes":[{"parameters":{"model":"phi3"},"id":"...","name":"AI Agent","type":"n8n-nodes-base.aiAgent","typeVersion":1}],"connections":{}}</textarea>
+    <textarea id="wf1" style="display:none;">{"nodes":[{"parameters":{},"id":"1","name":"Start","type":"n8n-nodes-base.start","typeVersion":1}],"connections":{}}</textarea>
+    <textarea id="wf2" style="display:none;">{"nodes":[{"parameters":{"model":"phi3"},"id":"2","name":"AI Agent","type":"n8n-nodes-base.aiAgent","typeVersion":1}],"connections":{}}</textarea>
 
     <script>
         function copyText(text) {
             navigator.clipboard.writeText(text);
-            alert("Befehl kopiert!");
+            alert("Befehl kopiert! Jetzt in die CMD (Eingabeaufforderung) einfügen.");
         }
         function copyWorkflow(id) {
             var content = document.getElementById(id).value;
             navigator.clipboard.writeText(content);
-            alert("Workflow-Code kopiert! Gehen Sie zu n8n und drücken Sie Strg+V.");
+            alert("Workflow-Code kopiert! Gehen Sie zu n8n im Browser und drücken Sie Strg+V.");
         }
     </script>
 </body>
