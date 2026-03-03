@@ -6,7 +6,7 @@
     <title>IHK n8n Workshop | Workflow Wizardry</title>
     <style>
         :root { --primary: #2c3e50; --accent: #f1c40f; --text: #333; --bg: #f4f4f4; --blue: #3498db; --green: #27ae60; --red: #e74c3c; --purple: #9b59b6; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); max-width: 1000px; margin: 0 auto; padding: 20px; background-color: var(--bg); }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: var(--text); max-width: 1000px; margin: 0 auto; padding: 20px; background-color: var(--bg); }
         .card { background: white; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid var(--accent); }
         h1 { color: var(--primary); text-align: center; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: var(--blue); margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
@@ -22,9 +22,6 @@
         .check-item { margin-bottom: 10px; display: flex; align-items: flex-start; }
         .check-item:before { content: '🛡️'; margin-right: 12px; }
         .footer { text-align: center; font-size: 0.9em; margin-top: 60px; color: #777; padding-bottom: 40px; border-top: 1px solid #ccc; padding-top: 20px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        table th, table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        table th { background-color: #f8f9fa; }
         @media (max-width: 750px) { .check-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -34,123 +31,106 @@
     <p style="text-align: center; font-size: 1.2em;">IHK Schwarzwald-Baar-Heuberg | Magister: <b>Mark Finnern</b></p>
 
     <div class="wizard-note">
-        <h3>📜 Strategische Notwendigkeit & Verantwortung</h3>
-        <p><i>"Die Geister, die ich rief..."</i> – Angesichts von Fachkräftemangel und steigenden Betriebskosten ist die intelligente Automatisierung von Arbeitsabläufen eine strategische Notwendigkeit zur Sicherung der Wettbewerbsfähigkeit im deutschen Mittelstand.</p>
-        <p><b>Das Ziel:</b> n8n als zentrales Nervensystem für Ihre Unternehmensintelligenz etablieren, ohne die Datenhoheit zu verlieren.</p>
+        <h3>📜 Verantwortung & Agenda</h3>
+        <p><i>"Die Geister, die ich rief..."</i> Automation befreit von „Roboter-Arbeit“, verlangt aber Meisterschaft[cite: 15, 75].</p>
         <div style="margin-top: 15px;">
-            <a href="https://www.canva.com/design/DAHAwug0ojc/JBlazYnQQ3LkuUTEv9wbmA/view" target="_blank" class="btn btn-copy">📂 Workshop-Slides öffnen</a>
-            <a href="https://www.linkedin.com/groups/9804412/" target="_blank" class="btn btn-green">🔗 KI-Impact LinkedIn Gruppe</a>
+            <a href="https://www.canva.com/design/DAHAwug0ojc/JBlazYnQQ3LkuUTEv9wbmA/view" target="_blank" class="btn btn-copy">📂 Workshop-Slides</a>
+            <a href="https://www.linkedin.com/groups/9804412/" target="_blank" class="btn btn-green">🔗 KI-Impact Community</a>
+        </div>
+        <div style="margin-top: 20px; font-size: 0.9em; border-top: 1px solid #555; padding-top: 15px;">
+            <strong>Unsere Agenda:</strong> 1. Fundament (n8n) | 2. Labor (KI) | 3. Brücke (Azure) | 4. Zaubersprüche (Workflows) | 5. Meisterschaft (Security) [cite: 39]
         </div>
     </div>
 
-    <div class="card">
-        <h2>1. Warum n8n? Der strategische Vorteil</h2>
-        <p>n8n besetzt eine einzigartige Nische: Die Flexibilität einer Enterprise-Suite gepaart mit der Sicherheit des Self-Hostings.</p>
-        <table>
-            <tr><th>Kriterium</th><th>n8n (Self-Hosted)</th><th>Cloud (Zapier/Make)</th></tr>
-            <tr><td><b>Datenhoheit</b></td><td>Vollständig (DSGVO-safe)</td><td>Eingeschränkt (Cloud-Server)</td></tr>
-            <tr><td><b>Kosten</b></td><td>Fixe Infrastrukturkosten</td><td>Abo + Kosten pro Task</td></tr>
-            <tr><td><b>Unabhängigkeit</b></td><td>Vollständig (Open Source)</td><td>Abhängig vom Anbieter</td></tr>
-        </table>
-    </div>
-
     <div class="card" style="border-left-color: var(--blue);">
-        <h2>⚡ 2. Lokales Setup: n8n in Docker</h2>
-        <p>Wir nutzen Docker, um eine stabile, isolierte Umgebung zu schaffen, die IHK-Sicherheitshürden umgeht.</p>
+        <h2>⚡ 1. Den Kessel anfeuern: n8n & Docker</h2>
+        <p>Wir nutzen Docker, um Windows-Sicherheitssperren zu umgehen[cite: 108].</p>
         <ol>
-            <li>Drücken Sie <b>Windows + R</b>, geben Sie <code>cmd</code> ein und drücken Sie Enter.</li>
-            <li>Führen Sie diesen Befehl aus, um n8n zu starten:</li>
+            <li><b>Windows + R</b> drücken, <code>cmd</code> eingeben, Enter[cite: 109, 111].</li>
+            <li>Befehl kopieren und in die CMD einfügen:</li>
         </ol>
         <code>docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</code>
         <button class="btn btn-copy" onclick="copyText('docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n')">Befehl kopieren</button>
-        <p>Dashboard öffnen: <a href="http://localhost:5678" target="_blank">http://localhost:5678</a></p>
+        <div class="tip">Fehler "Conflict"? Erst <code>docker rm -f n8n</code> ausführen[cite: 115, 116].</div>
+        <p>Portal: <a href="http://localhost:5678" target="_blank">http://localhost:5678</a> [cite: 117]</p>
     </div>
 
     <div class="card" style="border-left-color: var(--green);">
-        <h2>🧠 3. On-Premise KI: Ollama & Phi-3.5</h2>
-        <p>Intelligente Automatisierung ohne Cloud-Zwang. Wir betreiben unsere KI lokal.</p>
-        
-        <p><b>Schritt A: Software beziehen</b></p>
+        <h2>🧠 2. Lokale KI: Ollama & Phi-3.5</h2>
+        <p>Datenhoheit: Alles läuft lokal auf Ihrem Rechner[cite: 79, 80].</p>
         <a href="https://ollama.com/download" target="_blank" class="btn">Ollama Download</a>
-
-        <p style="margin-top:20px;"><b>Schritt B: Modell laden (in CMD eingeben)</b></p>
+        <p style="margin-top:15px;"><b>Modell laden (in CMD):</b></p>
         <code>ollama pull phi3.5</code>
-        
-        <p style="margin-top:20px;"><b>Schritt C: Netzwerk-Bypass (Wichtig!)</b></p>
-        <p>Beenden Sie Ollama (Taskleiste -> Quit) und starten Sie es in der CMD neu, damit Docker zugreifen darf:</p>
+        <p style="margin-top:15px;"><b>Netzwerk-Bypass (Wichtig):</b> Ollama beenden & neu starten:</p>
         <code>set OLLAMA_HOST=0.0.0.0 && ollama serve</code>
         <button class="btn btn-copy" onclick="copyText('set OLLAMA_HOST=0.0.0.0 && ollama serve')">Server-Bypass starten</button>
     </div>
 
     <div class="card" style="border-left-color: var(--purple);">
-        <h2>☁️ 4. Microsoft 365 (Azure App Registration)</h2>
-        <p>Verknüpfen Sie n8n mit Ihrem Unternehmens-Ökosystem (Outlook, Teams, Excel).</p>
+        <h2>☁️ 3. Microsoft 365 (Azure App Registration)</h2>
         <div class="tip">
             1. Portal: <a href="https://aka.ms/appregistrations" target="_blank">aka.ms/appregistrations</a>.<br>
-            2. <b>Redirect URL:</b> Kopieren Sie die OAuth URL aus n8n nach Azure (Typ: Web).<br>
-            3. <b>Secret:</b> Erstellen Sie einen Schlüssel unter "Zertifikate & Geheimnisse".<br>
-            <b style="color:var(--red);">ACHTUNG: Kopieren Sie den WERT (Value), nicht die ID!</b>
+            2. OAuth Redirect URL aus n8n nach Azure kopieren (Typ: Web).<br>
+            3. Clientschlüssel unter <i>Zertifikate & Geheimnisse</i> erstellen.<br>
+            <b style="color:var(--red);">Wichtig: Wert (Value) kopieren, nicht die ID!</b> [cite: 175]
         </div>
     </div>
 
     <div class="card">
-        <h2>📜 5. Die Bibliothek der Zaubersprüche</h2>
-        <p>Code kopieren und in n8n einfach <b>Strg + V</b> drücken.</p>
+        <h2>📜 4. Die Bibliothek der Zaubersprüche</h2>
+        <p>Kopieren und in n8n mit <b>Strg + V</b> einfügen[cite: 104, 137].</p>
         
-        <div style="margin-top:15px;">
-            <strong>A) IhKE KI Agent (Workshop Master)</strong><br>
-            <p>Ihr lokaler Assistent. Nutzt Ollama und Phi-3.5.</p>
-            <button class="btn btn-copy" onclick="copyWorkflow('wf_ihke')">Code kopieren</button>
+        <div style="margin-top:20px;">
+            <strong>A) IhKE KI Agent (Workshop Wizard)</strong><br>
+            <p>Ihr lokaler Assistent für IHK-Fragen[cite: 119].</p>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf_ihke')">IhKE Code kopieren</button>
         </div>
 
-        <div style="margin-top:15px;">
-            <strong>B) Mail Merge Basic (Sheets -> Outlook)</strong><br>
-            <p>Einfacher automatisierter E-Mail-Versand.</p>
-            <button class="btn btn-copy" onclick="copyWorkflow('wf_mail_basic')">Code kopieren</button>
+        <div style="margin-top:20px;">
+            <strong>B) Mail Merge Basic (Sheets ➔ Outlook)</strong><br>
+            <p>Einfacher automatisierter E-Mail-Versand[cite: 164, 165].</p>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf_mail_basic')">Basic Mail Merge kopieren</button>
         </div>
 
-        <div style="margin-top:15px;">
+        <div style="margin-top:20px;">
             <strong>C) Mail Merge Pro (Filter & Feedback)</strong><br>
-            <p>Mit Validierung leerer Felder und Zeitstempel-Rückschreibung.</p>
-            <button class="btn btn-copy" onclick="copyWorkflow('wf_mail_pro')">Code kopieren</button>
+            <p>Mit Validierung leerer Felder und Zeitstempel-Rückschreibung[cite: 180, 181].</p>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf_mail_pro')">Pro Mail Merge kopieren</button>
         </div>
 
-        <div style="margin-top:15px;">
-            <strong>D) Outlook -> KI -> Telegram</strong><br>
-            <p>Analysiert E-Mails und schickt Zusammenfassungen aufs Handy.</p>
-            <button class="btn btn-copy" onclick="copyWorkflow('wf_telegram')">Code kopieren</button>
+        <div style="margin-top:20px;">
+            <strong>D) Outlook ➔ KI ➔ Telegram Push</strong><br>
+            <p>Analysiert E-Mails und schickt Ergebnisse aufs Handy[cite: 195, 196].</p>
+            <button class="btn btn-copy" onclick="copyWorkflow('wf_telegram')">Push-Workflow kopieren</button>
         </div>
     </div>
 
     <div class="card" style="border-left-color: var(--red);">
-        <h2>🛡️ 6. Sicherheits-Checkliste & Enterprise Best Practices</h2>
-        <p>„Technologie sollte menschliche Fähigkeiten verstärken, nicht ersetzen.“ – Doug Engelbart</p>
-        
+        <h2>🛡️ 5. Sicherheits-Checkliste & Best Practices</h2>
         <div class="check-grid">
             <div>
-                <strong>Sicherheits-Checkliste</strong>
-                <div class="check-item">Keine Cloud-Abhängigkeit (Self-Hosted).</div>
-                <div class="check-item">Datenhoheit gewahrt (Sensible Daten bleiben intern).</div>
-                <div class="check-item">Credentials werden verschlüsselt in n8n gespeichert.</div>
+                <strong>Checkliste</strong>
+                <div class="check-item">Datenhoheit gewahrt (Lokal)[cite: 80].</div>
+                <div class="check-item">Credentials verschlüsselt in n8n[cite: 174].</div>
+                <div class="check-item">Keine Cloud-Abhängigkeit[cite: 79].</div>
             </div>
             <div>
-                <strong>Enterprise Best Practices</strong>
-                <div class="check-item"><b>Fehler 1 vermeiden:</b> Zu großes erstes Projekt – klein anfangen!</div>
-                <div class="check-item"><b>Fehler 2 vermeiden:</b> Credentials falsch – API-Keys prüfen (Value vs ID).</div>
-                <div class="check-item"><b>Fehler 3 vermeiden:</b> Kein Testen vor Live-Einsatz – immer validieren!</div>
+                <strong>Best Practices</strong>
+                <div class="check-item">Klein anfangen (1 Problem, 1 Woche)[cite: 221, 225].</div>
+                <div class="check-item">Testen vor Live-Einsatz[cite: 223, 224].</div>
+                <div class="check-item">Ehrlichkeit: Automation ist Werkzeug, kein Wunder[cite: 81, 82].</div>
             </div>
         </div>
-        <p style="margin-top:15px; text-align: center; font-weight: bold; color: var(--green);">Erfolgsrezept: 1 Problem. 1 Workflow. 1 Woche.</p>
     </div>
 
     <div class="footer">
         &copy; 2026 Mark Finnern | <a href="https://finnern.com">finnern.com</a> | <a href="https://ki-impact.org">ki-impact.org</a>
     </div>
 
-    <textarea id="wf_ihke" style="display:none;">Hier den Text aus IhKE KI Agent (2).json einfügen</textarea>
-    <textarea id="wf_mail_basic" style="display:none;">Hier den Text aus Mail Merge Google Sheets -_ Outlook.json einfügen</textarea>
-    <textarea id="wf_mail_pro" style="display:none;">Hier den Text aus Mail Merge Google Sheets -_ Filter -_ Outlook -_ Zeitstempel Google Sheets.json einfügen</textarea>
-    <textarea id="wf_telegram" style="display:none;">Hier den Text aus Outlook-_KI-_Telegram.json einfügen</textarea>
+    <textarea id="wf_ihke" style="display:none;">{ "name": "IhKE KI Agent", "nodes": [ { "parameters": { "operation": "sendAndWait", "message": "={{ $json.output }}", "options": {} }, "type": "@n8n/n8n-nodes-langchain.chat", "typeVersion": 1.2, "position": [ 800, -96 ], "id": "5f2d4bba-9501-4c5c-9b65-d032084882ca", "name": "Chat" }, { "parameters": { "public": true, "initialMessages": "Hallo 👋 Mein Name ist IhKE. Wie kann ich helfen? ", "availableInChat": true, "agentName": "Ihke ", "agentDescription": "Freundlicher ein bisschen vergesslicher IHK Helfer für KMUs", "options": { "responseMode": "responseNodes" } }, "type": "@n8n/n8n-nodes-langchain.chatTrigger", "typeVersion": 1.4, "position": [ 224, -96 ], "id": "df53a1e4-6290-4776-a21d-ae4276d1c300", "name": "When chat message received" }, { "parameters": { "model": "phi3.5:latest", "options": {} }, "type": "@n8n/n8n-nodes-langchain.lmChatOllama", "typeVersion": 1, "position": [ 384, 112 ], "id": "b0d5ab46-66a1-4575-ae20-fd940176a887", "name": "Ollama Chat Model" }, { "parameters": {}, "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow", "typeVersion": 1.3, "position": [ 528, 112 ], "id": "44c5b75c-16eb-4586-91f4-6d5aa2259f14", "name": "Simple Memory" }, { "parameters": { "options": { "systemMessage": "=Du bist 'IhKE', der offizielle KI-Assistent der IHK. Deine Mission: Hilf Teilnehmern bei Fragen zur regionalen Wirtschaft und Schulungen. Antworte immer kurz, präzise und auf Deutsch." } }, "type": "@n8n/n8n-nodes-langchain.agent", "typeVersion": 3.1, "position": [ 448, -96 ], "id": "24e918ab-1d7d-4d55-bb08-6008d66bbebe", "name": "IhKE Wizzard (KI Agent)" } ], "connections": { "When chat message received": { "main": [ [ { "node": "IhKE Wizzard (KI Agent)", "type": "main", "index": 0 } ] ] }, "Ollama Chat Model": { "ai_languageModel": [ [ { "node": "IhKE Wizzard (KI Agent)", "type": "ai_languageModel", "index": 0 } ] ] }, "Simple Memory": { "ai_memory": [ [ { "node": "IhKE Wizzard (KI Agent)", "type": "ai_memory", "index": 0 } ] ] }, "IhKE Wizzard (KI Agent)": { "main": [ [ { "node": "Chat", "type": "main", "index": 0 } ] ] } } }</textarea>
+    <textarea id="wf_mail_basic" style="display:none;">{ "name": "Mail Merge Google Sheets -> Outlook", "nodes": [ { "parameters": { "documentId": { "__rl": true, "value": "1NUMoEQVkRSnVZm5sZXx-MiWFgRh0cbgcCAATGbHSyeA", "mode": "id" }, "sheetName": { "__rl": true, "value": "Sheet1", "mode": "name" }, "options": {} }, "id": "fbbeecf4-011b-401b-a92d-c143b4d77c0c", "name": "Google Sheets", "type": "n8n-nodes-base.googleSheets", "typeVersion": 4, "position": [ -176, 32 ] }, { "parameters": { "toRecipients": "={{ $json['email '] }}", "subject": "=Hello {{ $json.First }} -- Einladung zum Event", "bodyContent": "=<p>Hallo {{ $json.First }}, wir laden dich herzlich ein!</p>", "additionalFields": { "bodyContentType": "html" } }, "id": "032026b2-44e5-474b-b0b5-9275cd0fec94", "name": "Microsoft Outlook", "type": "n8n-nodes-base.microsoftOutlook", "typeVersion": 2, "position": [ 48, 32 ] } ], "connections": { "Google Sheets": { "main": [ [ { "node": "Microsoft Outlook", "type": "main", "index": 0 } ] ] } } }</textarea>
+    <textarea id="wf_mail_pro" style="display:none;">{ "name": "Mail Merge Pro", "nodes": [ { "parameters": { "documentId": { "__rl": true, "value": "ID_HIER", "mode": "id" }, "options": {} }, "id": "pro-1", "name": "Google Sheets", "type": "n8n-nodes-base.googleSheets", "typeVersion": 4, "position": [ -176, -640 ] }, { "parameters": { "conditions": { "conditions": [ { "leftValue": "={{ $json['Email '] }}", "operator": { "operation": "notEmpty", "singleValue": true } } ] } }, "type": "n8n-nodes-base.filter", "typeVersion": 2.3, "position": [ 48, -640 ], "id": "pro-2", "name": "Filter leere Email Felder" } ], "connections": { "Google Sheets": { "main": [ [ { "node": "Filter leere Email Felder", "type": "main", "index": 0 } ] ] } } }</textarea>
+    <textarea id="wf_telegram" style="display:none;">{ "name": "Outlook->KI->Telegram", "nodes": [ { "parameters": { "pollTimes": { "item": [ { "mode": "everyMinute" } ] } }, "type": "n8n-nodes-base.microsoftOutlookTrigger", "typeVersion": 1, "position": [ 144, -96 ], "id": "t-1", "name": "Microsoft Outlook Trigger" }, { "parameters": { "chatId": "6450933759", "text": "={{ $json.output }}" }, "type": "n8n-nodes-base.telegram", "typeVersion": 1.2, "position": [ 720, -96 ], "id": "t-2", "name": "Send a text message" } ], "connections": { "Microsoft Outlook Trigger": { "main": [ [] ] } } }</textarea>
 
     <script>
         function copyText(text) {
@@ -160,7 +140,7 @@
         function copyWorkflow(id) {
             var content = document.getElementById(id).value;
             navigator.clipboard.writeText(content);
-            alert("Workflow-Code kopiert! Gehen Sie zu n8n und drücken Sie Strg+V.");
+            alert("Workflow-Code kopiert! In n8n Strg+V drücken.");
         }
     </script>
 </body>
