@@ -341,6 +341,42 @@
       margin-top: 4px;
     }
 
+    .tl-list {
+      list-style: none;
+      margin-top: 12px;
+      padding: 0;
+    }
+
+    .tl-list li {
+      font-size: 0.88rem;
+      color: #555;
+      padding: 6px 0 6px 18px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .tl-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px;
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .tl-list li.tl-aside {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .tl-list li.tl-aside::before { background: #ccc; }
+
+    .tl-list a { color: var(--gold); text-decoration: none; }
+    .tl-list a:hover { text-decoration: underline; }
+
+    .tl-item:nth-child(odd) .tl-content .tl-list { text-align: left; }
+
     /* ── REGISTER ── */
     .register-bg {
       background: linear-gradient(160deg, #1a1a2e 0%, #0f3460 100%);
@@ -576,39 +612,72 @@
   <h2 class="section-title">Das Wochenende</h2>
   <p class="section-sub">Vier Tage, viele Gesichter, endlos viele Geschichten.</p>
 
+  <p style="text-align: center; max-width: 600px; margin: -40px auto 50px; font-size: 0.85rem; color: var(--gray); font-style: italic;">Grobe Skizze – Änderungen vorbehalten 😉</p>
+
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-content">
-        <p class="tl-day">Donnerstag · 27.08.</p>
-        <p class="tl-event">Anreise & Eröffnung</p>
-        <p class="tl-detail">Check-in, erstes Wiedersehen, gemütlicher Auftaktabend</p>
+        <p class="tl-day">Donnerstag · 27.08. · Anreisetag</p>
+        <p class="tl-event">Ankommen & Beine baumeln lassen</p>
+        <ul class="tl-list">
+          <li>Anreise ab <strong>15:00 Uhr</strong></li>
+          <li>Abends: gemütliches, gemeinsames <strong>Kochevent in Eigenregie</strong></li>
+          <li>Zeit zum Durchatmen und ersten Wiedersehen 🌿</li>
+        </ul>
       </div>
       <div class="tl-dot"></div>
     </div>
     <div class="tl-item">
       <div class="tl-content">
         <p class="tl-day">Freitag · 28.08.</p>
-        <p class="tl-event">Wanderung & Freitagsabend</p>
-        <p class="tl-detail">Gemeinsame Wanderung, Burgführung, Abend-Event</p>
+        <p class="tl-event">Mondfinsternis, Wanderung & Open-Mic im Zodiak</p>
+        <ul class="tl-list">
+          <li><strong>6:11 Uhr</strong> · 90 % Mondfinsternis 🌒 (für Frühaufsteher)</li>
+          <li>Tagsüber: <strong>Gemeinsame Wanderung</strong> – evtl. zu den Burgen Schildteck und/oder Falkenstein</li>
+          <li>Abends: <strong>Open-Mic im Zodiak</strong> – Ulli Brauchle und die <em>Old Vintage Band</em> sind wieder dabei</li>
+          <li class="tl-aside">Bühne frei für Band-Karaoke! Mitmachen? → <a href="mailto:ulibrarw@gmail.com">ulibrarw@gmail.com</a></li>
+        </ul>
       </div>
       <div class="tl-dot"></div>
     </div>
     <div class="tl-item">
       <div class="tl-content">
         <p class="tl-day">Samstag · 29.08.</p>
-        <p class="tl-event">Hauptprogramm & Samstagsabend</p>
-        <p class="tl-detail">Großes Gruppenbild, Abend-Event mit Musik und Feier</p>
+        <p class="tl-event">Erfinderzeiten, Spaghettieis & Lagerfeuer</p>
+        <ul class="tl-list">
+          <li>Später Vormittag: Besuch im <strong>Erfinderzeiten Museum</strong> (HU Schramberg) – Mark Finnern führt vielleicht persönlich</li>
+          <li>Mittags: Gemeinsames Essen in Schramberg (z.B. <em>Hirschbrunnen Café</em>)</li>
+          <li>Anschließend: Traditioneller Besuch bei <strong>Eisdiele Rino</strong> – Stichwort <em>Spaghettieis!</em> 🍦</li>
+          <li>Abends: Entspanntes <strong>Grillen & Feuer-Event</strong> auf dem Gelände – Lagerfeuer, Musik, viel Singen, viel Reden</li>
+        </ul>
       </div>
       <div class="tl-dot"></div>
     </div>
     <div class="tl-item">
       <div class="tl-content">
-        <p class="tl-day">Sonntag · 30.08.</p>
-        <p class="tl-event">Abschluss & Abschied</p>
-        <p class="tl-detail">Letztes Frühstück, Abreise – bis zum nächsten Mal</p>
+        <p class="tl-day">Sonntag · 30.08. · Abschied</p>
+        <p class="tl-event">Frühstück, Auskehren, Wiedersehen ankündigen</p>
+        <ul class="tl-list">
+          <li>Gemeinsames <strong>Frühstück</strong></li>
+          <li>Auskehren – wir verlassen das Burgstüble wie wir es gefunden haben</li>
+          <li><em>Heulend & glücklich nach Hause fahren</em> ;-)</li>
+        </ul>
       </div>
       <div class="tl-dot"></div>
     </div>
+  </div>
+</section>
+
+<!-- KRIMI -->
+<section class="packages-bg" style="padding-bottom: 40px;">
+  <div style="max-width: 760px; margin: 0 auto; background: linear-gradient(135deg, #fdf6e3, #fbecc7); border-radius: 16px; padding: 40px 36px; text-align: center; border: 1px solid #e8d8a8;">
+    <p style="font-size: 2rem; margin-bottom: 8px;">🎬</p>
+    <p class="section-label" style="margin-bottom: 8px;">Kreative Idee</p>
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--dark); margin-bottom: 12px;">Unser Schramberg Krimi</h3>
+    <p style="color: #555; line-height: 1.7; max-width: 580px; margin: 0 auto;">
+      Wir spielen mit der Idee, übers Wochenende gemeinsam einen <strong>„Schramberg Krimi"</strong> zu entwickeln und zu drehen – ein kollektives Filmskript mit Euch als Protagonisten und den schönsten Plätzen Schrambergs als Tatorte (oder eben nicht 😉).
+    </p>
+    <p style="margin-top: 16px; font-style: italic; color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.05rem;">Arbeitstitel: „Jahrgangstreffen – Mord im Burgstüble!"</p>
   </div>
 </section>
 
@@ -734,6 +803,8 @@
 
 <!-- FOOTER -->
 <footer>
+  <p style="color: rgba(255,255,255,0.7); margin-bottom: 8px;"><strong>Euer Organisationsteam</strong></p>
+  <p style="margin-bottom: 16px; font-style: italic;">Mark Finnern · Mimi Zwerenz · Friedemann Schaub · Andrea Skrypski · Susanne Andrea · Ulrich Brauchle · Rolf Haberstroh</p>
   <p>ABI 84 Treff 2026 · Schramberg &nbsp;|&nbsp; <a href="mailto:mark@finnern.com">mark@finnern.com</a></p>
   <p style="margin-top: 8px;"><a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a></p>
 </footer>
