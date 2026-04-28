@@ -765,25 +765,8 @@
     <input type="hidden" name="_subject" value="ABI 84 Treff 2026 – Neue Anmeldung">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://finnern.com/ABI84/?danke=1">
-    <input type="hidden" name="_autoresponse" value="Hallo!
-
-Vielen Dank für deine Anmeldung zum ABI 84 Treff 2026 (27.–30.08.2026 im Burgstüble Schramberg).
-
-WICHTIG: Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist. Bitte überweise den Betrag deines gewählten Pakets auf folgendes Konto:
-
-Kontoinhaber:in: [KONTOINHABER]
-IBAN: [IBAN]
-BIC: [BIC]
-Bank: [BANK]
-Verwendungszweck: ABI84 + Dein Vor- und Nachname
-
-Sobald wir die Zahlung sehen, schicken wir dir eine Bestätigung. Bei Fragen einfach auf diese Mail antworten.
-
-Wir freuen uns riesig auf das Wiedersehen!
-
-Herzliche Grüße
-Mark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf
-Euer Orga-Team">
+    <input type="hidden" name="_autoresponse" value="">
+    <input type="hidden" name="_autoresponse_subject" value="Wir freun uns das Du kommst! :-)">
 
     <div class="form-row">
       <div class="form-group">
@@ -835,11 +818,41 @@ Euer Orga-Team">
       const form = document.getElementById('abi-form');
       const success = document.getElementById('abi-form-success');
       const subjectField = form.querySelector('[name="_subject"]');
+      const autoField = form.querySelector('[name="_autoresponse"]');
 
-      // Dynamic subject before native POST
+      // Build dynamic subject and personalized autoresponse before native POST
       form.addEventListener('submit', () => {
         const fd = new FormData(form);
-        subjectField.value = `ABI 84 ${fd.get('Vorname') || ''} ${fd.get('Nachname') || ''} – ${fd.get('Paket') || ''}`.trim();
+        const vor = fd.get('Vorname') || '';
+        const nach = fd.get('Nachname') || '';
+        const paket = fd.get('Paket') || '';
+        subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
+        autoField.value = [
+          `Hallo ${vor}!`,
+          ``,
+          `Vielen Dank für deine Anmeldung zum ABI 84 Treff 2026 (27.–30.08.2026 im Burgstüble Schramberg).`,
+          ``,
+          `Dein gewähltes Paket:`,
+          `   ${paket}`,
+          ``,
+          `WICHTIG – Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.`,
+          ``,
+          `Bitte überweise den Betrag auf folgendes Konto:`,
+          ``,
+          `   Kontoinhaber:in:   [KONTOINHABER]`,
+          `   IBAN:              [IBAN]`,
+          `   BIC:               [BIC]`,
+          `   Bank:              [BANK]`,
+          `   Verwendungszweck:  ABI84 ${vor} ${nach}`,
+          ``,
+          `Sobald wir die Zahlung sehen, bekommst du eine Bestätigung. Bei Fragen einfach auf diese Mail antworten.`,
+          ``,
+          `Wir freuen uns riesig auf das Wiedersehen!`,
+          ``,
+          `Herzliche Grüße`,
+          `Mark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf`,
+          `Euer Orga-Team`
+        ].join('\n');
       });
 
       // Show success box after redirect from Formsubmit
