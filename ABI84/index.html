@@ -29,7 +29,7 @@
     .hero {
       background:
         linear-gradient(180deg, rgba(15,20,40,0.78) 0%, rgba(15,20,40,0.55) 40%, rgba(15,20,40,0.92) 100%),
-        url('images/falkenstein-blick.jpg') center 40% / cover no-repeat;
+        url('images/Sunrise Burg.jpg') center 40% / cover no-repeat;
       color: white;
       text-align: center;
       padding: 110px 24px 130px;
@@ -100,6 +100,26 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       opacity: 0.5;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      margin-top: 48px;
+      padding: 16px 36px;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
     }
 
     /* ── SECTION ── */
@@ -494,7 +514,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Klasse von 1984 · HRO Schramberg</div>
+  <div class="hero-badge">Abi-Jahrgang 1984 · Schramberg</div>
   <h1>ABI <span>84</span></h1>
   <p class="hero-subtitle">Abiturtreff 2026</p>
   <p class="hero-date">27. – 30. August 2026</p>
@@ -503,6 +523,7 @@
     42 Jahre danach – und es fühlt sich an wie gestern.<br>
     Drei Tage Wiedersehen, Lachen, Erinnern und Feiern.
   </p>
+  <a href="#anmeldung" class="hero-cta">Jetzt anmelden →</a>
   <p class="scroll-hint">↓ Alle Infos unten</p>
 </section>
 
@@ -752,7 +773,7 @@
 </section>
 
 <!-- REGISTER -->
-<section class="register-bg">
+<section class="register-bg" id="anmeldung">
   <p class="section-label" style="color: var(--gold-light);">Jetzt sichern</p>
   <h2 class="section-title">Anmeldung</h2>
   <p class="section-sub">Schreib uns kurz – wir melden uns mit allen Details zurück.</p>
