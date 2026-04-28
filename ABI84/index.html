@@ -830,13 +830,35 @@
     </div>
 
     <button type="submit" class="btn-gold">Anmeldung absenden</button>
-    <p class="form-note">Du bekommst sofort eine Bestätigungs-Mail mit den Bankdaten. Anmeldung gilt nach Zahlungseingang.</p>
+    <p class="form-note">Du bekommst eine kurze Bestätigungs-Mail. Die Zahlungsdetails siehst du direkt auf der nächsten Seite.</p>
   </form>
 
-  <div id="abi-form-success" style="display:none; max-width: 560px; margin: 0 auto; background: rgba(201,168,76,0.15); border: 1px solid var(--gold); border-radius: 12px; padding: 32px 28px; text-align: center;">
-    <p style="font-size: 2rem; margin-bottom: 8px;">✓</p>
-    <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light); margin-bottom: 8px;">Danke – wir haben deine Anmeldung!</p>
-    <p style="color: rgba(255,255,255,0.8);">Du bekommst gleich eine Bestätigungs-Mail mit den Bankdaten. Bitte schau auch im Spam-Ordner nach.</p>
+  <div id="abi-form-success" style="display:none; max-width: 620px; margin: 0 auto;">
+
+    <div style="background: rgba(201,168,76,0.15); border: 1px solid var(--gold); border-radius: 12px; padding: 32px 28px; text-align: center; margin-bottom: 24px;">
+      <p style="font-size: 2.5rem; margin-bottom: 8px;">🎉</p>
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold-light); margin-bottom: 12px;">Wir freuen uns, dass Du kommst!</p>
+      <p id="success-paket" style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 4px;"></p>
+      <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Eine kurze Bestätigung haben wir dir per Mail geschickt.</p>
+    </div>
+
+    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; padding: 28px; color: white;">
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); margin-bottom: 20px;">💳 Bitte überweise jetzt den Betrag</p>
+
+      <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;">Bankverbindung</p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.95rem; line-height:2;">
+        <tr><td style="color:rgba(255,255,255,0.5); width:44%;">Kontoinhaber:in</td><td style="font-weight:600;">Rolf Haberstroh</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5);">IBAN</td><td style="font-family:monospace; letter-spacing:1px;">DE93 1203 0000 1201 7082 76</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5);">BIC</td><td>BYLADEM1001</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5);">Bank</td><td>DKB</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5);">Verwendungszweck</td><td id="success-vwz" style="color: var(--gold-light); font-weight:600;"></td></tr>
+      </table>
+
+      <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+      <p style="font-size:0.85rem; color:rgba(255,255,255,0.5);">⚠️ Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.<br>
+      Zahlungsfrist: <strong style="color:rgba(255,255,255,0.8);">1. Juli 2026</strong></p>
+    </div>
+
   </div>
 
   <script>
@@ -846,45 +868,30 @@
       const subjectField = form.querySelector('[name="_subject"]');
       const autoField = form.querySelector('[name="_autoresponse"]');
 
-      // Build dynamic subject and personalized autoresponse before native POST
       form.addEventListener('submit', () => {
         const fd = new FormData(form);
         const vor = fd.get('Vorname') || '';
         const nach = fd.get('Nachname') || '';
         const paket = fd.get('Paket') || '';
         subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
-        autoField.value = [
-          `Hallo ${vor}!`,
-          `<br><br>`,
-          `Vielen Dank für deine Anmeldung zum ABI 84 Treff 2026 (27.–30.08.2026 im Burgstüble Schramberg).`,
-          `<br><br>`,
-          `Dein gewähltes Paket:<br>`,
-          `&nbsp;&nbsp;&nbsp;<strong>${paket}</strong>`,
-          `<br><br>`,
-          `<strong>WICHTIG</strong> – Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.`,
-          `<br><br>`,
-          `Bitte überweise den Betrag auf folgendes Konto:<br>`,
-          `<br>`,
-          `&nbsp;&nbsp;&nbsp;Kontoinhaber:in: &nbsp;[KONTOINHABER]<br>`,
-          `&nbsp;&nbsp;&nbsp;IBAN: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IBAN]<br>`,
-          `&nbsp;&nbsp;&nbsp;BIC: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BIC]<br>`,
-          `&nbsp;&nbsp;&nbsp;Bank: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BANK]<br>`,
-          `&nbsp;&nbsp;&nbsp;Verwendungszweck: ABI84 ${vor} ${nach}`,
-          `<br><br>`,
-          `Sobald wir die Zahlung sehen, bekommst du eine Bestätigung. Bei Fragen einfach auf diese Mail antworten.`,
-          `<br><br>`,
-          `Wir freuen uns riesig auf das Wiedersehen!`,
-          `<br><br>`,
-          `Herzliche Grüße<br>`,
-          `Mark, Mimi, Friedemann, Andrea, Susanne, Ulli &amp; Rolf<br>`,
-          `Euer Orga-Team`
-        ].join('');
+
+        // Plain text only – Formsubmit escapes HTML
+        autoField.value = `Hallo ${vor}!\n\nWir haben deine Anmeldung zum ABI 84 Treff 2026 erhalten – schön, dass du dabei bist!\n\nDein Paket: ${paket}\n\nBitte überweise den Betrag bis zum 1. Juli 2026 auf folgendes Konto:\n\nKontoinhaber: Rolf Haberstroh\nIBAN: DE93 1203 0000 1201 7082 76\nBIC: BYLADEM1001\nBank: DKB\nVerwendungszweck: Abitreff 2026 - ${vor} ${nach}\n\nBei Fragen einfach auf diese Mail antworten.\n\nWir freuen uns riesig auf das Wiedersehen!\n\nHerzliche Grüße\nMark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf\nEuer Orga-Team`;
+
+        // Save for success page (lost after Formsubmit redirect)
+        localStorage.setItem('abi84_anmeldung', JSON.stringify({ vor, nach, paket }));
       });
 
       // Show success box after redirect from Formsubmit
       if (new URLSearchParams(location.search).get('danke') === '1') {
         form.style.display = 'none';
         success.style.display = 'block';
+        try {
+          const d = JSON.parse(localStorage.getItem('abi84_anmeldung') || '{}');
+          if (d.paket) document.getElementById('success-paket').textContent = 'Gewähltes Paket: ' + d.paket;
+          if (d.vor || d.nach) document.getElementById('success-vwz').textContent = `Abitreff 2026 - ${d.vor} ${d.nach}`.trim();
+          localStorage.removeItem('abi84_anmeldung');
+        } catch(e) {}
         setTimeout(() => success.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
       }
     })();
@@ -899,11 +906,11 @@
 
   <div style="max-width: 560px; margin: 0 auto; background: var(--light-bg); border: 2px solid var(--gold); border-radius: 16px; padding: 32px;">
     <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-      <tr><td style="padding: 10px 0; color: var(--gray); width: 40%;">Kontoinhaber:in</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark);">[KONTOINHABER]</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">IBAN</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">[IBAN]</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">BIC</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">[BIC]</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Bank</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); border-top: 1px solid #e8e4dc;">[BANK]</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Verwendungszweck</td><td style="padding: 10px 0; font-weight: 600; color: var(--gold); border-top: 1px solid #e8e4dc;">ABI84 + Dein Vor- und Nachname</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); width: 40%;">Kontoinhaber:in</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark);">Rolf Haberstroh</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">IBAN</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">DE93 1203 0000 1201 7082 76</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">BIC</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">BYLADEM1001</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Bank</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); border-top: 1px solid #e8e4dc;">DKB</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Verwendungszweck</td><td style="padding: 10px 0; font-weight: 600; color: var(--gold); border-top: 1px solid #e8e4dc;">Abitreff 2026 – Dein Vor- und Nachname</td></tr>
     </table>
     <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray); font-style: italic; text-align: center;">Bitte unbedingt den Verwendungszweck angeben, damit wir dich zuordnen können.</p>
   </div>
