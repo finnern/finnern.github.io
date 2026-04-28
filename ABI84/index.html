@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ABI 84 Treff 2026</title>
+  <meta property="og:title" content="ABI 84 Treff 2026 – Schramberg">
+  <meta property="og:description" content="27.–30. August 2026 im Burgstüble Hohenschramberg. Komm dabei sein!">
+  <meta property="og:image" content="https://finnern.com/ABI84/images/Sunrise%20Burg.jpg">
+  <meta property="og:url" content="https://finnern.com/ABI84/">
+  <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -850,30 +855,30 @@
         subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
         autoField.value = [
           `Hallo ${vor}!`,
-          ``,
+          `<br><br>`,
           `Vielen Dank für deine Anmeldung zum ABI 84 Treff 2026 (27.–30.08.2026 im Burgstüble Schramberg).`,
-          ``,
-          `Dein gewähltes Paket:`,
-          `   ${paket}`,
-          ``,
-          `WICHTIG – Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.`,
-          ``,
-          `Bitte überweise den Betrag auf folgendes Konto:`,
-          ``,
-          `   Kontoinhaber:in:   [KONTOINHABER]`,
-          `   IBAN:              [IBAN]`,
-          `   BIC:               [BIC]`,
-          `   Bank:              [BANK]`,
-          `   Verwendungszweck:  ABI84 ${vor} ${nach}`,
-          ``,
+          `<br><br>`,
+          `Dein gewähltes Paket:<br>`,
+          `&nbsp;&nbsp;&nbsp;<strong>${paket}</strong>`,
+          `<br><br>`,
+          `<strong>WICHTIG</strong> – Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.`,
+          `<br><br>`,
+          `Bitte überweise den Betrag auf folgendes Konto:<br>`,
+          `<br>`,
+          `&nbsp;&nbsp;&nbsp;Kontoinhaber:in: &nbsp;[KONTOINHABER]<br>`,
+          `&nbsp;&nbsp;&nbsp;IBAN: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IBAN]<br>`,
+          `&nbsp;&nbsp;&nbsp;BIC: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BIC]<br>`,
+          `&nbsp;&nbsp;&nbsp;Bank: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BANK]<br>`,
+          `&nbsp;&nbsp;&nbsp;Verwendungszweck: ABI84 ${vor} ${nach}`,
+          `<br><br>`,
           `Sobald wir die Zahlung sehen, bekommst du eine Bestätigung. Bei Fragen einfach auf diese Mail antworten.`,
-          ``,
+          `<br><br>`,
           `Wir freuen uns riesig auf das Wiedersehen!`,
-          ``,
-          `Herzliche Grüße`,
-          `Mark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf`,
+          `<br><br>`,
+          `Herzliche Grüße<br>`,
+          `Mark, Mimi, Friedemann, Andrea, Susanne, Ulli &amp; Rolf<br>`,
           `Euer Orga-Team`
-        ].join('\n');
+        ].join('');
       });
 
       // Show success box after redirect from Formsubmit
