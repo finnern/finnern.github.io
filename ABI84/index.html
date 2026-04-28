@@ -847,11 +847,11 @@
 
       <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; text-align: left;">Bankverbindung</p>
       <table style="width:100%; border-collapse:collapse; font-size:0.95rem; line-height:2;">
-        <tr><td style="color:rgba(255,255,255,0.5); width:44%;">Kontoinhaber:in</td><td style="font-weight:600;">Rolf Haberstroh</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5);">IBAN</td><td style="font-family:monospace; letter-spacing:1px;">DE93 1203 0000 1201 7082 76</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5);">BIC</td><td>BYLADEM1001</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5);">Bank</td><td>DKB</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5);">Verwendungszweck</td><td id="success-vwz" style="color: var(--gold-light); font-weight:600;"></td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5); width:44%; text-align:right; padding-right:16px;">Kontoinhaber:in</td><td style="font-weight:600;">Rolf Haberstroh</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">IBAN</td><td style="font-family:monospace; letter-spacing:1px;">DE93 1203 0000 1201 7082 76</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">BIC</td><td>BYLADEM1001</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">Bank</td><td>DKB</td></tr>
+        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">Verwendungszweck</td><td id="success-vwz" style="color: var(--gold-light); font-weight:600;"></td></tr>
       </table>
 
       <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
@@ -876,7 +876,7 @@
         subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
 
         // Plain text only – Formsubmit escapes HTML
-        autoField.value = `Hallo ${vor}!\n\nWir haben deine Anmeldung zum ABI 84 Treff 2026 erhalten – schön, dass du dabei bist!\n\nDein Paket: ${paket}\n\nBitte überweise den Betrag bis zum 1. Juli 2026 auf folgendes Konto:\n\nKontoinhaber: Rolf Haberstroh\nIBAN: DE93 1203 0000 1201 7082 76\nBIC: BYLADEM1001\nBank: DKB\nVerwendungszweck: Abitreff 2026 - ${vor} ${nach}\n\nBei Fragen einfach auf diese Mail antworten.\n\nWir freuen uns riesig auf das Wiedersehen!\n\nHerzliche Grüße\nMark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf\nEuer Orga-Team`;
+        autoField.value = `Hallo ${vor}!\n\nWir haben deine Anmeldung zum ABI 84 Treff 2026 erhalten – schön, dass du dabei bist!\n\nDein Paket: ${paket}\n\nBitte überweise den Betrag bis zum 1. Juli 2026 auf folgendes Konto:\n\nKontoinhaber: Rolf Haberstroh\nIBAN: DE93 1203 0000 1201 7082 76\nBIC: BYLADEM1001\nBank: DKB\nVerwendungszweck: Abifest 2026: ${vor} ${nach}\n\nBei Fragen einfach auf diese Mail antworten.\n\nWir freuen uns riesig auf das Wiedersehen!\n\nHerzliche Grüße\nMark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf\nEuer Orga-Team`;
 
         // Save for success page (lost after Formsubmit redirect)
         localStorage.setItem('abi84_anmeldung', JSON.stringify({ vor, nach, paket }));
@@ -906,11 +906,11 @@
 
   <div style="max-width: 560px; margin: 0 auto; background: var(--light-bg); border: 2px solid var(--gold); border-radius: 16px; padding: 32px; text-align: left;">
     <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-      <tr><td style="padding: 10px 0; color: var(--gray); width: 40%;">Kontoinhaber:in</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark);">Rolf Haberstroh</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">IBAN</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">DE93 1203 0000 1201 7082 76</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">BIC</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">BYLADEM1001</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Bank</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); border-top: 1px solid #e8e4dc;">DKB</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc;">Verwendungszweck</td><td style="padding: 10px 0; font-weight: 600; color: var(--gold); border-top: 1px solid #e8e4dc;">Abitreff 2026 – Dein Vor- und Nachname</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); width: 42%; text-align: right; padding-right: 16px;">Kontoinhaber:in</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark);">Rolf Haberstroh</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">IBAN</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">DE93 1203 0000 1201 7082 76</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">BIC</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">BYLADEM1001</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">Bank</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); border-top: 1px solid #e8e4dc;">DKB</td></tr>
+      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">Verwendungszweck</td><td style="padding: 10px 0; font-weight: 600; color: var(--gold); border-top: 1px solid #e8e4dc;">Abifest 2026: Dein Vor- und Nachname</td></tr>
     </table>
     <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray); font-style: italic;">Bitte unbedingt den Verwendungszweck angeben, damit wir dich zuordnen können.</p>
   </div>
