@@ -1,25 +1,183 @@
 ---
 permalink: /404.html
-layout: page
+layout: null
+sitemap: false
 ---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Diese Seite ist abhanden gekommen · finnern.com</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+    :root {
+      --bg:        #faf7f0;
+      --ink:       #1a1a2e;
+      --ink-soft:  #4a4a5e;
+      --gold:      #c9a84c;
+      --gold-dark: #a8892f;
+      --link:      #1e3a5f;
+    }
 
-<div class="container">
-  <h1>404</h1>
+    html, body { height: 100%; }
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 720px;
+      width: 100%;
+      text-align: center;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .wrap { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+      .copy { text-align: center; }
+    }
+
+    .cat {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 12px 24px rgba(26,26,46,.15));
+      animation: bob 4s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .copy {
+      text-align: left;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .quip {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+      min-height: 1.6em;
+      font-style: italic;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: #faf7f0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 12px 22px;
+      border-radius: 4px;
+      border: 2px solid var(--gold);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .home-link:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--gold);
+    }
+    .home-link::after { content: '→'; }
+
+    .suggestions {
+      margin-top: 24px;
+      font-size: .85rem;
+      color: var(--ink-soft);
+    }
+    .suggestions a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px dotted currentColor;
+      margin: 0 4px;
+    }
+    .suggestions a:hover { color: var(--gold-dark); }
+
+    .footer-note {
+      margin-top: 36px;
+      font-size: .75rem;
+      color: var(--ink-soft);
+      opacity: .55;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    <img src="/assets/images/404-cat.jpg" alt="Eine etwas verlorene, aber pünktliche Katze" class="cat" />
+
+    <div class="copy">
+      <span class="badge">404 · Verschollen</span>
+      <h1>Tut mir leid, die Seite gibt's nicht.</h1>
+      <p class="quip" id="quip">…</p>
+
+      <a href="https://finnern.com" class="home-link">Zur Hauptseite finnern.com</a>
+
+      <p class="suggestions">
+        Vielleicht meintest du
+        <a href="/funkenflug/">Funkenflug</a> ·
+        <a href="/baenkle">Bänkle</a> ·
+        <a href="/ABI84/">ABI 84</a> ·
+        <a href="/blog">Blog</a>
+      </p>
+
+      <p class="footer-note">Die Katze trägt eine Uhr, also weiß sie wenigstens, wie spät es ist.</p>
+    </div>
+  </main>
+
+  <script>
+    const quips = [
+      "Die Katze hat Zeit. Du hoffentlich auch.",
+      "Diese URL ist auf Wanderschaft. Komm später wieder oder geh nach Hause.",
+      "Hier war mal was. Jetzt ist hier eine Katze.",
+      "404 Antennen ausgefahren — kein Signal.",
+      "Auch Wilhelm Busch hätte hier kein Reim gefunden.",
+      "Die Seite ist im Funkenflug aufgegangen. ✦",
+      "Wir haben überall gesucht. Nur die Katze blieb.",
+      "Die Maus ist entkommen. Die Katze nimmt's gelassen.",
+      "Diese Seite folgt der Datensparsamkeit — sie existiert gar nicht erst.",
+      "Vielleicht ein Tippfehler? Oder ein lebenslanger Irrweg? Schwer zu sagen."
+    ];
+    document.getElementById('quip').textContent =
+      quips[Math.floor(Math.random() * quips.length)];
+  </script>
+
+</body>
+</html>
