@@ -872,15 +872,42 @@
 
       form.addEventListener('submit', () => {
         const fd = new FormData(form);
-        const vor = fd.get('Vorname') || '';
-        const nach = fd.get('Nachname') || '';
-        const paket = fd.get('Paket') || '';
+        const vor      = fd.get('Vorname') || '';
+        const nach     = fd.get('Nachname') || '';
+        const paket    = fd.get('Paket') || '';
+        const nachricht = fd.get('Nachricht') || '';
+        const email    = fd.get('email') || '';
+
         subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
 
-        // Plain text only – Formsubmit escapes HTML
-        autoField.value = `Hallo ${vor}!\n\nWir haben deine Anmeldung zum ABI 84 Treff 2026 erhalten – schön, dass du dabei bist!\n\nDein Paket: ${paket}\n\nBitte überweise den Betrag bis zum 1. Juli 2026 auf folgendes Konto:\n\nKontoinhaber: Rolf Haberstroh\nIBAN: DE93 1203 0000 1201 7082 76\nBIC: BYLADEM1001\nBank: DKB\nVerwendungszweck: Abifest 2026: ${vor} ${nach}\n\nBei Fragen einfach auf diese Mail antworten.\n\nWir freuen uns riesig auf das Wiedersehen!\n\nHerzliche Grüße\nMark, Mimi, Friedemann, Andrea, Susanne, Ulli & Rolf\nEuer Orga-Team`;
+        // Kurze Plaintext-Bestätigung via Formsubmit (schöne HTML-Mail kommt vom Apps Script)
+        autoField.value = `Hallo ${vor}! Deine Anmeldung ist angekommen – eine schön formatierte Bestätigungs-Mail mit den Bankdaten ist unterwegs. Wir freuen uns riesig auf das Wiedersehen! Euer Orga-Team`;
 
-        // Save for success page (lost after Formsubmit redirect)
+        // Paket-Wert auf Google Forms Format mappen
+        const paketMap = {
+          'XXL – 200€ · Do 27. – So 30. (3× ÜF + alle Events)': 'XXL 200€ Do 27. – So 30. (3× ÜF + alle Events)',
+          'XL – 160€ · Fr 28. – So 30. (2× ÜF + alle Events)':  'XL 160€ Fr 28. – So 30. (2× ÜF + alle Events)',
+          'L – 100€ · Fr 28. – So 30. (ohne ÜF, alle Events)':  'L 100€ Fr 28. – So 30. (ohne ÜF, alle Events)',
+          'M – 80€ · Freitag/Samstag (1× ÜF + Event)':          'M 80€ Fr/Sa (1× ÜF + Event)',
+          'M – 80€ · Samstag/Sonntag (1× ÜF + Event)':          'M 80€ Sa/So (1× ÜF + Event)',
+          'S – 40€ · Freitag/Samstag (Tagesticket)':            'S 40€ Fr/Sa (Tagesticket)',
+          'S – 40€ · Samstag/Sonntag (Tagesticket)':            'S 40€ Sa/So (Tagesticket)',
+        };
+        const gformPaket = paketMap[paket] || paket;
+
+        // Stille Übermittlung an Google Forms → Google Sheet + Apps Script E-Mail
+        const gformData = new FormData();
+        gformData.append('entry.786718439',  vor);
+        gformData.append('entry.1285958817', nach);
+        gformData.append('entry.604011532',  email);
+        gformData.append('entry.676929609',  gformPaket);
+        gformData.append('entry.149516537',  nachricht);
+        fetch(
+          'https://docs.google.com/forms/d/e/1FAIpQLSculUFvRSU0Lu1i47fKPuzRFrYiT8mUR_VY5Gtael5EzWBEaA/formResponse',
+          { method: 'POST', body: gformData, mode: 'no-cors' }
+        ).catch(() => {});
+
+        // Für Bestätigungsseite speichern (geht bei Formsubmit-Redirect verloren)
         localStorage.setItem('abi84_anmeldung', JSON.stringify({ vor, nach, paket }));
       });
 
