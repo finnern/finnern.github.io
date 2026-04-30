@@ -134,7 +134,7 @@ function onFormSubmit(e) {
   // Benachrichtigung ans Orga-Team
   MailApp.sendEmail({
     to: 'mark@finnern.com',
-    cc: 'rolf@haroweb.de',
+    cc: 'abi@haroweb.de',
     subject: `✅ ABI 84 Anmeldung: ${vor} ${nach} – ${paket}`,
     body: `Neue Anmeldung eingegangen!\n\nName:     ${vor} ${nach}\nE-Mail:   ${email}\nPaket:    ${paket}\nNachricht: ${nachricht || '–'}\n\nViele Grüße,\nDein Google Forms Robot`
   });
