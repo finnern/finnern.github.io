@@ -793,8 +793,6 @@
     <input type="hidden" name="_subject" value="ABI 84 Treff 2026 – Neue Anmeldung">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://finnern.com/ABI84/?danke=1">
-    <input type="hidden" name="_autoresponse" value="">
-    <input type="hidden" name="_autoresponse_subject" value="Wir freun uns das Du kommst! :-)">
 
     <div class="form-row">
       <div class="form-group">
@@ -868,7 +866,6 @@
       const form = document.getElementById('abi-form');
       const success = document.getElementById('abi-form-success');
       const subjectField = form.querySelector('[name="_subject"]');
-      const autoField = form.querySelector('[name="_autoresponse"]');
 
       form.addEventListener('submit', () => {
         const fd = new FormData(form);
@@ -879,9 +876,6 @@
         const email    = fd.get('email') || '';
 
         subjectField.value = `ABI 84 ${vor} ${nach} – ${paket}`.trim();
-
-        // Kurze Plaintext-Bestätigung via Formsubmit (schöne HTML-Mail kommt vom Apps Script)
-        autoField.value = `Hallo ${vor}! Deine Anmeldung ist angekommen – eine schön formatierte Bestätigungs-Mail mit den Bankdaten ist unterwegs. Wir freuen uns riesig auf das Wiedersehen! Euer Orga-Team`;
 
         // Paket-Wert auf Google Forms Format mappen
         const paketMap = {
