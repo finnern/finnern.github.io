@@ -122,9 +122,10 @@ function onFormSubmit(e) {
 </body>
 </html>`;
 
-  // Sende Bestätigung an Anmelder
+  // Sende Bestätigung an Anmelder (Rolf als BCC)
   MailApp.sendEmail({
     to: email,
+    bcc: 'abi@haroweb.de',
     subject: `ABI 84 Treff 2026 – Wir freuen uns, dass Du kommst, ${vor}! 🎉`,
     htmlBody: htmlBody,
     name: 'ABI 84 Orga-Team'
