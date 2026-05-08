@@ -2,6 +2,35 @@
 // Einfügen in: Google Form → ⋮ → Script-Editor
 // Trigger: onFormSubmit → Bei Formulareinreichung
 
+// ── Konfiguration ──────────────────────────────────────────────────
+const EARLY_BIRD_DEADLINE = new Date('2026-06-01T00:00:00+02:00'); // Anmeldung muss VOR diesem Datum eingehen
+const EARLY_BIRD_DISCOUNT = 0.10; // 10%
+const PACKAGE_PRICES = {
+  'XXL': 200,
+  'XL':  160,
+  'L':   100,
+  'M':    80,
+  'S':    40
+};
+
+// Extrahiert Paket-Code (XXL, XL, L, M, S) aus dem Dropdown-Text
+function extractPackageCode(paketText) {
+  const match = paketText.match(/^(XXL|XL|L|M|S)\b/);
+  return match ? match[1] : null;
+}
+
+function calculatePrice(paketText) {
+  const code = extractPackageCode(paketText);
+  const basePrice = PACKAGE_PRICES[code];
+  if (!basePrice) return { basePrice: null, finalPrice: null, isEarlyBird: false, discount: 0 };
+
+  const isEarlyBird = new Date() < EARLY_BIRD_DEADLINE;
+  const finalPrice = isEarlyBird ? Math.round(basePrice * (1 - EARLY_BIRD_DISCOUNT)) : basePrice;
+  const discount = basePrice - finalPrice;
+
+  return { basePrice, finalPrice, isEarlyBird, discount };
+}
+
 function onFormSubmit(e) {
   const responses = e.response.getItemResponses();
   const data = {};
@@ -14,6 +43,53 @@ function onFormSubmit(e) {
   const email    = data['E-Mail-Adresse'] || '';
   const paket    = data['Interessiertes Paket / Service'] || '';
   const nachricht = data['Ihre Nachricht (Details zur Anfrage)'] || '';
+
+  const pricing = calculatePrice(paket);
+
+  // Preis-Anzeige fürs Mail (nur wenn Paket erkannt)
+  const priceDisplay = pricing.finalPrice
+    ? (pricing.isEarlyBird
+        ? `<span style="text-decoration:line-through;color:#999;">€${pricing.basePrice}</span> <strong style="color:#C9A84C;">€${pricing.finalPrice}</strong> <span style="background:#C9A84C;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:bold;margin-left:6px;">FRÜHBUCHER −10%</span>`
+        : `<strong>€${pricing.finalPrice}</strong>`)
+    : '';
+
+  // Frühbucher-Hinweis (nur wenn aktiv)
+  const earlyBirdNote = pricing.isEarlyBird && pricing.finalPrice
+    ? `
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+            <tr>
+              <td style="background:#f0f9e8;border:1px solid #7CB342;border-radius:8px;padding:16px 20px;">
+                <p style="margin:0 0 6px;font-size:13px;font-weight:bold;color:#33691E;">🎉 Frühbucher-Bonus aktiv</p>
+                <p style="margin:0;font-size:14px;color:#555;line-height:1.6;">
+                  Du sparst <strong>€${pricing.discount}</strong>, wenn die Zahlung bis zum <strong>31. Mai 2026</strong> bei uns eingegangen ist.
+                  Danach gilt wieder der reguläre Preis von €${pricing.basePrice}.
+                </p>
+              </td>
+            </tr>
+          </table>`
+    : '';
+
+  // Solidaritäts-Box
+  const solidarityBox = `
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+            <tr>
+              <td style="background:#faf6ee;border-radius:8px;padding:20px;">
+                <p style="margin:0 0 12px;font-size:14px;color:#444;line-height:1.7;">
+                  <strong>Kein Geld? Kein Problem.</strong> 🤝<br>
+                  Das Leben spielt manchmal nicht mit — aber das soll niemanden davon abhalten, dabei zu sein. Meld dich einfach kurz bei mir, wir finden gemeinsam einen Weg.
+                </p>
+                <p style="margin:0;font-size:14px;color:#444;line-height:1.7;">
+                  <strong>Das Leben hat dir gut mitgespielt?</strong> 🙌<br>
+                  Dann freuen wir uns, wenn du etwas drauflegst — damit am Ende alle dabei sind. Schreib mir kurz: <a href="mailto:mark@finnern.com" style="color:#C9A84C;">mark@finnern.com</a>
+                </p>
+              </td>
+            </tr>
+          </table>`;
+
+  // Subject mit Frühbucher-Hinweis
+  const subject = pricing.isEarlyBird
+    ? `ABI 84 Treff 2026 – Wir freuen uns, ${vor}! 🎉 (Frühbucher: −€${pricing.discount})`
+    : `ABI 84 Treff 2026 – Wir freuen uns, dass Du kommst, ${vor}! 🎉`;
 
   // ── Bestätigungs-Mail an den Anmelder ──────────────────────────────
   const htmlBody = `
@@ -49,10 +125,13 @@ function onFormSubmit(e) {
             <tr>
               <td style="background:#f9f7f2;border-left:4px solid #C9A84C;border-radius:0 8px 8px 0;padding:16px 20px;">
                 <p style="margin:0 0 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#999;">Dein gewähltes Paket</p>
-                <p style="margin:0;font-size:17px;font-weight:bold;color:#1a1a2e;">${paket}</p>
+                <p style="margin:0 0 8px;font-size:17px;font-weight:bold;color:#1a1a2e;">${paket}</p>
+                ${priceDisplay ? `<p style="margin:0;font-size:18px;">${priceDisplay}</p>` : ''}
               </td>
             </tr>
           </table>
+
+          ${earlyBirdNote}
 
           <!-- Wichtig -->
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
@@ -90,7 +169,14 @@ function onFormSubmit(e) {
               <td style="padding:8px 16px 8px 0;color:#999;text-align:right;">Verwendungszweck</td>
               <td style="padding:8px 0;font-weight:bold;color:#C9A84C;">Abifest 2026: ${vor} ${nach}</td>
             </tr>
+            ${pricing.finalPrice ? `
+            <tr>
+              <td style="padding:8px 16px 8px 0;color:#999;text-align:right;border-top:1px solid #eee;">Betrag</td>
+              <td style="padding:8px 0;font-weight:bold;color:#1a1a2e;border-top:1px solid #eee;">€${pricing.finalPrice}${pricing.isEarlyBird ? ' <span style="font-weight:normal;color:#999;font-size:12px;">(statt €' + pricing.basePrice + ')</span>' : ''}</td>
+            </tr>` : ''}
           </table>
+
+          ${solidarityBox}
 
           <p style="margin:0 0 32px;font-size:14px;color:#666;line-height:1.7;">
             Sobald deine Zahlung bei uns eingegangen ist, bekommst du eine Bestätigung.<br>
@@ -122,20 +208,23 @@ function onFormSubmit(e) {
 </body>
 </html>`;
 
-  // Sende Bestätigung an Anmelder (Rolf als BCC)
+  // Sende Bestätigung an Anmelder (abi@haroweb.de als BCC)
   MailApp.sendEmail({
     to: email,
     bcc: 'abi@haroweb.de',
-    subject: `ABI 84 Treff 2026 – Wir freuen uns, dass Du kommst, ${vor}! 🎉`,
+    subject: subject,
     htmlBody: htmlBody,
     name: 'ABI 84 Orga-Team'
   });
 
   // Benachrichtigung ans Orga-Team
+  const priceLine = pricing.finalPrice
+    ? `\nBetrag:    €${pricing.finalPrice}${pricing.isEarlyBird ? ' (Frühbucher, statt €' + pricing.basePrice + ')' : ''}`
+    : '';
   MailApp.sendEmail({
     to: 'mark@finnern.com',
     cc: 'abi@haroweb.de',
     subject: `✅ ABI 84 Anmeldung: ${vor} ${nach} – ${paket}`,
-    body: `Neue Anmeldung eingegangen!\n\nName:     ${vor} ${nach}\nE-Mail:   ${email}\nPaket:    ${paket}\nNachricht: ${nachricht || '–'}\n\nViele Grüße,\nDein Google Forms Robot`
+    body: `Neue Anmeldung eingegangen!\n\nName:     ${vor} ${nach}\nE-Mail:   ${email}\nPaket:    ${paket}${priceLine}\nNachricht: ${nachricht || '–'}\n\nViele Grüße,\nDein Google Forms Robot`
   });
 }
