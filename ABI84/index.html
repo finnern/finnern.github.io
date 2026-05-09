@@ -922,33 +922,21 @@
     </div>
 
     <button type="submit" class="btn-gold">Anmeldung absenden</button>
-    <p class="form-note">Du bekommst eine kurze Bestätigungs-Mail. Die Zahlungsdetails siehst du direkt auf der nächsten Seite.</p>
+    <p class="form-note">Du bekommst sofort eine Bestätigungs-Mail mit allen Zahlungsdetails (auch im Spam-Ordner schauen!).</p>
   </form>
 
   <div id="abi-form-success" style="display:none; max-width: 620px; margin: 0 auto;">
 
-    <div style="background: rgba(201,168,76,0.15); border: 1px solid var(--gold); border-radius: 12px; padding: 32px 28px; text-align: center; margin-bottom: 24px;">
-      <p style="font-size: 2.5rem; margin-bottom: 8px;">🎉</p>
-      <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold-light); margin-bottom: 12px;">Wir freuen uns, dass Du kommst!</p>
-      <p id="success-paket" style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 4px;"></p>
-      <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Eine kurze Bestätigung haben wir dir per Mail geschickt.</p>
-    </div>
-
-    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; padding: 28px; color: white; text-align: left;">
-      <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-light); margin-bottom: 20px;">💳 Bitte überweise jetzt den Betrag</p>
-
-      <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; text-align: left;">Bankverbindung</p>
-      <table style="width:100%; border-collapse:collapse; font-size:0.95rem; line-height:2;">
-        <tr><td style="color:rgba(255,255,255,0.5); width:44%; text-align:right; padding-right:16px;">Kontoinhaber:in</td><td style="font-weight:600;">Rolf Haberstroh</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">IBAN</td><td style="font-family:monospace; letter-spacing:1px;">DE93 1203 0000 1201 7082 76</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">BIC</td><td>BYLADEM1001</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">Bank</td><td>DKB</td></tr>
-        <tr><td style="color:rgba(255,255,255,0.5); text-align:right; padding-right:16px;">Verwendungszweck</td><td id="success-vwz" style="color: var(--gold-light); font-weight:600;"></td></tr>
-      </table>
-
-      <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-      <p style="font-size:0.85rem; color:rgba(255,255,255,0.5);">⚠️ Deine Anmeldung gilt erst als verbindlich, sobald die Zahlung bei uns eingegangen ist.<br>
-      Zahlungsfrist: <strong style="color:rgba(255,255,255,0.8);">1. Juli 2026</strong></p>
+    <div style="background: rgba(201,168,76,0.15); border: 1px solid var(--gold); border-radius: 12px; padding: 40px 32px; text-align: center;">
+      <p style="font-size: 3rem; margin-bottom: 12px;">🎉</p>
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold-light); margin-bottom: 16px;">Wir freuen uns, dass Du kommst!</p>
+      <p id="success-paket" style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 20px;"></p>
+      <p style="color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.7;">
+        📧 Wir haben dir eine <strong>Bestätigungs-Mail</strong> mit allen Zahlungsdetails geschickt.
+      </p>
+      <p style="color: rgba(255,255,255,0.55); font-size: 0.85rem; margin-top: 12px;">
+        Bitte schau auch im Spam-Ordner nach – die Mail kommt von <em>mark@finnern.com</em>.
+      </p>
     </div>
 
   </div>
@@ -1004,7 +992,6 @@
         try {
           const d = JSON.parse(localStorage.getItem('abi84_anmeldung') || '{}');
           if (d.paket) document.getElementById('success-paket').textContent = 'Gewähltes Paket: ' + d.paket;
-          if (d.vor || d.nach) document.getElementById('success-vwz').textContent = `Abitreff 2026 - ${d.vor} ${d.nach}`.trim();
           localStorage.removeItem('abi84_anmeldung');
         } catch(e) {}
         setTimeout(() => success.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
@@ -1013,21 +1000,22 @@
   </script>
 </section>
 
-<!-- BANKDATEN -->
+<!-- ZAHLUNGSHINWEIS (Bankdaten kommen per E-Mail nach Anmeldung) -->
 <section class="packages-bg">
   <p class="section-label">Zahlung</p>
-  <h2 class="section-title">Bankdaten</h2>
-  <p class="section-sub">Anmeldung gilt erst nach Zahlungseingang. Bitte den Betrag des gewählten Pakets überweisen.<span class="eb-only"> <strong>Frühbucher:</strong> Überweise den um 10% reduzierten Betrag, wenn du bis <strong>31.05.2026</strong> zahlst.</span></p>
+  <h2 class="section-title">So geht's weiter</h2>
+  <p class="section-sub">Nach deiner Anmeldung bekommst du sofort eine Bestätigungs-Mail mit allen Bankdaten und dem genauen Betrag.<span class="eb-only"> <strong>Frühbucher:</strong> 10% Rabatt bei Zahlungseingang bis <strong>31.05.2026</strong>.</span></p>
 
-  <div style="max-width: 560px; margin: 0 auto; background: var(--light-bg); border: 2px solid var(--gold); border-radius: 16px; padding: 32px; text-align: left;">
-    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-      <tr><td style="padding: 10px 0; color: var(--gray); width: 42%; text-align: right; padding-right: 16px;">Kontoinhaber:in</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark);">Rolf Haberstroh</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">IBAN</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">DE93 1203 0000 1201 7082 76</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">BIC</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); font-family: monospace; border-top: 1px solid #e8e4dc;">BYLADEM1001</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">Bank</td><td style="padding: 10px 0; font-weight: 600; color: var(--dark); border-top: 1px solid #e8e4dc;">DKB</td></tr>
-      <tr><td style="padding: 10px 0; color: var(--gray); border-top: 1px solid #e8e4dc; text-align: right; padding-right: 16px;">Verwendungszweck</td><td style="padding: 10px 0; font-weight: 600; color: var(--gold); border-top: 1px solid #e8e4dc;">Abifest 2026: Dein Vor- und Nachname</td></tr>
-    </table>
-    <p style="margin-top: 20px; font-size: 0.85rem; color: var(--gray); font-style: italic;">Bitte unbedingt den Verwendungszweck angeben, damit wir dich zuordnen können.</p>
+  <div style="max-width: 560px; margin: 0 auto; background: var(--light-bg); border: 2px solid var(--gold); border-radius: 16px; padding: 32px; text-align: center;">
+    <p style="font-size: 2.4rem; margin-bottom: 12px;">📧</p>
+    <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--dark); margin-bottom: 12px;">Bankdaten per E-Mail</p>
+    <p style="font-size: 0.95rem; color: var(--gray); line-height: 1.7;">
+      Aus Sicherheitsgründen veröffentlichen wir die Kontoverbindung nicht öffentlich.<br>
+      Du erhältst sie direkt nach der Anmeldung in deiner persönlichen Bestätigungs-Mail.
+    </p>
+    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 16px; font-style: italic;">
+      Anmeldung gilt erst nach Zahlungseingang.<br>Zahlungsfrist: <strong>1. Juli 2026</strong>
+    </p>
   </div>
 </section>
 
