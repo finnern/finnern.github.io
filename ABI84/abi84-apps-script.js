@@ -208,10 +208,9 @@ function onFormSubmit(e) {
 </body>
 </html>`;
 
-  // Sende Bestätigung an Anmelder (abi@haroweb.de als BCC)
+  // Sende Bestätigung an Anmelder (KEIN BCC – Orga sieht alles via Notification unten)
   MailApp.sendEmail({
     to: email,
-    bcc: 'abi@haroweb.de',
     subject: subject,
     htmlBody: htmlBody,
     name: 'ABI 84 Orga-Team'
