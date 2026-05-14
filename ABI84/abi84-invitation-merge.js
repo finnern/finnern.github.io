@@ -246,6 +246,31 @@ function einladungsHtml(vor) {
           <p style="margin:8px 0 0;font-size:13px;color:#999;font-style:italic;">
             (im Namen des Orga-Teams: Mark, Mimi, Friedemann, Andrea, Susanne, Ulli, Rolf)
           </p>
+
+          <!-- Bilder-Galerie: Schwarzwaldstube Eselbach -->
+          <p style="margin:36px 0 12px;font-size:13px;font-weight:bold;color:#1a1a2e;letter-spacing:1px;text-transform:uppercase;">
+            🥨 Schwarzwaldstube Eselbach
+          </p>
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
+            <tr>
+              <td style="padding-bottom:10px;">
+                <img src="https://finnern.com/ABI84/images/Schwarzwaldstube_Eselbach.jpeg" alt="Schwarzwaldstube Eselbach" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom:10px;">
+                <img src="https://finnern.com/ABI84/images/Eselbach_Wirtschaft.jpeg" alt="Innen: gemütliche Stube" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg" alt="Schlachtplatte" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+              </td>
+            </tr>
+          </table>
+          <p style="margin:0;font-size:12px;color:#999;font-style:italic;text-align:center;">
+            Schwarzwald Stube Eselbach — Wirtshaus, Stube und Schlachtplatte 🍻
+          </p>
         </td>
       </tr>
 
