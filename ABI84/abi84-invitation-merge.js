@@ -22,17 +22,22 @@ const DRY_RUN = true;
 // ════════════════════════════════════════════════════════════════════
 
 // 0) NUR EINMAL: Berechtigungen anfordern.
-//    Wenn neue APIs (UrlFetch, Drive, etc.) dazukommen muss neu
-//    authorisiert werden. Diese Funktion löst die Auth-Dialoge aus.
 function requestPermissions() {
   Logger.log('Anfordere Berechtigungen...');
-  // UrlFetch (für Inline-Bilder)
   const test = UrlFetchApp.fetch('https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg');
   Logger.log('UrlFetch OK — ' + test.getBlob().getBytes().length + ' bytes geladen');
-  // Sheet (für Empfängerliste)
   const sheet = SpreadsheetApp.openById(EINLADUNGS_SHEET_ID).getSheets()[0];
   Logger.log('Sheet OK — ' + sheet.getName());
   Logger.log('✅ Alle Berechtigungen vorhanden.');
+}
+
+// 0a) Gmail-Quota prüfen (wie viele Mails du heute noch verschicken kannst)
+function checkQuota() {
+  const remaining = MailApp.getRemainingDailyQuota();
+  Logger.log('📬 Verbleibende Mail-Quota heute: ' + remaining);
+  Logger.log(remaining >= 100
+    ? '   → Du hast Workspace oder ähnliches. 111 in einem Schwung möglich.'
+    : '   → Sieht nach Free-Gmail-Konto aus (Limit 100/Tag).');
 }
 
 // 1) Empfänger aus dem Sheet anzeigen (verschickt nichts)
@@ -49,11 +54,21 @@ function sendeVorschauAnMich() {
   sendeEinladung('Mark', meineEmail, /* dryRun */ false);
 }
 
-// 3) Test mit allen Sheet-Empfängern
+// 3) Versand an alle Sheet-Empfänger
 //    Achtung: prüfe vorher DRY_RUN (oben) und die Sheet-Liste!
 function sendeEinladungenAusSheet() {
   const empf = ladeEmpfaengerAusSheet();
+  const quota = MailApp.getRemainingDailyQuota();
+  Logger.log('📬 Mail-Quota heute verbleibend: ' + quota);
   Logger.log('🚀 Starte Versand an ' + empf.length + ' Empfänger' + (DRY_RUN ? ' (DRY_RUN — keine echten Mails)' : ''));
+
+  if (!DRY_RUN && empf.length > quota) {
+    throw new Error('❌ Quota reicht nicht: ' + empf.length + ' Empfänger, aber nur ' + quota + ' Mails verfügbar. Versand abgebrochen — verkleinere die Liste oder warte bis morgen.');
+  }
+
+  // Bilder EINMAL laden (statt für jede Mail neu)
+  const bilder = DRY_RUN ? null : ladeInlineBilder();
+  if (bilder) Logger.log('📸 ' + Object.keys(bilder).length + ' Bilder geladen.');
 
   let ok = 0, skip = 0, err = 0;
   empf.forEach((r, i) => {
@@ -63,10 +78,10 @@ function sendeEinladungenAusSheet() {
       return;
     }
     try {
-      sendeEinladung(r.vor, r.email, DRY_RUN);
+      sendeEinladung(r.vor, r.email, DRY_RUN, bilder);
       Logger.log('✓ ' + (i+1) + '/' + empf.length + ' → ' + r.email + ' (' + r.vor + ')');
       ok++;
-      if (!DRY_RUN) Utilities.sleep(800); // Pause gegen Gmail Rate-Limit
+      if (!DRY_RUN) Utilities.sleep(400); // kürzere Pause da Bilder schon vorgeladen
     } catch (e) {
       Logger.log('✗ ' + r.email + ' — ' + e.message);
       err++;
@@ -98,7 +113,7 @@ function ladeEmpfaengerAusSheet() {
     .filter(r => r.vor || r.email); // leere Zeilen raus
 }
 
-function sendeEinladung(vor, email, dryRun) {
+function sendeEinladung(vor, email, dryRun, vorgeladeneBilder) {
   const subject = 'Eselbach und Zodiak an einem Wochenende — Anmeldung ist offen';
   const htmlBody = einladungsHtml(vor);
 
@@ -109,7 +124,8 @@ function sendeEinladung(vor, email, dryRun) {
 
   // Bilder als Inline-Attachments — werden direkt mit der Mail mitgesendet,
   // keine Abhängigkeit von Gmail-Image-Proxy oder Cache.
-  const inlineImages = ladeInlineBilder();
+  // Falls vorgeladene Bilder übergeben wurden (Bulk-Versand), die nehmen.
+  const inlineImages = vorgeladeneBilder || ladeInlineBilder();
 
   MailApp.sendEmail({
     to: email,
