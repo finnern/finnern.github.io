@@ -21,6 +21,20 @@ const DRY_RUN = true;
 // HAUPTFUNKTIONEN  – im Editor auswählen + ▶ Run
 // ════════════════════════════════════════════════════════════════════
 
+// 0) NUR EINMAL: Berechtigungen anfordern.
+//    Wenn neue APIs (UrlFetch, Drive, etc.) dazukommen muss neu
+//    authorisiert werden. Diese Funktion löst die Auth-Dialoge aus.
+function requestPermissions() {
+  Logger.log('Anfordere Berechtigungen...');
+  // UrlFetch (für Inline-Bilder)
+  const test = UrlFetchApp.fetch('https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg');
+  Logger.log('UrlFetch OK — ' + test.getBlob().getBytes().length + ' bytes geladen');
+  // Sheet (für Empfängerliste)
+  const sheet = SpreadsheetApp.openById(EINLADUNGS_SHEET_ID).getSheets()[0];
+  Logger.log('Sheet OK — ' + sheet.getName());
+  Logger.log('✅ Alle Berechtigungen vorhanden.');
+}
+
 // 1) Empfänger aus dem Sheet anzeigen (verschickt nichts)
 function zeigeEmpfaengerListe() {
   const empf = ladeEmpfaengerAusSheet();
