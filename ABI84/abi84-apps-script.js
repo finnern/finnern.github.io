@@ -2,6 +2,22 @@
 // Einfügen in: Google Form → ⋮ → Script-Editor
 // Trigger: onFormSubmit → Bei Formulareinreichung
 
+// ════════════════════════════════════════════════════════════════════
+// TEST / MAIL-MERGE: Liste hier editieren, dann oben "sendTestEmails"
+// auswählen und auf ▶ Run klicken.
+// ════════════════════════════════════════════════════════════════════
+function sendTestEmails() {
+  const recipients = [
+    { vor: 'Mark',     nach: 'Finnern', email: 'mark@finnern.com',    paket: 'XXL 200€ Do 27. – So 30. (3× ÜF + alle Events)' },
+    { vor: 'Christine', nach: '',       email: 'ideenfunken@gmail.com', paket: 'XL 160€ Fr 28. – So 30. (2× ÜF + alle Events)' },
+  ];
+
+  recipients.forEach(r => {
+    sendConfirmationEmail(r.vor, r.nach, r.email, r.paket);
+    Logger.log('Test-Mail gesendet an: ' + r.email);
+  });
+}
+
 // ── Konfiguration ──────────────────────────────────────────────────
 const EARLY_BIRD_DEADLINE = new Date('2026-06-01T00:00:00+02:00'); // Anmeldung muss VOR diesem Datum eingehen
 const EARLY_BIRD_DISCOUNT = 0.10; // 10%
@@ -31,6 +47,7 @@ function calculatePrice(paketText) {
   return { basePrice, finalPrice, isEarlyBird, discount };
 }
 
+// ── Trigger: läuft automatisch bei jeder Anmeldung ─────────────────
 function onFormSubmit(e) {
   const responses = e.response.getItemResponses();
   const data = {};
@@ -44,16 +61,20 @@ function onFormSubmit(e) {
   const paket    = data['Interessiertes Paket / Service'] || '';
   const nachricht = data['Ihre Nachricht (Details zur Anfrage)'] || '';
 
+  sendConfirmationEmail(vor, nach, email, paket);
+  sendOrgaNotification(vor, nach, email, paket, nachricht);
+}
+
+// ── Bestätigungs-Mail an den Anmelder ──────────────────────────────
+function sendConfirmationEmail(vor, nach, email, paket) {
   const pricing = calculatePrice(paket);
 
-  // Preis-Anzeige fürs Mail (nur wenn Paket erkannt)
   const priceDisplay = pricing.finalPrice
     ? (pricing.isEarlyBird
         ? `<span style="text-decoration:line-through;color:#999;">€${pricing.basePrice}</span> <strong style="color:#C9A84C;">€${pricing.finalPrice}</strong> <span style="background:#C9A84C;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:bold;margin-left:6px;">FRÜHBUCHER −10%</span>`
         : `<strong>€${pricing.finalPrice}</strong>`)
     : '';
 
-  // Frühbucher-Hinweis (nur wenn aktiv)
   const earlyBirdNote = pricing.isEarlyBird && pricing.finalPrice
     ? `
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
@@ -69,7 +90,6 @@ function onFormSubmit(e) {
           </table>`
     : '';
 
-  // Solidaritäts-Box
   const solidarityBox = `
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
             <tr>
@@ -86,12 +106,10 @@ function onFormSubmit(e) {
             </tr>
           </table>`;
 
-  // Subject mit Frühbucher-Hinweis
   const subject = pricing.isEarlyBird
     ? `ABI 84 Treff 2026 – Wir freuen uns, ${vor}! 🎉 (Frühbucher: −€${pricing.discount})`
     : `ABI 84 Treff 2026 – Wir freuen uns, dass Du kommst, ${vor}! 🎉`;
 
-  // ── Bestätigungs-Mail an den Anmelder ──────────────────────────────
   const htmlBody = `
 <!DOCTYPE html>
 <html lang="de">
@@ -208,18 +226,21 @@ function onFormSubmit(e) {
 </body>
 </html>`;
 
-  // Sende Bestätigung an Anmelder (KEIN BCC – Orga sieht alles via Notification unten)
   MailApp.sendEmail({
     to: email,
     subject: subject,
     htmlBody: htmlBody,
     name: 'ABI 84 Orga-Team'
   });
+}
 
-  // Benachrichtigung ans Orga-Team
+// ── Notification ans Orga-Team ─────────────────────────────────────
+function sendOrgaNotification(vor, nach, email, paket, nachricht) {
+  const pricing = calculatePrice(paket);
   const priceLine = pricing.finalPrice
     ? `\nBetrag:    €${pricing.finalPrice}${pricing.isEarlyBird ? ' (Frühbucher, statt €' + pricing.basePrice + ')' : ''}`
     : '';
+
   MailApp.sendEmail({
     to: 'mark@finnern.com',
     cc: 'abi@haroweb.de',
