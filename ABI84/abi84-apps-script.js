@@ -2,6 +2,19 @@
 // Einfügen in: Google Form → ⋮ → Script-Editor
 // Trigger: onFormSubmit → Bei Formulareinreichung
 
+// ── EINMALIG: Berechtigungen anfordern (löst OAuth-Dialoge aus) ────
+// Nach Manifest-Änderungen muss neu autorisiert werden.
+// Diese Funktion auswählen + ▶ Run, dann alle Berechtigungen erlauben.
+function requestPermissions() {
+  Logger.log('Anfordere Berechtigungen...');
+  // Mail-Versand
+  MailApp.getRemainingDailyQuota();
+  Logger.log('✓ Mail OK');
+  // Spreadsheet-Lesen (für Einladungs-Script)
+  // (kein konkretes Sheet hier, nur die App initialisieren)
+  Logger.log('✅ Berechtigungen erteilt — alles bereit.');
+}
+
 // ════════════════════════════════════════════════════════════════════
 // TEST / MAIL-MERGE: Liste hier editieren, dann oben "sendTestEmails"
 // auswählen und auf ▶ Run klicken.
