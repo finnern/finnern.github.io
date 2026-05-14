@@ -3,37 +3,96 @@
 // Diese Datei ALS NEUE DATEI im Google Apps Script Editor anlegen:
 //   Im Editor links: ＋ neben "Files" → "Script" → benenne sie z.B.
 //   "Einladung". Dann den ganzen Inhalt hier rein kopieren.
-//
-//   Sie liegt damit NEBEN dem onFormSubmit-Script und stört es nicht.
 // ════════════════════════════════════════════════════════════════════
 
-// ── EMPFÄNGER-LISTE ────────────────────────────────────────────────
-// Hier Klassenkameraden eintragen. Erst mit kleiner Liste testen,
-// dann erweitern. Doppelte Einträge raus, sonst bekommen sie 2 Mails.
-const EINLADUNGS_EMPFAENGER = [
-  { vor: 'Mark',      email: 'mark@finnern.com'    },
-  { vor: 'Christine', email: 'ideenfunken@gmail.com' },
-  // weitere hier ergänzen:
-  // { vor: 'Mimi',  email: 'mimi@example.com' },
-  // { vor: 'Rolf',  email: 'rolf@haroweb.de'  },
-];
+// ── Empfänger-Quelle: Google Sheet ─────────────────────────────────
+// Sheet-ID aus der URL: …/spreadsheets/d/<DIESE_ID>/edit
+// Erste Zeile = Header. Spalte A = Vorname, Spalte B = Email.
+const EINLADUNGS_SHEET_ID    = '18-S82JMV2keW2kEKN10CHbFAKHBeEexUfbtUcnnHDzQ';
+const EINLADUNGS_SHEET_NAME  = '';      // leer = erstes Tab. Sonst z.B. 'Klassenliste'
+const EINLADUNGS_HEADER_ROWS = 1;       // Anzahl Header-Zeilen die übersprungen werden
 
-// ── TEST-FUNKTION ──────────────────────────────────────────────────
-// Sendet an die obige Liste. Im Editor diese Funktion auswählen,
-// dann ▶ Run klicken.
-function sendeEinladungAnTestliste() {
-  EINLADUNGS_EMPFAENGER.forEach((r, i) => {
-    sendeEinladung(r.vor, r.email);
-    Logger.log((i+1) + '/' + EINLADUNGS_EMPFAENGER.length + ' → ' + r.email + ' (' + r.vor + ')');
-    Utilities.sleep(800); // kurze Pause zwischen Mails (Gmail Rate-Limit)
-  });
-  Logger.log('✅ Fertig — ' + EINLADUNGS_EMPFAENGER.length + ' Mails versendet.');
+// ── Sicherheits-Schalter ───────────────────────────────────────────
+// true  = Mails werden NICHT gesendet, nur ins Log geschrieben (Test)
+// false = echter Versand
+const DRY_RUN = true;
+
+// ════════════════════════════════════════════════════════════════════
+// HAUPTFUNKTIONEN  – im Editor auswählen + ▶ Run
+// ════════════════════════════════════════════════════════════════════
+
+// 1) Empfänger aus dem Sheet anzeigen (verschickt nichts)
+function zeigeEmpfaengerListe() {
+  const empf = ladeEmpfaengerAusSheet();
+  Logger.log('Gefunden: ' + empf.length + ' Empfänger');
+  empf.forEach((r, i) => Logger.log((i+1) + '. ' + r.vor + ' <' + r.email + '>'));
 }
 
-// ── EINZEL-FUNKTION ────────────────────────────────────────────────
-function sendeEinladung(vor, email) {
+// 2) Vorschau-Mail an dich selbst (egal was im Sheet steht)
+function sendeVorschauAnMich() {
+  const meineEmail = Session.getActiveUser().getEmail();
+  Logger.log('Sende Vorschau an: ' + meineEmail);
+  sendeEinladung('Mark', meineEmail, /* dryRun */ false);
+}
+
+// 3) Test mit allen Sheet-Empfängern
+//    Achtung: prüfe vorher DRY_RUN (oben) und die Sheet-Liste!
+function sendeEinladungenAusSheet() {
+  const empf = ladeEmpfaengerAusSheet();
+  Logger.log('🚀 Starte Versand an ' + empf.length + ' Empfänger' + (DRY_RUN ? ' (DRY_RUN — keine echten Mails)' : ''));
+
+  let ok = 0, skip = 0, err = 0;
+  empf.forEach((r, i) => {
+    if (!r.email || !/@/.test(r.email)) {
+      Logger.log('⚠️  Zeile ' + (i+1+EINLADUNGS_HEADER_ROWS) + ' übersprungen — keine gültige Email: ' + JSON.stringify(r));
+      skip++;
+      return;
+    }
+    try {
+      sendeEinladung(r.vor, r.email, DRY_RUN);
+      Logger.log('✓ ' + (i+1) + '/' + empf.length + ' → ' + r.email + ' (' + r.vor + ')');
+      ok++;
+      if (!DRY_RUN) Utilities.sleep(800); // Pause gegen Gmail Rate-Limit
+    } catch (e) {
+      Logger.log('✗ ' + r.email + ' — ' + e.message);
+      err++;
+    }
+  });
+
+  Logger.log('═══════════════════════════════════════');
+  Logger.log('Ergebnis: ' + ok + ' OK · ' + skip + ' übersprungen · ' + err + ' Fehler');
+  if (DRY_RUN) Logger.log('💡 DRY_RUN war an. Setze oben DRY_RUN = false für echten Versand.');
+}
+
+// ════════════════════════════════════════════════════════════════════
+// HELPER
+// ════════════════════════════════════════════════════════════════════
+
+function ladeEmpfaengerAusSheet() {
+  const ss = SpreadsheetApp.openById(EINLADUNGS_SHEET_ID);
+  const sheet = EINLADUNGS_SHEET_NAME ? ss.getSheetByName(EINLADUNGS_SHEET_NAME) : ss.getSheets()[0];
+  if (!sheet) throw new Error('Sheet nicht gefunden: ' + EINLADUNGS_SHEET_NAME);
+
+  const lastRow = sheet.getLastRow();
+  if (lastRow <= EINLADUNGS_HEADER_ROWS) return [];
+
+  const range = sheet.getRange(EINLADUNGS_HEADER_ROWS + 1, 1, lastRow - EINLADUNGS_HEADER_ROWS, 2);
+  const values = range.getValues();
+
+  return values
+    .map(row => ({ vor: String(row[0] || '').trim(), email: String(row[1] || '').trim() }))
+    .filter(r => r.vor || r.email); // leere Zeilen raus
+}
+
+function sendeEinladung(vor, email, dryRun) {
   const subject = 'Eselbach und Zodiak an einem Wochenende — Anmeldung ist offen';
   const htmlBody = einladungsHtml(vor);
+
+  if (dryRun) {
+    Logger.log('  [DRY_RUN] würde senden: ' + email + ' — Betreff: ' + subject);
+    return;
+  }
+
   MailApp.sendEmail({
     to: email,
     subject: subject,
