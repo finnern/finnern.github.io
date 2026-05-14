@@ -254,17 +254,17 @@ function einladungsHtml(vor) {
           <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
             <tr>
               <td style="padding-bottom:10px;">
-                <img src="https://finnern.com/ABI84/images/Schwarzwaldstube_Eselbach.jpeg" alt="Schwarzwaldstube Eselbach" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+                <img src="https://finnern.com/ABI84/images/Schwarzwaldstube_Eselbach.jpeg" alt="Schwarzwaldstube Eselbach" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
             <tr>
               <td style="padding-bottom:10px;">
-                <img src="https://finnern.com/ABI84/images/Eselbach_Wirtschaft.jpeg" alt="Innen: gemütliche Stube" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+                <img src="https://finnern.com/ABI84/images/Eselbach_Wirtschaft.jpeg" alt="Innen: gemütliche Stube" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
             <tr>
               <td>
-                <img src="https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg" alt="Schlachtplatte" width="520" style="display:block;width:100%;max-width:520px;border-radius:8px;">
+                <img src="https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg" alt="Schlachtplatte" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
           </table>
