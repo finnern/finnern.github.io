@@ -93,13 +93,37 @@ function sendeEinladung(vor, email, dryRun) {
     return;
   }
 
+  // Bilder als Inline-Attachments — werden direkt mit der Mail mitgesendet,
+  // keine Abhängigkeit von Gmail-Image-Proxy oder Cache.
+  const inlineImages = ladeInlineBilder();
+
   MailApp.sendEmail({
     to: email,
     subject: subject,
     htmlBody: htmlBody,
     name: 'Mark Finnern (ABI 84 Orga)',
-    replyTo: 'mark@finnern.com'
+    replyTo: 'mark@finnern.com',
+    inlineImages: inlineImages
   });
+}
+
+// ── Lade Eselbach-Bilder von finnern.com als Inline-Attachments ────
+function ladeInlineBilder() {
+  const bilder = {
+    'haus':   'https://finnern.com/ABI84/images/Schwarzwaldstube_Eselbach.jpeg',
+    'stube':  'https://finnern.com/ABI84/images/Eselbach_Wirtschaft.jpeg',
+    'vesper': 'https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg',
+  };
+  const result = {};
+  Object.keys(bilder).forEach(key => {
+    try {
+      const blob = UrlFetchApp.fetch(bilder[key]).getBlob().setName(key + '.jpeg');
+      result[key] = blob;
+    } catch (e) {
+      Logger.log('⚠️  Bild konnte nicht geladen werden: ' + bilder[key] + ' — ' + e.message);
+    }
+  });
+  return result;
 }
 
 // ── HTML-VORLAGE ───────────────────────────────────────────────────
@@ -254,17 +278,17 @@ function einladungsHtml(vor) {
           <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
             <tr>
               <td style="padding-bottom:10px;">
-                <img src="https://finnern.com/ABI84/images/Schwarzwaldstube_Eselbach.jpeg" alt="Schwarzwaldstube Eselbach" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
+                <img src="cid:haus" alt="Schwarzwaldstube Eselbach" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
             <tr>
               <td style="padding-bottom:10px;">
-                <img src="https://finnern.com/ABI84/images/Eselbach_Wirtschaft.jpeg" alt="Innen: gemütliche Stube" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
+                <img src="cid:stube" alt="Innen: gemütliche Stube" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
             <tr>
               <td>
-                <img src="https://finnern.com/ABI84/images/Eselbach_Vesper.jpeg" alt="Schlachtplatte" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
+                <img src="cid:vesper" alt="Schlachtplatte" width="600" style="display:block;width:100%;max-width:600px;border-radius:8px;">
               </td>
             </tr>
           </table>
