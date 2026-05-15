@@ -257,7 +257,7 @@ function sendOrgaNotification(vor, nach, email, paket, nachricht) {
   MailApp.sendEmail({
     to: 'mark@finnern.com',
     cc: 'abi@haroweb.de',
-    subject: `✅ ABI 84 Anmeldung: ${vor} ${nach} – ${paket}`,
+    subject: `✅ ABI84: ${vor} ${nach} – ${paket} Anmeldung`,
     body: `Neue Anmeldung eingegangen!\n\nName:     ${vor} ${nach}\nE-Mail:   ${email}\nPaket:    ${paket}${priceLine}\nNachricht: ${nachricht || '–'}\n\nViele Grüße,\nDein Google Forms Robot`
   });
 }
