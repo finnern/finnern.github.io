@@ -1,338 +1,387 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Finnern - KI Innovation für Business und Leben</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Finnern – Automatisierung für den Mittelstand. Eine Geschäftsgeschichte in vier Streichen.</title>
+<meta name="description" content="Mark Finnern spricht beide Sprachen: die Ihrer Prozesse und die der KI — und baut die Lösung bei Ihnen im Haus. Prototypen statt Strategiepapiere. Schramberg, Schwarzwald.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vollkorn+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papier:#F7E8D2;        /* warmes Pfirsich-Creme — exakt der Porträt-Hintergrund */
+  --papier-dunkel:#EFDCBE; /* Randzone / Kartenflächen */
+  --tinte:#2B2318;         /* warmes Druckschwarz */
+  --tinte-hell:#5B4E3B;    /* Nebentexte */
+  --zinnober:#A93A21;      /* Initialen, Akzente */
+  --preussisch:#3E6E9E;    /* Jackenblau des Porträts, Links */
+  --linie:#8D7B5A;         /* Druckerlinien, Ornamente */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Vollkorn',Georgia,serif;
+  background:var(--papier);
+  color:var(--tinte);
+  font-size:1.125rem;
+  line-height:1.65;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(141,123,90,.06), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(141,123,90,.07), transparent 50%);
+}
+a{color:var(--preussisch);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible, button:focus-visible{outline:3px solid var(--zinnober);outline-offset:3px}
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
-        }
+/* ————— Buchseite ————— */
+.seite{max-width:44rem;margin:0 auto;padding:0 1.25rem}
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+/* ————— Kopf / Titelseite ————— */
+header{padding:3.5rem 0 2rem;text-align:center}
+.masthead{
+  font-family:'UnifrakturMaguntia',serif;
+  font-size:clamp(3rem,9vw,4.75rem);
+  line-height:1.05;
+  color:var(--tinte);
+  letter-spacing:.01em;
+}
+.masthead a{color:inherit;text-decoration:none}
+.untertitel{
+  font-family:'Vollkorn SC',serif;
+  letter-spacing:.22em;
+  font-size:.95rem;
+  color:var(--tinte-hell);
+  margin-top:.9rem;
+  text-transform:lowercase;
+}
+.doppel-linie{
+  border:0;height:5px;margin:1.6rem auto 0;max-width:22rem;
+  border-top:1px solid var(--linie);
+  border-bottom:3px double var(--linie);
+}
+nav{margin-top:1.4rem}
+nav a{
+  font-family:'Vollkorn SC',serif;
+  font-size:.95rem;letter-spacing:.14em;
+  color:var(--tinte);text-decoration:none;
+  margin:0 .9rem;
+}
+nav a:hover{color:var(--zinnober)}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+/* ————— Vorwort / Hero ————— */
+.vorwort{text-align:center;padding:1rem 0 1rem}
+.portraet{display:block;margin:0 auto 1.8rem;width:min(24rem,80vw);height:auto}
+.buchtitel{
+  font-family:'Vollkorn',serif;font-weight:700;
+  font-size:clamp(1.7rem,5vw,2.5rem);
+  line-height:1.25;
+  max-width:36rem;margin:0 auto;
+}
+.buchtitel em{font-style:italic;font-weight:600;color:var(--zinnober)}
+.vers{
+  font-style:italic;
+  color:var(--tinte-hell);
+  margin:1.4rem auto .4rem;
+  line-height:1.5;
+}
+.vers-quelle{
+  font-family:'Vollkorn SC',serif;
+  font-size:.8rem;letter-spacing:.12em;color:var(--tinte-hell);
+}
+figure.tafel{margin:0 auto 1.8rem;max-width:16rem}
+figure.tafel img{
+  width:100%;height:auto;display:block;
+  mix-blend-mode:multiply;
+}
+figure.tafel figcaption{
+  font-size:.85rem;color:var(--tinte-hell);margin-top:.6rem;font-style:italic;text-align:center;
+}
+.vorwort-prosa{max-width:36rem;margin:2.2rem auto 0;text-align:left}
 
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #1a365d;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+/* ————— Kapitel / Streiche ————— */
+section.streich{padding:3.2rem 0 0}
+.kapitel-kopf{text-align:center;margin-bottom:1.6rem}
+.fleuron{color:var(--linie);font-size:1.3rem;letter-spacing:.6em;display:block;margin-bottom:1rem}
+.kapitel-kopf h2{
+  font-family:'Vollkorn SC',serif;
+  font-weight:600;
+  font-size:clamp(1.5rem,4vw,2rem);
+  letter-spacing:.16em;
+}
+.kapitel-kopf .thema{
+  font-family:'Vollkorn',serif;font-style:italic;font-weight:600;
+  font-size:1.15rem;color:var(--zinnober);margin-top:.35rem;
+}
+.epigraph{
+  text-align:center;font-style:italic;color:var(--tinte-hell);
+  margin:0 auto 1.8rem;line-height:1.5;
+}
+.prosa{max-width:36rem;margin:0 auto}
+.prosa p{margin-bottom:1.1rem}
+.prosa p:first-of-type::first-letter{
+  font-family:'UnifrakturMaguntia',serif;
+  font-size:3.3em;line-height:.8;
+  float:left;
+  color:var(--zinnober);
+  padding:.08em .12em 0 0;
+}
+.prosa strong{font-weight:700}
+.merksatz{
+  border-top:1px solid var(--linie);
+  border-bottom:1px solid var(--linie);
+  padding:.9rem .5rem;margin:1.6rem auto;
+  text-align:center;font-style:italic;font-weight:600;
+  max-width:32rem;
+}
+.uebergang{
+  text-align:center;font-style:italic;color:var(--tinte-hell);
+  margin:2.6rem auto 0;
+}
 
-        h2 {
-            font-size: 2em;
-            font-weight: 600;
-            color: #1a365d;
-            margin-bottom: 25px;
-            margin-top: 50px;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 10px;
-        }
+/* ————— Funkenflug-Ornament ————— */
+.funken{display:block;margin:0 auto 1.2rem;width:120px;height:auto}
 
-        h3 {
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            margin-top: 30px;
-        }
+/* ————— Moral ————— */
+section.moral{padding:3.5rem 0 0}
+.moral .rahmen{
+  border:3px double var(--linie);
+  padding:2rem 1.6rem;background:var(--papier-dunkel);
+  max-width:38rem;margin:0 auto;
+}
+.moral h2{
+  font-family:'Vollkorn SC',serif;font-weight:600;
+  font-size:1.5rem;letter-spacing:.14em;text-align:center;margin-bottom:1.2rem;
+}
+.moral ul{list-style:none;max-width:32rem;margin:0 auto}
+.moral li{margin-bottom:1rem;padding-left:1.4rem;text-indent:-1.4rem}
+.moral li::before{content:"❧";color:var(--zinnober);margin-right:.55rem}
 
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
+/* ————— Epilog / Kontakt ————— */
+section.epilog{padding:3.5rem 0 2rem;text-align:center}
+.epilog .prosa{text-align:left}
+.kontakt-zeile{margin-top:1.8rem;font-size:1.15rem}
+.kontakt-zeile a{font-weight:600}
+.knopf{
+  display:inline-block;margin-top:1.4rem;
+  font-family:'Vollkorn SC',serif;font-size:1.05rem;letter-spacing:.12em;
+  color:var(--papier);background:var(--tinte);
+  padding:.7rem 1.6rem;text-decoration:none;
+  border:1px solid var(--tinte);
+  box-shadow:3px 3px 0 var(--zinnober);
+}
+.knopf:hover{background:var(--zinnober);border-color:var(--zinnober);box-shadow:3px 3px 0 var(--tinte);color:var(--papier)}
 
-        .intro-text {
-            font-size: 1.3em;
-            text-align: center;
-            color: #4a5568;
-            margin-bottom: 40px;
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #FFD700;
-        }
+/* ————— Fuß ————— */
+footer{
+  margin-top:3.5rem;
+  border-top:3px double var(--linie);
+  padding:2rem 0 2.6rem;
+  text-align:center;color:var(--tinte-hell);font-size:.95rem;
+}
+footer .en{font-style:italic;margin-top:.8rem}
+footer .rechtliches{margin-top:1rem;font-family:'Vollkorn SC',serif;font-size:.85rem;letter-spacing:.1em}
+footer .quelle{margin-top:1rem;font-size:.8rem}
 
-        .credentials {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-        }
-
-        .project-list, .event-list {
-            margin: 30px 0;
-        }
-
-        .project-item, .event-item {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .project-item:hover, .event-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .project-title, .event-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #1a365d;
-            margin-bottom: 10px;
-        }
-
-        .project-link {
-            color: #3182ce;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            color: #2c5aa0;
-            text-decoration: underline;
-        }
-
-        .workshop-highlight {
-            background: linear-gradient(135deg, #fff5cd 0%, #fef7cd 100%);
-            border-left: 4px solid #d69e2e;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
-            color: #ffffff;
-            padding: 50px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .cta-section h2 {
-            color: #FFD700;
-            border: none;
-            margin-top: 0;
-        }
-
-        .cta-section p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #1a365d;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 25px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.1em;
-            display: inline-block;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
-            color: #1a365d;
-        }
-
-        .contact-info {
-            text-align: center;
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-
-        .contact-info a {
-            color: #3182ce;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .legal-footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-            border-top: 2px solid #e2e8f0;
-            background-color: #f8f9fa;
-            font-size: 0.9em;
-        }
-
-        .legal-footer a {
-            color: #3182ce;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-        }
-
-        .legal-footer a:hover {
-            text-decoration: underline;
-            color: #2c5aa0;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.6em;
-            }
-            
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .cta-section {
-                padding: 30px 20px;
-            }
-            
-            .legal-footer a {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
+@media (max-width:600px){
+  body{font-size:1.05rem}
+  nav a{margin:0 .5rem;font-size:.85rem}
+}
+</style>
 </head>
 <body>
-    <!-- Hero Banner -->
-    <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
 
-    <div class="container">
-        <h1>Erfolgreich mit KI im Business und Leben</h1>
-        
-        <div class="intro-text">
-            <p><strong>Ob Unternehmer, Führungskraft oder Privatperson</strong> - KI kann Ihre Produktivität revolutionieren und neue Möglichkeiten schaffen. Lassen Sie uns gemeinsam die Kraft der Künstlichen Intelligenz für Ihre Ziele nutzen.</p>
-        </div>
+<header class="seite">
+  <div class="masthead"><a href="#">Finnern</a></div>
+  <p class="untertitel">Automatisierung &amp; KI für den Mittelstand · Schramberg im Schwarzwald</p>
+  <hr class="doppel-linie" aria-hidden="true">
+  <nav aria-label="Hauptnavigation">
+    <a href="#erster-streich">Die Streiche</a>
+    <a href="#moral">Die Moral</a>
+    <a href="#epilog">Kontakt</a>
+  </nav>
+</header>
 
-        <div class="credentials">
-            <h3>Über mich</h3>
-            <p><strong>25+ Jahre Erfahrung</strong> in Silicon Valley und Deutschland mit SAP-Software-Implementierung, Community Building und Innovation Leadership. Gründer der SAP Mentors Community, die SAPs Innovationsstrategie maßgeblich beeinflusst hat.</p>
-            <p><strong>Aktuelle Leidenschaft:</strong> Innovation und unternehmerischen Geist im Schwarzwald und darüber hinaus zu fördern - mit praktischen KI-Lösungen, die echten Mehrwert schaffen.</p>
-        </div>
+<main>
 
-        <h2>Aktuelle Projekte & Services</h2>
-        
-        <div class="project-list">
-            <div class="project-item">
-                <div class="project-title">
-                    <a href="https://ki-impact.org" target="_blank" class="project-link">KI-Impact Group</a>
-                </div>
-                <p>Exklusive Community für KI-Adoption im deutschsprachigen Raum - Netzwerk für Unternehmer und Führungskräfte zum Erfahrungsaustausch.</p>
-            </div>
+  <!-- ————— VORWORT ————— -->
+  <section class="vorwort seite" aria-labelledby="titelzeile">
+    <img class="portraet"
+         src="assets/images/mark-finnern-wilhelm-busch.jpg"
+         alt="Mark Finnern als Zeichnung im Stil von Wilhelm Busch: lächelnd, runde Brille, blaue Jacke"
+         loading="eager">
+    <h1 class="buchtitel" id="titelzeile">Eine Geschäftsgeschichte<br>in <em>vier Streichen</em></h1>
+    <p class="vers">
+      „Mancher gibt sich viele Müh’<br>
+      mit Prozessen — spät und früh.“
+    </p>
+    <p class="vers-quelle">frei nach Wilhelm Busch, 1865</p>
 
-            <div class="project-item workshop-highlight">
-                <div class="project-title">
-                    🚀 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLdeB1Jqpw9ynOf9Z0Rj43Z_QzfjcMnnSc8K9LzvFKBOtg_g/viewform" target="_blank" class="project-link">Workshop: "Prozesse mit KI orchestrieren" - 30. September 2025</a>
-                </div>
-                <p><strong>Praktischer Hands-on Workshop</strong> mit n8n und Power Automate - Lernen Sie, wie Sie Ihre Geschäftsprozesse intelligent automatisieren. <strong>Jetzt anmelden!</strong></p>
-            </div>
-
-            <div class="project-item workshop-highlight">
-                <div class="project-title">
-                    🎤 <a href="https://www.tedxfreiburg.com/tedxfreiburg-2026/" target="_blank" class="project-link">TEDxFreiburg 2026 - Steffen Erath spricht!</a>
-                </div>
-                <p><strong>28. März 2026 im Konzerthaus Freiburg</strong> - Unser Steffen Erath präsentiert seinen Talk "Planet centered innovation" beim TEDxFreiburg unter dem Motto "TENSION".</p>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <a href="https://ideenfunken.lovable.app/#about-section" target="_blank" class="project-link">Ideenfunken - Leseinitiative</a>
-                </div>
-                <p><strong>Community-getriebene Leseinitiative</strong> für Schramberg und Umgebung. Bücher vorschlagen, abstimmen, gemeinsam lernen - unterstützt von lokalen Unternehmen und der Stadt. Ziel: Kreativität fördern und Mut zu Neuem entwickeln.</p>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <a href="https://agent.ai/agent/d834r0u1k1huc05j" target="_blank" class="project-link">Strategy Sherlock</a>
-                </div>
-                <p><strong>KI-Detective für Konkurrenzanalyse</strong> - Analysiert Stellenausschreibungen um strategische Bewegungen der Wettbewerber zu enthüllen. Wie ein digitaler Consulting-Detective für Marktintelligenz.</p>
-            </div>
-        </div>
-
-        <h2>Vergangene Events & Workshops</h2>
-        
-        <div class="event-list">
-            <div class="event-item">
-                <div class="event-title">
-                    <a href="https://www.nrwz.de/wirtschaft/ki-in-schramberg-bleiben-sie-hungrig-484642.html" target="_blank" class="project-link">Mickey McManus in der Szene 64: "Stay hungry, stay foolish"</a>
-                </div>
-                <p><strong>Silicon Valley Visionär zu Gast</strong> - Boston Consulting Group Senior Advisor sprach über KI-Disruption. Highlight: Lego-Experiment mit 35 Teilnehmern generierte 120 neue Entchen-Variationen. Mit Isetta-Fahrt durch Schramberg!</p>
-            </div>
-
-            <div class="event-item">
-                <div class="event-title">
-                    <a href="https://www.nrwz.de/wirtschaft/wie-deutschland-von-der-ki-revolution-profitieren-kann-515959.html" target="_blank" class="project-link">Microsoft Copilot Workshop bei MS Schramberg</a>
-                </div>
-                <p><strong>"Nit Schwätza, Macha! – Mit Copilot!"</strong> - McKinsey-Studie: Deutschland Platz 3 weltweit für KI-Revolution. 18% Produktivitätssteigerung möglich. Hands-on Training mit Philip Fischer von Impact AI.</p>
-            </div>
-
-            <div class="event-item">
-                <div class="event-title">
-                    <a href="https://www.nrwz.de/schramberg/schroedingers-katze-junghans-und-kiqi-522657.html" target="_blank" class="project-link">KI im Marketing: Schrödingers Katze, Junghans und KiQi</a>
-                </div>
-                <p><strong>Workshop im Auto- und Uhrenmuseum</strong> mit Holger Siegel & Marc Millenet von id pool. 30 Teilnehmer aus verschiedensten Bereichen lernten KI-Marketing mit trainierter ChatGPT "KIQI". Junghans als Praxis-Beispiel.</p>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>Lass uns die Power von KI umsetzen!</h2>
-            <p>Bereit für den nächsten Schritt? Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Business oder Leben verbessern kann.</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2EXAJmnlH6DCVdDY8HMEYIcW3iGqG--3Nb8SwHrIcM0bW9uALM_TRq0veeWH1KVZZ8dg3FQrq6" class="cta-button">Let's Innovate together!</a>
-            <a href="https://linkedin.com/in/finnern" target="_blank" class="cta-button">LinkedIn Connect</a>
-        </div>
-
-        <div class="contact-info">
-            <h3>Kontakt</h3>
-            <p><strong>Mark Finnern</strong><br>
-            Email: <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
-            LinkedIn: <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a><br>
-            Github: <a href="https://github.com/finnern/" target="_blank">github.com/finnern</a><br>
-            Schramberg, Schwarzwald, Deutschland</p>
-        </div>
+    <div class="vorwort-prosa prosa">
+      <p>Ich bin Mark Finnern — dreißig Jahre Enterprise-Software, davon zwei Jahrzehnte im Silicon Valley, Mitgründer des SAP-Mentors-Programms, heute wieder daheim in Schramberg. Ich spreche beide Sprachen: die Ihrer Prozesse, gelernt in dreißig Jahren zwischen Buchhaltung, Fertigung und SAP — und die der KI, die diese Prozesse heute automatisiert. Gebaut wird bei Ihnen im Haus: keine Strategiepapiere, sondern Prototypen, die noch im Termin entstehen.</p>
+      <p>Warum Wilhelm Busch? Weil seine Geschichten das tun, was gute Automatisierung auch tut: Sie bringen eine festgefahrene Ordnung in Bewegung — und am Ende hat man etwas gelernt. Bildlich sehen Sie jetzt die Possen. Vier Streiche, vier Angebote.</p>
     </div>
+  </section>
 
-    <!-- Legal Footer -->
-    <div class="legal-footer">
-        <p>
-            <a href="impressum.html">Impressum</a> | 
-            <a href="datenschutz.html">Datenschutz</a>
-        </p>
-        <p style="margin-top: 15px; color: #666; font-size: 0.8em;">
-            <strong>Nit schwätza - macha! :-)</strong>
-        </p>
+  <!-- ————— ERSTER STREICH ————— -->
+  <section class="streich seite" id="erster-streich" aria-labelledby="h-streich1">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <h2 id="h-streich1">Erster Streich</h2>
+      <p class="thema">Vom zähen Prozess zum laufenden System</p>
     </div>
+    <p class="epigraph">
+      „Was du dreimal tippst am Tag,<br>
+      schafft der Workflow ohne Klag.“
+    </p>
+    <div class="prosa">
+      <p>Bestellungen, die als PDF ankommen und von Hand abgetippt werden. Daten, die zwischen SAP, dem alten Warenwirtschaftssystem und Excel hin- und herwandern. Genau dort fange ich an: Ich setze mich neben Ihre Leute, verstehe den Ablauf, wie er wirklich läuft — nicht, wie er im Handbuch steht — und baue die Automatisierung direkt bei Ihnen im Haus. Aus unstrukturierten Papierbergen werden strukturierte Daten, aus Handarbeit ein Ablauf, der von selbst läuft. Das Werkzeug — n8n, Python oder was das Problem verlangt — richtet sich nach Ihrem Betrieb, nie umgekehrt. Auch die Systeme, von denen der Hersteller längst nichts mehr wissen will, nehme ich mit.</p>
+      <p>Ein Beispiel aus der Praxis: Bei einem Werbetechnik-Betrieb in der Region laufen Großkunden-Bestellungen heute automatisch vom Kundenportal bis ins hauseigene ERP — inklusive Positionsdaten, ohne Abtippen. Selbst gehostet, die Daten bleiben im Haus.</p>
+      <div class="merksatz">Automatisiert wird bis zur Entscheidungsschwelle — die Entscheidung selbst bleibt bei Ihren Leuten.</div>
+    </div>
+    <p class="uebergang">Dieses war der erste Streich,<br>doch der zweite folgt sogleich.</p>
+  </section>
+
+  <!-- ————— ZWEITER STREICH ————— -->
+  <section class="streich seite" id="zweiter-streich" aria-labelledby="h-streich2">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <h2 id="h-streich2">Zweiter Streich</h2>
+      <p class="thema">KI-Impact-Workshops</p>
+    </div>
+    <p class="epigraph">
+      „Also lautet ein Beschluß,<br>
+      daß der Mensch was lernen muß.“<br>
+      <span class="vers-quelle">Wilhelm Busch, Vierter Streich</span>
+    </p>
+    <figure class="tafel" style="max-width:13rem">
+      <img src="assets/images/lehrer-laempel.jpg"
+           alt="Lehrer Lämpel mit erhobenem Zeigefinger, Zeichnung von Wilhelm Busch, 1865"
+           loading="lazy">
+      <figcaption>Lehrer Lämpel — der erste Weiterbildungsbeauftragte der Literaturgeschichte.</figcaption>
+    </figure>
+    <div class="prosa">
+      <p>Lehrer Lämpel hätte seine Freude: In meinen Workshops wird nicht über KI geredet, sondern mit ihr gearbeitet. Sie bringen ein echtes Problem aus Ihrem Betrieb mit — wir lösen es gemeinsam, und Ihr Team lernt dabei, das nächste Problem selbst zu lösen. Das ist der eigentliche Ertrag: Fähigkeit im Haus, nicht Abhängigkeit vom Berater.</p>
+      <p>Geübt habe ich das oft: In der <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact-Community</a>, die ich 2024 gegründet habe, haben über 500 Menschen aus der Region in mehr als einem Dutzend Veranstaltungen KI praktisch ausprobiert. Motto: Nit schwätza — macha.</p>
+      <p>Festpreis statt Tagessatz-Lotterie, halber oder ganzer Tag, bei Ihnen vor Ort im Schwarzwald oder remote. Am Ende steht ein funktionierender Prototyp — kein Foliensatz.</p>
+    </div>
+    <p class="uebergang">Dieses war der zweite Streich,<br>doch der dritte folgt sogleich.</p>
+  </section>
+
+  <!-- ————— DRITTER STREICH ————— -->
+  <section class="streich seite" id="dritter-streich" aria-labelledby="h-streich3">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <svg class="funken" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Funken sprühen aus einer Pfeife">
+        <g fill="none" stroke="#A93A21" stroke-width="2" stroke-linecap="round">
+          <path d="M60 50 L60 34"/>
+          <path d="M46 46 L38 30"/>
+          <path d="M74 46 L82 30"/>
+          <path d="M34 52 L20 44"/>
+          <path d="M86 52 L100 44"/>
+        </g>
+        <g fill="#A93A21">
+          <circle cx="60" cy="28" r="3"/>
+          <circle cx="35" cy="25" r="2.2"/>
+          <circle cx="85" cy="25" r="2.2"/>
+          <circle cx="16" cy="41" r="1.8"/>
+          <circle cx="104" cy="41" r="1.8"/>
+        </g>
+        <path d="M45 55 Q60 48 75 55" fill="none" stroke="#2B2318" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <h2 id="h-streich3">Dritter Streich</h2>
+      <p class="thema">Funkenflug — der Branchen-Newsletter</p>
+    </div>
+    <p class="epigraph">
+      „Rums!! — Da geht die Pfeife los<br>
+      mit Getöse, schrecklich groß.“<br>
+      <span class="vers-quelle">Wilhelm Busch, Vierter Streich</span>
+    </p>
+    <div class="prosa">
+      <p><strong>Funkenflug</strong> ist ein monatlicher KI-Newsletter — aber nicht irgendeiner, sondern Ihrer: zugeschnitten auf Ihre Branche, Ihre Werkzeuge und das, was sich in Ihrem Haus gerade bewegt. Ihre Belegschaft bekommt jeden Monat die drei, vier Entwicklungen, die für sie wirklich zählen — verständlich eingeordnet, mit konkreten Anwendungsideen.</p>
+      <p>So bleibt der Funke nach dem ersten Workshop nicht nur erhalten — er fliegt weiter, Monat für Monat, durch den ganzen Betrieb.</p>
+    </div>
+    <p class="uebergang">Dieses war der dritte Streich,<br>doch der vierte folgt sogleich.</p>
+  </section>
+
+  <!-- ————— VIERTER STREICH ————— -->
+  <section class="streich seite" id="vierter-streich" aria-labelledby="h-streich4">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <h2 id="h-streich4">Vierter Streich</h2>
+      <p class="thema">Vertrauliche KI</p>
+    </div>
+    <p class="epigraph">
+      „Was geheim ist, bleibt im Haus —<br>
+      und kein Bit schleicht heimlich raus.“
+    </p>
+    <div class="prosa">
+      <p>Steuerberater, Anwälte, Ärzte, Personalabteilungen: Es gibt Daten, die gehören in keine amerikanische Cloud. Für diese Fälle baue ich KI-Lösungen auf vertraulicher Infrastruktur — lokale Modelle oder Confidential Computing, bei dem selbst der Rechenzentrumsbetreiber Ihre Daten nicht lesen kann. DSGVO nicht als Fußnote, sondern als Architekturprinzip.</p>
+      <div class="merksatz">KI-Nutzen ohne Daten-Beichte.</div>
+    </div>
+    <p class="uebergang">Dieses war der vierte Streich —<br>der fünfte? Vielleicht bei Ihnen im Betrieb.</p>
+  </section>
+
+  <!-- ————— DIE MORAL ————— -->
+  <section class="moral seite" id="moral" aria-labelledby="h-moral">
+    <div class="rahmen">
+      <h2 id="h-moral">Die Moral von der Geschicht’</h2>
+      <p class="epigraph" style="margin-bottom:1.4rem">
+        „Handarbeit am falschen Fleck<br>
+        ist kein guter Lebenszweck.“
+      </p>
+      <ul>
+        <li><strong>Prototypen statt Papier.</strong><br>
+          „Nicht ein Werk, das keiner liest —<br>
+          sondern eins, das läuft und fließt.“</li>
+        <li><strong>Lernen schlägt Sparen.</strong><br>
+          „Wer mit KI nur Kosten drückt,<br>
+          hat das Beste nicht erblickt:<br>
+          Reicher wird, wen sie belehrt —<br>
+          Wissen ist, was sich vermehrt.“</li>
+        <li><strong>Ihre Daten, Ihr Haus.</strong><br>
+          „Und der Daten stiller Schatz<br>
+          hat im eignen Haus den Platz.“</li>
+        <li><strong>Der Mensch entscheidet.</strong><br>
+          „Die Maschine tippt und schreibt,<br>
+          doch das letzte Wort verbleibt<br>
+          bei dem Menschen — so allein<br>
+          soll es jetzt und immer sein.“</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ————— EPILOG ————— -->
+  <section class="epilog seite" id="epilog" aria-labelledby="h-epilog">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <h2 id="h-epilog" style="font-family:'Vollkorn SC',serif;font-weight:600;letter-spacing:.14em;font-size:1.6rem">Epilog</h2>
+    </div>
+    <div class="prosa">
+      <p>Wenn Sie bis hierhin gelesen haben, gehören Sie vermutlich zu den Menschen, die einen zweiten Blick riskieren, bevor sie urteilen. Gute Voraussetzung. Der einfachste nächste Schritt: ein Gespräch von dreißig Minuten. Sie erzählen mir Ihren zähesten Prozess — ich sage Ihnen ehrlich, ob und wie er sich automatisieren lässt. Wenn nicht, sage ich Ihnen das auch.</p>
+    </div>
+    <p class="kontakt-zeile">
+      <a href="mailto:mark@finnern.com">mark@finnern.com</a> &nbsp;·&nbsp; +49 170 668 8388
+    </p>
+    <a class="knopf" href="mailto:mark@finnern.com?subject=Mein%20z%C3%A4hester%20Prozess">Gespräch anfragen</a>
+    <p style="margin-top:2rem;color:var(--tinte-hell)">
+      Außerdem: <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact</a> — unsere regionale KI-Community im Schwarzwald.<br>
+      Mitmachen kostet nichts außer Neugier.<br>
+      Und als freier Mitarbeiter des <a href="https://www.schwarzwaelder-bote.de/lokales/schramberg/wirtschaft-in-schramberg-wie-der-schwarzwald-auf-china-blickt-79290819.html" target="_blank" rel="noopener">Schwarzwälder Boten</a> schreibe ich über die Wirtschaft der Region — zuletzt in meiner China-Serie: wie der Schwarzwald auf China blickt.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="seite">
+    <p>Mark Finnern · Schramberg, Schwarzwald · <a href="https://www.linkedin.com/in/finnern" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://bsky.app/profile/finnern.bsky.social" target="_blank" rel="noopener">Bluesky</a></p>
+    <p class="en">English speaker? Same offer, same Black Forest, fluent English — thirty years of Silicon Valley included. Just write.</p>
+    <p class="rechtliches"><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
+    <p class="quelle">Zeichnungen und Verse von Wilhelm Busch (1832–1908), „Max und Moritz“, 1865 — gemeinfrei. Porträt: eigene Illustration im Busch-Stil.</p>
+  </div>
+</footer>
+
 </body>
 </html>
