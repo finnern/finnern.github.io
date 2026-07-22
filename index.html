@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Finnern – Automatisierung für den Mittelstand. Eine Geschäftsgeschichte in vier Streichen.</title>
+<title>Finnern Innovation Consulting — Mark Finnern · Automatisierung für den Mittelstand. Eine Geschäftsgeschichte in vier Streichen.</title>
 <meta name="description" content="Mark Finnern spricht beide Sprachen: die Ihrer Prozesse und die der KI — und baut die Lösung bei Ihnen im Haus. Prototypen statt Strategiepapiere. Schramberg, Schwarzwald.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vollkorn+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --papier:#F7E8D2;        /* warmes Pfirsich-Creme — exakt der Porträt-Hintergrund */
-  --papier-dunkel:#EFDCBE; /* Randzone / Kartenflächen */
+  --papier:#FFFFFF;        /* Weiß — exakt der Porträt-Hintergrund */
+  --papier-dunkel:#F5F2EC; /* Randzone / Kartenflächen */
   --tinte:#2B2318;         /* warmes Druckschwarz */
   --tinte-hell:#5B4E3B;    /* Nebentexte */
   --zinnober:#A93A21;      /* Initialen, Akzente */
@@ -41,11 +41,12 @@ a:focus-visible, button:focus-visible{outline:3px solid var(--zinnober);outline-
 /* ————— Kopf / Titelseite ————— */
 header{padding:3.5rem 0 2rem;text-align:center}
 .masthead{
-  font-family:'UnifrakturMaguntia',serif;
-  font-size:clamp(3rem,9vw,4.75rem);
+  font-family:'Vollkorn SC',serif;
+  font-weight:600;
+  font-size:clamp(2.1rem,6.5vw,3.4rem);
   line-height:1.05;
   color:var(--tinte);
-  letter-spacing:.01em;
+  letter-spacing:.08em;
 }
 .masthead a{color:inherit;text-decoration:none}
 .untertitel{
@@ -55,6 +56,13 @@ header{padding:3.5rem 0 2rem;text-align:center}
   color:var(--tinte-hell);
   margin-top:.9rem;
   text-transform:lowercase;
+}
+.verlag{
+  font-family:'Vollkorn SC',serif;
+  letter-spacing:.24em;
+  font-size:.72rem;
+  color:var(--tinte-hell);
+  margin-top:.5rem;
 }
 .doppel-linie{
   border:0;height:5px;margin:1.6rem auto 0;max-width:22rem;
@@ -72,7 +80,7 @@ nav a:hover{color:var(--zinnober)}
 
 /* ————— Vorwort / Hero ————— */
 .vorwort{text-align:center;padding:1rem 0 1rem}
-.portraet{display:block;margin:0 auto 1.8rem;width:min(24rem,80vw);height:auto}
+.portraet{display:block;margin:0 auto 1.8rem;width:min(24rem,80vw);height:auto;mix-blend-mode:multiply}
 .buchtitel{
   font-family:'Vollkorn',serif;font-weight:700;
   font-size:clamp(1.7rem,5vw,2.5rem);
@@ -158,6 +166,13 @@ section.moral{padding:3.5rem 0 0}
 .moral li{margin-bottom:1rem;padding-left:1.4rem;text-indent:-1.4rem}
 .moral li::before{content:"❧";color:var(--zinnober);margin-right:.55rem}
 
+/* ————— Vom selben Verfasser ————— */
+section.verfasser{padding:3rem 0 0;text-align:center}
+.verfasser .brueckensatz{color:var(--tinte-hell);max-width:36rem;margin:0 auto 1.2rem}
+.verfasser ul{list-style:none;margin:0 auto}
+.verfasser li{margin-bottom:.7rem}
+.verfasser li::before{content:"❧";color:var(--zinnober);margin-right:.55rem}
+
 /* ————— Epilog / Kontakt ————— */
 section.epilog{padding:3.5rem 0 2rem;text-align:center}
 .epilog .prosa{text-align:left}
@@ -193,8 +208,9 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
 <body>
 
 <header class="seite">
-  <div class="masthead"><a href="#">Finnern</a></div>
+  <div class="masthead"><a href="#">Mark Finnern</a></div>
   <p class="untertitel">Automatisierung &amp; KI für den Mittelstand · Schramberg im Schwarzwald</p>
+  <p class="verlag">Finnern Innovation Consulting</p>
   <hr class="doppel-linie" aria-hidden="true">
   <nav aria-label="Hauptnavigation">
     <a href="#erster-streich">Die Streiche</a>
@@ -219,7 +235,7 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
     <p class="vers-quelle">frei nach Wilhelm Busch, 1865</p>
 
     <div class="vorwort-prosa prosa">
-      <p>Ich bin Mark Finnern — dreißig Jahre Enterprise-Software, davon zwei Jahrzehnte im Silicon Valley, Mitgründer des SAP-Mentors-Programms, heute wieder daheim in Schramberg. Ich spreche beide Sprachen: die Ihrer Prozesse, gelernt in dreißig Jahren zwischen Buchhaltung, Fertigung und SAP — und die der KI, die diese Prozesse heute automatisiert. Gebaut wird bei Ihnen im Haus: keine Strategiepapiere, sondern Prototypen, die noch im Termin entstehen.</p>
+      <p>Ich bin Mark Finnern — dreißig Jahre Enterprise-Software, davon zwei Jahrzehnte im Silicon Valley, Mitgründer der SAP Community und Erfinder des SAP-Mentors-Programms, heute wieder daheim in Schramberg. Ich spreche beide Sprachen: die Ihrer Prozesse, gelernt in dreißig Jahren zwischen Buchhaltung, Fertigung und SAP — und die der KI, die diese Prozesse heute automatisiert. Gebaut wird bei Ihnen im Haus: keine Strategiepapiere, sondern Prototypen, die noch im Termin entstehen.</p>
       <p>Warum Wilhelm Busch? Weil seine Geschichten das tun, was gute Automatisierung auch tut: Sie bringen eine festgefahrene Ordnung in Bewegung — und am Ende hat man etwas gelernt. Und weil wir ihn nicht vergessen wollen: Sein <a href="https://www.gutenberg.org/files/17161/17161-h/17161-h.htm" target="_blank" rel="noopener">„Max und Moritz“ Werk gibt’s im Projekt Gutenberg</a>.</p>
     </div>
   </section>
@@ -263,7 +279,7 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
     </figure>
     <div class="prosa">
       <p>Lehrer Lämpel hätte seine Freude: In meinen Workshops wird nicht über KI geredet, sondern mit ihr gearbeitet. Sie bringen ein echtes Problem aus Ihrem Betrieb mit — wir lösen es gemeinsam, und Ihr Team lernt dabei, das nächste Problem selbst zu lösen. Das ist der eigentliche Ertrag: Fähigkeit im Haus, nicht Abhängigkeit vom Berater.</p>
-      <p>Geübt habe ich das oft: In der <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact-Community</a>, die ich 2024 gegründet habe, haben über 500 Menschen aus der Region in mehr als einem Dutzend Veranstaltungen KI praktisch ausprobiert. Motto: Nit schwätza — macha.</p>
+      <p>Geübt habe ich das oft: In der <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact-Community</a>, die ich 2024 gegründet habe, haben über 500 Menschen aus der Region in mehr als zwanzig Veranstaltungen KI praktisch ausprobiert — die ganze Chronik heißt <a href="https://ki-impact.org/history" target="_blank" rel="noopener">The Future’s Past</a>. Motto: Nit schwätza — macha.</p>
       <p>Festpreis statt Tagessatz-Lotterie, halber oder ganzer Tag, bei Ihnen vor Ort im Schwarzwald oder remote. Am Ende steht ein funktionierender Prototyp — kein Foliensatz.</p>
     </div>
     <p class="uebergang">Dieses war der zweite Streich,<br>doch der dritte folgt sogleich.</p>
@@ -368,21 +384,35 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
       <p>Wenn Sie bis hierhin gelesen haben, gehören Sie vermutlich zu den Menschen, die einen zweiten Blick riskieren, bevor sie urteilen. Gute Voraussetzung. Der einfachste nächste Schritt: ein Gespräch von dreißig Minuten. Sie erzählen mir Ihren zähesten Prozess — ich sage Ihnen ehrlich, ob und wie er sich automatisieren lässt. Wenn nicht, sage ich Ihnen das auch.</p>
     </div>
     <p class="kontakt-zeile">
-      <a href="mailto:mark@finnern.com">mark@finnern.com</a> &nbsp;·&nbsp; +49 170 668 8388
+      <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
+      Europa: <a href="tel:+491706688388">+49 170 668 8388</a> &nbsp;·&nbsp; USA: <a href="tel:+14154253296">+1 415 425 3296</a>
     </p>
     <a class="knopf" href="mailto:mark@finnern.com?subject=Mein%20z%C3%A4hester%20Prozess">Gespräch anfragen</a>
     <p style="margin-top:2rem;color:var(--tinte-hell)">
-      Außerdem: <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact</a> — unsere regionale KI-Community im Schwarzwald.<br>
+      Außerdem: <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact</a> — die KI-Community, die ich 2024 für den Schwarzwald gegründet habe. Über 500 Menschen, mehr als zwanzig Veranstaltungen, ein Ziel: dass die Zukunft nicht nur im Silicon Valley stattfindet, sondern auch im Städtle. Was wir schon geschafft haben, steht in unserer Chronik <a href="https://ki-impact.org/history" target="_blank" rel="noopener">The Future’s Past</a>.<br>
       Mitmachen kostet nichts außer Neugier.<br>
-      Und als freier Mitarbeiter des <a href="https://www.schwarzwaelder-bote.de/lokales/schramberg/wirtschaft-in-schramberg-wie-der-schwarzwald-auf-china-blickt-79290819.html" target="_blank" rel="noopener">Schwarzwälder Boten</a> schreibe ich über die Wirtschaft der Region — zuletzt in meiner China-Serie: wie der Schwarzwald auf China blickt.
+      Und als freier Mitarbeiter des Schwarzwälder Boten schreibe ich über die Wirtschaft der Region — zuletzt in meiner <a href="https://www.schwarzwaelder-bote.de/suche/?q=Mark+Finnern+china" target="_blank" rel="noopener">China-Serie</a>.
     </p>
+  </section>
+
+  <!-- ————— VOM SELBEN VERFASSER ————— -->
+  <section class="verfasser seite" id="verfasser" aria-labelledby="h-verfasser">
+    <div class="kapitel-kopf">
+      <span class="fleuron" aria-hidden="true">❦</span>
+      <h2 id="h-verfasser" style="font-family:'Vollkorn SC',serif;font-weight:600;letter-spacing:.14em;font-size:1.3rem">Vom selben Verfasser</h2>
+    </div>
+    <p class="brueckensatz">Wilhelm Busch war Maler und Dichter zugleich. Der Verfasser dieser Seite übt sich — mit gebührendem Abstand — ebenfalls in beidem:</p>
+    <ul>
+      <li><a href="kunscht.html">Kunscht: „Der Himmel ist für Alle da“</a> — die Hartschierle-Installation</li>
+      <li><a href="baenkle.html">Verweilbänkle-Kalender 2026</a> — zwölf Bänkle zum Verweilen</li>
+    </ul>
   </section>
 
 </main>
 
 <footer>
   <div class="seite">
-    <p>Mark Finnern · Schramberg, Schwarzwald · <a href="https://www.linkedin.com/in/finnern" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://bsky.app/profile/finnern.bsky.social" target="_blank" rel="noopener">Bluesky</a></p>
+    <p>Finnern Innovation Consulting · Mark Finnern · Schramberg, Schwarzwald · <a href="https://www.linkedin.com/in/finnern" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://bsky.app/profile/finnern.bsky.social" target="_blank" rel="noopener">Bluesky</a></p>
     <p class="en">English speaker? Same offer, same Black Forest, fluent English — thirty years of Silicon Valley included. Just write.</p>
     <p class="rechtliches"><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
     <p class="quelle">Zeichnungen und Verse von Wilhelm Busch (1832–1908), „Max und Moritz“, 1865 — gemeinfrei. Porträt: eigene Illustration im Busch-Stil.</p>
