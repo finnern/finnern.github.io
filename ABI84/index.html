@@ -585,140 +585,84 @@
   <p class="scroll-hint">↓ Alle Infos unten</p>
 </section>
 
-<!-- PACKAGES -->
-<section class="packages-bg">
-  <p class="section-label">Anmeldung & Pakete</p>
-  <h2 class="section-title">Wähle dein Paket</h2>
-  <p class="section-sub">Von Donnerstag bis Sonntag oder einfach nur ein Abend – für jeden ist etwas dabei.</p>
+<!-- TIMELINE -->
+<section class="timeline-bg" id="ablauf">
+  <p class="section-label">Ablauf</p>
+  <h2 class="section-title">Das Wochenende</h2>
+  <p class="section-sub">Vier Tage, viele Gesichter, endlos viele Geschichten.</p>
 
-  <div class="eb-banner eb-only">
-    🎁 <strong>Frühbucher-Rabatt: 10% auf alle Pakete</strong> —
-    Anmeldung <em>und</em> Zahlungseingang bis <strong>31. Mai 2026</strong>.
-    Nach diesem Datum gilt der reguläre Preis.
+  <p style="text-align: center; max-width: 600px; margin: -40px auto 50px; font-size: 0.85rem; color: var(--gray); font-style: italic;">Grobe Skizze – Änderungen vorbehalten 😉</p>
+
+  <!-- WETTERVORHERSAGE -->
+  <div style="max-width: 620px; margin: 0 auto 50px; background: #fff; border: 1px solid #e8e0cc; border-radius: 16px; padding: 24px 28px; text-align: center;">
+    <p class="section-label" style="margin-bottom: 14px;">🌦️ Wettervorhersage</p>
+    <div id="wx-cards" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <div class="wx-card" data-date="2026-08-27" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Do 27.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌤️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>28°</strong> / 16°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-28" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Fr 28.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌧️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>19°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-29" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Sa 29.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">⛅</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>19°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-30" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">So 30.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌤️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>22°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+    </div>
+    <p style="font-size: 0.9rem; color: #555; margin-top: 16px; line-height: 1.6;">Der Freitag wird regnerisch – bitte entsprechende Klamotten mitbringen. Wie mein Papa immer sagte (eurer wahrscheinlich auch): <em style="color: var(--gold); font-weight: 600;">„Es gibt kein schlechtes Wetter, nur schlechte Kleidung!"</em></p>
+    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;"><span id="wx-stamp">Stand: 24.08.</span> · <a href="https://www.google.com/search?q=wetter+schramberg" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600;">Aktuelle Vorhersage →</a></p>
   </div>
 
-  <div class="packages-grid">
-
-    <!-- XXL -->
-    <div class="card">
-      <p class="card-package">XXL</p>
-      <h3 class="card-title">Volles Programm</h3>
-      <p class="card-dates">Do. 27. – So. 30. August</p>
-      <div class="price-box">
-        <div class="price eb-gone"><sup>€</sup>200</div>
-        <div class="eb-price eb-only"><sup>€</sup>180</div>
-        <p class="eb-orig eb-only"><del>statt € 200</del></p>
-        <p class="price-note">3 × ÜF + alle Events</p>
-      </div>
-      <ul class="features">
-        <li>3 × Übernachtung</li>
-        <li>3 × Frühstück</li>
-        <li>Alle Abend-Events (Fr + Sa)</li>
-        <li>Wanderung</li>
-        <li>Gruppenbild</li>
-      </ul>
-    </div>
-
-    <!-- XL – FEATURED -->
-    <div class="card featured">
-      <div class="card-badge">Beliebt</div>
-      <p class="card-package">XL</p>
-      <h3 class="card-title">Freitag bis Sonntag</h3>
-      <p class="card-dates">Fr. 28. – So. 30. August</p>
-      <div class="price-box">
-        <div class="price eb-gone"><sup>€</sup>160</div>
-        <div class="eb-price eb-only"><sup>€</sup>144</div>
-        <p class="eb-orig eb-only"><del>statt € 160</del></p>
-        <p class="price-note">2 × ÜF + alle Events</p>
-      </div>
-      <ul class="features">
-        <li>2 × Übernachtung</li>
-        <li>2 × Frühstück</li>
-        <li>Alle Abend-Events (Fr + Sa)</li>
-        <li>Wanderung</li>
-        <li>Gruppenbild</li>
-      </ul>
-    </div>
-
-    <!-- L -->
-    <div class="card">
-      <p class="card-package">L</p>
-      <h3 class="card-title">Alle Events, kein Hotel</h3>
-      <p class="card-dates">Fr. 28. – So. 30. August</p>
-      <div class="price-box">
-        <div class="price eb-gone"><sup>€</sup>100</div>
-        <div class="eb-price eb-only"><sup>€</sup>90</div>
-        <p class="eb-orig eb-only"><del>statt € 100</del></p>
-        <p class="price-note">Ohne Übernachtung</p>
-      </div>
-      <ul class="features">
-        <li>Abend-Events Freitag & Samstag</li>
-        <li>Wanderung</li>
-        <li>Gruppenbild</li>
-      </ul>
-    </div>
-
-    <!-- M -->
-    <div class="card">
-      <p class="card-package">M</p>
-      <h3 class="card-title">Eine Nacht & Event</h3>
-      <p class="card-dates">Fr/Sa oder Sa/So</p>
-      <div class="price-box">
-        <div class="price eb-gone"><sup>€</sup>80</div>
-        <div class="eb-price eb-only"><sup>€</sup>72</div>
-        <p class="eb-orig eb-only"><del>statt € 80</del></p>
-        <p class="price-note">1 × ÜF & 1 × Abendevent</p>
-      </div>
-      <ul class="features">
-        <li>1 × Übernachtung</li>
-        <li>1 × Frühstück</li>
-        <li>1 × Abendevent</li>
-        <li class="note">Bitte bei Anmeldung angeben: Fr 28./Sa 29. oder Sa 29./So 30.</li>
-      </ul>
-    </div>
-
-    <!-- S -->
-    <div class="card">
-      <p class="card-package">S</p>
-      <h3 class="card-title">Ein Tag & Abendevent</h3>
-      <p class="card-dates">Fr/Sa oder Sa/So</p>
-      <div class="price-box">
-        <div class="price eb-gone"><sup>€</sup>40</div>
-        <div class="eb-price eb-only"><sup>€</sup>36</div>
-        <p class="eb-orig eb-only"><del>statt € 40</del></p>
-        <p class="price-note">Tagesticket ohne Übernachtung</p>
-      </div>
-      <ul class="features">
-        <li>1 × Abendevent</li>
-        <li>Tagesteilnahme am Programm</li>
-        <li class="note">Bitte bei Anmeldung angeben: Fr 28./Sa 29. oder Sa 29./So 30.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Solidarity note -->
-  <div style="max-width: 640px; margin: 40px auto 0; padding: 28px 32px; background: #fff; border: 1px solid #e8e0cc; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-size: 0.92rem; line-height: 1.8; color: #444;">
-    <p style="margin-bottom: 14px;">
-      <strong style="color: var(--dark);">Kein Geld? Kein Problem.</strong><br>
-      Das Leben spielt manchmal nicht mit — aber das sollte niemanden davon abhalten, dabei zu sein.
-      Meld dich einfach bei einem von uns im Orga-Team, wir finden gemeinsam einen Weg. 🤝
-    </p>
-    <p style="margin-bottom: 14px;">
-      <strong style="color: var(--dark);">Das Leben hat dir gut mitgespielt?</strong><br>
-      Dann freuen wir uns, wenn du etwas drauflegst — damit am Ende alle dabei sein können
-      und wir gemeinsam eine unvergessliche Zeit haben. 🙌
-      <em style="display: block; margin-top: 8px; font-size: 0.85rem; color: var(--gray);">
-        Beispiel: Uli hat letztes Mal die ganze Woche gebucht, obwohl er Samstagabend
-        einen Auftritt hatte und gar nicht da sein konnte. ❤️
-      </em>
-    </p>
-    <p style="font-size: 0.8rem; color: var(--gray);">
-      Kontakt: <a href="mailto:mark@finnern.com" style="color: var(--gold);">mark@finnern.com</a>
-    </p>
-  </div>
-
-</section>
+  <script>
+  // Live-Wetter für das Fescht-Wochenende (Do–So) via Open-Meteo (kein API-Key nötig)
+  (function () {
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=48.2262&longitude=8.3787'
+      + '&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code'
+      + '&timezone=Europe%2FBerlin&start_date=2026-08-27&end_date=2026-08-30';
+    function wxIcon(c) {
+      if (c === 0) return '☀️';
+      if (c === 1) return '🌤️';
+      if (c === 2) return '⛅';
+      if (c === 3) return '☁️';
+      if (c === 45 || c === 48) return '🌫️';
+      if (c >= 51 && c <= 57) return '🌦️';
+      if (c >= 61 && c <= 67) return '🌧️';
+      if (c >= 71 && c <= 77) return '🌨️';
+      if (c >= 80 && c <= 82) return '🌦️';
+      if (c >= 85 && c <= 86) return '🌨️';
+      if (c >= 95) return '⛈️';
+      return '🌡️';
+    }
+    fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.daily || !d.daily.time) return;
+      d.daily.time.forEach(function (date, i) {
+        var card = document.querySelector('.wx-card[data-date="' + date + '"]');
+        if (!card) return;
+        var max = Math.round(d.daily.temperature_2m_max[i]);
+        var min = Math.round(d.daily.temperature_2m_min[i]);
+        var rain = d.daily.precipitation_probability_max[i];
+        card.querySelector('.wx-icon').textContent = wxIcon(d.daily.weather_code[i]);
+        card.querySelector('.wx-temp').innerHTML = '<strong>' + max + '°</strong> / ' + min + '°';
+        card.querySelector('.wx-rain').textContent = '💧 ' + (rain == null ? '–' : rain + '%');
+      });
+      var stamp = document.getElementById('wx-stamp');
+      if (stamp) stamp.textContent = 'Live aktualisiert';
+    }).catch(function () { /* Fallback: die vorbelegten Werte bleiben stehen */ });
+  })();
+  </script>
 
 <!-- TIMELINE -->
 <section class="timeline-bg" id="ablauf">
@@ -859,6 +803,58 @@
       </div>
       <div class="tl-dot"></div>
     </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="packages-bg">
+  <p class="section-label">Veranstaltungsort</p>
+  <h2 class="section-title">Burgstüble Hohenschramberg</h2>
+  <p class="section-sub">Hoch über der Fünftälerstadt – direkt an der Burgruine Hohenschramberg.</p>
+
+  <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch;">
+    <div style="background: var(--light-bg); border-radius: 16px; padding: 32px;">
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 16px;">Adresse</p>
+      <p style="line-height: 1.9; color: #444;">
+        <strong>Burgstüble</strong><br>
+        Hohenschramberg 1<br>
+        78713 Schramberg<br>
+        Deutschland
+      </p>
+      <p style="margin-top: 20px; line-height: 1.9; color: #444;">
+        <strong>Telefon:</strong> <a href="tel:+4974229595" style="color: var(--gold); text-decoration: none;">07422 9595</a><br>
+        <strong>Web:</strong> <a href="https://burgschramberg.de" target="_blank" style="color: var(--gold); text-decoration: none;">burgschramberg.de</a>
+      </p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Hohenschramberg+1,+78713+Schramberg" target="_blank" class="btn-gold" style="display: inline-block; margin-top: 24px; text-decoration: none;">Auf Google Maps öffnen</a>
+    </div>
+    <div style="border-radius: 16px; overflow: hidden; min-height: 320px;">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=8.3637%2C48.2162%2C8.3937%2C48.2362&layer=mapnik&marker=48.2262%2C8.3787"
+        style="width: 100%; height: 100%; border: 0; min-height: 320px;"
+        loading="lazy"
+        title="Karte Burgstüble Schramberg"></iframe>
+    </div>
+  </div>
+
+  <!-- ANFAHRT-HINWEIS: Straßensperrung -->
+  <div style="max-width: 900px; margin: 40px auto 0; background: #fff8e6; border: 1px solid var(--gold); border-left: 5px solid var(--gold); border-radius: 16px; padding: 28px 32px;">
+    <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 14px;">⚠️ Wichtig zur Anfahrt – Straßensperrung</p>
+    <p style="line-height: 1.8; color: #444; margin-bottom: 14px;">
+      Wegen <strong>Erdrutschgefahr</strong> – nach einem Brand vor gut einer Woche – ist die Straße zwischen <strong>Schramberg und Schiltach</strong> aktuell gesperrt.
+      Das <strong>Burgstüble ist trotzdem gut erreichbar</strong> – nur eben nicht über diesen einen Abschnitt.
+    </p>
+    <ul style="line-height: 1.9; color: #444; margin: 0 0 14px 20px;">
+      <li><strong>Empfohlene Route:</strong> Hinter der <strong>St.-Maria-Kirche</strong> den <strong>Burgweg</strong> hoch. <a href="https://maps.app.goo.gl/Xy5uKJDM5kz3cTA18" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
+      <li><strong>Alternative über den Hinterholzer</strong> (von der Bundesstraße Schramberg–Schiltach): <a href="https://maps.app.goo.gl/bsFYtL3d47xLG2Mb7" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
+      <li>Wer von Richtung <strong>Lauterbach/Hornberg</strong> kommt: einfach weiter die <strong>Schrambergerstraße</strong> entlang, die erste Sperrung umfahren – danach der <strong>ganz normale Weg hoch aufs Burgstüble</strong> (weit entfernt von der Erdrutsch-Gefahrenstelle).</li>
+    </ul>
+    <figure style="margin: 0;">
+      <img src="images/lauterbach-absperrung.jpg" alt="Straßensperrung mit Bauzaun von der Lauterbacher Seite Richtung Schramberg" loading="lazy" style="width: 100%; border-radius: 12px; display: block;">
+      <figcaption style="font-size: 0.8rem; color: var(--gray); margin-top: 8px;">Die erste Absperrung – von der Lauterbacher Seite Richtung Schramberg. Hier vorbei führt der normale Weg hoch zur Burg. · Stand 24.08.</figcaption>
+    </figure>
+    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 16px; font-style: italic;">
+      Wir klären gerade die offiziell freigegebene Route mit der Burg – die endgültige Anfahrt folgt in Kürze. Bei Fragen meldet euch einfach bei <a href="mailto:mark@finnern.com" style="color: var(--gold);">mark@finnern.com</a>.
+    </p>
   </div>
 </section>
 
@@ -1040,56 +1036,139 @@
   }
 </style>
 
-<!-- VENUE -->
+<!-- PACKAGES -->
 <section class="packages-bg">
-  <p class="section-label">Veranstaltungsort</p>
-  <h2 class="section-title">Burgstüble Hohenschramberg</h2>
-  <p class="section-sub">Hoch über der Fünftälerstadt – direkt an der Burgruine Hohenschramberg.</p>
+  <p class="section-label">Anmeldung & Pakete</p>
+  <h2 class="section-title">Wähle dein Paket</h2>
+  <p class="section-sub">Von Donnerstag bis Sonntag oder einfach nur ein Abend – für jeden ist etwas dabei.</p>
 
-  <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch;">
-    <div style="background: var(--light-bg); border-radius: 16px; padding: 32px;">
-      <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 16px;">Adresse</p>
-      <p style="line-height: 1.9; color: #444;">
-        <strong>Burgstüble</strong><br>
-        Hohenschramberg 1<br>
-        78713 Schramberg<br>
-        Deutschland
-      </p>
-      <p style="margin-top: 20px; line-height: 1.9; color: #444;">
-        <strong>Telefon:</strong> <a href="tel:+4974229595" style="color: var(--gold); text-decoration: none;">07422 9595</a><br>
-        <strong>Web:</strong> <a href="https://burgschramberg.de" target="_blank" style="color: var(--gold); text-decoration: none;">burgschramberg.de</a>
-      </p>
-      <a href="https://www.google.com/maps/search/?api=1&query=Hohenschramberg+1,+78713+Schramberg" target="_blank" class="btn-gold" style="display: inline-block; margin-top: 24px; text-decoration: none;">Auf Google Maps öffnen</a>
-    </div>
-    <div style="border-radius: 16px; overflow: hidden; min-height: 320px;">
-      <iframe
-        src="https://www.openstreetmap.org/export/embed.html?bbox=8.3637%2C48.2162%2C8.3937%2C48.2362&layer=mapnik&marker=48.2262%2C8.3787"
-        style="width: 100%; height: 100%; border: 0; min-height: 320px;"
-        loading="lazy"
-        title="Karte Burgstüble Schramberg"></iframe>
-    </div>
+  <div class="eb-banner eb-only">
+    🎁 <strong>Frühbucher-Rabatt: 10% auf alle Pakete</strong> —
+    Anmeldung <em>und</em> Zahlungseingang bis <strong>31. Mai 2026</strong>.
+    Nach diesem Datum gilt der reguläre Preis.
   </div>
 
-  <!-- ANFAHRT-HINWEIS: Straßensperrung -->
-  <div style="max-width: 900px; margin: 40px auto 0; background: #fff8e6; border: 1px solid var(--gold); border-left: 5px solid var(--gold); border-radius: 16px; padding: 28px 32px;">
-    <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 14px;">⚠️ Wichtig zur Anfahrt – Straßensperrung</p>
-    <p style="line-height: 1.8; color: #444; margin-bottom: 14px;">
-      Wegen <strong>Erdrutschgefahr</strong> – nach einem Brand vor gut einer Woche – ist die Straße zwischen <strong>Schramberg und Schiltach</strong> aktuell gesperrt.
-      Das <strong>Burgstüble ist trotzdem gut erreichbar</strong> – nur eben nicht über diesen einen Abschnitt.
+  <div class="packages-grid">
+
+    <!-- XXL -->
+    <div class="card">
+      <p class="card-package">XXL</p>
+      <h3 class="card-title">Volles Programm</h3>
+      <p class="card-dates">Do. 27. – So. 30. August</p>
+      <div class="price-box">
+        <div class="price eb-gone"><sup>€</sup>200</div>
+        <div class="eb-price eb-only"><sup>€</sup>180</div>
+        <p class="eb-orig eb-only"><del>statt € 200</del></p>
+        <p class="price-note">3 × ÜF + alle Events</p>
+      </div>
+      <ul class="features">
+        <li>3 × Übernachtung</li>
+        <li>3 × Frühstück</li>
+        <li>Alle Abend-Events (Fr + Sa)</li>
+        <li>Wanderung</li>
+        <li>Gruppenbild</li>
+      </ul>
+    </div>
+
+    <!-- XL – FEATURED -->
+    <div class="card featured">
+      <div class="card-badge">Beliebt</div>
+      <p class="card-package">XL</p>
+      <h3 class="card-title">Freitag bis Sonntag</h3>
+      <p class="card-dates">Fr. 28. – So. 30. August</p>
+      <div class="price-box">
+        <div class="price eb-gone"><sup>€</sup>160</div>
+        <div class="eb-price eb-only"><sup>€</sup>144</div>
+        <p class="eb-orig eb-only"><del>statt € 160</del></p>
+        <p class="price-note">2 × ÜF + alle Events</p>
+      </div>
+      <ul class="features">
+        <li>2 × Übernachtung</li>
+        <li>2 × Frühstück</li>
+        <li>Alle Abend-Events (Fr + Sa)</li>
+        <li>Wanderung</li>
+        <li>Gruppenbild</li>
+      </ul>
+    </div>
+
+    <!-- L -->
+    <div class="card">
+      <p class="card-package">L</p>
+      <h3 class="card-title">Alle Events, kein Hotel</h3>
+      <p class="card-dates">Fr. 28. – So. 30. August</p>
+      <div class="price-box">
+        <div class="price eb-gone"><sup>€</sup>100</div>
+        <div class="eb-price eb-only"><sup>€</sup>90</div>
+        <p class="eb-orig eb-only"><del>statt € 100</del></p>
+        <p class="price-note">Ohne Übernachtung</p>
+      </div>
+      <ul class="features">
+        <li>Abend-Events Freitag & Samstag</li>
+        <li>Wanderung</li>
+        <li>Gruppenbild</li>
+      </ul>
+    </div>
+
+    <!-- M -->
+    <div class="card">
+      <p class="card-package">M</p>
+      <h3 class="card-title">Eine Nacht & Event</h3>
+      <p class="card-dates">Fr/Sa oder Sa/So</p>
+      <div class="price-box">
+        <div class="price eb-gone"><sup>€</sup>80</div>
+        <div class="eb-price eb-only"><sup>€</sup>72</div>
+        <p class="eb-orig eb-only"><del>statt € 80</del></p>
+        <p class="price-note">1 × ÜF & 1 × Abendevent</p>
+      </div>
+      <ul class="features">
+        <li>1 × Übernachtung</li>
+        <li>1 × Frühstück</li>
+        <li>1 × Abendevent</li>
+        <li class="note">Bitte bei Anmeldung angeben: Fr 28./Sa 29. oder Sa 29./So 30.</li>
+      </ul>
+    </div>
+
+    <!-- S -->
+    <div class="card">
+      <p class="card-package">S</p>
+      <h3 class="card-title">Ein Tag & Abendevent</h3>
+      <p class="card-dates">Fr/Sa oder Sa/So</p>
+      <div class="price-box">
+        <div class="price eb-gone"><sup>€</sup>40</div>
+        <div class="eb-price eb-only"><sup>€</sup>36</div>
+        <p class="eb-orig eb-only"><del>statt € 40</del></p>
+        <p class="price-note">Tagesticket ohne Übernachtung</p>
+      </div>
+      <ul class="features">
+        <li>1 × Abendevent</li>
+        <li>Tagesteilnahme am Programm</li>
+        <li class="note">Bitte bei Anmeldung angeben: Fr 28./Sa 29. oder Sa 29./So 30.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Solidarity note -->
+  <div style="max-width: 640px; margin: 40px auto 0; padding: 28px 32px; background: #fff; border: 1px solid #e8e0cc; border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-size: 0.92rem; line-height: 1.8; color: #444;">
+    <p style="margin-bottom: 14px;">
+      <strong style="color: var(--dark);">Kein Geld? Kein Problem.</strong><br>
+      Das Leben spielt manchmal nicht mit — aber das sollte niemanden davon abhalten, dabei zu sein.
+      Meld dich einfach bei einem von uns im Orga-Team, wir finden gemeinsam einen Weg. 🤝
     </p>
-    <ul style="line-height: 1.9; color: #444; margin: 0 0 14px 20px;">
-      <li><strong>Empfohlene Route:</strong> Hinter der <strong>St.-Maria-Kirche</strong> den <strong>Burgweg</strong> hoch. <a href="https://maps.app.goo.gl/Xy5uKJDM5kz3cTA18" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
-      <li><strong>Alternative über den Hinterholzer</strong> (von der Bundesstraße Schramberg–Schiltach): <a href="https://maps.app.goo.gl/bsFYtL3d47xLG2Mb7" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
-      <li>Wer von Richtung <strong>Lauterbach/Hornberg</strong> kommt: einfach weiter die <strong>Schrambergerstraße</strong> entlang, die erste Sperrung umfahren – danach der <strong>ganz normale Weg hoch aufs Burgstüble</strong> (weit entfernt von der Erdrutsch-Gefahrenstelle).</li>
-    </ul>
-    <figure style="margin: 0;">
-      <img src="images/lauterbach-absperrung.jpg" alt="Straßensperrung mit Bauzaun von der Lauterbacher Seite Richtung Schramberg" loading="lazy" style="width: 100%; border-radius: 12px; display: block;">
-      <figcaption style="font-size: 0.8rem; color: var(--gray); margin-top: 8px;">Die erste Absperrung – von der Lauterbacher Seite Richtung Schramberg. Hier vorbei führt der normale Weg hoch zur Burg. · Stand 24.08.</figcaption>
-    </figure>
-    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 16px; font-style: italic;">
-      Wir klären gerade die offiziell freigegebene Route mit der Burg – die endgültige Anfahrt folgt in Kürze. Bei Fragen meldet euch einfach bei <a href="mailto:mark@finnern.com" style="color: var(--gold); text-decoration: none;">mark@finnern.com</a>.
+    <p style="margin-bottom: 14px;">
+      <strong style="color: var(--dark);">Das Leben hat dir gut mitgespielt?</strong><br>
+      Dann freuen wir uns, wenn du etwas drauflegst — damit am Ende alle dabei sein können
+      und wir gemeinsam eine unvergessliche Zeit haben. 🙌
+      <em style="display: block; margin-top: 8px; font-size: 0.85rem; color: var(--gray);">
+        Beispiel: Uli hat letztes Mal die ganze Woche gebucht, obwohl er Samstagabend
+        einen Auftritt hatte und gar nicht da sein konnte. ❤️
+      </em>
+    </p>
+    <p style="font-size: 0.8rem; color: var(--gray);">
+      Kontakt: <a href="mailto:mark@finnern.com" style="color: var(--gold);">mark@finnern.com</a>
     </p>
   </div>
+
 </section>
 
 <!-- REGISTER -->
