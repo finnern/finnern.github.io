@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Finnern - KI Innovation für Business und Leben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .credentials {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .project-list, .event-list {
+            margin: 30px 0;
+        }
+
+        .project-item, .event-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .project-item:hover, .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .project-title, .event-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
+        }
+
+        .workshop-highlight {
+            background: linear-gradient(135deg, #fff5cd 0%, #fef7cd 100%);
+            border-left: 4px solid #d69e2e;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            color: #FFD700;
+            border: none;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a365d;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+            color: #1a365d;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .contact-info a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #e2e8f0;
+            background-color: #f8f9fa;
+            font-size: 0.9em;
+        }
+
+        .legal-footer a {
+            color: #3182ce;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .legal-footer a:hover {
+            text-decoration: underline;
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .legal-footer a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <img src="assets/images/Banner Finnern.png" alt="Mark Finnern - Innovation neu denken für den Mittelstand" class="hero-banner">
+
+    <div class="container">
+        <h1>Erfolgreich mit KI im Business und Leben</h1>
+        
+        <div class="intro-text">
+            <p><strong>Ob Unternehmer, Führungskraft oder Privatperson</strong> - KI kann Ihre Produktivität revolutionieren und neue Möglichkeiten schaffen. Lassen Sie uns gemeinsam die Kraft der Künstlichen Intelligenz für Ihre Ziele nutzen.</p>
+        </div>
+
+        <div class="credentials">
+            <h3>Über mich</h3>
+            <p><strong>25+ Jahre Erfahrung</strong> in Silicon Valley und Deutschland mit SAP-Software-Implementierung, Community Building und Innovation Leadership. Gründer der SAP Mentors Community, die SAPs Innovationsstrategie maßgeblich beeinflusst hat.</p>
+            <p><strong>Aktuelle Leidenschaft:</strong> Innovation und unternehmerischen Geist im Schwarzwald und darüber hinaus zu fördern - mit praktischen KI-Lösungen, die echten Mehrwert schaffen.</p>
+        </div>
+
+        <h2>Aktuelle Projekte & Services</h2>
+        
+        <div class="project-list">
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ki-impact.org" target="_blank" class="project-link">KI-Impact Group</a>
+                </div>
+                <p>Exklusive Community für KI-Adoption im deutschsprachigen Raum - Netzwerk für Unternehmer und Führungskräfte zum Erfahrungsaustausch.</p>
+            </div>
+
+            <div class="project-item workshop-highlight">
+                <div class="project-title">
+                    🚀 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdLdeB1Jqpw9ynOf9Z0Rj43Z_QzfjcMnnSc8K9LzvFKBOtg_g/viewform" target="_blank" class="project-link">Workshop: "Prozesse mit KI orchestrieren" - 30. September 2025</a>
+                </div>
+                <p><strong>Praktischer Hands-on Workshop</strong> mit n8n und Power Automate - Lernen Sie, wie Sie Ihre Geschäftsprozesse intelligent automatisieren. <strong>Jetzt anmelden!</strong></p>
+            </div>
+
+            <div class="project-item workshop-highlight">
+                <div class="project-title">
+                    🎤 <a href="https://www.tedxfreiburg.com/tedxfreiburg-2026/" target="_blank" class="project-link">TEDxFreiburg 2026 - Steffen Erath spricht!</a>
+                </div>
+                <p><strong>28. März 2026 im Konzerthaus Freiburg</strong> - Unser Steffen Erath präsentiert seinen Talk "Planet centered innovation" beim TEDxFreiburg unter dem Motto "TENSION".</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://ideenfunken.lovable.app/#about-section" target="_blank" class="project-link">Ideenfunken - Leseinitiative</a>
+                </div>
+                <p><strong>Community-getriebene Leseinitiative</strong> für Schramberg und Umgebung. Bücher vorschlagen, abstimmen, gemeinsam lernen - unterstützt von lokalen Unternehmen und der Stadt. Ziel: Kreativität fördern und Mut zu Neuem entwickeln.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <a href="https://agent.ai/agent/d834r0u1k1huc05j" target="_blank" class="project-link">Strategy Sherlock</a>
+                </div>
+                <p><strong>KI-Detective für Konkurrenzanalyse</strong> - Analysiert Stellenausschreibungen um strategische Bewegungen der Wettbewerber zu enthüllen. Wie ein digitaler Consulting-Detective für Marktintelligenz.</p>
+            </div>
+        </div>
+
+        <h2>Vergangene Events & Workshops</h2>
+        
+        <div class="event-list">
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/ki-in-schramberg-bleiben-sie-hungrig-484642.html" target="_blank" class="project-link">Mickey McManus in der Szene 64: "Stay hungry, stay foolish"</a>
+                </div>
+                <p><strong>Silicon Valley Visionär zu Gast</strong> - Boston Consulting Group Senior Advisor sprach über KI-Disruption. Highlight: Lego-Experiment mit 35 Teilnehmern generierte 120 neue Entchen-Variationen. Mit Isetta-Fahrt durch Schramberg!</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/wirtschaft/wie-deutschland-von-der-ki-revolution-profitieren-kann-515959.html" target="_blank" class="project-link">Microsoft Copilot Workshop bei MS Schramberg</a>
+                </div>
+                <p><strong>"Nit Schwätza, Macha! – Mit Copilot!"</strong> - McKinsey-Studie: Deutschland Platz 3 weltweit für KI-Revolution. 18% Produktivitätssteigerung möglich. Hands-on Training mit Philip Fischer von Impact AI.</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-title">
+                    <a href="https://www.nrwz.de/schramberg/schroedingers-katze-junghans-und-kiqi-522657.html" target="_blank" class="project-link">KI im Marketing: Schrödingers Katze, Junghans und KiQi</a>
+                </div>
+                <p><strong>Workshop im Auto- und Uhrenmuseum</strong> mit Holger Siegel & Marc Millenet von id pool. 30 Teilnehmer aus verschiedensten Bereichen lernten KI-Marketing mit trainierter ChatGPT "KIQI". Junghans als Praxis-Beispiel.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Lass uns die Power von KI umsetzen!</h2>
+            <p>Bereit für den nächsten Schritt? Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Business oder Leben verbessern kann.</p>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2EXAJmnlH6DCVdDY8HMEYIcW3iGqG--3Nb8SwHrIcM0bW9uALM_TRq0veeWH1KVZZ8dg3FQrq6" class="cta-button">Let's Innovate together!</a>
+            <a href="https://linkedin.com/in/finnern" target="_blank" class="cta-button">LinkedIn Connect</a>
+        </div>
+
+        <div class="contact-info">
+            <h3>Kontakt</h3>
+            <p><strong>Mark Finnern</strong><br>
+            Email: <a href="mailto:mark@finnern.com">mark@finnern.com</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/finnern" target="_blank">linkedin.com/in/finnern</a><br>
+            Github: <a href="https://github.com/finnern/" target="_blank">github.com/finnern</a><br>
+            Schramberg, Schwarzwald, Deutschland</p>
+        </div>
+    </div>
+
+    <!-- Legal Footer -->
+    <div class="legal-footer">
+        <p>
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+        <p style="margin-top: 15px; color: #666; font-size: 0.8em;">
+            <strong>Nit schwätza - macha! :-)</strong>
+        </p>
+    </div>
+</body>
+</html>
