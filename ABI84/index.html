@@ -728,6 +728,77 @@
 
   <p style="text-align: center; max-width: 600px; margin: -40px auto 50px; font-size: 0.85rem; color: var(--gray); font-style: italic;">Grobe Skizze – Änderungen vorbehalten 😉</p>
 
+  <!-- WETTERVORHERSAGE -->
+  <div style="max-width: 620px; margin: 0 auto 50px; background: #fff; border: 1px solid #e8e0cc; border-radius: 16px; padding: 24px 28px; text-align: center;">
+    <p class="section-label" style="margin-bottom: 14px;">🌦️ Wettervorhersage</p>
+    <div id="wx-cards" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <div class="wx-card" data-date="2026-08-27" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Do 27.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌤️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>28°</strong> / 16°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-28" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Fr 28.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌧️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>19°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-29" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">Sa 29.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">⛅</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>19°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+      <div class="wx-card" data-date="2026-08-30" style="flex: 1; min-width: 110px; background: #fdf9f0; border-radius: 12px; padding: 14px 8px;">
+        <p style="font-weight: 600; color: var(--dark); font-size: 0.85rem;">So 30.08.</p>
+        <p class="wx-icon" style="font-size: 1.8rem; margin: 6px 0;">🌤️</p>
+        <p class="wx-temp" style="font-size: 0.9rem; color: #555;"><strong>22°</strong> / 13°</p>
+        <p class="wx-rain" style="font-size: 0.78rem; color: #4a86c5; margin-top: 2px;">💧 –</p>
+      </div>
+    </div>
+    <p style="font-size: 0.9rem; color: #555; margin-top: 16px; line-height: 1.6;">Der Freitag wird regnerisch – bitte entsprechende Klamotten mitbringen. Wie mein Papa immer sagte (eurer wahrscheinlich auch): <em style="color: var(--gold); font-weight: 600;">„Es gibt kein schlechtes Wetter, nur schlechte Kleidung!"</em></p>
+    <p style="font-size: 0.8rem; color: var(--gray); margin-top: 10px;"><span id="wx-stamp">Stand: 24.08.</span> · <a href="https://www.google.com/search?q=wetter+schramberg" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600;">Aktuelle Vorhersage →</a></p>
+  </div>
+
+  <script>
+  // Live-Wetter für das Fescht-Wochenende (Do–So) via Open-Meteo (kein API-Key nötig)
+  (function () {
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=48.2262&longitude=8.3787'
+      + '&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code'
+      + '&timezone=Europe%2FBerlin&start_date=2026-08-27&end_date=2026-08-30';
+    function wxIcon(c) {
+      if (c === 0) return '☀️';
+      if (c === 1) return '🌤️';
+      if (c === 2) return '⛅';
+      if (c === 3) return '☁️';
+      if (c === 45 || c === 48) return '🌫️';
+      if (c >= 51 && c <= 57) return '🌦️';
+      if (c >= 61 && c <= 67) return '🌧️';
+      if (c >= 71 && c <= 77) return '🌨️';
+      if (c >= 80 && c <= 82) return '🌦️';
+      if (c >= 85 && c <= 86) return '🌨️';
+      if (c >= 95) return '⛈️';
+      return '🌡️';
+    }
+    fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.daily || !d.daily.time) return;
+      d.daily.time.forEach(function (date, i) {
+        var card = document.querySelector('.wx-card[data-date="' + date + '"]');
+        if (!card) return;
+        var max = Math.round(d.daily.temperature_2m_max[i]);
+        var min = Math.round(d.daily.temperature_2m_min[i]);
+        var rain = d.daily.precipitation_probability_max[i];
+        card.querySelector('.wx-icon').textContent = wxIcon(d.daily.weather_code[i]);
+        card.querySelector('.wx-temp').innerHTML = '<strong>' + max + '°</strong> / ' + min + '°';
+        card.querySelector('.wx-rain').textContent = '💧 ' + (rain == null ? '–' : rain + '%');
+      });
+      var stamp = document.getElementById('wx-stamp');
+      if (stamp) stamp.textContent = 'Live aktualisiert';
+    }).catch(function () { /* Fallback: die vorbelegten Werte bleiben stehen */ });
+  })();
+  </script>
+
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-content">
@@ -997,6 +1068,27 @@
         loading="lazy"
         title="Karte Burgstüble Schramberg"></iframe>
     </div>
+  </div>
+
+  <!-- ANFAHRT-HINWEIS: Straßensperrung -->
+  <div style="max-width: 900px; margin: 40px auto 0; background: #fff8e6; border: 1px solid var(--gold); border-left: 5px solid var(--gold); border-radius: 16px; padding: 28px 32px;">
+    <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 14px;">⚠️ Wichtig zur Anfahrt – Straßensperrung</p>
+    <p style="line-height: 1.8; color: #444; margin-bottom: 14px;">
+      Wegen <strong>Erdrutschgefahr</strong> – nach einem Brand vor gut einer Woche – ist die Straße zwischen <strong>Schramberg und Schiltach</strong> aktuell gesperrt.
+      Das <strong>Burgstüble ist trotzdem gut erreichbar</strong> – nur eben nicht über diesen einen Abschnitt.
+    </p>
+    <ul style="line-height: 1.9; color: #444; margin: 0 0 14px 20px;">
+      <li><strong>Empfohlene Route:</strong> Hinter der <strong>St.-Maria-Kirche</strong> den <strong>Burgweg</strong> hoch. <a href="https://maps.app.goo.gl/Xy5uKJDM5kz3cTA18" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
+      <li><strong>Alternative über den Hinterholzer</strong> (von der Bundesstraße Schramberg–Schiltach): <a href="https://maps.app.goo.gl/bsFYtL3d47xLG2Mb7" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600; text-decoration: none;">in Google Maps öffnen →</a></li>
+      <li>Wer z.&nbsp;B. <strong>von Lauterbach</strong> kommt: Die erste Absperrung lässt sich umfahren, danach nehmt ihr den <strong>ganz normalen Weg hoch aufs Burgstüble</strong> – dieser liegt weit entfernt von der Erdrutsch-Gefahrenstelle.</li>
+    </ul>
+    <figure style="margin: 0;">
+      <img src="images/lauterbach-absperrung.jpg" alt="Straßensperrung mit Bauzaun von der Lauterbacher Seite Richtung Schramberg" loading="lazy" style="width: 100%; border-radius: 12px; display: block;">
+      <figcaption style="font-size: 0.8rem; color: var(--gray); margin-top: 8px;">Die erste Absperrung – von der Lauterbacher Seite Richtung Schramberg. Hier vorbei führt der normale Weg hoch zur Burg. · Stand 24.08.</figcaption>
+    </figure>
+    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 16px; font-style: italic;">
+      Wir klären gerade die offiziell freigegebene Route mit der Burg – die endgültige Anfahrt folgt in Kürze. Bei Fragen meldet euch einfach bei <a href="mailto:mark@finnern.com" style="color: var(--gold); text-decoration: none;">mark@finnern.com</a>.
+    </p>
   </div>
 </section>
 
