@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funkenflug – EU AI Act für Mayer Kohler + Partner mbB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment:   #f5edd6;
+      --parchment-dark: #e8d9b5;
+      --ink:         #2a1f0e;
+      --sepia:       #6b4c2a;
+      --copper:      #b87333;
+      --copper-light:#d4956a;
+      --brass:       #c9a84c;
+      --kanzlei-blau:#1e3a5f;
+      --kanzlei-blau-light:#2e5080;
+      --rule-color:  #8b6914;
+      --shadow:      rgba(42,31,14,.18);
+    }
+
+    body {
+      background-color: var(--parchment-dark);
+      color: var(--ink);
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── Pergament-Textur via CSS (ohne externe Bilder) ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Hauptcontainer ── */
+    .page {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      z-index: 1;
+    }
+
+    /* ── Verzierte Trennlinie ── */
+    .ornament-rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 36px 0;
+      color: var(--rule-color);
+    }
+    .ornament-rule::before,
+    .ornament-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--rule-color), transparent);
+    }
+    .ornament-rule svg { flex-shrink: 0; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--kanzlei-blau);
+      color: #f0e6ce;
+      text-align: center;
+      padding: 56px 32px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 8px,
+        rgba(255,255,255,.03) 8px,
+        rgba(255,255,255,.03) 9px
+      );
+    }
+    .kanzlei-badge {
+      display: inline-block;
+      border: 1px solid var(--brass);
+      color: var(--brass);
+      font-family: 'Merriweather', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      margin-bottom: 28px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #f8f0dd;
+      margin-bottom: 12px;
+    }
+    header h1 em {
+      font-style: italic;
+      color: var(--brass);
+    }
+    header .subhead {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #c9b89a;
+      margin-bottom: 28px;
+    }
+    .header-lead {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: .95rem;
+      color: #d4c4a2;
+      line-height: 1.8;
+    }
+
+    /* ── COMIC SECTION ── */
+    .comic-section {
+      background: var(--ink);
+      padding: 8px;
+      margin: 0;
+      box-shadow: 0 8px 40px var(--shadow);
+    }
+    .comic-section img {
+      width: 100%;
+      display: block;
+    }
+    .comic-caption {
+      background: var(--ink);
+      color: var(--brass);
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: .9rem;
+      padding: 10px 20px 14px;
+      letter-spacing: .5px;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    section {
+      padding: 48px 0 0;
+    }
+    .section-label {
+      display: inline-block;
+      background: var(--copper);
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--kanzlei-blau);
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--sepia);
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 16px; }
+
+    /* ── ZWEI-SPALTEN ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 8px;
+    }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    .col-problem {
+      border-left: 3px solid var(--copper);
+      padding-left: 20px;
+    }
+    .col-solution {
+      border-left: 3px solid var(--kanzlei-blau);
+      padding-left: 20px;
+    }
+
+    /* ── NUMBERED LIST ── */
+    ol.steampunk-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+    ol.steampunk-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: .95rem;
+    }
+    .list-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--kanzlei-blau);
+      color: var(--brass);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+    }
+    ol.steampunk-list li span { padding-top: 2px; }
+    ol.steampunk-list strong { color: var(--kanzlei-blau); }
+
+    /* ── FOUNDING CUSTOMER BOX ── */
+    .founding-box {
+      border: 2px solid var(--brass);
+      background: linear-gradient(135deg, #fdf7e8 0%, #f5edd6 100%);
+      padding: 40px;
+      margin-top: 48px;
+      position: relative;
+      box-shadow: 6px 6px 0 var(--copper);
+    }
+    .founding-box::before,
+    .founding-box::after {
+      content: '✦';
+      position: absolute;
+      color: var(--brass);
+      font-size: 1.2rem;
+    }
+    .founding-box::before { top: 12px; left: 16px; }
+    .founding-box::after  { bottom: 12px; right: 16px; }
+
+    .founding-box h2 {
+      color: var(--sepia);
+      margin-bottom: 6px;
+    }
+    .founding-box .tagline {
+      color: var(--copper);
+      font-style: italic;
+      margin-bottom: 24px;
+      font-size: .95rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    .benefit-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .9rem;
+    }
+    .benefit-icon {
+      flex-shrink: 0;
+      color: var(--brass);
+      font-size: 1.1rem;
+      margin-top: 1px;
+    }
+    .benefit-item strong { color: var(--kanzlei-blau); }
+
+    .pilot-count {
+      display: inline-block;
+      background: var(--kanzlei-blau);
+      color: var(--brass);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      width: 56px; height: 56px;
+      line-height: 56px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    .pilot-label {
+      display: inline;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--sepia);
+      vertical-align: middle;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 56px 0 0;
+    }
+    .cta-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--kanzlei-blau);
+      margin-bottom: 8px;
+    }
+    .cta-sub {
+      font-style: italic;
+      color: var(--sepia);
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--kanzlei-blau);
+      color: #f8f0dd;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 18px 44px;
+      text-decoration: none;
+      border: 2px solid var(--brass);
+      box-shadow: 4px 4px 0 var(--brass);
+      transition: transform .12s, box-shadow .12s;
+      letter-spacing: .5px;
+    }
+    .btn-primary:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 var(--brass);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 56px;
+      border-top: 1px solid var(--rule-color);
+      padding-top: 28px;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--sepia);
+      opacity: .75;
+      line-height: 1.9;
+    }
+    footer strong { color: var(--ink); }
+
+    /* ── Steampunk Gear Divider (inline SVG) ── */
+    .gear-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 40px 0;
+      color: var(--brass);
+    }
+    .gear-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--brass), transparent);
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- ══════════════════════ HEADER ══════════════════════ -->
+  <header>
+    <div class="kanzlei-badge">EU AI Act · Artikel 4 · Schulungspflicht</div>
+    <h1>Aus der Pflicht-Schulung<br><em>wird Ihr KI-Vorsprung.</em></h1>
+    <p class="subhead">Funkenflug — die KI-Schulung, die niemand abhaken will.</p>
+    <p class="header-lead">
+      Seit Februar&nbsp;2025 muss <strong>jedes Unternehmen</strong> in der EU
+      seine Mitarbeitenden im Umgang mit KI schulen. Standard-Videos in 40&nbsp;Minuten
+      durchklicken, Häkchen setzen, fertig? Verschenkte Zeit. Wir drehen die Pflicht
+      um — und machen aus der lästigen Schulung den <em>Funken</em>, der Ihr
+      Unternehmen für KI begeistert.
+    </p>
+  </header>
+
+  <!-- ══════════════════════ DIE UMKEHR ══════════════════════ -->
+  <section>
+    <div class="section-label">Die Umkehr</div>
+    <h2>Drei Wirkungen in einer Schulung — statt einer abgehakten Pflicht.</h2>
+
+    <ol class="steampunk-list" style="margin-top: 24px;">
+      <li>
+        <div class="list-num">1</div>
+        <span>
+          <strong>Pflicht erfüllt.</strong>
+          Artikel&nbsp;4 sauber dokumentiert, rechtssicher, prüffähig.
+          Das ist die Eintrittskarte — nicht das Ziel.
+        </span>
+      </li>
+      <li>
+        <div class="list-num">2</div>
+        <span>
+          <strong>Mitarbeiter sensibilisiert.</strong>
+          Wo lauern echte Datenschutzrisiken? Was darf man, was nie?
+          Eingebettet in Ihre Prozesse, Ihren Wortschatz, Ihren Alltag — nicht in Stockfoto-Szenarien.
+        </span>
+      </li>
+      <li>
+        <div class="list-num">3</div>
+        <span>
+          <strong>Begeisterung geweckt.</strong>
+          Die Schulung selbst ist ein KI-Live-Erlebnis: Comic, Stimme, Fallbeispiele —
+          alles auf Ihr Haus zugeschnitten. Ihre Leute erleben in 30&nbsp;Minuten,
+          was KI <em>für sie</em> tun könnte. Und kommen mit eigenen Ideen zurück.
+        </span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ══════════════════════ COMIC ══════════════════════ -->
+  <div class="comic-section" style="margin-top: 56px;">
+    <img src="Comic.jpg" alt="Vierteiliger Wilhelm-Busch-Comic: Janine und Herr Pfaff bändigen die KI-Zaubermühle bei Mayer Kohler + Partner mbB" />
+    <p class="comic-caption">
+      Beispiel — personalisiert für die Kanzlei <em>Mayer Kohler&nbsp;+&nbsp;Partner&nbsp;mbB</em>. <br/>
+      Ihre Schulung bekommt Ihre Figuren, Ihre Kultur, Ihre Werte.
+    </p>
+  </div>
+
+  <!-- ══════════════════════ STIL-MANIFEST ══════════════════════ -->
+  <section>
+    <div class="section-label">Warum Wilhelm Busch?</div>
+    <h2>Max und Moritz treffen die Dampfmaschine.</h2>
+    <p>
+      Wir hätten Stockfotos nehmen können. Haben wir nicht. Wir haben den
+      <strong>Comic-Stil von Wilhelm Busch</strong> gewählt — die Urform der
+      deutschen Bildergeschichte, charmant, hintergründig, mit Augenzwinkern.
+      Eine ganze Generation kennt sie nicht mehr; wir öffnen sie neu.
+    </p>
+    <p>
+      Dazu kommt die <strong>Steampunk-Ästhetik</strong> — Zahnräder, Kupferrohre,
+      Zaubermühle: das visuelle Bild dafür, dass KI eine Maschine ist, die man
+      bauen, bändigen und im eigenen Haus betreiben kann. Nicht eine Wolke,
+      in die man Daten wirft. Das ist nicht Deko — das ist die Botschaft.
+    </p>
+    <p style="font-style: italic; color: var(--sepia); border-left: 3px solid var(--brass); padding-left: 18px; margin-top: 24px;">
+      Die vier Panels oben sind ein Beispiel. Was Ihre Mitarbeitenden in der
+      Schulung sehen, wird genauso unverwechselbar — und unverwechselbar Ihres.
+    </p>
+  </section>
+
+  <!-- ── Gear Divider ── -->
+  <div class="gear-divider">
+    <div class="gear-line"></div>
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 10a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="currentColor"/>
+      <path d="M28.5 13.5h-2.1a10.6 10.6 0 0 0-1-2.4l1.5-1.5-2.5-2.5-1.5 1.5a10.6 10.6 0 0 0-2.4-1V5.5h-3.5v2.1a10.6 10.6 0 0 0-2.4 1L13.1 7.1 10.6 9.6l1.5 1.5a10.6 10.6 0 0 0-1 2.4H8.5V17h2.1c.25.85.6 1.65 1 2.4l-1.5 1.5 2.5 2.5 1.5-1.5c.75.4 1.55.75 2.4 1v2.1H20v-2.1c.85-.25 1.65-.6 2.4-1l1.5 1.5 2.5-2.5-1.5-1.5c.4-.75.75-1.55 1-2.4h2.1v-3.5z" fill="currentColor" opacity=".4"/>
+    </svg>
+    <div class="gear-line"></div>
+  </div>
+
+  <!-- ══════════════════════ FOUNDING CUSTOMER ══════════════════════ -->
+  <div class="founding-box">
+    <div>
+      <span class="pilot-count">5</span>
+      <span class="pilot-label">exklusive Pilotkunden-Plätze</span>
+    </div>
+
+    <div class="ornament-rule" style="margin: 20px 0;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--brass)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    </div>
+
+    <h2>Gestalten Sie mit, was alle danach kaufen.</h2>
+    <p class="tagline">
+      Die ersten fünf Unternehmen formen Funkenflug von innen — sie bestimmen,
+      welche Themen rein müssen, welche Beispiele zünden, welcher Ton stimmt.
+      Danach sind diese Türen zu.
+    </p>
+
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">✦</div>
+        <div><strong>Maximaler Einfluss aufs Curriculum</strong><br/>Sie sitzen mit am Reißbrett — Ihre Branche, Ihre Sprache, Ihre Pain Points werden Standard.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚙</div>
+        <div><strong>Volle Individualisierung</strong><br/>Comic-Figuren, Fallbeispiele, Kulturwerte — alles auf Ihr Haus zugeschnitten.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚙</div>
+        <div><strong>50&nbsp;% Vorzugstarif</strong><br/>auf den späteren Listenpreis — dauerhaft, auch in Folgejahren.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚖</div>
+        <div><strong>Rechtssichere Begleitung</strong><br/>Juristisch abgesichert durch Anna-Kathrin Mauch (DSGVO &amp; AI Act).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ CTA ══════════════════════ -->
+  <div class="cta-section">
+    <p class="cta-headline">Pflicht oder Vorsprung — Sie entscheiden.</p>
+    <p class="cta-sub">Noch sind Plätze frei. 30&nbsp;Minuten Strategy Check, kostenfrei, unverbindlich.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2EXAJmnlH6DCVdDY8HMEYIcW3iGqG--3Nb8SwHrIcM0bW9uALM_TRq0veeWH1KVZZ8dg3FQrq6" class="btn-primary" target="_blank" rel="noopener">
+      Pilotkunden-Platz sichern&nbsp;→
+    </a>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>
+      <strong>Ein Joint Venture von</strong><br/>
+      Finnern Innovation Consulting &amp; Mayer Kohler + Partner mbB<br/>
+      Wirtschaftsprüfung · Steuerberatung · Rechtsberatung · Schramberg
+    </p>
+    <p style="margin-top:12px; font-size:.75rem; opacity:.6;">
+      Alle Daten bleiben in Ihrer Infrastruktur. Immer.
+    </p>
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
