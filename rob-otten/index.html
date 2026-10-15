@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rob Otten — Bestellungen aus dem Kundenportal automatisch in die Warenwirtschaft</title>
+<meta name="description" content="Rob Otten liest Bestellungen aus dem Kundenportal, legt den Auftrag in Ihrer Warenwirtschaft an und bestätigt im Portal. Lokal, ohne Cloud-KI, auch bei Systemen ohne Schnittstelle. Mark Finnern, Schramberg.">
+<meta property="og:title" content="Rob Otten — Einer muss den stumpfen Job ja machen.">
+<meta property="og:description" content="Portal-Bestellung lesen, Auftrag in der Warenwirtschaft anlegen, im Portal bestätigen. In Minuten, ohne Abtippen. Seit April 2026 im Betrieb.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finnern.com/rob-otten/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://finnern.com/rob-otten/rob-otten-schaufel.png">
+<meta property="og:image:width" content="675">
+<meta property="og:image:height" content="900">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2318; --paper:#FFFFFF; --rule:#8D7B5A; --accent:#A93A21; --muted:#5B4E3B; --blau:#3E6E9E;
+    --serif:"Vollkorn",Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.55}
+  a{color:var(--blau)}
+  header.top{padding:18px 20px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  header.top a.home{color:var(--ink);text-decoration:none;font-weight:600;letter-spacing:.02em}
+  header.top span{color:var(--muted);font-size:15px}
+  main{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+  h1{font-size:clamp(34px,6vw,52px);line-height:1.08;font-weight:600;margin:.2em 0 .3em;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--accent)}
+  h2{font-size:clamp(24px,3.6vw,30px);line-height:1.2;margin:1.6em 0 .5em;font-weight:600}
+  h3{font-size:21px;margin:1.4em 0 .3em;font-weight:600}
+  p{margin:0 0 1em}
+  .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-size:13px;margin-bottom:.6em}
+  .verse{font-style:italic;margin:1.2em 0;padding-left:1.2em;border-left:3px solid var(--accent);white-space:pre-line;color:#2f2b26}
+  .verse small{display:block;font-style:normal;color:var(--muted);font-size:14px;margin-top:.4em}
+  .orn{text-align:center;color:var(--rule);font-size:28px;margin:48px 0 24px;letter-spacing:.3em}
+  .panel{background:#F5F2EC;border:1px solid var(--rule);border-radius:4px;padding:22px 24px;margin:1.4em 0}
+  .hero{display:grid;gap:24px;align-items:center;margin:1.4em 0}
+  @media(min-width:640px){.hero{grid-template-columns:1fr 200px}}
+  .hero img{width:100%;max-width:220px;display:block;margin:0 auto;mix-blend-mode:multiply}
+  .hero figcaption{font-size:14px;color:var(--muted);font-style:italic;text-align:center;margin-top:8px}
+  .grid{display:grid;gap:18px;margin:1.2em 0}
+  @media(min-width:640px){.grid.three{grid-template-columns:1fr 1fr 1fr}.grid.two{grid-template-columns:1fr 1fr}}
+  .card{background:#F5F2EC;border:1px solid var(--rule);border-radius:4px;padding:18px 20px;font-size:17px}
+  .card h3{margin:0 0 .3em;font-size:19px}
+  .card p{margin:0}
+  .card.dark{background:var(--ink);color:#F5F2EC;border-color:var(--ink)}
+  .card.dark h3{color:#fff}
+  ol.schritte{list-style:none;padding:0;margin:1.2em 0;counter-reset:s;display:grid;gap:10px}
+  @media(min-width:640px){ol.schritte{grid-template-columns:1fr 1fr 1fr}}
+  ol.schritte li{counter-increment:s;background:#F5F2EC;border:1px solid var(--rule);border-radius:4px;padding:14px 16px;font-size:17px;line-height:1.3}
+  ol.schritte li::before{content:"0" counter(s);display:block;font-size:13px;letter-spacing:.14em;color:var(--accent);margin-bottom:4px}
+  ol.schritte li.portal{background:var(--ink);color:#F5F2EC;border-color:var(--ink)}
+  ul.plain{list-style:none;padding:0;margin:.4em 0 1em}
+  ul.plain li{padding-left:1.4em;position:relative;margin:.45em 0}
+  ul.plain li::before{content:"–";position:absolute;left:.2em;color:var(--accent)}
+  blockquote.zitat{margin:1.4em 0;padding:4px 0 4px 1.2em;border-left:3px solid var(--accent);font-style:italic}
+  blockquote.zitat p{margin:0 0 .5em}
+  blockquote.zitat cite{display:block;font-style:normal;font-size:15px;color:var(--muted)}
+  .facts{font-size:16px;margin:1em 0}
+  .facts div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #e3ddd2;padding:6px 0}
+  .facts div span:first-child{color:var(--muted)}
+  .facts div:last-child{border:0}
+  .cta{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 26px;border-radius:4px;font-size:18px;font-weight:600;margin:.4em .6em .4em 0}
+  .cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .cta:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .note{font-size:15px;color:var(--muted)}
+  .person{display:grid;gap:18px;align-items:start;margin:1.2em 0}
+  @media(min-width:640px){.person{grid-template-columns:120px 1fr}}
+  .person img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);background:#fff;display:block}
+  .person strong{display:block}
+  .bridge{background:#fff8dc;border:1px solid #e8d98a;border-radius:4px;padding:20px 22px;margin:2.5em 0 0}
+  footer{border-top:1px solid var(--rule);padding:28px 20px;font-size:15px;color:var(--muted);text-align:center}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="home" href="/">← Mark Finnern</a>
+  <span>Rob Otten · Bestellautomatisierung für Portal-Lieferanten</span>
+</header>
+
+<main>
+
+  <p class="kicker">Rob Otten · Bestellungen aus dem Kundenportal, ohne Abtippen</p>
+  <h1>Einer muss den stumpfen Job <em>ja machen.</em></h1>
+
+  <div class="hero">
+    <div>
+      <p>Es gibt Arbeit, die macht niemand gern: die Bestellung aus dem Kundenportal lesen, den Auftrag in die Warenwirtschaft tippen, die Auftragsnummer ins Portal zurücktragen. Jeden Tag dieselben Handgriffe, bei jeder Bestellung von vorn.</p>
+      <p>Rob Otten macht das. In Minuten, Tag und Nacht, und er meldet sich, wenn etwas nicht passt.</p>
+    </div>
+    <figure style="margin:0">
+      <img src="/rob-otten/rob-otten-schaufel.png" alt="Rob Otten, ein gezeichneter Roboter mit Schaufel, im Stil von Wilhelm Busch">
+      <figcaption>Rob Otten, der Datenschaufler.</figcaption>
+    </figure>
+  </div>
+
+  <div class="orn">❦</div>
+
+  <h2>So läuft es</h2>
+
+  <ol class="schritte">
+    <li class="portal">Mail vom Kundenportal: neue Bestellung</li>
+    <li class="portal">Rob holt die Bestellung als PDF</li>
+    <li>Die KI liest Artikel, Menge, Termin</li>
+    <li>Auftrag in Ihrer Warenwirtschaft angelegt</li>
+    <li class="portal">Auftragsnummer als Bestätigung ins Portal</li>
+    <li>Mail ans Team: erledigt, oder bitte anschauen</li>
+  </ol>
+  <p class="note">Dunkel: Berührung mit dem Portal Ihres Kunden; Rob arbeitet dort wie ein Mitarbeiter mit eigenem Zugang. Hell: läuft auf Ihrem Server. Sonderfälle, abweichende Lieferadressen oder unleserliche PDFs gehen mit Hinweis an einen Menschen, Rob legt dann nichts an.</p>
+
+  <div class="orn">❦</div>
+
+  <h2>Was Sie gewinnen</h2>
+
+  <div class="grid three">
+    <div class="card">
+      <h3>Keine Bestellung mehr abtippen</h3>
+      <p>Ihr Mitarbeiter ist nicht länger die Schnittstelle zwischen zwei Programmen. Es bleibt ein kurzer Blick auf den fertigen Auftrag.</p>
+    </div>
+    <div class="card">
+      <h3>Bestätigung in Minuten</h3>
+      <p>Auch wenn die zuständige Person in der Werkstatt, im Urlaub oder krank ist. Die Routine läuft, das Team wird per Mail informiert.</p>
+    </div>
+    <div class="card dark">
+      <h3>Ihre Warenwirtschaft bleibt</h3>
+      <p>Kein ERP-Wechsel, kein Schnittstellenprojekt. Rob bedient auch Systeme ohne brauchbare Schnittstelle, über die Oberfläche, wie ein Mensch.</p>
+    </div>
+  </div>
+
+  <div class="orn">❦</div>
+
+  <h2>In der Praxis bewährt</h2>
+
+  <p>Bei AWT Werbetechnik in Schramberg läuft Rob Otten seit April 2026. Ein Großkunde schickt bis zu zwölf Bestellungen am Tag über sein Lieferantenportal; vorher hat jede davon ein paar Minuten Abtippen gekostet. Die Warenwirtschaft dort hat keine brauchbare Schnittstelle. Als der Großkunde im Mai sein Portal auf eine neue Oberfläche umstellte, hat Rob die Umstellung mitgemacht.</p>
+
+  <blockquote class="zitat">
+    <p>„Das stumpfe Abarbeiten und Bestätigen von immer gleichen Bestellungen entfällt. Wir prüfen die Aufträge von Rob Otten nur kurz und tragen sie in die Auftragsplanung ein, das dauert wenige Sekunden. Unsere Software ist etwas starr, und es gab mehr Probleme zu bewältigen als gedacht. Letztendlich steht die Lösung, und Rob Otten läuft.“</p>
+    <cite>Michael Mendel, AWT Werbetechnik, Schramberg</cite>
+  </blockquote>
+
+  <div class="facts">
+    <div><span>Im Betrieb seit</span><span>April 2026</span></div>
+    <div><span>Bestellungen</span><span>bis zu zwölf am Tag, mehrere Gesellschaften des Kunden</span></div>
+    <div><span>Warenwirtschaft</span><span>Standardsoftware, ohne Schnittstelle</span></div>
+    <div><span>Portal-Umstellung</span><span>Mai 2026, mitgemacht</span></div>
+    <div><span>Referenzgespräch</span><span>auf Anfrage</span></div>
+  </div>
+
+  <div class="orn">❦</div>
+
+  <h2>Sicherheit, kurz gesagt</h2>
+
+  <ul class="plain">
+    <li><strong>Die KI läuft bei Ihnen.</strong> Das Modell, das die PDFs liest, läuft auf Ihrem Server. Bestelldaten gehen an keinen externen KI-Dienst.</li>
+    <li><strong>Rob schreibt nur eines zurück:</strong> Ihre Auftragsnummer als Bestätigung. Menge, Preis und Termin bleiben, wie das Portal sie vorgibt.</li>
+    <li><strong>Eigener Zugang, eigene Spur.</strong> Rob hat im Portal einen eigenen Benutzer; jeder Schritt ist im Log nachvollziehbar.</li>
+    <li><strong>Jederzeit abschaltbar.</strong> Ein Schalter, und die Bestellungen laufen wieder wie vorher von Hand.</li>
+  </ul>
+
+  <div class="orn">❦</div>
+
+  <h2>Für wen es sich lohnt</h2>
+
+  <p>Für Betriebe, die regelmäßig Bestellungen aus einem Kundenportal bekommen und bei denen diese Routine an einer einzigen Person hängt, oder bei denen Bestätigungen zu lange liegen bleiben. Ob es sich rechnet, prüfen wir an Ihren tatsächlichen Abläufen, nicht an einer Hochrechnung.</p>
+
+  <div class="grid three">
+    <div class="card">
+      <h3>1 · Erstanalyse</h3>
+      <p>Ein halber Tag bei Ihnen: Warenwirtschaft, Portalzugang, Abläufe. Ergebnis: ein Festpreis oder eine klare Absage.</p>
+    </div>
+    <div class="card">
+      <h3>2 · Einrichtung</h3>
+      <p>Festpreis je nach Warenwirtschaft. Mit Betriebshandbuch und Einweisung Ihres Teams.</p>
+    </div>
+    <div class="card">
+      <h3>3 · Betrieb</h3>
+      <p>Überwachung, Anpassung bei kleinen Portal-Änderungen, Support. Monatlich kündbar.</p>
+    </div>
+  </div>
+
+  <p class="note">Die Konditionen besprechen wir nach der Erstanalyse, wenn klar ist, wie Ihre Warenwirtschaft sich bedienen lässt. Vorher wäre jede Zahl geraten.</p>
+
+  <div class="orn">❦</div>
+
+  <h2>Wer dahintersteht</h2>
+
+  <div class="person">
+    <img src="/rob-otten/mark-finnern-wilhelm-busch.jpg" alt="Mark Finnern als Zeichnung im Stil von Wilhelm Busch">
+    <div>
+      <strong>Mark Finnern</strong>
+      <p>Dreißig Jahre Enterprise-Software, zwei Jahrzehnte Silicon Valley, Mitgründer der SAP Community, heute wieder daheim in Schramberg. Baut Automatisierung bei den Betrieben im Haus, mit n8n, Python und lokaler KI; Altsysteme eingeschlossen. Seit 2024 bringt er mit der <a href="https://ki-impact.org">KI-Impact Group</a> KI in den Schwarzwald.</p>
+    </div>
+  </div>
+
+  <div class="verse">Die Maschine tippt und schreibt,
+doch das letzte Wort verbleibt
+bei dem Menschen — so allein
+soll es jetzt und immer sein.<small>Rob läuft bis zu einer Grenze, die der Betrieb setzt. Die letzte Entscheidung bleibt beim Menschen.</small></div>
+
+  <div class="orn">❦</div>
+
+  <h2>20 Minuten, eine echte Bestellung</h2>
+
+  <p>Per Video-Call zeige ich Ihnen den Ablauf an einem freigegebenen Beispiel: Mail rein, Auftrag drin, Bestätigung im Portal. Danach wissen Sie, ob das zu Ihrem Betrieb passt.</p>
+
+  <p>
+    <a class="cta" href="https://calendar.app.google/iGafo91Ymj7ZKUWbA">Termin wählen →</a>
+    <a class="cta ghost" href="mailto:mark@finnern.com?subject=Rob%20Otten%3A%20kurze%20Vorf%C3%BChrung&body=Betrieb%3A%0AKundenportal%3A%0AWarenwirtschaft%3A%0ABestellungen%20pro%20Woche%20etwa%3A%0A">Oder per Mail</a>
+  </p>
+  <p class="note">Oder anrufen: <a href="tel:+491706688388">+49 170 668 8388</a>. Ohne Formular, ohne Formalien.</p>
+
+  <div class="bridge">
+    <strong>Woher der Name?</strong><br>
+    Das Team bei AWT hat eine KI nach Namensvorschlägen gefragt. „Rob Otten“ kam zurück, und blieb. Seine ganze Geschichte steht im <a href="/#erster-streich">Ersten Streich</a>.
+  </div>
+
+</main>
+
+<footer>
+  Rob Otten · ein Angebot von Finnern Innovation Consulting · Schramberg, Schwarzwald<br>
+  <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a> · <a href="/">finnern.com</a>
+</footer>
+
+</body>
+</html>
