@@ -128,7 +128,7 @@ section.streich{padding:3.2rem 0 0}
 }
 .prosa{max-width:36rem;margin:0 auto}
 .prosa p{margin-bottom:1.1rem}
-.prosa p:first-of-type::first-letter{
+.prosa > p:first-of-type::first-letter{
   font-family:'UnifrakturMaguntia',serif;
   font-size:3.3em;line-height:.8;
   float:left;
@@ -136,6 +136,13 @@ section.streich{padding:3.2rem 0 0}
   padding:.08em .12em 0 0;
 }
 .prosa strong{font-weight:700}
+.zitat{
+  border-left:3px solid var(--zinnober);
+  margin:1.6rem 0 1.4rem;padding:.2rem 0 .2rem 1.1rem;
+  font-style:italic;
+}
+.zitat p{margin-bottom:.5rem}
+.zitat cite{display:block;font-style:normal;font-size:.9rem;color:var(--tinte-hell)}
 .merksatz{
   border-top:1px solid var(--linie);
   border-bottom:1px solid var(--linie);
@@ -261,9 +268,21 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
       „Was du dreimal tippst am Tag,<br>
       schafft der Workflow ohne Klag.“
     </p>
+    <figure class="tafel" style="max-width:14rem">
+      <img src="assets/images/rob-otten-schaufel.png"
+           alt="Rob Otten, ein gezeichneter Roboter mit Schaufel, im Stil von Wilhelm Busch"
+           loading="lazy">
+      <figcaption>Rob Otten, der Datenschaufler. Läuft seit April bei einem Schilderhersteller im Schwarzwald — Tag und Nacht, ohne zu murren.</figcaption>
+    </figure>
     <div class="prosa">
-      <p>Bestellungen, die als PDF ankommen und von Hand abgetippt werden. Daten, die zwischen SAP, dem alten Warenwirtschaftssystem und Excel hin- und herwandern. Genau dort fange ich an: Ich setze mich neben Ihre Leute, verstehe den Ablauf, wie er wirklich läuft — nicht, wie er im Handbuch steht — und baue die Automatisierung direkt bei Ihnen im Haus. Aus unstrukturierten Papierbergen werden strukturierte Daten, aus Handarbeit ein Ablauf, der von selbst läuft. Das Werkzeug — n8n, Python oder was das Problem verlangt — richtet sich nach Ihrem Betrieb, nie umgekehrt. Auch die Systeme, von denen der Hersteller längst nichts mehr wissen will, nehme ich mit.</p>
-      <p>Ein Beispiel aus der Praxis: Bei einem Werbetechnik-Betrieb in der Region laufen Großkunden-Bestellungen heute automatisch vom Kundenportal bis ins hauseigene ERP — inklusive Positionsdaten, ohne Abtippen. Selbst gehostet, die Daten bleiben im Haus.</p>
+      <p>Bei vielen Betrieben kommen Bestellungen aus einem Kundenportal: Benachrichtigung ins Postfach, einloggen, PDF öffnen, Auftrag in die Warenwirtschaft tippen, Auftragsnummer ins Portal zurück. Ein paar Minuten pro Bestellung, bei jeder Bestellung dieselben, bis zu zwölfmal am Tag. Mein Vater hätte gesagt: eine Arbeit für jemanden, der Vater und Mutter erschlagen hat.</p>
+      <p>Für einen Schilderhersteller in der Region habe ich dafür Rob Otten gebaut. Er erkennt die Bestellung im Posteingang, liest das PDF, legt den Auftrag in der Warenwirtschaft an und trägt die Auftragsnummer als Bestätigung ins Portal zurück. Das Team bekommt pro Bestellung eine Mail: erledigt — oder bitte anschauen. Mehr Zutun braucht es nicht.</p>
+      <p>Die Warenwirtschaft hatte keine brauchbare Schnittstelle. Rob bedient sie wie ein Mensch, nur ohne Mittagspause. Die KI, die das PDF liest, läuft auf dem Server des Betriebs; Bestelldaten gehen an keinen externen KI-Dienst. Als der Großkunde im Mai sein Portal auf eine neue Oberfläche umstellte, hat Rob die Umstellung mitgemacht.</p>
+      <blockquote class="zitat">
+        <p>„Das stumpfe Abarbeiten und Bestätigen von immer gleichen Bestellungen entfällt. Wir prüfen die Aufträge von Rob Otten nur kurz und tragen sie in die Auftragsplanung ein, das dauert wenige Sekunden. Unsere Software ist etwas starr, und es gab mehr Probleme zu bewältigen als gedacht. Letztendlich steht die Lösung, und Rob Otten läuft.“</p>
+        <cite>Michael Mendel, AWT Werbetechnik, Schramberg</cite>
+      </blockquote>
+      <p>So arbeite ich: ein paar Tage neben den Leuten, die den Prozess machen — nicht, wie er im Handbuch steht, sondern wie er wirklich läuft. Dann wird gebaut, mit n8n, Python oder was zum Betrieb passt, Altsysteme eingeschlossen. Rob läuft bis zu einer Grenze, die der Betrieb setzt. Die letzte Entscheidung bleibt beim Menschen.</p>
       <div class="merksatz">Wir automatisieren bis zur Schwelle — Ihr Team bleibt die entscheidende Stelle.</div>
     </div>
     <p class="uebergang">Dieses war der erste Streich,<br>doch der zweite folgt sogleich.</p>
