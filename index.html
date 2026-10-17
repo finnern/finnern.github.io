@@ -7,7 +7,7 @@
 <meta name="description" content="Mark Finnern spricht beide Sprachen: die Ihrer Prozesse und die der KI — und baut die Lösung bei Ihnen im Haus. Prototypen statt Strategiepapiere. Schramberg, Schwarzwald.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vollkorn+SC:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Stardos+Stencil:wght@400;700&family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Vollkorn+SC:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --papier:#FFFFFF;        /* Weiß — exakt der Porträt-Hintergrund */
@@ -103,6 +103,13 @@ figure.tafel img{
   width:100%;height:auto;display:block;
   mix-blend-mode:multiply;
 }
+/* figure.tafel img setzt width:100% mit höherer Spezifität — daher hier mit figure.tafel gescoped */
+.ki-banner__inner{display:flex;align-items:center;justify-content:center;gap:1rem}
+figure.tafel .ki-banner__inner img{width:8.5rem;height:auto;flex:none;margin:0}
+.ki-banner__text{display:flex;flex-direction:column;text-align:left;font-family:'Stardos Stencil',Georgia,serif;color:#1a1a1a;line-height:.95}
+.ki-banner__title{font-weight:700;font-size:2.9rem}
+.ki-banner__sub{font-size:1.05rem;margin-top:.55rem}
+@media (max-width:30rem){figure.tafel .ki-banner__inner img{width:6.5rem}.ki-banner__title{font-size:2.2rem}.ki-banner__sub{font-size:.9rem}}
 figure.tafel figcaption{
   font-size:.85rem;color:var(--tinte-hell);margin-top:.6rem;font-style:italic;text-align:center;
 }
@@ -252,7 +259,8 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
     <p class="vers-quelle">frei nach Wilhelm Busch, 1865</p>
 
     <div class="vorwort-prosa prosa">
-      <p>Ich bin Mark Finnern — dreißig Jahre Enterprise-Software, davon zwei Jahrzehnte im Silicon Valley, Mitgründer der SAP Community und Erfinder des SAP-Mentors-Programms, heute wieder daheim in Schramberg. Ich spreche beide Sprachen: die Ihrer Prozesse, gelernt in dreißig Jahren zwischen Buchhaltung, Fertigung und SAP — und die der KI, die diese Prozesse heute automatisiert. Gebaut wird bei Ihnen im Haus: keine Strategiepapiere, sondern Prototypen, die noch im Termin entstehen.</p>
+      <p>Ich bin Mark Finnern — dreißig Jahre Enterprise-Software, davon zwei Jahrzehnte im Silicon Valley, Mitgründer der SAP Community und Erfinder des SAP-Mentors-Programms, heute wieder daheim in Schramberg.</p>
+      <p>Ich spreche beide Sprachen: die Ihrer Prozesse, gelernt in dreißig Jahren zwischen Buchhaltung, Fertigung und SAP — und die der KI, die diese Prozesse heute automatisiert. Gebaut wird bei Ihnen im Haus: keine Strategiepapiere, sondern Prototypen, die noch im Termin entstehen.</p>
       <p>Warum Wilhelm Busch? Weil seine Geschichten das tun, was gute Automatisierung auch tut: Sie bringen eine festgefahrene Ordnung in Bewegung — und am Ende hat man etwas gelernt. Und weil wir ihn nicht vergessen wollen: Sein <a href="https://www.gutenberg.org/files/17161/17161-h/17161-h.htm" target="_blank" rel="noopener">„Max und Moritz“ Werk gibt’s im Projekt Gutenberg</a>.</p>
     </div>
   </section>
@@ -272,7 +280,6 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
       <img src="assets/images/rob-otten-schaufel.png"
            alt="Rob Otten, ein gezeichneter Roboter mit Schaufel, im Stil von Wilhelm Busch"
            loading="lazy">
-      <figcaption>Rob Otten, der Datenschaufler. Läuft seit April bei einem Schilderhersteller im Schwarzwald — Tag und Nacht, ohne zu murren.</figcaption>
     </figure>
     <div class="prosa">
       <p>Bei vielen Betrieben kommen Bestellungen aus einem Kundenportal: Benachrichtigung ins Postfach, einloggen, PDF öffnen, Auftrag in die Warenwirtschaft tippen, Auftragsnummer ins Portal zurück. Ein paar Minuten pro Bestellung, bei jeder Bestellung dieselben, bis zu zwölfmal am Tag. Mein Vater hätte gesagt: eine Arbeit für jemanden, der Vater und Mutter erschlagen hat.</p>
@@ -304,7 +311,6 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
       <img src="assets/images/lehrer-laempel.jpg"
            alt="Lehrer Lämpel mit erhobenem Zeigefinger, Zeichnung von Wilhelm Busch, 1865"
            loading="lazy">
-      <figcaption>Lehrer Lämpel — der erste Weiterbildungsbeauftragte der Literaturgeschichte.</figcaption>
     </figure>
     <div class="prosa">
       <p>Lehrer Lämpel hätte seine Freude: In meinen Workshops wird nicht über KI geredet, sondern mit ihr gearbeitet. Sie bringen ein echtes Problem aus Ihrem Betrieb mit — wir lösen es gemeinsam, und Ihr Team lernt dabei, das nächste Problem selbst zu lösen. Das ist der eigentliche Ertrag: Fähigkeit im Haus, nicht Abhängigkeit vom Berater.</p>
@@ -365,7 +371,6 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
       <img src="assets/images/baeker.jpg"
            alt="Der Bäcker verriegelt die Tür seiner Backstube, während Max und Moritz über die Mauer spähen. Zeichnung von Wilhelm Busch, 1865"
            loading="lazy">
-      <figcaption>Der Bäcker weiß, was er tut: Wertvolles wird eingeschlossen — draußen lauern sie schon.</figcaption>
     </figure>
     <div class="prosa">
       <p>Steuerberater, Anwälte, Ärzte, Personalabteilungen: Es gibt Daten, die gehören in keine amerikanische Cloud. Für diese Fälle baue ich KI-Lösungen auf vertraulicher Infrastruktur — lokale Modelle oder Confidential Computing, bei dem selbst der Rechenzentrumsbetreiber Ihre Daten nicht lesen kann. DSGVO nicht als Fußnote, sondern als Architekturprinzip.</p>
@@ -418,10 +423,14 @@ footer .quelle{margin-top:1rem;font-size:.8rem}
     </p>
     <a class="knopf" href="mailto:mark@finnern.com?subject=Mein%20z%C3%A4hester%20Prozess">Gespräch anfragen</a>
     <figure class="tafel" style="max-width:26rem;margin:2.6rem auto 0">
-      <img src="assets/images/ki-impact-banner.png"
-           alt="KI-Impact Group — Silicon Valley meets Black Forest. Banner mit der KI-Impact-Katze als mechanische Aufziehkatze im Stil von Wilhelm Busch: gelbes Blech, Nieten, Aufziehschlüssel im Rücken und eine silberne Junghans-Taschenuhr an schwerer Panzerkette"
-           loading="lazy">
-      <figcaption style="font-size:1.05rem">Die KI-Impact-Katz’ — aufgezogen in Schramberg,<br>tickt aber im Silicon-Valley-Takt.</figcaption>
+      <div class="ki-banner__inner">
+        <img src="assets/images/ki-impact-katze.webp" alt="Die KI-Impact-Katze: mechanische Aufziehkatze aus gelbem Blech mit Nieten, Aufziehschlüssel und Uhr am Halsband" loading="lazy">
+        <div class="ki-banner__text">
+          <span class="ki-banner__title">KI-Impact<br>Group</span>
+          <span class="ki-banner__sub">Silicon Valley meets Black Forest</span>
+        </div>
+      </div>
+      <figcaption style="font-size:1.05rem">„Die Katz’ aus Schramberg, aufgezogen fein,<br>tickt im Valley-Takt — und bleibt doch daheim.“</figcaption>
     </figure>
     <p style="margin-top:.8rem;color:var(--tinte-hell)">
       Außerdem: <a href="https://ki-impact.org" target="_blank" rel="noopener">KI-Impact</a> — die KI-Community, die ich 2024 für den Schwarzwald gegründet habe. Über 500 Menschen, mehr als zwanzig Veranstaltungen, ein Ziel: dass die Zukunft nicht nur im Silicon Valley stattfindet, sondern auch im Städtle. Was wir schon geschafft haben, steht in unserer Chronik <a href="https://ki-impact.org/history" target="_blank" rel="noopener">The Future’s Past</a>.<br>
