@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Karte – Verweilbänkle</title>
+<!-- ===== ZIEL ÄNDERN: nur die URL in der nächsten Zeile ersetzen ===== -->
+<meta http-equiv="refresh" content="0; url=https://www.google.com/maps/d/viewer?mid=1dphRJ5_xPRNH9Ur2YwuKVhz623kkjh8">
+<style>body{font-family:system-ui,sans-serif;background:#5f7075;color:#fff;margin:0;padding:2rem 1rem;text-align:center}a{color:#fff}main{max-width:32rem;margin:auto}</style>
+</head>
+<body><main>
+<p><strong>Karte</strong></p>
+<p><a id="ziel" href="https://www.google.com/maps/d/viewer?mid=1dphRJ5_xPRNH9Ur2YwuKVhz623kkjh8">Weiter zur Karte</a></p>
+</main>
+<script>
+var u=document.querySelector('meta[http-equiv="refresh"]').content.split(/url=/i)[1];
+document.getElementById('ziel').href=u; location.replace(u);
+</script>
+</body></html>
