@@ -18,6 +18,7 @@ friedenslieder/
 1. Datei in `_quelle/lieder/` öffnen (z. B. in Obsidian oder einem Texteditor).
 2. Kopfzeile: Urheber · Tonart · Status. Steht dort `Text nicht im Liederbuch`, zeigt die Seite nur Einstieg und Akkorde.
    Für ein Lied mit Text diesen Teil löschen.
+   Optional eine Zeile `Link: Beschriftung | https://…` für einen externen Link (z. B. Text & Akkorde).
 3. Im Code-Block (zwischen den ```-Zeilen):
    - `1.`, `2.` … = Strophennummer in eigener Zeile
    - `Refrain:` = Überschrift in eigener Zeile

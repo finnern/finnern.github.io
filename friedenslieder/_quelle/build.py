@@ -41,19 +41,22 @@ def parse(path):
     title = re.search(r"^# (.+)$", raw, re.M).group(1).strip()
     head, _, rest = raw.partition("```")
     body = rest.split("```")[0].strip("\n")
-    meta, einstieg, hinweis = "", "", ""
+    meta, einstieg, hinweis, link = "", "", "", None
     for l in head.splitlines()[1:]:
         l = l.strip()
         if not l:
             continue
         if l.startswith("Einstieg:"):
             einstieg = l[9:].strip()
+        elif l.startswith("Link:"):
+            label, _, url = l[5:].rpartition("|")
+            link = (label.strip() or url.strip(), url.strip())
         elif l.startswith("Hinweis:"):
             hinweis = l[8:].strip().replace("`", "")
         elif not meta:
             meta = l
     return dict(slug=path.stem, title=title, meta=meta, einstieg=einstieg,
-                hinweis=hinweis, body=body,
+                hinweis=hinweis, link=link, body=body,
                 protected=("Text nicht im Liederbuch" in meta or "Text auf unserer Postkarte" in meta),
                 postcard="Text auf unserer Postkarte" in meta)
 
@@ -155,6 +158,9 @@ def render_song(song, nr):
         body = f'<div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div>{render_body(song)}</div>'
     else:
         body = f'<div class="lyr">{render_body(song)}</div>'
+    if song["link"]:
+        note += (f'<p class="ext"><a href="{E(song["link"][1])}" target="_blank" rel="noopener">'
+                 f'{E(song["link"][0])} ↗</a></p>')
     h = "Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen." if "[~X]" in song["hinweis"] else song["hinweis"]
     hint = f'<p class="hint chords-only">{E(h)}</p>' if h else ""
     return f'''<section class="song" id="{song["slug"]}">

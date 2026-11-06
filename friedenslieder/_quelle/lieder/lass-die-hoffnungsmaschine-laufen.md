@@ -1,6 +1,7 @@
 # Lass die Hoffnungsmaschine laufen
 
 Text & Musik: Erdmöbel · Tonart G · GEMA-pflichtig · Text nicht im Liederbuch
+Link: Text & Akkorde auf Ultimate Guitar | https://tabs.ultimate-guitar.com/tab/2945564
 Einstieg: Intro, dabei den Refrain 1× summen · Refrain singen alle, Strophen werden vorgesungen · im Zwischenspiel rufen alle „Oh ja!"
 
 ```
