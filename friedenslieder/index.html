@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Friedenslieder Schramberg</title>
+<style>
+/* Schriften selbst gehostet (DSGVO), Alegreya & Alegreya Sans, SIL OFL 1.1, siehe fonts/OFL.txt */
+@font-face { font-family: "Alegreya"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/alegreya-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/alegreya-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/alegreya-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/alegreya-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/alegreya-sans-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-sans-latin-800-normal.woff2") format("woff2"); }
+/* Layout: eine ruhige Lesespalte fürs Handy in der Hand; oben eine Leiste mit Akkorde/Schriftgröße/Display */
+:root {
+  --bg: #EDF0EA; --surface: #FAFBF8; --ink: #17202A; --muted: #56616A; --line: #D3D9D0;
+  --accent: #46652A; --accent-soft: #E1E8D6; --carried: #86986E;
+  --gema: #96460F; --gema-soft: #F4E3D4; --own: #2C5677; --own-soft: #DCE7F0;
+  --f-lyric: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-ui: "Alegreya Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --lyric-size: 1.15rem; --crow: 0em;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F151B; --surface: #161E26; --ink: #E5EAE2; --muted: #9AA6AE; --line: #29333D;
+  --accent: #AECB86; --accent-soft: #212C1A; --carried: #7C8F66;
+  --gema: #E9A46C; --gema-soft: #372515; --own: #9DC4E2; --own-soft: #182A38; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F151B; --surface: #161E26; --ink: #E5EAE2; --muted: #9AA6AE; --line: #29333D;
+  --accent: #AECB86; --accent-soft: #212C1A; --carried: #7C8F66;
+  --gema: #E9A46C; --gema-soft: #372515; --own: #9DC4E2; --own-soft: #182A38; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 16px; line-height: 1.45; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 40rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px }
+
+/* Kopf */
+.top { padding-block: 1.6rem 1.2rem; display: grid; gap: .5rem }
+.eyebrow { font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent) }
+h1 { font-family: var(--f-lyric); font-weight: 800; font-size: clamp(2.2rem, 9vw, 3rem); line-height: 1; margin: 0; text-wrap: balance }
+.when { margin: 0; color: var(--muted); font-weight: 500 }
+.motto { margin: .4rem 0 0; font-family: var(--f-lyric); font-style: italic; font-size: 1.15rem }
+
+/* So singen wir */
+.how { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; display: grid; gap: .6rem; margin-block: .4rem 1.2rem }
+.how h2 { margin: 0; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem }
+.steps li { display: grid; gap: .1rem; padding: .5rem .6rem; border-radius: 8px; background: var(--accent-soft) }
+.steps b { font-family: var(--f-lyric); font-size: 1.15rem }
+.steps span { font-size: .85rem; color: var(--muted); line-height: 1.3 }
+.steps i { font-style: normal; font-weight: 800; color: var(--accent); font-size: .8rem }
+
+/* Leiste */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; padding-block: .5rem }
+.bar a.home { font-weight: 800; text-decoration: none; margin-right: auto; font-size: .95rem }
+.btn { font: inherit; font-weight: 700; font-size: .9rem; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 999px; padding: .35rem .75rem; cursor: pointer; min-height: 2.2rem }
+.btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface) }
+.btn.sm { padding-inline: .6rem }
+
+/* Ablauf */
+.toc h2, .more h2 { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 1.4rem 0 .5rem }
+.toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line) }
+.toc li { border-bottom: 1px solid var(--line) }
+.toc a, .toc .slot { display: flex; gap: .7rem; align-items: baseline; padding: .55rem 0; text-decoration: none }
+.toc .tn { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--accent); min-width: 1.4rem; text-align: right }
+.toc .tt { font-family: var(--f-lyric); font-size: 1.12rem; font-weight: 600; min-width: 0 }
+.toc .slot .tt { font-family: var(--f-ui); font-style: italic; font-weight: 500; color: var(--muted); font-size: .95rem }
+.toc .tnote { margin-left: auto; font-size: .8rem; color: var(--muted); white-space: nowrap }
+
+/* Lieder */
+.song { padding-block: 1.6rem .6rem; border-top: 2px solid var(--ink); margin-top: 1.6rem; scroll-margin-top: 4rem; display: grid; gap: .9rem }
+.sh { display: flex; gap: .8rem; align-items: flex-start }
+.nr { font-family: var(--f-lyric); font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent); min-width: 1.6rem }
+.sht { display: grid; gap: .3rem; min-width: 0 }
+.sh h3 { font-family: var(--f-lyric); font-weight: 800; font-size: 1.6rem; line-height: 1.1; margin: 0; text-wrap: balance }
+.credit { margin: 0; color: var(--muted); font-size: .9rem }
+.tags { display: flex; flex-wrap: wrap; gap: .3rem }
+.tag { font-size: .72rem; font-weight: 700; letter-spacing: .04em; padding: .1rem .5rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted) }
+.tag.free { background: var(--accent-soft); color: var(--accent); border-color: transparent }
+.tag.own { background: var(--own-soft); color: var(--own); border-color: transparent }
+.tag.gema { background: var(--gema-soft); color: var(--gema); border-color: transparent }
+.tag.new { border-color: var(--accent); color: var(--accent) }
+
+.ein { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem }
+.einl { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .2rem }
+.ein ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .2rem }
+.ein li { padding-left: 1rem; position: relative; font-size: .95rem; line-height: 1.35 }
+.ein li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 800 }
+.nolyr { margin: 0; font-style: italic; color: var(--muted) }
+.hint { margin: 0; font-size: .82rem; color: var(--muted) }
+
+/* Liedtext mit Akkorden */
+.lyr { font-family: var(--f-lyric); font-size: var(--lyric-size); line-height: 1.32; display: grid; gap: 1.05em }
+.grp { font-family: var(--f-ui); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: .4em 0 -.4em; border-top: 1px dashed var(--line); padding-top: .8em }
+.st { position: relative; display: grid; gap: .05em }
+.st.has-n { padding-left: 1.7em }
+.vn { position: absolute; left: 0; top: var(--crow); font-family: var(--f-ui); font-weight: 800; color: var(--muted); font-size: .85em }
+.lab { font-family: var(--f-ui); font-size: .72em; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent) }
+.cue { font-family: var(--f-ui); font-style: italic; color: var(--muted); font-size: .85em }
+.cue::before { content: "↻ " }
+.l { min-width: 0; overflow-wrap: anywhere }
+.c { display: none; position: relative; top: -.4em; font-family: var(--f-ui); font-weight: 800; font-size: .66em; line-height: 1; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .12em .3em; margin-right: .06em; white-space: nowrap }
+.c.tl { color: var(--carried); font-weight: 700; background: transparent; box-shadow: inset 0 0 0 1px var(--line) }
+body.show-chords .c { display: inline }
+body.show-chords .lyr { line-height: 1.5 }
+.crow { gap: .4em; display: none }
+body.show-chords .crow { display: flex }
+.chip { font-family: var(--f-ui); font-weight: 700; color: var(--accent); font-size: .9em }
+.chip.tl { color: var(--carried) }
+
+.chords-only { display: none }
+body.show-chords .chords-only { display: revert }
+body.show-chords .tag.chords-only { display: inline-block }
+.progs { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem }
+body.show-chords .progs { display: grid; gap: .45rem }
+.plabel { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+.progs .st { gap: .45rem }
+.prog { display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: .6rem; align-items: baseline }
+.plab { font-size: .85rem; color: var(--muted) }
+.prog .crow { display: flex; flex-wrap: wrap; gap: .25rem .55rem }
+.prog .chip { font-size: 1rem }
+
+/* Fuß */
+.more ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .3rem }
+.more li span { font-family: var(--f-lyric); font-weight: 600; font-size: 1.05rem }
+.more li em { color: var(--muted); font-size: .9rem }
+.about { margin-block: 2rem 2.5rem; padding-top: 1.2rem; border-top: 2px solid var(--ink); display: grid; gap: .7rem; color: var(--muted); font-size: .95rem }
+.about p { margin: 0 }
+.about strong { color: var(--ink) }
+
+@media (max-width: 380px) { .steps { grid-template-columns: minmax(0, 1fr) } .prog { grid-template-columns: minmax(0, 1fr); gap: .1rem } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth } }
+.share { margin-top: 2rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: grid; justify-items: center; gap: .6rem; text-align: center }
+.share h2 { margin: 0; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+.share img { width: min(220px, 60vw); height: auto; display: block; border-radius: 6px; background: #fff }
+.share .url { margin: 0; font-weight: 700; word-break: break-all }
+</style>
+</head>
+<body>
+
+<nav class="bar" aria-label="Werkzeuge">
+  <div class="wrap">
+    <a class="home" href="#ablauf">Ablauf</a>
+    <button class="btn" id="tChords" type="button" aria-pressed="false">Akkorde</button>
+    <button class="btn sm" id="tSmaller" type="button" aria-label="Schrift kleiner">A−</button>
+    <button class="btn sm" id="tBigger" type="button" aria-label="Schrift größer">A+</button>
+    <button class="btn" id="tWake" type="button" aria-pressed="false">Display an</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="top">
+    <div class="eyebrow">Friedensstimmen Schramberg</div>
+    <h1>Friedenslieder</h1>
+    <p class="when">Samstag, 14. November 2026, 11 Uhr · Rathausplatz Schramberg</p>
+    <p class="motto">„Ohne Frieden ist alles nichts.“</p>
+  </header>
+
+  <section class="how" aria-labelledby="howh">
+    <h2 id="howh">So singen wir jedes Lied</h2>
+    <ol class="steps">
+      <li><i>1</i><b>Summen</b><span>Die Melodie kommt erst ohne Worte, bis alle sie hören.</span></li>
+      <li><i>2</i><b>Refrain</b><span>Dann singen alle den Teil, den jeder kennt.</span></li>
+      <li><i>3</i><b>Strophen</b><span>Erst danach kommen die Strophen dazu.</span></li>
+    </ol>
+  </section>
+
+  <section class="toc" id="ablauf" aria-labelledby="toch">
+    <h2 id="toch">Ablauf</h2>
+    <ol>
+<li><a href="#bella-ciao-friedensstrophen"><span class="tn">1</span><span class="tt">Bella Ciao (Friedensstrophen)</span><span class="tnote">Willkommen</span></a></li>
+<li><a href="#give-peace-a-chance"><span class="tn">2</span><span class="tt">Give Peace a Chance</span></a></li>
+<li><a href="#kumbaya"><span class="tn">3</span><span class="tt">Kumbaya</span></a></li>
+<li><a href="#die-gedanken-sind-frei"><span class="tn">4</span><span class="tt">Die Gedanken sind frei</span></a></li>
+<li><a href="#sag-mir-wo-die-blumen-sind"><span class="tn">5</span><span class="tt">Sag mir, wo die Blumen sind</span></a></li>
+<li><a href="#der-erste-friede"><span class="tn">6</span><span class="tt">Der erste Friede</span></a></li>
+<li><a href="#down-by-the-riverside"><span class="tn">7</span><span class="tt">Down by the Riverside</span></a></li>
+<li><a href="#freude-schoener-goetterfunken"><span class="tn">8</span><span class="tt">Freude, schöner Götterfunken</span></a></li>
+<li><a href="#we-shall-overcome"><span class="tn">9</span><span class="tt">We Shall Overcome</span></a></li>
+<li><a href="#lass-die-hoffnungsmaschine-laufen"><span class="tn">10</span><span class="tt">Lass die Hoffnungsmaschine laufen</span><span class="tnote">Abschluss</span></a></li>
+    </ol>
+  </section>
+
+<section class="song" id="bella-ciao-friedensstrophen">
+  <header class="sh"><span class="nr">1</span><div class="sht"><h3>Bella Ciao (Friedensstrophen)</h3>
+  <p class="credit">Melodie: trad. (italienisches Partisanenlied) · Friedensstrophen: Friedensstimmen Schramberg</p><div class="tags"><span class="tag free">Melodie gemeinfrei</span><span class="tag own">eigener Text</span><span class="tag key chords-only">Tonart Am</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× auf „la&quot; vorsingen, alle steigen ein</li><li>Zeilen 1–2 werden vorgesungen, ab ‖: singen alle mit, die Wiederholung ist zum Einsteigen da</li></ul></div>
+  <p class="hint chords-only">Am7 nur vor der Wiederholung</p><div class="lyr"><div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">Am</b>Ihr lieben Leute, jetzt hier und heute,</div><div class="l">wir freuen uns, dass ihr alle ge<b class="c">E7</b>kommen seid.</div><div class="l">‖: Denn es ist <b class="c">Dm</b>richtig und auch sehr <b class="c">Am</b>wichtig,</div><div class="l">für den <b class="c">E7</b>Frieden aufzu<b class="c">Am</b>stehn. :‖</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c">Am</b>In vielen Ländern tut sich was ändern:</div><div class="l">man wählt vermehrt die Freunde des <b class="c">E7</b>Militärs.</div><div class="l">‖: Was diese <b class="c">Dm</b>denken, wohin sie <b class="c">Am</b>lenken,</div><div class="l">das wollen <b class="c">E7</b>wir kein weitres <b class="c">Am</b>Mal. :‖</div></div>
+<div class="st has-n"><span class="vn">3</span><div class="l"><b class="c">Am</b>Wir bleiben wachsam, wir bleiben achtsam,</div><div class="l">wir warnen laut vor dem Streben nach Kriegs<b class="c">E7</b>tüchtigkeit.</div><div class="l">‖: Denn Sicher<b class="c">Dm</b>heit – das sollt&#x27; man <b class="c">Am</b>wissen –</div><div class="l">gibt&#x27;s nur ge<b class="c">E7</b>meinsam oder <b class="c">Am</b>nicht. :‖</div></div>
+<div class="st has-n"><span class="vn">4</span><div class="l"><b class="c">Am</b>Ihr lieben Leute, jetzt hier und heute,</div><div class="l">wir danken euch, dass ihr alle ge<b class="c">E7</b>kommen seid.</div><div class="l">‖: Es sei ein <b class="c">Dm</b>Zeichen, dass wir nicht <b class="c">Am</b>weichen,</div><div class="l">die Menschlich<b class="c">E7</b>keit muss Maßstab <b class="c">Am</b>sein. :‖</div></div></div>
+</section>
+<section class="song" id="give-peace-a-chance">
+  <header class="sh"><span class="nr">2</span><div class="sht"><h3>Give Peace a Chance</h3>
+  <p class="credit">Text &amp; Musik: John Lennon (Lennon/McCartney, 1969)</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Nur den Refrain singen. Einmal vorsingen, alle antworten</li><li>Klatschen auf 2 und 4, so lange es trägt</li><li>bei jeder Runde drehen wir uns in eine andere Himmelsrichtung, damit es überall zu hören ist, auch bei Putin in Moskau (von hier aus Richtung Nordosten)</li><li>Strophen weglassen</li></ul></div>
+  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Refrain (durchgehend)</span><div class="l crow"><b class="chip">G</b><b class="chip">G</b><b class="chip">D</b><b class="chip">G</b></div></div></div></div>
+</section>
+<section class="song" id="kumbaya">
+  <header class="sh"><span class="nr">3</span><div class="sht"><h3>Kumbaya</h3>
+  <p class="credit">Traditional (Spiritual, USA)</p><div class="tags"><span class="tag free">gemeinfrei</span><span class="tag new">neu</span><span class="tag key chords-only">Tonart C</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× ganz auf „mm&quot; summen, alle summen mit</li><li>Strophe 1 singen</li><li>die nächste Strophe wird vorher angesagt („Someone&#x27;s singing!&quot;)</li><li>Schluss: Strophe 1 noch einmal, nur gesummt</li></ul></div>
+  <p class="hint chords-only">Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen.</p><div class="lyr"><div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">C</b>Kumbaya, my <b class="c">F</b>Lord, kum<b class="c">C</b>baya,</div><div class="l"><b class="c">C</b>kumbaya, my <b class="c">Dm</b>Lord, kum<b class="c">G</b>baya,</div><div class="l"><b class="c">C</b>kumbaya, my <b class="c">F</b>Lord, kum<b class="c">C</b>baya,</div><div class="l">oh <b class="c">F</b>Lord, <b class="c">C</b>kum<b class="c">G</b>ba<b class="c">C</b>ya.</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c tl">C</b>Someone&#x27;s singing, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s singing, <b class="c tl">Dm</b>Lord, kum<b class="c tl">G</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s singing, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l">oh <b class="c tl">F</b>Lord, <b class="c tl">C</b>kum<b class="c tl">G</b>ba<b class="c tl">C</b>ya.</div></div>
+<div class="st has-n"><span class="vn">3</span><div class="l"><b class="c tl">C</b>Someone&#x27;s crying, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s crying, <b class="c tl">Dm</b>Lord, kum<b class="c tl">G</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s crying, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l">oh <b class="c tl">F</b>Lord, <b class="c tl">C</b>kum<b class="c tl">G</b>ba<b class="c tl">C</b>ya.</div></div>
+<div class="st has-n"><span class="vn">4</span><div class="l"><b class="c tl">C</b>Someone&#x27;s praying, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s praying, <b class="c tl">Dm</b>Lord, kum<b class="c tl">G</b>baya,</div><div class="l"><b class="c tl">C</b>someone&#x27;s praying, <b class="c tl">F</b>Lord, kum<b class="c tl">C</b>baya,</div><div class="l">oh <b class="c tl">F</b>Lord, <b class="c tl">C</b>kum<b class="c tl">G</b>ba<b class="c tl">C</b>ya.</div></div></div>
+</section>
+<section class="song" id="die-gedanken-sind-frei">
+  <header class="sh"><span class="nr">4</span><div class="sht"><h3>Die Gedanken sind frei</h3>
+  <p class="credit">Text &amp; Melodie: trad. (um 1800) · neue Strophen: Mark Finnern + KI (16.11.2024)</p><div class="tags"><span class="tag free">gemeinfrei</span><span class="tag own">eigener Text</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× summen</li><li>die Original-Strophe singen alle, die kennt fast jeder</li><li>dann alle sechs neuen Strophen</li></ul></div>
+  <p class="hint chords-only">Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen.</p><div class="lyr"><h4 class="grp">Original</h4>
+<div class="st"><div class="l">Die <b class="c">G</b>Gedanken sind frei,</div><div class="l">wer <b class="c">D</b>kann sie er<b class="c">G</b>raten,</div><div class="l">sie <b class="c">G</b>fliegen vorbei</div><div class="l">wie <b class="c">D</b>nächtliche <b class="c">G</b>Schatten.</div><div class="l">Kein <b class="c">D</b>Mensch kann sie <b class="c">G</b>wissen,</div><div class="l">kein <b class="c">D</b>Jäger er<b class="c">G</b>schießen</div><div class="l">mit <b class="c">C</b>Pulver und <b class="c">G</b>Blei:</div><div class="l">die Ge<b class="c">D</b>danken sind <b class="c">G</b>frei!</div></div>
+<h4 class="grp">Neue Strophen (16.11.2024)</h4>
+<div class="st has-n"><span class="vn">1</span><div class="l">Die <b class="c tl">G</b>Gedanken sind frei,</div><div class="l"><b class="c tl">D</b>Lasst sie uns <b class="c tl">G</b>teilen!</div><div class="l">Sie <b class="c tl">G</b>bringen uns Kraft,</div><div class="l">Sie <b class="c tl">D</b>können uns <b class="c tl">G</b>heilen.</div><div class="l">Ge<b class="c tl">D</b>meinsam ge<b class="c tl">G</b>stalten,</div><div class="l">Uns <b class="c tl">D</b>neu zu ent<b class="c tl">G</b>falten.</div><div class="l">Steht <b class="c tl">C</b>mutig da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l">Wir <b class="c tl">G</b>denken, was wir wolln</div><div class="l">Und <b class="c tl">D</b>werden ak<b class="c tl">G</b>tiv,</div><div class="l">Nicht <b class="c tl">G</b>heimlich, nicht still,</div><div class="l">Son<b class="c tl">D</b>dern krea<b class="c tl">G</b>tiv.</div><div class="l">Was <b class="c tl">D</b>wir heut be<b class="c tl">G</b>wegen,</div><div class="l">Bringt <b class="c tl">D</b>Zukunft und <b class="c tl">G</b>Segen.</div><div class="l">Drum <b class="c tl">C</b>singt laut da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div>
+<div class="st has-n"><span class="vn">3</span><div class="l">Kein <b class="c tl">G</b>Zaun und kein Wall</div><div class="l">Kann <b class="c tl">D</b>Denken be<b class="c tl">G</b>schränken,</div><div class="l">Wir <b class="c tl">G</b>sprengen sie all</div><div class="l">Mit <b class="c tl">D</b>unserem <b class="c tl">G</b>Denken.</div><div class="l">Ge<b class="c tl">D</b>meinsam durch<b class="c tl">G</b>brechen</div><div class="l">Die <b class="c tl">D</b>Mauern der <b class="c tl">G</b>Schwächen,</div><div class="l">Stehen <b class="c tl">C</b>furchtlos da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div>
+<div class="st has-n"><span class="vn">4</span><div class="l">Drum <b class="c tl">G</b>wollen wir heut</div><div class="l">Die <b class="c tl">D</b>Sorgen ver<b class="c tl">G</b>treiben,</div><div class="l">Mit <b class="c tl">G</b>Mut und mit Freud</div><div class="l">Zu<b class="c tl">D</b>sammen hier <b class="c tl">G</b>bleiben.</div><div class="l">Ge<b class="c tl">D</b>meinsam wir <b class="c tl">G</b>lachen,</div><div class="l">Ge<b class="c tl">D</b>meinsam wir <b class="c tl">G</b>machen,</div><div class="l">Stets <b class="c tl">C</b>freudig da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div>
+<div class="st has-n"><span class="vn">5</span><div class="l">Durch <b class="c tl">G</b>Klicks und durch Likes</div><div class="l">Will <b class="c tl">D</b>man uns ver<b class="c tl">G</b>wirren,</div><div class="l">Mit <b class="c tl">G</b>Hass und mit Angst</div><div class="l">Die <b class="c tl">D</b>Herzen ein<b class="c tl">G</b>frieren.</div><div class="l">Doch <b class="c tl">D</b>wir stehen zu<b class="c tl">G</b>sammen,</div><div class="l">Lassen <b class="c tl">D</b>Freundschaft ent<b class="c tl">G</b>flammen,</div><div class="l">Bleib <b class="c tl">C</b>mutig da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div>
+<div class="st has-n"><span class="vn">6</span><div class="l">Bei <b class="c tl">G</b>Wein und Gesang</div><div class="l">Sind <b class="c tl">D</b>wir hier bei<b class="c tl">G</b>sammen,</div><div class="l">Die <b class="c tl">G</b>Freundschaft entflammt,</div><div class="l">Wir <b class="c tl">D</b>halten zu<b class="c tl">G</b>sammen.</div><div class="l">Die <b class="c tl">D</b>Herzen weit <b class="c tl">G</b>offen,</div><div class="l">Voll <b class="c tl">D</b>Liebe und <b class="c tl">G</b>Hoffen,</div><div class="l">Stets <b class="c tl">C</b>freudig da<b class="c tl">G</b>bei:</div><div class="l">Die Ge<b class="c tl">D</b>danken sind <b class="c tl">G</b>frei!</div></div></div>
+</section>
+<section class="song" id="sag-mir-wo-die-blumen-sind">
+  <header class="sh"><span class="nr">5</span><div class="sht"><h3>Sag mir, wo die Blumen sind</h3>
+  <p class="credit">Musik: Pete Seeger (1955) · dt. Text: Max Colpet (1962)</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart C</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× auf „u&quot; summen</li><li>die Strophen werden vorgesungen, die beiden Schlusszeilen jeder Strophe singen alle</li></ul></div>
+  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Strophe (3×)</span><div class="l crow"><b class="chip">C</b><b class="chip">Am</b><b class="chip">F</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Schlusszeilen</span><div class="l crow"><b class="chip">F</b><b class="chip">C</b><b class="chip">F</b><b class="chip">G</b><b class="chip">C</b></div></div></div></div>
+</section>
+<section class="song" id="der-erste-friede">
+  <header class="sh"><span class="nr">6</span><div class="sht"><h3>Der erste Friede</h3>
+  <p class="credit">Text &amp; Musik: Iria Schärer &amp; Raimund Mauch</p><div class="tags"><span class="tag own">mit Erlaubnis der Urheber</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Intro auf der Gitarre</li><li>Refrain zuerst: das Mantra „Om Shanti Om&quot; summen, dann singen alle</li><li>Strophen werden vorgesungen, nach jeder Strophe der Refrain</li></ul></div>
+  <p class="nolyr">Den Text findest du auf unserer Friedensstimmen-Postkarte.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Intro</span><div class="l crow"><b class="chip">G</b><b class="chip">C</b><b class="chip">G</b></div></div></div>
+<div class="st"><div class="lab">Strophe</div><div class="prog"><span class="plab">Zeile 1</span><div class="l crow"><b class="chip">G</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Zeile 2</span><div class="l crow"><b class="chip">G</b><b class="chip">Bm</b><b class="chip">Em</b></div></div><div class="prog"><span class="plab">Zeile 3</span><div class="l crow"><b class="chip">C</b><b class="chip">D</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Zeile 4</span><div class="l crow"><b class="chip">C</b><b class="chip">D</b><b class="chip">G</b></div></div></div>
+<div class="st"><div class="prog"><span class="plab">Refrain</span><div class="l crow"><b class="chip">G</b><b class="chip">C</b><b class="chip">G</b></div></div></div></div>
+</section>
+<section class="song" id="down-by-the-riverside">
+  <header class="sh"><span class="nr">7</span><div class="sht"><h3>Down by the Riverside</h3>
+  <p class="credit">Traditional (Spiritual, gedruckt 1918)</p><div class="tags"><span class="tag free">gemeinfrei</span><span class="tag new">neu</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Refrain zuerst lernen: eine Zeile wird vorgesungen, alle singen sie nach, bis er sitzt</li><li>dann die Strophen, nach jeder Strophe der Refrain</li></ul></div>
+  <p class="hint chords-only">Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen.</p><div class="lyr"><div class="st"><div class="lab">Refrain (zuerst lernen)</div><div class="l">I ain&#x27;t gonna <b class="c">C</b>study war no more,</div><div class="l">I ain&#x27;t gonna <b class="c">G</b>study war no more,</div><div class="l">I ain&#x27;t gonna <b class="c">D7</b>study war no <b class="c">G</b>more.</div><div class="l">I ain&#x27;t gonna <b class="c">C</b>study war no more,</div><div class="l">I ain&#x27;t gonna <b class="c">G</b>study war no more,</div><div class="l">I ain&#x27;t gonna <b class="c">D7</b>study war no <b class="c">G</b>more.</div></div>
+<div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">G</b>I&#x27;m gonna lay down my sword and shield</div><div class="l">down by the riverside,</div><div class="l">down by the <b class="c">D7</b>riverside,</div><div class="l">down by the <b class="c">G</b>riverside.</div><div class="l">I&#x27;m gonna lay down my sword and shield</div><div class="l">down by the riverside,</div><div class="l">ain&#x27;t gonna <b class="c">D7</b>study war no <b class="c">G</b>more.</div><div class="cue">Refrain</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c tl">G</b>I&#x27;m gonna lay down my burden</div><div class="l">down by the riverside,</div><div class="l">down by the <b class="c tl">D7</b>riverside,</div><div class="l">down by the <b class="c tl">G</b>riverside.</div><div class="l">I&#x27;m gonna lay down my burden</div><div class="l">down by the riverside,</div><div class="l">ain&#x27;t gonna <b class="c tl">D7</b>study war no <b class="c tl">G</b>more.</div><div class="cue">Refrain</div></div>
+<div class="st has-n"><span class="vn">3</span><div class="l"><b class="c tl">G</b>I&#x27;m gonna walk with the Prince of Peace</div><div class="l">down by the riverside,</div><div class="l">down by the <b class="c tl">D7</b>riverside,</div><div class="l">down by the <b class="c tl">G</b>riverside.</div><div class="l">I&#x27;m gonna walk with the Prince of Peace</div><div class="l">down by the riverside,</div><div class="l">ain&#x27;t gonna <b class="c tl">D7</b>study war no <b class="c tl">G</b>more.</div><div class="cue">Refrain</div></div></div>
+</section>
+<section class="song" id="freude-schoener-goetterfunken">
+  <header class="sh"><span class="nr">8</span><div class="sht"><h3>Freude, schöner Götterfunken</h3>
+  <p class="credit">Text: Friedrich Schiller (1785) · Melodie: Ludwig van Beethoven (1824)</p><div class="tags"><span class="tag free">gemeinfrei</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× summen, die kennt jeder</li><li>Strophe 1</li><li>Strophe 2</li><li>zum Schluss die letzten vier Zeilen noch einmal</li></ul></div>
+  <div class="lyr"><div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">G</b>Freude, schöner <b class="c">D7</b>Götterfunken,</div><div class="l"><b class="c">G</b>Tochter aus E<b class="c">D7</b>lysium,</div><div class="l"><b class="c">G</b>wir betreten <b class="c">D7</b>feuertrunken,</div><div class="l"><b class="c">G</b>Himmlische, dein <b class="c">D7</b>Heilig<b class="c">G</b>tum!</div><div class="l"><b class="c">D7</b>Deine <b class="c">G</b>Zauber <b class="c">D7</b>binden <b class="c">G</b>wieder,</div><div class="l"><b class="c">D7</b>was die <b class="c">G</b>Mode <b class="c">A7</b>streng ge<b class="c">D</b>teilt;</div><div class="l"><b class="c">G</b>alle Menschen <b class="c">D7</b>werden Brüder,</div><div class="l"><b class="c">G</b>wo dein sanfter <b class="c">D7</b>Flügel <b class="c">G</b>weilt.</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c">G</b>Wem der große <b class="c">D7</b>Wurf gelungen,</div><div class="l"><b class="c">G</b>eines Freundes <b class="c">D7</b>Freund zu sein,</div><div class="l"><b class="c">G</b>wer ein holdes <b class="c">D7</b>Weib errungen,</div><div class="l"><b class="c">G</b>mische seinen <b class="c">D7</b>Jubel <b class="c">G</b>ein!</div><div class="l"><b class="c">D7</b>Ja, wer <b class="c">G</b>auch nur <b class="c">D7</b>eine <b class="c">G</b>Seele</div><div class="l"><b class="c">D7</b>sein nennt <b class="c">G</b>auf dem <b class="c">A7</b>Erden<b class="c">D</b>rund!</div><div class="l"><b class="c">G</b>Und wer&#x27;s nie ge<b class="c">D7</b>konnt, der stehle</div><div class="l"><b class="c">G</b>weinend sich aus <b class="c">D7</b>diesem <b class="c">G</b>Bund!</div></div></div>
+</section>
+<section class="song" id="we-shall-overcome">
+  <header class="sh"><span class="nr">9</span><div class="sht"><h3>We Shall Overcome</h3>
+  <p class="credit">Traditional (Gospel, Bürgerrechtsbewegung)</p><div class="tags"><span class="tag free">gemeinfrei</span><span class="tag key chords-only">Tonart C</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Langsam. Melodie 1× summen</li><li>Strophe 1 singen alle</li><li>vor jeder neuen Strophe wird deren erste Zeile kurz vorgerufen („lining out&quot;, wie in der Bürgerrechtsbewegung)</li><li>zum Schluss Hände fassen, Strophe 1 noch einmal, die letzte Runde leise summen</li></ul></div>
+  <div class="lyr"><div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">C</b>We shall <b class="c">F</b>over<b class="c">C</b>come,</div><div class="l">we shall <b class="c">F</b>over<b class="c">C</b>come,</div><div class="l">we shall <b class="c">F</b>o<b class="c">G</b>ver<b class="c">Am</b>come <b class="c">D</b>some <b class="c">G</b>day. <b class="c">D</b> <b class="c">G</b></div></div>
+<div class="st"><div class="lab">Refrain</div><div class="l">Oh, <b class="c">C</b>deep <b class="c">F</b>in my <b class="c">C</b>heart</div><div class="l"><b class="c">F</b>I <b class="c">G</b>do be<b class="c">Am</b>lieve:</div><div class="l"><b class="c">C</b>we shall <b class="c">F</b>over<b class="c">C</b>come <b class="c">G</b>some <b class="c">C</b>day.</div></div>
+<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c">C</b>We&#x27;ll walk <b class="c">F</b>hand in <b class="c">C</b>hand,</div><div class="l">we&#x27;ll walk <b class="c">F</b>hand in <b class="c">C</b>hand,</div><div class="l">we&#x27;ll walk <b class="c">F</b>hand <b class="c">G</b>in <b class="c">Am</b>hand <b class="c">D</b>some <b class="c">G</b>day. <b class="c">D</b> <b class="c">G</b></div><div class="cue">Refrain</div></div>
+<div class="st has-n"><span class="vn">3</span><div class="l"><b class="c">C</b>We shall <b class="c">F</b>all be <b class="c">C</b>free,</div><div class="l">we shall <b class="c">F</b>all be <b class="c">C</b>free,</div><div class="l">we shall <b class="c">F</b>all <b class="c">G</b>be <b class="c">Am</b>free <b class="c">D</b>some <b class="c">G</b>day. <b class="c">D</b> <b class="c">G</b></div><div class="cue">Refrain</div></div>
+<div class="st has-n"><span class="vn">4</span><div class="l"><b class="c">C</b>We are <b class="c">F</b>not a<b class="c">C</b>fraid,</div><div class="l">we are <b class="c">F</b>not a<b class="c">C</b>fraid,</div><div class="l">we are <b class="c">F</b>not <b class="c">G</b>a<b class="c">Am</b>fraid <b class="c">D</b>to<b class="c">G</b>day. <b class="c">D</b> <b class="c">G</b></div><div class="cue">Refrain</div></div>
+<div class="st has-n"><span class="vn">5</span><div class="l"><b class="c">C</b>We are <b class="c">F</b>not a<b class="c">C</b>lone,</div><div class="l">we are <b class="c">F</b>not a<b class="c">C</b>lone,</div><div class="l">we are <b class="c">F</b>not <b class="c">G</b>a<b class="c">Am</b>lone <b class="c">D</b>to<b class="c">G</b>day. <b class="c">D</b> <b class="c">G</b></div><div class="cue">Refrain</div></div></div>
+</section>
+<section class="song" id="lass-die-hoffnungsmaschine-laufen">
+  <header class="sh"><span class="nr">10</span><div class="sht"><h3>Lass die Hoffnungsmaschine laufen</h3>
+  <p class="credit">Text &amp; Musik: Erdmöbel</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart G</span></div></div></header>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Intro, dabei den Refrain 1× summen</li><li>Refrain singen alle, Strophen werden vorgesungen</li><li>im Zwischenspiel rufen alle „Oh ja!&quot;</li></ul></div>
+  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Intro</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Strophe (4×)</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Zwischenspiel</span><div class="l crow"><b class="chip">Em</b><b class="chip">F</b><b class="chip">C</b><b class="chip">A#</b><b class="chip">C</b></div></div><div class="prog"><span class="plab">Refrain</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Schluss</span><div class="l crow"><b class="chip">Em</b><b class="chip">F</b><b class="chip">C</b><b class="chip">A#</b><b class="chip">C</b><b class="chip">G</b></div></div></div></div>
+</section>
+
+  <section class="more" aria-labelledby="moreh">
+    <h2 id="moreh">Außerdem in unserem Repertoire, als Vortrag</h2>
+    <ul><li><span>Es ist an der Zeit</span> <em>Hannes Wader, nach Eric Bogle</em></li><li><span>Le Déserteur / Der Deserteur</span> <em>Boris Vian</em></li><li><span>Nein, meine Söhne geb ich nicht</span> <em>Reinhard Mey</em></li><li><span>Leben einzeln und frei</span> <em>Hannes Wader</em></li><li><span>Streets of Minneapolis</span> <em>Bruce Springsteen</em></li><li><span>Für die Liebe</span></li><li><span>Gegen das Geläut der Leute</span></li><li><span>Schon so lang (Bin auf meinem Weg)</span></li></ul>
+  </section>
+
+  <section class="share" aria-labelledby="shareh">
+    <h2 id="shareh">Liederbuch teilen</h2>
+    <img src="qr-friedenslieder.png" width="220" height="220" alt="QR-Code zu finnern.com/friedenslieder">
+    <p class="url">finnern.com/friedenslieder</p>
+    <button class="btn" id="tShare" type="button">Link teilen</button>
+  </section>
+
+  <footer class="about">
+    <p>Unter dem Leitmotiv „Ohne Frieden ist alles nichts“ sammeln wir Lieder, die Mut machen und Gemeinschaft stiften. Diese Sammlung ist ein lebendiges Dokument der <strong>Friedensstimmen Schramberg</strong>, für das Miteinander in unserer Region und darüber hinaus.</p>
+    <p>Wir legen Wert auf die Wertschätzung der Urheber. Texte geschützter Lieder stehen deshalb nicht in diesem Liederbuch.</p>
+    <p><strong>Mahnwache für den Frieden:</strong> jeden 1. Freitag im Monat, 17 Uhr, Rathausplatz Schramberg. Manchmal singen wir danach Friedenslieder am Kirchturm St. Maria.</p>
+    <p><a href="https://chat.whatsapp.com/K2afPHbgRbi3VuZ9OAB3Dy" target="_blank" rel="noopener">Unserer WhatsApp-Gruppe beitreten</a></p>
+    <p>Kontakt &amp; Organisation: Patricia Diethelm, Krystyna Saurer, Mark Finnern</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var body = document.body, root = document.documentElement;
+  function get(k) { try { return localStorage.getItem(k) } catch (e) { return null } }
+  function set(k, v) { try { localStorage.setItem(k, v) } catch (e) {} }
+
+  var tChords = document.getElementById("tChords");
+  function applyChords(on) { body.classList.toggle("show-chords", on); tChords.setAttribute("aria-pressed", on ? "true" : "false"); }
+  applyChords(get("fl-chords") === "1");
+  tChords.addEventListener("click", function () { var on = !body.classList.contains("show-chords"); applyChords(on); set("fl-chords", on ? "1" : "0"); });
+
+  var size = parseFloat(get("fl-size")) || 1.15;
+  function applySize() { root.style.setProperty("--lyric-size", size.toFixed(2) + "rem"); }
+  applySize();
+  document.getElementById("tSmaller").addEventListener("click", function () { size = Math.max(0.95, size - 0.1); applySize(); set("fl-size", size); });
+  document.getElementById("tBigger").addEventListener("click", function () { size = Math.min(1.75, size + 0.1); applySize(); set("fl-size", size); });
+
+  var tWake = document.getElementById("tWake"), lock = null;
+  function wakeOff() { tWake.setAttribute("aria-pressed", "false"); tWake.textContent = "Display an"; }
+  tWake.addEventListener("click", function () {
+    if (lock) { lock.release().catch(function () {}); lock = null; wakeOff(); return; }
+    if (!("wakeLock" in navigator)) { tWake.textContent = "Geht hier nicht"; setTimeout(wakeOff, 2000); return; }
+    navigator.wakeLock.request("screen").then(function (l) {
+      lock = l; tWake.setAttribute("aria-pressed", "true"); tWake.textContent = "Display bleibt an";
+      l.addEventListener("release", function () { lock = null; wakeOff(); });
+    }).catch(function () { tWake.textContent = "Geht hier nicht"; setTimeout(wakeOff, 2000); });
+  });
+  var tShare = document.getElementById("tShare"), url = "https://finnern.com/friedenslieder/";
+  tShare.addEventListener("click", function () {
+    if (navigator.share) { navigator.share({ title: "Friedenslieder Schramberg", url: url }).catch(function () {}); return; }
+    if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { tShare.textContent = "Link kopiert"; setTimeout(function () { tShare.textContent = "Link teilen"; }, 2000); }); }
+  });
+})();
+</script>
+</body>
+</html>
