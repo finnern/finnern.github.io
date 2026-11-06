@@ -40,7 +40,8 @@ a { color: inherit }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px }
 
 /* Kopf */
-.top { padding-block: 1.6rem 1.2rem; display: grid; gap: .5rem }
+.top { padding-block: 1.6rem 1.2rem; display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; row-gap: .5rem }
+.top > * { grid-column: 1 }
 .eyebrow { font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent) }
 h1 { font-family: var(--f-lyric); font-weight: 800; font-size: clamp(2.2rem, 9vw, 3rem); line-height: 1; margin: 0; text-wrap: balance }
 .when { margin: 0; color: var(--muted); font-weight: 500 }
@@ -136,10 +137,10 @@ body.show-chords .progs { display: grid; gap: .45rem }
 
 @media (max-width: 380px) { .steps { grid-template-columns: minmax(0, 1fr) } .prog { grid-template-columns: minmax(0, 1fr); gap: .1rem } }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth } }
-.share { margin-top: 2rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; display: grid; justify-items: center; gap: .6rem; text-align: center }
-.share h2 { margin: 0; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
-.share img { width: min(220px, 60vw); height: auto; display: block; border-radius: 6px; background: #fff }
-.share .url { margin: 0; font-weight: 700; word-break: break-all }
+.qr { grid-column: 2; grid-row: 1 / span 3; align-self: start; padding: 4px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: zoom-in; line-height: 0 }
+.qr img { width: 80px; height: 80px; display: block }
+.qr[aria-pressed="true"] { position: fixed; inset: 0; z-index: 50; margin: auto; width: min(85vw, 360px); height: min(85vw, 360px); padding: 12px; cursor: zoom-out; box-shadow: 0 0 0 100vmax rgba(0,0,0,.6) }
+.qr[aria-pressed="true"] img { width: 100%; height: 100% }
 </style>
 </head>
 <body>
@@ -158,6 +159,7 @@ body.show-chords .progs { display: grid; gap: .45rem }
   <header class="top">
     <div class="eyebrow">Friedensstimmen Schramberg</div>
     <h1>Friedenslieder</h1>
+    <button class="qr" id="tQr" type="button" aria-pressed="false" aria-label="QR-Code zum Liederbuch, antippen zum Vergrößern" title="Antippen zum Vergrößern"><img src="qr-friedenslieder.png" width="80" height="80" alt="QR-Code zu finnern.com/friedenslieder"></button>
     <p class="when">Samstag, 14. November 2026, 11 Uhr · Rathausplatz Schramberg</p>
     <p class="motto">„Ohne Frieden ist alles nichts.“</p>
   </header>
@@ -278,13 +280,6 @@ body.show-chords .progs { display: grid; gap: .45rem }
     <ul><li><span>Es ist an der Zeit</span> <em>Hannes Wader, nach Eric Bogle</em></li><li><span>Le Déserteur / Der Deserteur</span> <em>Boris Vian</em></li><li><span>Nein, meine Söhne geb ich nicht</span> <em>Reinhard Mey</em></li><li><span>Leben einzeln und frei</span> <em>Hannes Wader</em></li><li><span>Streets of Minneapolis</span> <em>Bruce Springsteen</em></li><li><span>Für die Liebe</span></li><li><span>Gegen das Geläut der Leute</span></li><li><span>Schon so lang (Bin auf meinem Weg)</span></li></ul>
   </section>
 
-  <section class="share" aria-labelledby="shareh">
-    <h2 id="shareh">Liederbuch teilen</h2>
-    <img src="qr-friedenslieder.png" width="220" height="220" alt="QR-Code zu finnern.com/friedenslieder">
-    <p class="url">finnern.com/friedenslieder</p>
-    <button class="btn" id="tShare" type="button">Link teilen</button>
-  </section>
-
   <footer class="about">
     <p>Unter dem Leitmotiv „Ohne Frieden ist alles nichts“ sammeln wir Lieder, die Mut machen und Gemeinschaft stiften. Diese Sammlung ist ein lebendiges Dokument der <strong>Friedensstimmen Schramberg</strong>, für das Miteinander in unserer Region und darüber hinaus.</p>
     <p>Wir legen Wert auf die Wertschätzung der Urheber. Texte geschützter Lieder stehen deshalb nicht in diesem Liederbuch.</p>
@@ -321,11 +316,10 @@ body.show-chords .progs { display: grid; gap: .45rem }
       l.addEventListener("release", function () { lock = null; wakeOff(); });
     }).catch(function () { tWake.textContent = "Geht hier nicht"; setTimeout(wakeOff, 2000); });
   });
-  var tShare = document.getElementById("tShare"), url = "https://finnern.com/friedenslieder/";
-  tShare.addEventListener("click", function () {
-    if (navigator.share) { navigator.share({ title: "Friedenslieder Schramberg", url: url }).catch(function () {}); return; }
-    if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { tShare.textContent = "Link kopiert"; setTimeout(function () { tShare.textContent = "Link teilen"; }, 2000); }); }
-  });
+  var tQr = document.getElementById("tQr");
+  function qr(on) { tQr.setAttribute("aria-pressed", on ? "true" : "false"); }
+  tQr.addEventListener("click", function () { qr(tQr.getAttribute("aria-pressed") !== "true"); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") qr(false); });
 })();
 </script>
 </body>
