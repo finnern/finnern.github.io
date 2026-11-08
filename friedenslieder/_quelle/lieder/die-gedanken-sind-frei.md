@@ -1,6 +1,6 @@
 # Die Gedanken sind frei
 
-Text & Melodie: trad. (um 1800) · neue Strophen: Mark Finnern + KI (16.11.2024) · Tonart G · gemeinfrei, neue Strophen eigen
+Text & Melodie: trad. (um 1800) · neue Strophen: Mark Finnern + KI, Friedensstimmen Schramberg (16.11.2024) · Tonart G · gemeinfrei, neue Strophen eigen
 Einstieg: Melodie 1× summen · die Original-Strophe singen alle, die kennt fast jeder · dann alle sechs neuen Strophen
 Hinweis: `[~X]` = Akkord aus Strophe 1 übertragen
 

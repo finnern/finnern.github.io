@@ -1,6 +1,6 @@
 # Bella Ciao (Friedensstrophen)
 
-Melodie: trad. (italienisches Partisanenlied) · Friedensstrophen: Theodor Ziegler · Tonart Am · Melodie gemeinfrei, Text eigen
+Melodie: trad. (italienisches Partisanenlied) · Friedensstrophen: Dr. Theodor Ziegler, Baiersbronn · Tonart Am · Melodie gemeinfrei, Text eigen
 Einstieg: Melodie 1× auf „la" vorsingen, alle steigen ein · Zeilen 1–2 werden vorgesungen, ab ‖: singen alle mit, die Wiederholung ist zum Einsteigen da
 Hinweis: Am7 nur vor der Wiederholung
 
