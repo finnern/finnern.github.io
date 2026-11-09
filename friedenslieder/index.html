@@ -143,6 +143,12 @@ body.show-chords .progs { display: grid; gap: .45rem }
 .qr[aria-pressed="true"] img { width: 100%; height: 100% }
 .ext { margin: 0; font-weight: 700 }
 .ext a { color: var(--accent) }
+/* Automatisch scrollen: schwebende Steuerung unten rechts, mit dem Daumen erreichbar */
+.scroller { position: fixed; z-index: 6; right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); display: flex; gap: .3rem; padding: .3rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 2px 10px rgba(0,0,0,.15) }
+.scroller .sp { display: none }
+.scroller.on .sp { display: inline-flex; align-items: center; justify-content: center }
+.scroller #sPlay { font-variant-numeric: tabular-nums }
+body { padding-bottom: 4.5rem }
 </style>
 </head>
 <body>
@@ -293,6 +299,12 @@ body.show-chords .progs { display: grid; gap: .45rem }
   </footer>
 </main>
 
+<div class="scroller" id="scroller" role="group" aria-label="Automatisch scrollen">
+  <button class="btn sm sp" id="sSlower" type="button" aria-label="Langsamer scrollen">−</button>
+  <button class="btn" id="sPlay" type="button" aria-pressed="false">▶ Scrollen</button>
+  <button class="btn sm sp" id="sFaster" type="button" aria-label="Schneller scrollen">+</button>
+</div>
+
 <script>
 (function () {
   var body = document.body, root = document.documentElement;
@@ -324,6 +336,32 @@ body.show-chords .progs { display: grid; gap: .45rem }
   function qr(on) { tQr.setAttribute("aria-pressed", on ? "true" : "false"); }
   tQr.addEventListener("click", function () { qr(tQr.getAttribute("aria-pressed") !== "true"); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") qr(false); });
+  // Automatisch scrollen: Geschwindigkeit in Stufen (Pixel pro Sekunde), pausiert beim Berühren
+  var SPEEDS = [6, 9, 12, 16, 21, 28, 38, 50, 65], scroller = document.getElementById("scroller"),
+      sPlay = document.getElementById("sPlay"), lvl = parseInt(get("fl-scroll"), 10);
+  if (!(lvl >= 0 && lvl < SPEEDS.length)) lvl = 3;
+  var running = false, held = false, last = 0, rest = 0;
+  function label() { sPlay.textContent = running ? "❚❚ Tempo " + (lvl + 1) : "▶ Scrollen"; }
+  function atEnd() { return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2; }
+  function step(ts) {
+    if (!running) return;
+    if (last && !held) {
+      rest += SPEEDS[lvl] * Math.min(ts - last, 100) / 1000;
+      var n = Math.floor(rest);
+      if (n >= 1) { window.scrollTo({ top: window.scrollY + n, behavior: "instant" }); rest -= n; }
+      if (atEnd()) { stop(); return; }
+    }
+    last = ts; requestAnimationFrame(step);
+  }
+  function start() { if (atEnd()) window.scrollTo({ top: 0, behavior: "instant" }); running = true; last = 0; rest = 0; scroller.classList.add("on"); sPlay.setAttribute("aria-pressed", "true"); label(); requestAnimationFrame(step); }
+  function stop() { running = false; scroller.classList.remove("on"); sPlay.setAttribute("aria-pressed", "false"); label(); }
+  sPlay.addEventListener("click", function () { running ? stop() : start(); });
+  function speed(d) { lvl = Math.max(0, Math.min(SPEEDS.length - 1, lvl + d)); set("fl-scroll", lvl); label(); }
+  document.getElementById("sSlower").addEventListener("click", function () { speed(-1); });
+  document.getElementById("sFaster").addEventListener("click", function () { speed(1); });
+  window.addEventListener("touchstart", function (e) { if (!(e.target instanceof Node && scroller.contains(e.target))) held = true; }, { passive: true });
+  window.addEventListener("touchend", function () { held = false; last = 0; }, { passive: true });
+  window.addEventListener("touchcancel", function () { held = false; last = 0; }, { passive: true });
 })();
 </script>
 </body>
