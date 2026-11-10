@@ -188,7 +188,7 @@ def render_song(song, nr):
   <header class="sh"><span class="nr">{nr}</span><div class="sht"><h3>{E(song["title"])}</h3>
   <p class="credit">{credit}</p><div class="tags">{tags}</div></div></header>
   <div class="ein"><div class="einl">Einstieg</div><ul>{ein}</ul></div>
-  {rufe}{bild}{note}{hint}{body}
+  {note}{hint}{body}{rufe}{bild}
 </section>'''
 
 
