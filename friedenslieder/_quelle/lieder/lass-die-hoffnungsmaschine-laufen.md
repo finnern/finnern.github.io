@@ -2,7 +2,7 @@
 
 Text & Musik: Erdmöbel · Tonart G · GEMA-pflichtig
 Link: Text & Akkorde auf Ultimate Guitar | https://tabs.ultimate-guitar.com/tab/2945564
-Einstieg: Intro, dabei den Refrain 1× summen · Refrain singen alle, Strophen werden vorgesungen · im Zwischenspiel rufen alle „Oh ja!"
+Einstieg: Intro, dabei den Refrain 1× summen · Refrain singen alle, Strophen werden vorgesungen
 
 ```
 Intro: [G] [Dm] [C] [G]
@@ -12,9 +12,6 @@ Intro: [G] [Dm] [C] [G]
 [G]Der Filzstift quietscht [Dm]wie ein tropischer [C]Vogel, hörst du [G]mich?
 [G]Ja, ich [Dm]hör dich, und ich schwör [C]ich schlaf nie wieder [G]ein
 [G]Ich fühl mich [Dm]machtlos, rastlos, räum [C]nachts noch die Hoffnungsmaschine [G]ein
-
-Zwischenspiel:
-[Em] [F] [C] [A#] [C] Oh ja!
 
 Refrain:
 [G]Lass die Hoffnungsmaschine laufen, [Dm]die Hoffnungsmaschine,
@@ -27,9 +24,6 @@ Refrain:
 [G]Drittens: ein [Dm]Jeder ist [C]verantwortlich, auch die, die gar nichts [G]glauben
 [G]Wie der Wind hinterm [Dm]Kino umkippt ein [C]Klavier, so soll es [G]pfeifen
 [G]Schreib eine [Dm]Zeile pro Tag in die [C]Hoffnungsautomat-Gebrauchs[G]anweisung
-
-Zwischenspiel:
-[Em] [F] [C] [A#] [C] Rufzeichen. Oh ja!
 
 (Refrain)
 
