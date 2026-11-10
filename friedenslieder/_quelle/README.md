@@ -21,6 +21,7 @@ friedenslieder/
    Optional eine Zeile `Link: Beschriftung | https://…` für einen externen Link (z. B. Text & Akkorde).
    Optional Rufe (z. B. Give Peace a Chance): eine Zeile `Rufe: Überschrift`, dann pro Ruf `Ruf: Text | Richtung`.
    Die Rufe sind immer sichtbar, auch ohne Akkord-Ansicht.
+   Optional ein Bild: `Bild: datei.jpg | Beschreibung` (Datei liegt in `friedenslieder/`, ist öffentlich).
 3. Im Code-Block (zwischen den ```-Zeilen):
    - `1.`, `2.` … = Strophennummer in eigener Zeile
    - `Refrain:` = Überschrift in eigener Zeile

@@ -10,7 +10,6 @@ EVENT = "Samstag, 14. November 2026, 11 Uhr · Rathausplatz Schramberg"
 
 SETLIST = [
     ("bella-ciao-friedensstrophen", "Willkommen"),
-    ("give-peace-a-chance", None),
     ("kumbaya", None),
     ("die-gedanken-sind-frei", None),
     ("sag-mir-wo-die-blumen-sind", None),
@@ -18,7 +17,8 @@ SETLIST = [
     ("down-by-the-riverside", None),
     ("freude-schoener-goetterfunken", None),
     ("we-shall-overcome", None),
-    ("lass-die-hoffnungsmaschine-laufen", "Abschluss"),
+    ("lass-die-hoffnungsmaschine-laufen", None),
+    ("give-peace-a-chance", "Abschluss"),
 ]
 OPTIONAL = []
 VORTRAG = [
@@ -42,7 +42,7 @@ def parse(path):
     head, _, rest = raw.partition("```")
     body = rest.split("```")[0].strip("\n")
     meta, einstieg, hinweis, link = "", "", "", None
-    rufe_titel, rufe = "", []
+    rufe_titel, rufe, bild = "", [], None
     for l in head.splitlines()[1:]:
         l = l.strip()
         if not l:
@@ -52,6 +52,9 @@ def parse(path):
         elif l.startswith("Link:"):
             label, _, url = l[5:].rpartition("|")
             link = (label.strip() or url.strip(), url.strip())
+        elif l.startswith("Bild:"):
+            datei, _, alt = l[5:].partition("|")
+            bild = (datei.strip(), alt.strip())
         elif l.startswith("Rufe:"):
             rufe_titel = l[5:].strip()
         elif l.startswith("Ruf:"):
@@ -62,7 +65,7 @@ def parse(path):
         elif not meta:
             meta = l
     return dict(slug=path.stem, title=title, meta=meta, einstieg=einstieg,
-                hinweis=hinweis, link=link, body=body, rufe_titel=rufe_titel, rufe=rufe,
+                hinweis=hinweis, link=link, body=body, rufe_titel=rufe_titel, rufe=rufe, bild=bild,
                 protected=("Text nicht im Liederbuch" in meta or "Text auf unserer Postkarte" in meta),
                 postcard="Text auf unserer Postkarte" in meta)
 
@@ -169,6 +172,11 @@ def render_song(song, nr):
                  f'{E(song["link"][0])} ↗</a></p>')
     h = "Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen." if "[~X]" in song["hinweis"] else song["hinweis"]
     hint = f'<p class="hint chords-only">{E(h)}</p>' if h else ""
+    bild = ""
+    if song["bild"]:
+        src, alt = song["bild"]
+        bild = (f'<figure class="bild"><a href="{E(src)}" target="_blank" rel="noopener">'
+                f'<img src="{E(src)}" alt="{E(alt)}" loading="lazy"></a></figure>')
     rufe = ""
     if song["rufe"]:
         items = "".join('<li><span class="rt">' + E(t) + '</span>'
@@ -180,7 +188,7 @@ def render_song(song, nr):
   <header class="sh"><span class="nr">{nr}</span><div class="sht"><h3>{E(song["title"])}</h3>
   <p class="credit">{credit}</p><div class="tags">{tags}</div></div></header>
   <div class="ein"><div class="einl">Einstieg</div><ul>{ein}</ul></div>
-  {rufe}{note}{hint}{body}
+  {rufe}{bild}{note}{hint}{body}
 </section>'''
 
 
