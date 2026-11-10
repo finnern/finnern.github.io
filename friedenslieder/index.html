@@ -94,6 +94,12 @@ h1 { font-family: var(--f-lyric); font-weight: 800; font-size: clamp(2.2rem, 9vw
 .ein li { padding-left: 1rem; position: relative; font-size: .95rem; line-height: 1.35 }
 .ein li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 800 }
 .nolyr { margin: 0; font-style: italic; color: var(--muted) }
+.rufe { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem }
+.rufe ol { margin: 0; padding-left: 1.6rem; display: grid; gap: .25rem }
+.rufe li { font-size: .95rem; line-height: 1.35 }
+.rufe li::marker { color: var(--accent); font-weight: 800 }
+.rufe .rt { font-weight: 700 }
+.rufe .rr { color: var(--muted); font-size: .85em; margin-left: .45rem }
 .hint { margin: 0; font-size: .82rem; color: var(--muted) }
 
 /* Liedtext mit Akkorden */
@@ -209,8 +215,8 @@ body { padding-bottom: 4.5rem }
 <section class="song" id="give-peace-a-chance">
   <header class="sh"><span class="nr">2</span><div class="sht"><h3>Give Peace a Chance</h3>
   <p class="credit">Text &amp; Musik: John Lennon (Lennon/McCartney, 1969)</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart G</span></div></div></header>
-  <div class="ein"><div class="einl">Einstieg</div><ul><li>Nur den Refrain singen. Einmal vorsingen, alle antworten</li><li>Klatschen auf 2 und 4, so lange es trägt</li><li>bei jeder Runde drehen wir uns in eine andere Himmelsrichtung, damit es überall zu hören ist, auch bei Putin in Moskau (von hier aus Richtung Nordosten)</li><li>Strophen weglassen</li></ul></div>
-  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Refrain (durchgehend)</span><div class="l crow"><b class="chip">G</b><b class="chip">G</b><b class="chip">D</b><b class="chip">G</b></div></div></div></div>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Nur den Refrain singen. Einmal vorsingen, alle antworten</li><li>Klatschen auf 2 und 4, so lange es trägt</li><li>Rufe in alle Himmelsrichtungen: Die Vorsängerin oder der Vorsänger ruft, alle drehen sich in die Richtung und antworten mit dem Refrain</li><li>Strophen weglassen</li></ul></div>
+  <div class="rufe"><div class="einl">Rufe: Im Uhrzeigersinn, Start in Moskau</div><ol><li><span class="rt">Putin in Moskau</span><span class="rr">Nordost</span></li><li><span class="rt">Selenskyj in Kiew</span><span class="rr">Ost-Nordost</span></li><li><span class="rt">Tel Aviv und Teheran</span><span class="rr">Ost / Südost</span></li><li><span class="rt">Israel und Palästina</span><span class="rr">Südost</span></li><li><span class="rt">Menschen im Sudan</span><span class="rr">Südost</span></li><li><span class="rt">Trumpy in Washington</span><span class="rr">West-Nordwest</span></li><li><span class="rt">Brüssel: Friedensprojekt Europa</span><span class="rr">Nordwest</span></li><li><span class="rt">Berlin: Sondervermögen für Frieden</span><span class="rr">Nord-Nordost</span></li><li><span class="rt">Große Kreisstadt Schramberg</span><span class="rr">zum Rathaus</span></li><li><span class="rt">Wir auf dem Rathausplatz</span><span class="rr">alle zur Mitte, Antwort: „We give peace a chance!“</span></li></ol></div><p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Refrain</span><div class="l crow"><b class="chip">G</b><b class="chip">D</b><b class="chip">G</b><b class="chip">D</b></div></div></div></div>
 </section>
 <section class="song" id="kumbaya">
   <header class="sh"><span class="nr">3</span><div class="sht"><h3>Kumbaya</h3>
@@ -238,8 +244,8 @@ body { padding-bottom: 4.5rem }
 <section class="song" id="sag-mir-wo-die-blumen-sind">
   <header class="sh"><span class="nr">5</span><div class="sht"><h3>Sag mir, wo die Blumen sind</h3>
   <p class="credit">Musik: Pete Seeger (1955) · dt. Text: Max Colpet (1962)</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart C</span></div></div></header>
-  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× auf „u&quot; summen</li><li>die Strophen werden vorgesungen, die beiden Schlusszeilen jeder Strophe singen alle</li></ul></div>
-  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Strophe (3×)</span><div class="l crow"><b class="chip">C</b><b class="chip">Am</b><b class="chip">F</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Schlusszeilen</span><div class="l crow"><b class="chip">F</b><b class="chip">C</b><b class="chip">F</b><b class="chip">G</b><b class="chip">C</b></div></div></div></div>
+  <div class="ein"><div class="einl">Einstieg</div><ul><li>Melodie 1× auf „u&quot; summen</li><li>die Strophen werden vorgesungen, die beiden Schlusszeilen jeder Strophe singen alle</li><li>deutsche und englische Strophen haben dieselbe Akkordfolge</li></ul></div>
+  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Strophenzeilen (3×)</span><div class="l crow"><b class="chip">C</b><b class="chip">Am</b><b class="chip">F</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Schlusszeile</span><div class="l crow"><b class="chip">F</b><b class="chip">C</b><b class="chip">F</b><b class="chip">G</b><b class="chip">C</b></div></div><div class="prog"><span class="plab">Zwischenspiel</span><div class="l crow"><b class="chip">Am</b><b class="chip">F</b><b class="chip">C</b></div></div></div></div>
 </section>
 <section class="song" id="der-erste-friede">
   <header class="sh"><span class="nr">6</span><div class="sht"><h3>Der erste Friede</h3>

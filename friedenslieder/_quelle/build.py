@@ -42,6 +42,7 @@ def parse(path):
     head, _, rest = raw.partition("```")
     body = rest.split("```")[0].strip("\n")
     meta, einstieg, hinweis, link = "", "", "", None
+    rufe_titel, rufe = "", []
     for l in head.splitlines()[1:]:
         l = l.strip()
         if not l:
@@ -51,12 +52,17 @@ def parse(path):
         elif l.startswith("Link:"):
             label, _, url = l[5:].rpartition("|")
             link = (label.strip() or url.strip(), url.strip())
+        elif l.startswith("Rufe:"):
+            rufe_titel = l[5:].strip()
+        elif l.startswith("Ruf:"):
+            text, _, richtung = l[4:].partition("|")
+            rufe.append((text.strip(), richtung.strip()))
         elif l.startswith("Hinweis:"):
             hinweis = l[8:].strip().replace("`", "")
         elif not meta:
             meta = l
     return dict(slug=path.stem, title=title, meta=meta, einstieg=einstieg,
-                hinweis=hinweis, link=link, body=body,
+                hinweis=hinweis, link=link, body=body, rufe_titel=rufe_titel, rufe=rufe,
                 protected=("Text nicht im Liederbuch" in meta or "Text auf unserer Postkarte" in meta),
                 postcard="Text auf unserer Postkarte" in meta)
 
@@ -163,11 +169,18 @@ def render_song(song, nr):
                  f'{E(song["link"][0])} ↗</a></p>')
     h = "Hellere Akkorde sind aus Strophe 1 übertragen, bitte beim Einspielen prüfen." if "[~X]" in song["hinweis"] else song["hinweis"]
     hint = f'<p class="hint chords-only">{E(h)}</p>' if h else ""
+    rufe = ""
+    if song["rufe"]:
+        items = "".join('<li><span class="rt">' + E(t) + '</span>'
+                        + ('<span class="rr">' + E(r) + '</span>' if r else '') + '</li>'
+                        for t, r in song["rufe"])
+        rufe = (f'<div class="rufe"><div class="einl">Rufe{": " + E(song["rufe_titel"]) if song["rufe_titel"] else ""}</div>'
+                f'<ol>{items}</ol></div>')
     return f'''<section class="song" id="{song["slug"]}">
   <header class="sh"><span class="nr">{nr}</span><div class="sht"><h3>{E(song["title"])}</h3>
   <p class="credit">{credit}</p><div class="tags">{tags}</div></div></header>
   <div class="ein"><div class="einl">Einstieg</div><ul>{ein}</ul></div>
-  {note}{hint}{body}
+  {rufe}{note}{hint}{body}
 </section>'''
 
 

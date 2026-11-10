@@ -19,6 +19,8 @@ friedenslieder/
 2. Kopfzeile: Urheber · Tonart · Status. Steht dort `Text nicht im Liederbuch`, zeigt die Seite nur Einstieg und Akkorde.
    Für ein Lied mit Text diesen Teil löschen.
    Optional eine Zeile `Link: Beschriftung | https://…` für einen externen Link (z. B. Text & Akkorde).
+   Optional Rufe (z. B. Give Peace a Chance): eine Zeile `Rufe: Überschrift`, dann pro Ruf `Ruf: Text | Richtung`.
+   Die Rufe sind immer sichtbar, auch ohne Akkord-Ansicht.
 3. Im Code-Block (zwischen den ```-Zeilen):
    - `1.`, `2.` … = Strophennummer in eigener Zeile
    - `Refrain:` = Überschrift in eigener Zeile
@@ -30,12 +32,17 @@ friedenslieder/
 In `_quelle/build.py` die Liste `SETLIST` bzw. `EVENT` anpassen (Dateiname ohne `.md`).
 
 ## Seite bauen und prüfen
-Im Ordner `friedenslieder/`:
+Live-Vorschau: im Finder `_quelle/Vorschau.command` doppelklicken, oder im Ordner `friedenslieder/`:
+```
+python3 _quelle/vorschau.py
+```
+Öffnet http://localhost:8765/. Bei jedem Speichern (z. B. in Obsidian) wird die Seite neu gebaut
+und der Browser lädt sich selbst neu. Baufehler erscheinen als roter Kasten oben. Online ändert sich dabei nichts.
+
+Nur einmal bauen, ohne Vorschau:
 ```
 python3 _quelle/build.py _quelle/lieder index.html
-python3 -m http.server
 ```
-Dann http://localhost:8000/ im Browser öffnen.
 
 ## Veröffentlichen
 ```
