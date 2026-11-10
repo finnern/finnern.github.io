@@ -1,6 +1,6 @@
 # Give Peace a Chance
 
-Text & Musik: John Lennon (Lennon/McCartney, 1969) · Tonart G · GEMA-pflichtig · Text nicht im Liederbuch
+Text & Musik: John Lennon (Lennon/McCartney, 1969) · Tonart G · GEMA-pflichtig
 Einstieg: Nur den Refrain singen. Einmal vorsingen, alle antworten · Klatschen auf 2 und 4, so lange es trägt · Rufe in alle Himmelsrichtungen: Die Vorsängerin oder der Vorsänger ruft, alle drehen sich in die Richtung und antworten mit dem Refrain · Strophen weglassen
 Rufe: Im Uhrzeigersinn, Start in Moskau
 Ruf: Putin in Moskau | Nordost
@@ -15,5 +15,7 @@ Ruf: Große Kreisstadt Schramberg | zum Rathaus
 Ruf: Wir auf dem Rathausplatz | alle zur Mitte, Antwort: „We give peace a chance!“
 
 ```
-Refrain: [G] [D] [G] [D]
+Refrain:
+[G]All we are [D]saying,
+[G]just give peace a [D]chance
 ```
