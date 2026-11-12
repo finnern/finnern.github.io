@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Friedenslieder Schramberg</title>
 <style>
-/* Schriften selbst gehostet (DSGVO), Alegreya & Alegreya Sans, SIL OFL 1.1, siehe fonts/OFL.txt */
+/* Schriften selbst gehostet (DSGVO), Alegreya & Alegreya Sans, SIL OFL 1.1, siehe fonts/OFL.txt; Akkorde: Atkinson Hyperlegible (Braille Institute), SIL OFL 1.1, siehe fonts/OFL-Atkinson-Hyperlegible.txt */
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/alegreya-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/alegreya-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-latin-800-normal.woff2") format("woff2"); }
@@ -14,12 +14,14 @@
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/alegreya-sans-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/alegreya-sans-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-sans-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); }
 /* Layout: eine ruhige Lesespalte fürs Handy in der Hand; oben eine Leiste mit Akkorde/Schriftgröße/Display */
 :root {
   --bg: #EDF0EA; --surface: #FAFBF8; --ink: #17202A; --muted: #56616A; --line: #D3D9D0;
   --accent: #46652A; --accent-soft: #E1E8D6; --carried: #86986E;
   --gema: #96460F; --gema-soft: #F4E3D4; --own: #2C5677; --own-soft: #DCE7F0;
   --f-lyric: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-chord: "Atkinson Hyperlegible", var(--f-ui);
   --f-ui: "Alegreya Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --lyric-size: 1.15rem; --crow: 0em;
 }
@@ -114,13 +116,13 @@ h1 { font-family: var(--f-lyric); font-weight: 800; font-size: clamp(2.2rem, 9vw
 .cue { font-family: var(--f-ui); font-style: italic; color: var(--muted); font-size: .85em }
 .cue::before { content: "↻ " }
 .l { min-width: 0; overflow-wrap: anywhere }
-.c { display: none; position: relative; top: -.4em; font-family: var(--f-ui); font-weight: 800; font-size: .66em; line-height: 1; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .12em .3em; margin-right: .06em; white-space: nowrap }
+.c { display: none; position: relative; top: -.4em; font-family: var(--f-chord); font-weight: 700; font-size: .8em; line-height: 1; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .12em .3em; margin-right: .06em; white-space: nowrap }
 .c.tl { color: var(--carried); font-weight: 700; background: transparent; box-shadow: inset 0 0 0 1px var(--line) }
 body.show-chords .c { display: inline }
 body.show-chords .lyr { line-height: 1.5 }
 .crow { gap: .4em; display: none }
 body.show-chords .crow { display: flex }
-.chip { font-family: var(--f-ui); font-weight: 700; color: var(--accent); font-size: .9em }
+.chip { font-family: var(--f-chord); font-weight: 700; color: var(--accent); font-size: .9em }
 .chip.tl { color: var(--carried) }
 
 .chords-only { display: none }

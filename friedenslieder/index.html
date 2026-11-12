@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Friedenslieder Schramberg</title>
 <style>
-/* Schriften selbst gehostet (DSGVO), Alegreya & Alegreya Sans, SIL OFL 1.1, siehe fonts/OFL.txt */
+/* Schriften selbst gehostet (DSGVO), Alegreya & Alegreya Sans, SIL OFL 1.1, siehe fonts/OFL.txt; Akkorde: Atkinson Hyperlegible (Braille Institute), SIL OFL 1.1, siehe fonts/OFL-Atkinson-Hyperlegible.txt */
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/alegreya-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/alegreya-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-latin-800-normal.woff2") format("woff2"); }
@@ -14,12 +14,14 @@
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/alegreya-sans-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/alegreya-sans-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Alegreya Sans"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/alegreya-sans-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); }
 /* Layout: eine ruhige Lesespalte fürs Handy in der Hand; oben eine Leiste mit Akkorde/Schriftgröße/Display */
 :root {
   --bg: #EDF0EA; --surface: #FAFBF8; --ink: #17202A; --muted: #56616A; --line: #D3D9D0;
   --accent: #46652A; --accent-soft: #E1E8D6; --carried: #86986E;
   --gema: #96460F; --gema-soft: #F4E3D4; --own: #2C5677; --own-soft: #DCE7F0;
   --f-lyric: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-chord: "Atkinson Hyperlegible", var(--f-ui);
   --f-ui: "Alegreya Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --lyric-size: 1.15rem; --crow: 0em;
 }
@@ -114,13 +116,13 @@ h1 { font-family: var(--f-lyric); font-weight: 800; font-size: clamp(2.2rem, 9vw
 .cue { font-family: var(--f-ui); font-style: italic; color: var(--muted); font-size: .85em }
 .cue::before { content: "↻ " }
 .l { min-width: 0; overflow-wrap: anywhere }
-.c { display: none; position: relative; top: -.4em; font-family: var(--f-ui); font-weight: 800; font-size: .66em; line-height: 1; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .12em .3em; margin-right: .06em; white-space: nowrap }
+.c { display: none; position: relative; top: -.4em; font-family: var(--f-chord); font-weight: 700; font-size: .8em; line-height: 1; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .12em .3em; margin-right: .06em; white-space: nowrap }
 .c.tl { color: var(--carried); font-weight: 700; background: transparent; box-shadow: inset 0 0 0 1px var(--line) }
 body.show-chords .c { display: inline }
 body.show-chords .lyr { line-height: 1.5 }
 .crow { gap: .4em; display: none }
 body.show-chords .crow { display: flex }
-.chip { font-family: var(--f-ui); font-weight: 700; color: var(--accent); font-size: .9em }
+.chip { font-family: var(--f-chord); font-weight: 700; color: var(--accent); font-size: .9em }
 .chip.tl { color: var(--carried) }
 
 .chords-only { display: none }
@@ -285,12 +287,7 @@ body { padding-bottom: 4.5rem }
   <header class="sh"><span class="nr">9</span><div class="sht"><h3>Lass die Hoffnungsmaschine laufen</h3>
   <p class="credit">Text &amp; Musik: Erdmöbel</p><div class="tags"><span class="tag gema">GEMA</span><span class="tag key chords-only">Tonart G</span></div></div></header>
   <div class="ein"><div class="einl">Einstieg</div><ul><li>Intro, dabei den Refrain 1× summen</li><li>Refrain singen alle, Strophen werden vorgesungen</li></ul></div>
-  <p class="ext"><a href="https://tabs.ultimate-guitar.com/tab/2945564" target="_blank" rel="noopener">Text &amp; Akkorde auf Ultimate Guitar ↗</a></p><div class="lyr"><div class="st"><div class="prog"><span class="plab">Intro</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div></div>
-<div class="st has-n"><span class="vn">1</span><div class="l"><b class="c">G</b>Erinnere <b class="c">Dm</b>dich an die <b class="c">C</b>Liebe, schreibe <b class="c">G</b>ich</div><div class="l"><b class="c">G</b>Der Filzstift quietscht <b class="c">Dm</b>wie ein tropischer <b class="c">C</b>Vogel, hörst du <b class="c">G</b>mich?</div><div class="l"><b class="c">G</b>Ja, ich <b class="c">Dm</b>hör dich, und ich schwör <b class="c">C</b>ich schlaf nie wieder <b class="c">G</b>ein</div><div class="l"><b class="c">G</b>Ich fühl mich <b class="c">Dm</b>machtlos, rastlos, räum <b class="c">C</b>nachts noch die Hoffnungsmaschine <b class="c">G</b>ein</div></div>
-<div class="st"><div class="lab">Refrain</div><div class="l"><b class="c">G</b>Lass die Hoffnungsmaschine laufen, <b class="c">Dm</b>die Hoffnungsmaschine,</div><div class="l"><b class="c">C</b>lass die Hoffnungsmaschine <b class="c">G</b>laufen</div><div class="l"><b class="c">G</b>Lass die Hoffnungsmaschine laufen, <b class="c">Dm</b>die Hoffnungsmaschine,</div><div class="l"><b class="c">C</b>lass die Hoffnungsmaschine <b class="c">G</b>laufen</div></div>
-<div class="st has-n"><span class="vn">2</span><div class="l"><b class="c">G</b>Steht auf deiner Liste <b class="c">Dm</b>oben: die <b class="c">C</b>Liebe, lass da als zweites stehen: <b class="c">G</b>steh auf</div><div class="l"><b class="c">G</b>Drittens: ein <b class="c">Dm</b>Jeder ist <b class="c">C</b>verantwortlich, auch die, die gar nichts <b class="c">G</b>glauben</div><div class="l"><b class="c">G</b>Wie der Wind hinterm <b class="c">Dm</b>Kino umkippt ein <b class="c">C</b>Klavier, so soll es <b class="c">G</b>pfeifen</div><div class="l"><b class="c">G</b>Schreib eine <b class="c">Dm</b>Zeile pro Tag in die <b class="c">C</b>Hoffnungsautomat-Gebrauchs<b class="c">G</b>anweisung</div></div>
-<div class="st"><div class="cue">Refrain</div></div>
-<div class="st"><div class="lab">Schluss</div><div class="l"><b class="c">G</b>Erinnere <b class="c">Dm</b>dich an die <b class="c">C</b>Liebe, schreibe <b class="c">G</b>ich</div><div class="l"><b class="c">G</b>Eine <b class="c">Dm</b>Zeile pro Tag in die <b class="c">C</b>Hoffnungsautomat-Gebrauchs<b class="c">G</b>anweisung</div></div></div>
+  <p class="nolyr">Den Text findest du hier nicht, er ist urheberrechtlich geschützt. Den Refrain lernen wir vor Ort nach Gehör.</p><p class="ext"><a href="https://tabs.ultimate-guitar.com/tab/2945564" target="_blank" rel="noopener">Text &amp; Akkorde auf Ultimate Guitar ↗</a></p><div class="chords-only progs"><div class="plabel">Akkorde für die Begleitung</div><div class="st"><div class="prog"><span class="plab">Intro</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Strophe (4×)</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Refrain (2×)</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div><div class="prog"><span class="plab">Schluss (2×)</span><div class="l crow"><b class="chip">G</b><b class="chip">Dm</b><b class="chip">C</b><b class="chip">G</b></div></div></div></div>
 </section>
 <section class="song" id="give-peace-a-chance">
   <header class="sh"><span class="nr">10</span><div class="sht"><h3>Give Peace a Chance</h3>
